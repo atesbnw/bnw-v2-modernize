@@ -129,6 +129,15 @@ const FinancialGraph = ({ isLoading }) => {
         data: withdrawalData,
       },
     ]);
+    switch (v){
+      case 0: setTime([dayjs().startOf("day"), dayjs().endOf("day")]); break;
+      case 1: setTime([dayjs().subtract(1,"day").startOf("day"), dayjs().subtract(1,"day").endOf("day")]); break;
+      case 2: setTime([dayjs().subtract(7,"day").startOf("day"), dayjs().endOf("day")]); break;
+      case 3: setTime([dayjs().subtract(15,"day").startOf("day"), dayjs().endOf("day")]); break;
+      case 4: setTime([dayjs().subtract(30,"day").startOf("day"), dayjs().endOf("day")]); break;
+
+      default: break;
+    }
     setTimeRange(v);
   }, []);
 
