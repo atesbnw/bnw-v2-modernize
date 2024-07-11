@@ -143,6 +143,7 @@ const FinancialGraph = ({ isLoading }) => {
 
   return (
     <Paper elevation={3} style={{ padding: 20 }}>
+
       <Grid container spacing={2} alignItems="center">
         <Grid item sx={{alignItems: "center", display: "flex", flexDirection: "column"}}>
           <Circle>1423</Circle>
