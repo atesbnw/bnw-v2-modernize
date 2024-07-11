@@ -16,6 +16,7 @@ import Social from '@/app/components/dashboards/modern/Social';
 import SellingProducts from '@/app/components/dashboards/modern/SellingProducts';
 import WeeklyStats from '@/app/components/dashboards/modern/WeeklyStats';
 import TopPerformers from '@/app/components/dashboards/modern/TopPerformers';
+import FinancialGraph from '@/app/(default)/components/home/FinancialGraph';
 
 export default function Dashboard() {
   const [isLoading, setLoading] = useState(true);
@@ -25,7 +26,9 @@ export default function Dashboard() {
 
   return (
     <PageContainer title="Dashboard" description="this is Dashboard">
+      <FinancialGraph />
       <Box mt={3}>
+
         {/*<Grid container spacing={3}>*/}
         {/*  /!* column *!/*/}
         {/*  <Grid item xs={12} lg={12}>*/}
