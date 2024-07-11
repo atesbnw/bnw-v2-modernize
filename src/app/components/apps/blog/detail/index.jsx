@@ -13,7 +13,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import Breadcrumb from '@/app/(DashboardLayout)/layout/shared/breadcrumb/Breadcrumb';
+import Breadcrumb from '@/app/base/layout/shared/breadcrumb/Breadcrumb';
 import { IconEye, IconMessage2, IconPoint, IconQuote } from '@tabler/icons-react';
 import { format } from 'date-fns';
 import BlogComment from './BlogComment';
