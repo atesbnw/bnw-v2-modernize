@@ -23,17 +23,17 @@ function TopMenu() {
     },
     {
       label: 'menu.Users.Financial Transactions',
-      to: `/users/${params?.uid}/financial-transactions`,
+      to: `/users/${params?.uid}/financial-transactions/transaction-history`,
     },
     {
       label: 'menu.Users.Game Management',
       // icon: <IconUserCircle size="20" />,
-      to: `/users/${params?.uid}/game-management`,
+      to: `/users/${params?.uid}/game-management/casino-management`,
     },
     {
       label: 'menu.Users.Reports',
       // icon: <IconUserCircle size="20" />,
-      to: `/users/${params?.uid}/reports`,
+      to: `/users/${params?.uid}/reports/casino-reports`,
     },
     {
       label: 'menu.Users.Settings',

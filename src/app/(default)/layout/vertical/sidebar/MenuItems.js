@@ -72,7 +72,17 @@ const Menuitems = [
     id: uniqueId(),
     title: "Users.bc.User Management",
     icon: IconAperture,
-    href: "/users/user12345",
+    href: "/users",
+    children: [
+      {
+        title: "Users.title",
+        href: "/users"
+      },
+      {
+        title: "Users.User",
+        href: "/users/Ates123"
+      }
+    ]
     // chip: "0",
     // chipColor: "secondary",
   },

@@ -1,40 +1,65 @@
 {
-    "Starter": "Starter",
-    "Menu Level": "Menu Level",
-    "Disabled": "Disabled",
-    "SubCaption": "SubCaption",
-    "Chip": "Chip",
-    "Outlined": "Outlined",
-    "External Link": "External Link",
-    "menu": {
-        "Home": "Dashboard",
-        "Users": {
-            "Dashboard": "Dashboard",
-            "Financial Transactions": "Financial Transactions",
-            "Game Management": "Game Management",
-            "Reports": "Reports",
-            "Settings": "Settings",
-            "Personal Information": "Personal Information",
-            "Player Info": "Player Info",
-            "Account Info":"Account Info",
-            "Contact Info": "Contact Info",
-            "State and Role": "State and Role",
-            "Privacy Info": "Privacy Info",
-            "Notes": "Notes",
-            "Messages": "Messages",
-            "Documents": "Info and Documents"
-
-        }
-    },
-    "Dashboard": {
-        "Financial Graph": {
-            "Select Date Range": "Select Date Range"
-        }
-    },
+  "Starter": "Starter",
+  "Menu Level": "Menu Level",
+  "Disabled": "Disabled",
+  "SubCaption": "SubCaption",
+  "Chip": "Chip",
+  "Outlined": "Outlined",
+  "External Link": "External Link",
+  "menu": {
+    "Home": "Dashboard",
     "Users": {
-        "bc": {
-            "User Management": "User Management",
-            "User Details": "User Details"
-        }
+      "Dashboard": "Dashboard",
+      "Financial Transactions": "Financial Transactions",
+      "Game Management": "Game Management",
+      "Reports": "Reports",
+      "Settings": "Settings",
+      "Personal Information": "Personal Information",
+      "Player Info": "Player Info",
+      "Account Info": "Account Info",
+      "Contact Info": "Contact Info",
+      "State and Role": "State and Role",
+      "Privacy Info": "Privacy Info",
+      "Notes": "Notes",
+      "Messages": "Messages",
+      "Documents": "Info and Documents"
+    },
+    "Financial Transactions": {
+      "Transaction History": "Transaction History",
+      "Balance History": "Balance History",
+      "Bet History": "Bet History",
+      "Add Bonus": "Add Bonus",
+      "Add Manuel Transaction": "Add Manuel Transaction"
+    },
+    "Game Management": {
+      "Casino Management": "Casino Management",
+      "Live Casino Management": "Live Casino Management",
+      "Virtual Game Management": "Virtual Game Management",
+      "Sportsbook Management": "Sportsbook Management"
+    },
+    "Reports": {
+      "Casino Reports": "Casino Reports",
+      "Live Casino Reports": "Live Casino Reports",
+      "Virtual Game Reports": "Virtual Game Reports",
+      "Bet Reports": "Bet Reports",
+      "Bonus Reports": "Bonus Reports",
+      "Finance Reports": "Finance Reports",
+      "User Stats": "User Stats",
+      "Login Reports": "Login Reports",
+      "Transaction Logs": "Transaction Logs"
     }
+  },
+  "Dashboard": {
+    "Financial Graph": {
+      "Select Date Range": "Select Date Range"
+    }
+  },
+  "Users": {
+    "title": "Users",
+    "User": "User",
+    "bc": {
+      "User Management": "User Management",
+      "User Details": "User Details"
+    }
+  }
 }

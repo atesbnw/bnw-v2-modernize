@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -20,6 +20,7 @@
     "@mui/material": "^5.15.15",
     "@mui/material-nextjs": "^5.15.11",
     "@mui/system": "^5.16.0",
+    "@mui/utils": "^5.16.1",
     "@mui/x-date-pickers": "^7.9.0",
     "@mui/x-date-pickers-pro": "^7.9.0",
     "@mui/x-license": "^7.10.0",

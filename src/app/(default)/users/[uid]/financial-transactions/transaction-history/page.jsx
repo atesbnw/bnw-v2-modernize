@@ -20,10 +20,12 @@ function Page() {
         alignItems: "center"
       }}>
         <div>
-          <Button onClick={() => {}}>Yatır</Button>
+          <Button variant={"contained"} onClick={() => {}}>{t('menu.Financial Transactions.Add Bonus')}</Button>
         </div>
         <div>
-          <Button onClick={() => {}}>Çek</Button>
+          <Button variant={"contained"} onClick={() => {}}>
+            {t('menu.Financial Transactions.Add Manuel Transaction')}
+          </Button>
         </div>
       </div>
     )
@@ -35,8 +37,7 @@ function Page() {
     }}>
       {/*<Typography variant="h6" component="div">{}</Typography>*/}
       <TitleBar
-        Left={() => <img src={"https://placehold.co/600x400/EEE/31343C"} width={50} height={50} />}
-        title={t('menu.Users.Financial Transactions')}
+        title={t('menu.Financial Transactions.Transaction History')}
         Right={ButtonComps}
       />
 

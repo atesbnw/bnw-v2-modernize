@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { hoverSidebar, toggleMobileSidebar } from '@/store/customizer/CustomizerSlice';
 import Scrollbar from '@/app/components/custom-scroll/Scrollbar';
 import { Profile } from './SidebarProfile/Profile';
-import MenuItems from '@/app/base/layout/vertical/sidebar/MenuItems';
+import MenuItems from '@/app/(default)/layout/vertical/sidebar/MenuItems';
 
 const Sidebar = ({items = MenuItems}) => {
   const lgUp = useMediaQuery((theme) => theme.breakpoints.down('lg'));

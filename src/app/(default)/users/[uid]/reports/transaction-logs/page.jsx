@@ -13,9 +13,8 @@ function Page() {
 
   return (
     <Box>
-      {/*<Typography variant="h6" component="div">{t('menu.Users.Financial Transactions')}</Typography>*/}
       <TitleBar
-          title={t("menu.Users.Settings")}
+        title={t('menu.Reports.Transaction Logs')}
       />
     </Box>
   );
