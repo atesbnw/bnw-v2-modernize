@@ -76,7 +76,7 @@ export default function RootLayout({ children }) {
           {/* End Page */}
           {/* ------------------------------------------- */}
         </Container>
-        <Customizer />
+        {/*<Customizer />*/}
       </PageWrapper>
     </MainWrapper>
   );

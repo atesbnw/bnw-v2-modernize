@@ -8,8 +8,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { hoverSidebar, toggleMobileSidebar } from '@/store/customizer/CustomizerSlice';
 import Scrollbar from '@/app/components/custom-scroll/Scrollbar';
 import { Profile } from './SidebarProfile/Profile';
+import MenuItems from '@/app/base/layout/vertical/sidebar/MenuItems';
 
-const Sidebar = () => {
+const Sidebar = ({items = MenuItems}) => {
   const lgUp = useMediaQuery((theme) => theme.breakpoints.down('lg'));
   const customizer = useSelector((state) => state.customizer);
   const dispatch = useDispatch();
@@ -81,7 +82,7 @@ const Sidebar = () => {
                 {/* ------------------------------------------- */}
                 {/* Sidebar Items */}
                 {/* ------------------------------------------- */}
-                <SidebarItems />
+                <SidebarItems items={items} />
               </Scrollbar>
               <Profile />
             </Box>
@@ -110,7 +111,7 @@ const Sidebar = () => {
           {/* ------------------------------------------- */}
           {/* Sidebar For Mobile */}
           {/* ------------------------------------------- */}
-          <SidebarItems />
+          <SidebarItems items={items} />
         </Drawer>
       }
     </>

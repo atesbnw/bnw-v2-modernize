@@ -37,7 +37,7 @@ export default function NavCollapse({
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const menuIcon =
-    level > 1 ? <Icon stroke={1.5} size="1rem" /> : <Icon stroke={1.5} size="1.3rem" />;
+    menu?.icon && (level > 1 ? <Icon stroke={1.5} size="1rem" /> : <Icon stroke={1.5} size="1.3rem" />);
 
   const handleClick = () => {
     setOpen(!open);
@@ -110,7 +110,7 @@ export default function NavCollapse({
         selected={pathWithoutLastPart === menu.href}
         key={menu?.id}
       >
-        <ListItemIcon
+        {menuIcon && <ListItemIcon
           sx={{
             minWidth: '36px',
             p: '3px 0',
@@ -118,7 +118,7 @@ export default function NavCollapse({
           }}
         >
           {menuIcon}
-        </ListItemIcon>
+        </ListItemIcon>}
         <ListItemText color="inherit">{hideMenu ? '' : <>{t(`${menu.title}`)}</>}</ListItemText>
         {!open ? <IconChevronDown size="1rem" /> : <IconChevronUp size="1rem" />}
       </ListItemStyled>

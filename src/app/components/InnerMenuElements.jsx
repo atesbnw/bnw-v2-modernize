@@ -1,16 +1,17 @@
-import Menuitems from './MenuItems';
+import Menuitems from '@/app/(default)/layout/vertical/sidebar/MenuItems';
 import { usePathname } from "next/navigation";
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useDispatch, useSelector } from 'react-redux';
-import NavItem from './NavItem';
-import NavCollapse from './NavCollapse';
-import NavGroup from './NavGroup/NavGroup';
+import NavItem from '@/app/(default)/layout/vertical/sidebar/NavItem';
+// import NavCollapse from './NavCollapse';
+import NavGroup from '@/app/(default)/layout/vertical/sidebar/NavGroup/NavGroup';
 import { toggleMobileSidebar } from '@/store/customizer/CustomizerSlice';
+import NavCollapse from '@/app/(default)/layout/vertical/sidebar/NavCollapse';
 
 
-const SidebarItems = ({items = Menuitems}) => {
+export const SidebarItems = ({items = Menuitems}) => {
   const  pathname  = usePathname();
   const pathDirect = pathname;
   const pathWithoutLastPart = pathname.slice(0, pathname.lastIndexOf('/'));
@@ -44,7 +45,7 @@ const SidebarItems = ({items = Menuitems}) => {
             // {/********If Sub No Menu**********/}
           } else {
             return (
-              <NavItem item={item} key={item.id} pathDirect={pathDirect} hideMenu={hideMenu} onClick={() => dispatch(toggleMobileSidebar())} />
+              <NavItem item={item} key={item.id} pathDirect={pathDirect} hideMenu={hideMenu} onClick={() => {}} />
             );
           }
         })}
@@ -52,4 +53,3 @@ const SidebarItems = ({items = Menuitems}) => {
     </Box>
   );
 };
-export default SidebarItems;

@@ -14,6 +14,7 @@ import TextField from '@mui/material/TextField';
 import { Label } from '@mui/icons-material';
 import dayjs from 'dayjs';
 import "dayjs/locale/tr";
+import { t } from 'i18next';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -175,7 +176,7 @@ const FinancialGraph = ({ isLoading }) => {
           </Button>
         </Grid>
         <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>Tarih Aralığı Seç</DialogTitle>
+          <DialogTitle>{t("Dashboard.Financial Graph.Select Date Range")}</DialogTitle>
           <DialogContent>
             <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"}>
           <DemoContainer components={[

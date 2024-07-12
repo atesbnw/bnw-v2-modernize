@@ -23,8 +23,7 @@ export default function NavItem({ item, level, pathDirect, hideMenu, onClick }) 
   const Icon = item?.icon;
   const theme = useTheme();
   const { t } = useTranslation();
-  const itemIcon =
-    level > 1 ? <Icon stroke={1.5} size="1rem" /> : <Icon stroke={1.5} size="1.3rem" />;
+  const itemIcon = item?.icon && (level > 1 ? <Icon stroke={1.5} size="1rem" /> : <Icon stroke={1.5} size="1.3rem" />);
 
   const ListItemStyled = styled(ListItemButton)(() => ({
     whiteSpace: 'nowrap',
@@ -66,7 +65,7 @@ export default function NavItem({ item, level, pathDirect, hideMenu, onClick }) 
           selected={pathDirect === item?.href}
           onClick={lgDown ? onClick : undefined}
         >
-          <ListItemIcon
+          {itemIcon && <ListItemIcon
             sx={{
               minWidth: '36px',
               p: '3px 0',
@@ -77,7 +76,7 @@ export default function NavItem({ item, level, pathDirect, hideMenu, onClick }) 
             }}
           >
             {itemIcon}
-          </ListItemIcon>
+          </ListItemIcon>}
           <ListItemText>
             {hideMenu ? '' : <>{t(`${item?.title}`)}</>}
             <br />

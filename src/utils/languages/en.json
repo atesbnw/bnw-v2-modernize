@@ -5,5 +5,36 @@
     "SubCaption": "SubCaption",
     "Chip": "Chip",
     "Outlined": "Outlined",
-    "External Link": "External Link"
+    "External Link": "External Link",
+    "menu": {
+        "Home": "Dashboard",
+        "Users": {
+            "Dashboard": "Dashboard",
+            "Financial Transactions": "Financial Transactions",
+            "Game Management": "Game Management",
+            "Reports": "Reports",
+            "Settings": "Settings",
+            "Personal Information": "Personal Information",
+            "Player Info": "Player Info",
+            "Account Info":"Account Info",
+            "Contact Info": "Contact Info",
+            "State and Role": "State and Role",
+            "Privacy Info": "Privacy Info",
+            "Notes": "Notes",
+            "Messages": "Messages",
+            "Documents": "Info and Documents"
+
+        }
+    },
+    "Dashboard": {
+        "Financial Graph": {
+            "Select Date Range": "Select Date Range"
+        }
+    },
+    "Users": {
+        "bc": {
+            "User Management": "User Management",
+            "User Details": "User Details"
+        }
+    }
 }

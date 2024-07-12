@@ -51,6 +51,7 @@ import {
   IconLockAccess,
   IconAppWindow,
 } from "@tabler/icons-react";
+import { t } from 'i18next';
 
 const Menuitems = [
   {
@@ -60,9 +61,18 @@ const Menuitems = [
 
   {
     id: uniqueId(),
-    title: "Anasayfa",
+    title: "menu.Home",
     icon: IconAperture,
     href: "/",
+    // chip: "0",
+    // chipColor: "secondary",
+  },
+
+  {
+    id: uniqueId(),
+    title: "Users.bc.User Management",
+    icon: IconAperture,
+    href: "/users/user12345",
     // chip: "0",
     // chipColor: "secondary",
   },
