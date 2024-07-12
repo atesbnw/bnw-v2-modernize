@@ -9,7 +9,9 @@ import Customizer from "./layout/shared/customizer/Customizer";
 import Navigation from "./layout/horizontal/navbar/Navigation";
 import HorizontalHeader from "./layout/horizontal/header/Header";
 import { useSelector } from 'react-redux';
+import { LicenseInfo } from '@mui/x-license';
 
+LicenseInfo.setLicenseKey(process.env.NEXT_PUBLIC_MUI_X_LICENSE_KEY);
 const MainWrapper = styled("div")(() => ({
   display: "flex",
   minHeight: "100vh",
