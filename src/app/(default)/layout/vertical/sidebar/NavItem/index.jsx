@@ -16,6 +16,7 @@ import { styled, useTheme } from '@mui/material/styles';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { AppState } from '@/store/store';
+import Box from '@mui/material/Box';
 
 export default function NavItem({ item, level, pathDirect, hideMenu, onClick }) {
   const lgDown = useMediaQuery((theme) => theme.breakpoints.down('lg'));
@@ -65,7 +66,7 @@ export default function NavItem({ item, level, pathDirect, hideMenu, onClick }) 
           selected={pathDirect === item?.href}
           onClick={lgDown ? onClick : undefined}
         >
-          {itemIcon && <ListItemIcon
+          {itemIcon ? <ListItemIcon
             sx={{
               minWidth: '36px',
               p: '3px 0',
@@ -76,7 +77,10 @@ export default function NavItem({ item, level, pathDirect, hideMenu, onClick }) 
             }}
           >
             {itemIcon}
-          </ListItemIcon>}
+          </ListItemIcon> : <Box sx={{
+            minWidth: '14px',
+            p: '3px 0',
+          }} />}
           <ListItemText>
             {hideMenu ? '' : <>{t(`${item?.title}`)}</>}
             <br />

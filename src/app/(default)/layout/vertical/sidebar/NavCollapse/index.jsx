@@ -19,6 +19,7 @@ import NavItem from '../NavItem';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import { isNull } from 'lodash';
+import Box from '@mui/material/Box';
 
 // FC Component For Dropdown Menu
 export default function NavCollapse({
@@ -110,7 +111,7 @@ export default function NavCollapse({
         selected={pathWithoutLastPart === menu.href}
         key={menu?.id}
       >
-        {menuIcon && <ListItemIcon
+        {menuIcon ? <ListItemIcon
           sx={{
             minWidth: '36px',
             p: '3px 0',
@@ -118,7 +119,10 @@ export default function NavCollapse({
           }}
         >
           {menuIcon}
-        </ListItemIcon>}
+        </ListItemIcon> : <Box sx={{
+          minWidth: '14px',
+          p: '3px 0',
+        }} />}
         <ListItemText color="inherit">{hideMenu ? '' : <>{t(`${menu.title}`)}</>}</ListItemText>
         {!open ? <IconChevronDown size="1rem" /> : <IconChevronUp size="1rem" />}
       </ListItemStyled>
