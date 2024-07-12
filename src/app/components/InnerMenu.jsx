@@ -27,7 +27,7 @@ function InnerMenu({
         [`& .MuiDrawer-paper`]: { position: 'relative' },
       }}
     >
-      <SidebarItems items={items} />
+      <SidebarItems items={items} activeFilled={false} />
     </Drawer>
   );
 }

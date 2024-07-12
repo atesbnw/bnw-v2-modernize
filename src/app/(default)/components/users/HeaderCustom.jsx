@@ -37,7 +37,7 @@ function HeaderCustom({children}) {
       <TopMenu />
       <Box sx={{
         padding: "14px",
-        gap:8,
+        gap:3,
         display:"flex",
         justifyContent: "stretch"
       }}>
@@ -96,6 +96,7 @@ function HeaderCustom({children}) {
             },
           ]}
         />
+
         {children}
       </Box>
 
