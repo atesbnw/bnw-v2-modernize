@@ -13,7 +13,7 @@ export const useMenu = () => {
     {
       id: uniqueId(),
       title: "menu.Financial Transactions.Transaction History",
-      href: `${url}/transaction-history`
+      href: `${url}`
     },
     {
       id: uniqueId(),

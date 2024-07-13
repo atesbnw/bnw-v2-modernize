@@ -10,7 +10,7 @@ function layout({ children }) {
   const {menu} = useMenu();
 
   return (
-    <HeaderCustom menu={menu} title={`${t("menu.Operator Management.profile")}`} activeItem={t("menu.Users.Reports")} >
+    <HeaderCustom menu={menu} title={`${t("menu.Operator Management.profile")}`} activeItem={t("Reports.title")} >
       {children}
     </HeaderCustom>
   );
