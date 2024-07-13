@@ -15,7 +15,7 @@ function TopMenu() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const url = useMemo(() => (`/tools`), []);
+  const url = useMemo(() => (`/merchants`), []);
   const ProfileTabs = [
     {
       label: 'menu.Users.Dashboard',
@@ -24,7 +24,7 @@ function TopMenu() {
     },
     {
       label: 'menu.Users.Financial Transactions',
-      to: `${url}/${params?.uid}/financial-transactions/transaction-history`,
+      to: `${url}/${params?.uid}/financial-transactions`,
     },
     {
       label: 'menu.Users.Game Management',
