@@ -89,6 +89,28 @@ const Menuitems = [
 
   {
     id: uniqueId(),
+    title: "menu.Merchants.title",
+    icon: IconAperture,
+    href: "/merchants",
+    children: [
+      {
+        title: "menu.Merchants.title",
+        href: "/merchants"
+      },
+      {
+        title: "menu.Merchants.profile",
+        href: "/merchants/bayi123"
+      }
+    ]
+    // chip: "0",
+    // chipColor: "secondary",
+  },
+  {
+    navlabel: true,
+    subheader: "Base",
+  },
+  {
+    id: uniqueId(),
     title: "Modern",
     icon: IconAperture,
     href: "/base/",

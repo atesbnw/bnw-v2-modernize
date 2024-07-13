@@ -47,6 +47,10 @@
       "User Stats": "User Stats",
       "Login Reports": "Login Reports",
       "Transaction Logs": "Transaction Logs"
+    },
+    "Merchants": {
+      "title": "Merchant Management",
+      "profile": "Merchant Profile"
     }
   },
   "Dashboard": {
