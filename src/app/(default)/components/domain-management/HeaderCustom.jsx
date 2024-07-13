@@ -10,7 +10,7 @@ function HeaderCustom({children, title, activeItem, menu}) {
 
   const params = useParams();
   const url = useMemo(() => {
-    return `/tools`;
+    return `/domain-management`;
   }, [params?.uid]);
 
   const BCrumb = [
@@ -20,7 +20,7 @@ function HeaderCustom({children, title, activeItem, menu}) {
     },
     {
       // to: `${url}`,
-      title: "Tools.title",
+      title: "Domain Management.title",
     },
     // {
     //   ...(activeItem ? {to: `${url}/${params?.uid}`} : {}),
