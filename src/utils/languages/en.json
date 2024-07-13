@@ -41,17 +41,6 @@
       "Category Management": "Category Management",
       "Admin Address": "Admin Address"
     },
-    "Reports": {
-      "Casino Reports": "Casino Reports",
-      "Live Casino Reports": "Live Casino Reports",
-      "Virtual Game Reports": "Virtual Game Reports",
-      "Bet Reports": "Bet Reports",
-      "Bonus Reports": "Bonus Reports",
-      "Finance Reports": "Finance Reports",
-      "User Stats": "User Stats",
-      "Login Reports": "Login Reports",
-      "Transaction Logs": "Transaction Logs"
-    },
     "Merchants": {
       "title": "Merchant Management",
       "profile": "Merchant Profile"
@@ -82,5 +71,31 @@
     "Bulk Mail": "Bulk e-mail",
     "Operators": "Operators",
     "Merchants": "Merchants"
+  },
+  "Reports": {
+    "title": "Reports",
+    "Casino Reports": "Casino Reports",
+    "Live Casino Reports": "Live Casino Reports",
+    "Virtual Game Reports": "Virtual Game Reports",
+    "Bet Reports": "Bet Reports",
+    "Bonus Reports": "Bonus Reports",
+    "Finance Reports": "Finance Reports",
+    "User Stats": "User Stats",
+    "Login Reports": "Login Reports",
+    "Transaction Logs": "Transaction Logs",
+    "Game Reports": "Game Reports",
+    "User Reports": "User Reports",
+    "General Reports": "General Reports",
+    "Manuel Transaction Reports": "Manuel Transaction Reports",
+    "User Balance Reports": "User Balance Reports",
+    "User Game Reports": "User Game Reports",
+    "User Finance Reports": "User Finance Reports",
+    "Custom User Reports": "Custom User Reports",
+    "Operator Reports": "Operator Reports",
+    "Negative Reports": "Negative Reports",
+    "User Bet Reports": "User Bet Reports",
+    "Login Logs": "Login Logs",
+    "Merchant Reports":"Merchant Reports",
+    "Commission Reports": "Commission Reports"
   }
 }

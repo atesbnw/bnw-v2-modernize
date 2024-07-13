@@ -105,6 +105,14 @@ const Menuitems = [
     // chipColor: "secondary",
   },
   {
+    id: uniqueId(),
+    title: "Reports.title",
+    icon: IconAperture,
+    href: "/reports/game-reports/casino-reports"
+    // chip: "0",
+    // chipColor: "secondary",
+  },
+  {
     navlabel: true,
     subheader: "Base",
   },
