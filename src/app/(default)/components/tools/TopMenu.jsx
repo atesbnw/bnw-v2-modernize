@@ -1,5 +1,5 @@
 "use client";
-import React, { memo, useState, useCallback, useMemo } from 'react';
+import React, { memo, useState, useCallback } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 import { IconHeart, IconPhoto, IconUserCircle } from '@tabler/icons-react';
 import Box from '@mui/material/Box';
@@ -15,33 +15,37 @@ function TopMenu() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const url = useMemo(() => (`/tools`), []);
   const ProfileTabs = [
     {
-      label: 'menu.Users.Dashboard',
+      label: 'Tools.Bonus',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.uid}`,
+      to: `/tools`,
     },
     {
-      label: 'menu.Users.Financial Transactions',
-      to: `${url}/${params?.uid}/financial-transactions/transaction-history`,
-    },
-    {
-      label: 'menu.Users.Game Management',
+      label: 'Tools.Announcements',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.uid}/game-management/casino-management`,
+      to: `/tools/announcements`,
     },
     {
-      label: 'menu.Users.Reports',
+      label: 'Tools.Bulk Message',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.uid}/reports/casino-reports`,
+      to: `/tools/bulk-message`,
     },
     {
-      label: 'menu.Users.Settings',
-      // icon: <IconPhoto size="20" />,
-      to: `${url}/${params?.uid}/settings`
+      label: 'Tools.Operators',
+      // icon: <IconUserCircle size="20" />,
+      to: `/tools/operators`,
     },
+    {
+      label: 'Tools.Merchants',
+      // icon: <IconUserCircle size="20" />,
+      to: `/tools/merchants`,
+    }
   ];
+
+
+
+
 
   return (
     <Box mt={1} sx={{ mt: 1, backgroundColor: (theme) => theme.palette.grey[100] }}>

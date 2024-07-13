@@ -2,7 +2,7 @@
 import React, { memo, useMemo, Fragment} from 'react';
 import Breadcrumb from '@/app/base/layout/shared/breadcrumb/Breadcrumb';
 import { t } from 'i18next';
-import TopMenu from '@/app/(default)/components/merchants/TopMenu';
+import TopMenu from '@/app/(default)/components/tools/TopMenu';
 import Box from '@mui/material/Box';
 import InnerMenu from '@/app/components/InnerMenu';
 import { uniqueId } from 'lodash';
@@ -13,7 +13,7 @@ function HeaderCustom({children, title, activeItem, menu}) {
 
   const params = useParams();
   const url = useMemo(() => {
-    return `/merchants`;
+    return `/tools`;
   }, [params?.uid]);
 
   const BCrumb = [
@@ -22,16 +22,16 @@ function HeaderCustom({children, title, activeItem, menu}) {
       title: "menu.Home",
     },
     {
-      to: `${url}`,
-      title: "menu.Merchants.title",
+      // to: `${url}`,
+      title: "Tools.title",
     },
-    {
-      ...(activeItem ? {to: `${url}/${params?.uid}`} : {}),
-      title: params?.uid,
-    },
-    ...(activeItem ? [{
-      title: activeItem
-    }] : [])
+    // {
+    //   ...(activeItem ? {to: `${url}/${params?.uid}`} : {}),
+    //   title: params?.uid,
+    // },
+    // ...(activeItem ? [{
+    //   title: activeItem
+    // }] : [])
   ];
 
   return (

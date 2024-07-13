@@ -47,9 +47,11 @@ function HeaderCustom({children, title, activeItem, menu}) {
         // flexDirection: "column",
         // justifyContent: "stretch"
       }}>
-        <InnerMenu
-          items={menu}
-        />
+        {menu && (
+          <InnerMenu
+            items={menu}
+          />
+        )}
 
         <Box sx={{flex: 1}}>
           {children}

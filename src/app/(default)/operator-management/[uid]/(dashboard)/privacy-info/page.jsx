@@ -4,6 +4,7 @@ import { t } from 'i18next';
 import { useParams, usePathname } from 'next/navigation';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import TitleBar from '@/app/components/TitleBar';
 
 function Page() {
   const params = useParams();
@@ -12,8 +13,9 @@ function Page() {
 
   return (
     <Box>
-      {/*<Typography variant="h6" component="div">{t('menu.Users.Financial Transactions')}</Typography>*/}
-      <Typography variant="subtitle1" component="div">{pathname}</Typography>
+      <TitleBar
+        title={t('menu.Users.Privacy Info')}
+      />
     </Box>
   );
 }

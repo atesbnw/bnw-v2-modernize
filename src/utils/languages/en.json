@@ -73,5 +73,13 @@
       "User Management": "User Management",
       "User Details": "User Details"
     }
+  },
+  "Tools": {
+    "title": "Tools",
+    "Bonus": "Bonus",
+    "Announcements": "Announcements",
+    "Bulk Message": "Bulk Message",
+    "Operators": "Operators",
+    "Merchants": "Merchants"
   }
 }

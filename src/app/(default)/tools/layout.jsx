@@ -1,12 +1,13 @@
 "use client";
 import React, { memo, useMemo } from 'react';
-import HeaderCustom from '@/app/(default)/components/operator-management/HeaderCustom';
+import HeaderCustom from '@/app/(default)/components/tools/HeaderCustom';
 import { t } from 'i18next';
+import { useMenu } from '@/app/(default)/merchants/[uid]/(dashboard)/menu';
 
 function layout({ children }) {
 
   return (
-    <HeaderCustom menu={false} title={`${t("menu.Users.Settings")}`} activeItem={t("menu.Users.Settings")} >
+    <HeaderCustom menu={false} title={t("Tools.title")}>
       {children}
     </HeaderCustom>
   );
