@@ -23,7 +23,6 @@ import Box from '@mui/material/Box';
 
 // FC Component For Dropdown Menu
 export default function NavCollapse({
-  activeFilled = false,
   menu,
   level,
   pathWithoutLastPart,
@@ -59,17 +58,17 @@ export default function NavCollapse({
     marginBottom: '2px',
     padding: '8px 10px',
     paddingLeft: hideMenu ? '10px' : level > 2 ? `${level * 15}px` : '10px',
-    backgroundColor: activeFilled && (open && level < 2) ? theme.palette.primary.main : '',
+    backgroundColor: (open && level < 2) ? theme.palette.primary.main : '',
     whiteSpace: 'nowrap',
     '&:hover': {
       backgroundColor:
-        activeFilled && (pathname.includes(menu.href) || open)
+        (pathname.includes(menu.href) || open)
           ? theme.palette.primary.main
           : theme.palette.primary.light,
-      color: activeFilled && (pathname.includes(menu.href) || open) ? 'white' : theme.palette.primary.main,
+      color: (pathname.includes(menu.href) || open) ? 'white' : theme.palette.primary.main,
     },
     color:
-      activeFilled &&  (open && level < 2)
+      (open && level < 2)
         ? 'white'
         : `inherit` && level > 1 && open
         ? theme.palette.primary.main

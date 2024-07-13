@@ -65,8 +65,8 @@ const Profile = () => {
           },
         }}
       >
-        <Typography variant="h5">User Profile</Typography>
-        <Stack direction="row" py={3} spacing={2} alignItems="center">
+        {/*<Typography variant="h5">User Profile</Typography>*/}
+        <Stack direction="row" pb={3} spacing={2} alignItems="center">
           <Avatar src={"/images/profile/user-1.jpg"} alt={"ProfileImg"} sx={{ width: 95, height: 95 }} />
           <Box>
             <Typography variant="subtitle2" color="textPrimary" fontWeight={600}>
@@ -87,74 +87,74 @@ const Profile = () => {
             </Typography>
           </Box>
         </Stack>
-        <Divider />
-        {dropdownData.profile.map((profile) => (
-          <Box key={profile.title}>
-            <Box sx={{ py: 2, px: 0 }} className="hover-text-primary">
-              <Link href={profile.href}>
-                <Stack direction="row" spacing={2}>
-                  <Box
-                    width="45px"
-                    height="45px"
-                    bgcolor="primary.light"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center" flexShrink="0"
-                  >
-                    <Avatar
-                      src={profile.icon}
-                      alt={profile.icon}
-                      sx={{
-                        width: 24,
-                        height: 24,
-                        borderRadius: 0,
-                      }}
-                    />
-                  </Box>
-                  <Box>
-                    <Typography
-                      variant="subtitle2"
-                      fontWeight={600}
-                      color="textPrimary"
-                      className="text-hover"
-                      noWrap
-                      sx={{
-                        width: '240px',
-                      }}
-                    >
-                      {profile.title}
-                    </Typography>
-                    <Typography
-                      color="textSecondary"
-                      variant="subtitle2"
-                      sx={{
-                        width: '240px',
-                      }}
-                      noWrap
-                    >
-                      {profile.subtitle}
-                    </Typography>
-                  </Box>
-                </Stack>
-              </Link>
-            </Box>
-          </Box>
-        ))}
+        {/*<Divider />*/}
+        {/*{dropdownData.profile.map((profile) => (*/}
+        {/*  <Box key={profile.title}>*/}
+        {/*    <Box sx={{ py: 2, px: 0 }} className="hover-text-primary">*/}
+        {/*      <Link href={profile.href}>*/}
+        {/*        <Stack direction="row" spacing={2}>*/}
+        {/*          <Box*/}
+        {/*            width="45px"*/}
+        {/*            height="45px"*/}
+        {/*            bgcolor="primary.light"*/}
+        {/*            display="flex"*/}
+        {/*            alignItems="center"*/}
+        {/*            justifyContent="center" flexShrink="0"*/}
+        {/*          >*/}
+        {/*            <Avatar*/}
+        {/*              src={profile.icon}*/}
+        {/*              alt={profile.icon}*/}
+        {/*              sx={{*/}
+        {/*                width: 24,*/}
+        {/*                height: 24,*/}
+        {/*                borderRadius: 0,*/}
+        {/*              }}*/}
+        {/*            />*/}
+        {/*          </Box>*/}
+        {/*          <Box>*/}
+        {/*            <Typography*/}
+        {/*              variant="subtitle2"*/}
+        {/*              fontWeight={600}*/}
+        {/*              color="textPrimary"*/}
+        {/*              className="text-hover"*/}
+        {/*              noWrap*/}
+        {/*              sx={{*/}
+        {/*                width: '240px',*/}
+        {/*              }}*/}
+        {/*            >*/}
+        {/*              {profile.title}*/}
+        {/*            </Typography>*/}
+        {/*            <Typography*/}
+        {/*              color="textSecondary"*/}
+        {/*              variant="subtitle2"*/}
+        {/*              sx={{*/}
+        {/*                width: '240px',*/}
+        {/*              }}*/}
+        {/*              noWrap*/}
+        {/*            >*/}
+        {/*              {profile.subtitle}*/}
+        {/*            </Typography>*/}
+        {/*          </Box>*/}
+        {/*        </Stack>*/}
+        {/*      </Link>*/}
+        {/*    </Box>*/}
+        {/*  </Box>*/}
+        {/*))}*/}
         <Box mt={2}>
-          <Box bgcolor="primary.light" p={3} mb={3} overflow="hidden" position="relative">
-            <Box display="flex" justifyContent="space-between">
-              <Box>
-                <Typography variant="h5" mb={2}>
-                  Unlimited <br />
-                  Access
-                </Typography>
-                <Button variant="contained" color="primary">
-                  Upgrade
-                </Button>
-              </Box>
-              <Image src={"/images/backgrounds/unlimited-bg.png"} width={150} height={183} style={{ height: 'auto', width: 'auto' }} alt="unlimited" className="signup-bg" />
-            </Box>
-          </Box>
+          {/*<Box bgcolor="primary.light" p={3} mb={3} overflow="hidden" position="relative">*/}
+          {/*  <Box display="flex" justifyContent="space-between">*/}
+          {/*    <Box>*/}
+          {/*      <Typography variant="h5" mb={2}>*/}
+          {/*        Unlimited <br />*/}
+          {/*        Access*/}
+          {/*      </Typography>*/}
+          {/*      <Button variant="contained" color="primary">*/}
+          {/*        Upgrade*/}
+          {/*      </Button>*/}
+          {/*    </Box>*/}
+          {/*    <Image src={"/images/backgrounds/unlimited-bg.png"} width={150} height={183} style={{ height: 'auto', width: 'auto' }} alt="unlimited" className="signup-bg" />*/}
+          {/*  </Box>*/}
+          {/*</Box>*/}
           <Button href="/auth/auth1/login" variant="outlined" color="primary" component={Link} fullWidth>
             Logout
           </Button>

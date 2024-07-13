@@ -1,0 +1,101 @@
+{
+  "Starter": "Başlangıç",
+  "Menu Level": "Menü Düzeyi",
+  "Disabled": "Engelli",
+  "SubCaption": "Alt Başlık",
+  "Chip": "Yonga",
+  "Outlined": "özetlenen",
+  "External Link": "Dış Bağlantı",
+  "menu": {
+    "Home": "Anasayfa",
+    "Users": {
+      "Dashboard": "Anasayfa",
+      "Financial Transactions": "Finansal işlemler",
+      "Game Management": "Oyun Yönetimi",
+      "Reports": "Raporlar",
+      "Settings": "Ayarlar",
+      "Personal Information": "Kişisel bilgi",
+      "Player Info": "Oyuncu Bilgileri",
+      "Account Info": "Hesap Bilgileri",
+      "Contact Info": "İletişim bilgileri",
+      "State and Role": "Durum ve Roller",
+      "Privacy Info": "Gizlilik Bilgileri",
+      "Notes": "Notlar",
+      "Messages": "Mesajlar",
+      "Documents": "Bilgi ve Belgeler"
+    },
+    "Financial Transactions": {
+      "Transaction History": "işlem geçmişi",
+      "Balance History": "Bakiye Geçmişi",
+      "Bet History": "Bahis Geçmişi",
+      "Add Bonus": "Bonus Ekle",
+      "Add Manuel Transaction": "Manuel İşlem Ekle"
+    },
+    "Game Management": {
+      "title": "Oyun Yönetimi",
+      "provider": "Oyun Sağlayıcı",
+      "Casino Management": "Casino Yönetimi",
+      "Live Casino Management": "Canlı Casino Yönetimi",
+      "Virtual Game Management": "Sanal Oyun Yönetimi",
+      "Sportsbook Management": "Spor Bahisleri Yönetimi",
+      "Category Management": "Kategori yönetimi",
+      "Admin Address": "Yönetici Adresi"
+    },
+    "Merchants": {
+      "title": "Bayi Yönetimi",
+      "profile": "Bayi Profili"
+    },
+    "Operator Management": {
+      "title": "Operatör Yönetimi",
+      "profile": "Operatör Profili"
+    }
+  },
+  "Dashboard": {
+    "Financial Graph": {
+      "Select Date Range": "Tarih Aralığı Seçin"
+    }
+  },
+  "Users": {
+    "title": "Kullanıcılar",
+    "User": "Kullanıcı",
+    "bc": {
+      "User Management": "Kullanıcı yönetimi",
+      "User Details": "Kullanıcı detayları"
+    }
+  },
+  "Tools": {
+    "title": "Araçlar",
+    "Bonus": "Bonus",
+    "Announcements": "Duyurular",
+    "Bulk Message": "Toplu Mesaj",
+    "Bulk Mail": "Toplu e-posta",
+    "Operators": "Operatörler",
+    "Merchants": "Bayiler"
+  },
+  "Reports": {
+    "title": "Raporlar",
+    "Casino Reports": "Casino Raporları",
+    "Live Casino Reports": "Canlı Casino Raporları",
+    "Virtual Game Reports": "Sanal Oyun Raporları",
+    "Bet Reports": "Bahis Raporları",
+    "Bonus Reports": "Bonus Raporları",
+    "Finance Reports": "Finans Raporları",
+    "User Stats": "Kullanıcı İstatistikleri",
+    "Login Reports": "Giriş Raporları",
+    "Transaction Logs": "İşlem Kaydı",
+    "Game Reports": "Oyun Raporları",
+    "User Reports": "Kullanıcı Raporları",
+    "General Reports": "Genel Raporlar",
+    "Manuel Transaction Reports": "Manuel İşlem Raporları",
+    "User Balance Reports": "Kullanıcı Bakiyesi Raporları",
+    "User Game Reports": "Kullanıcı Oyun Raporları",
+    "User Finance Reports": "Kullanıcı Finansmanı Raporları",
+    "Custom User Reports": "Özel Kullanıcı Raporları",
+    "Operator Reports": "Operatör Raporları",
+    "Negative Reports": "Olumsuz Raporlar",
+    "User Bet Reports": "Kullanıcı Bahis Raporları",
+    "Login Logs": "Giriş Kayıtları",
+    "Merchant Reports": "Bayi Raporları",
+    "Commission Reports": "Komisyon Raporları"
+  }
+}
