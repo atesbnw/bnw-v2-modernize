@@ -97,5 +97,10 @@
     "Login Logs": "Login Logs",
     "Merchant Reports":"Merchant Reports",
     "Commission Reports": "Commission Reports"
+  },
+  "Domain Management": {
+    "title": "Domain Management",
+    "Add Domain": "Domain Ekle",
+    "Change Domain": "Domain Değiştir"
   }
 }

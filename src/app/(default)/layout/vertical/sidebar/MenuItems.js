@@ -113,6 +113,14 @@ const Menuitems = [
     // chipColor: "secondary",
   },
   {
+    id: uniqueId(),
+    title: "Domain Management.title",
+    icon: IconAperture,
+    href: "/domain-management"
+    // chip: "0",
+    // chipColor: "secondary",
+  },
+  {
     navlabel: true,
     subheader: "Base",
   },
