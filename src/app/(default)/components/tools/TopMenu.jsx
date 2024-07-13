@@ -32,6 +32,11 @@ function TopMenu() {
       to: `/tools/bulk-message`,
     },
     {
+      label: 'Tools.Bulk Mail',
+      // icon: <IconUserCircle size="20" />,
+      to: `/tools/bulk-email`,
+    },
+    {
       label: 'Tools.Operators',
       // icon: <IconUserCircle size="20" />,
       to: `/tools/operators`,
