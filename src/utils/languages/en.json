@@ -51,6 +51,10 @@
     "Merchants": {
       "title": "Merchant Management",
       "profile": "Merchant Profile"
+    },
+    "Operator Management": {
+      "title": "Operator Management",
+      "profile": "Operator Profile"
     }
   },
   "Dashboard": {

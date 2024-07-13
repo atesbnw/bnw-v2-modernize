@@ -105,6 +105,25 @@ const Menuitems = [
     // chip: "0",
     // chipColor: "secondary",
   },
+
+  {
+    id: uniqueId(),
+    title: "menu.Operator Management.title",
+    icon: IconAperture,
+    href: "/operator-management",
+    children: [
+      {
+        title: "menu.Operator Management.title",
+        href: "/operator-management"
+      },
+      {
+        title: "menu.Operator Management.profile",
+        href: "/operator-management/bayi123"
+      }
+    ]
+    // chip: "0",
+    // chipColor: "secondary",
+  },
   {
     navlabel: true,
     subheader: "Base",
