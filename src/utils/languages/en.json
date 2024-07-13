@@ -32,10 +32,14 @@
       "Add Manuel Transaction": "Add Manuel Transaction"
     },
     "Game Management": {
+      "title": "Game Management",
+      "provider": "Game Provider",
       "Casino Management": "Casino Management",
       "Live Casino Management": "Live Casino Management",
       "Virtual Game Management": "Virtual Game Management",
-      "Sportsbook Management": "Sportsbook Management"
+      "Sportsbook Management": "Sportsbook Management",
+      "Category Management": "Category Management",
+      "Admin Address": "Admin Address"
     },
     "Reports": {
       "Casino Reports": "Casino Reports",

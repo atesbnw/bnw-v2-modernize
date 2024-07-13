@@ -124,6 +124,25 @@ const Menuitems = [
     // chip: "0",
     // chipColor: "secondary",
   },
+
+  {
+    id: uniqueId(),
+    title: "menu.Game Management.title",
+    icon: IconAperture,
+    href: "/game-management",
+    children: [
+      {
+        title: "menu.Game Management.title",
+        href: "/game-management/casino-management"
+      },
+      {
+        title: "menu.Game Management.provider",
+        href: "/game-management/casino-management/EGT"
+      }
+    ]
+    // chip: "0",
+    // chipColor: "secondary",
+  },
   {
     navlabel: true,
     subheader: "Base",

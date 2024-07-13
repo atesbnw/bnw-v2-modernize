@@ -2,7 +2,6 @@
 import React, { memo, useMemo, Fragment} from 'react';
 import Breadcrumb from '@/app/base/layout/shared/breadcrumb/Breadcrumb';
 import { t } from 'i18next';
-import TopMenu from '@/app/(default)/components/operator-management/TopMenu';
 import Box from '@mui/material/Box';
 import InnerMenu from '@/app/components/InnerMenu';
 import { uniqueId } from 'lodash';
@@ -13,7 +12,7 @@ function HeaderCustom({children, title, activeItem, menu}) {
 
   const params = useParams();
   const url = useMemo(() => {
-    return `/operator-management`;
+    return `/game-management`;
   }, [params?.uid]);
 
   const BCrumb = [
@@ -23,13 +22,13 @@ function HeaderCustom({children, title, activeItem, menu}) {
     },
     {
       to: `${url}`,
-      title: "menu.Merchants.title",
+      title: "menu.Game Management.title",
     },
-    {
-      ...(activeItem ? {to: `${url}/${params?.uid}`} : {}),
+      ...(params?.uid ? [{
+      ...((activeItem && params?.uid) ? {to: `${url}/${params?.uid}`} : {}),
       title: params?.uid,
-    },
-    ...(activeItem ? [{
+    }] : []),
+    ...((activeItem ) ? [{
       title: activeItem
     }] : [])
   ];
@@ -39,7 +38,7 @@ function HeaderCustom({children, title, activeItem, menu}) {
       <Breadcrumb title={title} items={BCrumb} />
 
 
-      <TopMenu />
+      {/*<TopMenu />*/}
       <Box sx={{
         padding: "14px",
         gap:3,
