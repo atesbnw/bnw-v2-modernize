@@ -2,6 +2,17 @@ import { uniqueId } from "lodash";
 
 import {
   IconAperture,
+  IconDashboard,
+  IconUsers,
+  IconBuildingStore,
+  IconSettings,
+  IconDeviceGamepad2 as IconGamepad,
+  IconTools,
+  IconReport,
+  IconGlobe,
+  IconFileText,
+  IconUserCog,
+  IconColumns3
 } from "@tabler/icons-react";
 import { t } from 'i18next';
 
@@ -14,7 +25,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "menu.Home",
-    icon: IconAperture,
+    icon: IconDashboard,
     href: "/",
     // chip: "0",
     // chipColor: "secondary",
@@ -23,14 +34,16 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "Users.bc.User Management",
-    icon: IconAperture,
-    href: "/users",
+    icon: IconUsers,
+    // href: "/users",
     children: [
       {
+        id: uniqueId(),
         title: "Users.title",
         href: "/users"
       },
       {
+        id: uniqueId(),
         title: "Users.User",
         href: "/users/Ates123"
       }
@@ -42,14 +55,16 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "menu.Merchants.title",
-    icon: IconAperture,
-    href: "/merchants",
+    icon: IconBuildingStore,
+    // href: "/merchants",
     children: [
       {
+        id: uniqueId(),
         title: "menu.Merchants.title",
         href: "/merchants"
       },
       {
+        id: uniqueId(),
         title: "menu.Merchants.profile",
         href: "/merchants/bayi123"
       }
@@ -61,14 +76,16 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "menu.Operator Management.title",
-    icon: IconAperture,
-    href: "/operator-management",
+    icon: IconUserCog,
+    // href: "/operator-management",
     children: [
       {
+        id: uniqueId(),
         title: "menu.Operator Management.title",
         href: "/operator-management"
       },
       {
+        id: uniqueId(),
         title: "menu.Operator Management.profile",
         href: "/operator-management/bayi123"
       }
@@ -80,14 +97,16 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "menu.Game Management.title",
-    icon: IconAperture,
-    href: "/game-management",
+    icon: IconGamepad,
+    // href: "/game-management",
     children: [
       {
+        id: uniqueId(),
         title: "menu.Game Management.title",
         href: "/game-management/casino-management"
       },
       {
+        id: uniqueId(),
         title: "menu.Game Management.provider",
         href: "/game-management/casino-management/EGT"
       }
@@ -99,7 +118,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "Tools.title",
-    icon: IconAperture,
+    icon: IconTools,
     href: "/tools"
     // chip: "0",
     // chipColor: "secondary",
@@ -107,16 +126,32 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: "Reports.title",
-    icon: IconAperture,
-    href: "/reports/game-reports/casino-reports"
+    icon: IconReport,
+    href: "/reports"
     // chip: "0",
     // chipColor: "secondary",
   },
   {
     id: uniqueId(),
     title: "Domain Management.title",
-    icon: IconAperture,
+    icon: IconGlobe,
     href: "/domain-management"
+    // chip: "0",
+    // chipColor: "secondary",
+  },
+  {
+    id: uniqueId(),
+    title: "Settings.title",
+    icon: IconSettings,
+    href: "/settings"
+    // chip: "0",
+    // chipColor: "secondary",
+  },
+  {
+    id: uniqueId(),
+    title: "Content Management.title",
+    icon: IconColumns3,
+    href: "/content-management"
     // chip: "0",
     // chipColor: "secondary",
   },

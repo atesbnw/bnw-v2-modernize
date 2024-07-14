@@ -6,7 +6,7 @@ import {t} from "i18next";
 function Page() {
   return (
     <div>
-      <TitleBar title={t("Tools.Bulk Mail")} />
+      <TitleBar title={t("Settings.Permissions")} />
     </div>
   );
 }

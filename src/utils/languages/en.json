@@ -102,5 +102,26 @@
     "title": "Domain Management",
     "Add Domain": "Domain Ekle",
     "Change Domain": "Domain Değiştir"
+  },
+  "Settings": {
+    "title": "Settings",
+    "Commission Percents": "Commission Percents",
+    "Limitation": "Limitation",
+    "Segmentation": "Segmentation",
+    "Permissions": "Permissions",
+    "Providers": "Providers",
+    "Payment Methods": "Payment Methods"
+  },
+  "Content Management": {
+    "title": "Content Management",
+    "All Media": "All Media",
+    "Sliders": "Sliders",
+    "Popups": "Pop-ups",
+    "Banners": "Banners",
+    "Private Days": "Private Days",
+    "Promotions": "Promotions",
+    "Site Design": "Site Design",
+    "Site Menu": "Site Menu",
+    "Custom CSS": "Custom CSS"
   }
 }

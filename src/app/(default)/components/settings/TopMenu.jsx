@@ -1,5 +1,5 @@
 "use client";
-import React, { memo, useState, useCallback, useMemo } from 'react';
+import React, { memo, useState, useCallback } from 'react';
 import { useParams, usePathname } from 'next/navigation';
 import { IconHeart, IconPhoto, IconUserCircle } from '@tabler/icons-react';
 import Box from '@mui/material/Box';
@@ -15,30 +15,28 @@ function TopMenu() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const url = useMemo(() => {
-    return `/reports`;
-  }, [params?.uid]);
+  const url = `/settings`;
   const ProfileTabs = [
     {
-      label: 'Reports.Game Reports',
+      label: 'Settings.Commission Percents',
       // icon: <IconUserCircle size="20" />,
       to: `${url}`,
     },
     {
-      label: 'Reports.Finance Reports',
+      label: 'Settings.Limitation',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/finance-reports`,
+      to: `${url}/limitation`,
     },
     {
-      label: 'Reports.User Reports',
+      label: 'Settings.Segmentation',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/user-reports/user-balance-reports`,
+      to: `${url}/segmentation`,
     },
     {
-      label: 'Reports.General Reports',
+      label: 'Settings.Permissions',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/general-reports`,
-    }
+      to: `${url}/permissions`,
+    },
   ];
 
 

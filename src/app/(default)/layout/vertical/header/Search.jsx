@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import { IconSearch, IconX } from '@tabler/icons-react';
 import Menuitems from '../sidebar/MenuItems';
 import Link from 'next/link';
-
+import {t} from "i18next";
 
 const Search = () => {
   // drawer top
@@ -27,8 +27,11 @@ const Search = () => {
   const filterRoutes = (rotr, cSearch) => {
     if (rotr.length > 1)
       return rotr.filter((t) =>
-        t.title ? t.href.toLocaleLowerCase().includes(cSearch.toLocaleLowerCase()) : '',
-      );
+        t?.title ? t?.href?.toLocaleLowerCase().includes(cSearch?.toLocaleLowerCase()) : t?.children || '',
+      )?.reduce((all, current) => [
+        ...all,
+        ...(current?.children && Array.isArray(current?.children) ? current?.filter(t => t?.title ? t?.href?.toLocaleLowerCase().includes(cSearch?.toLocaleLowerCase()) : '') : [current]),
+      ], []);
 
     return rotr;
   };
@@ -82,7 +85,7 @@ const Search = () => {
                     {menu.title && !menu.children ? (
                       <ListItemButton sx={{ py: 0.5, px: 1 }} href={menu?.href} component={Link}>
                         <ListItemText
-                          primary={menu.title}
+                          primary={t(menu.title)}
                           secondary={menu?.href}
                           sx={{ my: 0, py: 0.5 }}
                         />

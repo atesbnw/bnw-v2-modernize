@@ -7,6 +7,7 @@ import { useParams } from 'next/navigation';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import HeaderCustom from '@/app/(default)/components/users/HeaderCustom';
+import TitleBar from '@/app/components/TitleBar';
 
 
 function Page() {
@@ -16,11 +17,9 @@ function Page() {
   return (
     <Fragment>
 
-
-        <Box>
-          {/*<Typography variant="h6" component="div">{t('menu.Users.Financial Transactions')}</Typography>*/}
-          <Typography variant="h6" component="div">{params?.uid}</Typography>
-        </Box>
+      <TitleBar
+        title={t("menu.Operator Management.profile")}
+      />
 
 </Fragment>
   );
