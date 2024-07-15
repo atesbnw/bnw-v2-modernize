@@ -17,6 +17,7 @@ import Search from "./Search";
 import Language from "./Language";
 import Navigation from "./Navigation";
 import MobileRightSidebar from "./MobileRightSidebar";
+import ThemeSwitch from '@/app/(default)/layout/vertical/header/ThemeSwitch';
 
 const Header = () => {
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
@@ -72,6 +73,7 @@ const Header = () => {
         <Stack spacing={1} direction="row" alignItems="center">
           <Language />
 
+          <ThemeSwitch />
           {/* ------------------------------------------- */}
           {/* End Ecommerce Dropdown */}
           {/* ------------------------------------------- */}
