@@ -38,10 +38,10 @@ function HeaderCustom({children, title, activeItem, menu}) {
     <PageContainer title={title} description="">
       <Breadcrumb title={title} items={BCrumb} />
 
-
       <TopMenu />
+
       <Box sx={{
-        padding: "14px",
+        pt:2,
         gap:3,
         display:"flex",
         // flexDirection: "column",

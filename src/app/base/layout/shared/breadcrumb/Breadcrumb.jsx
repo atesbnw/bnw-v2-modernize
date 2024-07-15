@@ -14,10 +14,11 @@ const Breadcrumb = ({ subtitle, items, title, children }) => (
   <Grid
     container
     sx={{
-      backgroundColor: 'primary.light',
+      // backgroundColor: 'primary.light',
       borderRadius: (theme) => theme.shape.borderRadius / 4,
-      p: '30px 25px 20px',
-      marginBottom: '30px',
+      // p: '30px 25px 20px',
+      p: '0px 0px 0px',
+      marginBottom: '10px',
       position: 'relative',
       overflow: 'hidden',
     }}

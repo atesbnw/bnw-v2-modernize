@@ -20,7 +20,7 @@ export const SidebarItems = ({items = Menuitems}) => {
   const hideMenu = lgUp ? customizer.isCollapse && !customizer.isSidebarHover : '';
   const dispatch = useDispatch();
   return (
-    <Box sx={{ px: 3 }}>
+    <Box sx={{ pr: 2 }}>
       <List sx={{ pt: 0 }} className="sidebarNav">
         {items.map((item) => {
           // {/********SubHeader**********/}
@@ -39,6 +39,7 @@ export const SidebarItems = ({items = Menuitems}) => {
                 level={1}
                 key={item.id}
                 onClick={() => dispatch(toggleMobileSidebar())}
+
               />
             );
 

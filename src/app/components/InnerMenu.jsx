@@ -9,7 +9,7 @@ import { IconAperture } from '@tabler/icons-react';
 import AppBar from '@mui/material/AppBar';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const drawerWidth = 350;
+const drawerWidth = 250;
 
 function InnerMenu({
   items = []
