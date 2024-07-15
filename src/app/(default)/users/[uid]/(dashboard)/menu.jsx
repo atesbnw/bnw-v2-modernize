@@ -12,6 +12,7 @@ export function useMenu() {
   const menu = [
     {
       id: uniqueId(),
+
       title: "menu.Users.Player Info",
       children: [
         {

@@ -22,7 +22,11 @@
       "Privacy Info": "Privacy Info",
       "Notes": "Notes",
       "Messages": "Messages",
-      "Documents": "Info and Documents"
+      "Documents": "Info and Documents",
+      "Player Info Page": {
+        "Edit Image": "Edit Image",
+        "Remove Image": "Remove Image"
+      }
     },
     "Financial Transactions": {
       "Transaction History": "Transaction History",
@@ -32,7 +36,7 @@
       "Add Manuel Transaction": "Add Manuel Transaction"
     },
     "Game Management": {
-      "title": "Game Management",
+      "title": "Games",
       "provider": "Game Provider",
       "Casino Management": "Casino Management",
       "Live Casino Management": "Live Casino Management",
@@ -42,11 +46,11 @@
       "Admin Address": "Admin Address"
     },
     "Merchants": {
-      "title": "Merchant Management",
+      "title": "Merchants",
       "profile": "Merchant Profile"
     },
     "Operator Management": {
-      "title": "Operator Management",
+      "title": "Operators",
       "profile": "Operator Profile"
     }
   },
@@ -59,7 +63,7 @@
     "title": "Users",
     "User": "User",
     "bc": {
-      "User Management": "User Management",
+      "User Management": "Users",
       "User Details": "User Details"
     }
   },
