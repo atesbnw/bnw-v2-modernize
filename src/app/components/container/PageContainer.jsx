@@ -1,10 +1,10 @@
 
-const PageContainer = ({title, description, children }) => (
-    <div>
+const PageContainer = ({title, description, children, ...props }) => (
+    <div {...props}>
       <title>{title}</title>
       <meta name="description" content={description} />
       {children}
-      
+
     </div>
 );
 
