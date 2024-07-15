@@ -1,5 +1,5 @@
 "use client";
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import { Grid, Button, Paper, Typography, Box, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -10,42 +10,19 @@ import SkeletonWeeklyStatsCard from '@/app/components/dashboards/skeleton/Weekly
 import DashboardCard from '@/app/components/shared/DashboardCard';
 import { useTheme } from '@mui/material/styles';
 import dynamic from 'next/dynamic';
-import TextField from '@mui/material/TextField';
-import { Label } from '@mui/icons-material';
 import dayjs from 'dayjs';
 import "dayjs/locale/tr";
 import { t } from 'i18next';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-const Circle = styled(Box)(({ theme }) => ({
-  width: 60,
-  height: 60,
-  borderRadius: '50%',
-  backgroundColor: theme.palette.primary.main,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: 'white',
-  fontSize: 18,
-  fontWeight: 'bold',
-}));
 
-const FinancialGraph = ({ isLoading }) => {
+
+const FinancialGraph = ({ isLoading, timeRange }) => {
   const theme = useTheme();
   const primary = theme.palette.primary.main;
   const secondary = theme.palette.secondary.main;
-  const [timeRange, setTimeRange] = useState(0);
-  const [open, setOpen] = useState(false);
-  const [time, setTime] = useState([dayjs(), dayjs().add(7,"days")]);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   const optionsareachart = {
     chart: {
@@ -117,7 +94,8 @@ const FinancialGraph = ({ isLoading }) => {
     return randomData;
   },[]);
 
-  const changeRange = useCallback((v) => {
+
+  useEffect(() => {
     const investmentData = generateRandomData(7);
     const withdrawalData = generateRandomData(7);
     setChartData([
@@ -130,85 +108,11 @@ const FinancialGraph = ({ isLoading }) => {
         data: withdrawalData,
       },
     ]);
-    switch (v){
-      case 0: setTime([dayjs().startOf("day"), dayjs().endOf("day")]); break;
-      case 1: setTime([dayjs().subtract(1,"day").startOf("day"), dayjs().subtract(1,"day").endOf("day")]); break;
-      case 2: setTime([dayjs().subtract(7,"day").startOf("day"), dayjs().endOf("day")]); break;
-      case 3: setTime([dayjs().subtract(15,"day").startOf("day"), dayjs().endOf("day")]); break;
-      case 4: setTime([dayjs().subtract(30,"day").startOf("day"), dayjs().endOf("day")]); break;
-
-      default: break;
-    }
-    setTimeRange(v);
-  }, []);
+  }, [timeRange]);
 
   return (
     <Paper elevation={3} style={{ padding: 20 }}>
 
-      <Grid container spacing={2} alignItems="center">
-        <Grid item sx={{alignItems: "center", display: "flex", flexDirection: "column"}}>
-          <Circle>1423</Circle>
-          <Typography variant="subtitle1" align="center">ONLINE KULLANICI</Typography>
-        </Grid>
-        <Grid item sx={{alignItems: "center", display: "flex", flexDirection: "column"}}>
-          <Circle>14</Circle>
-          <Typography variant="subtitle1" align="center">ONLINE YETKİLİ</Typography>
-        </Grid>
-        <Grid sx={{flex: 1}} />
-        <Grid item>
-          <Button variant={timeRange===0 ? "contained" : "outlined"} onClick={() => changeRange(0)} color="primary">Bugün</Button>
-        </Grid>
-        <Grid item>
-          <Button variant={timeRange===1 ? "contained" : "outlined"} onClick={() => changeRange(1)}>Dün</Button>
-        </Grid>
-        <Grid item>
-          <Button variant={timeRange===2 ? "contained" : "outlined"} onClick={() => changeRange(2)}>Son 7 Gün</Button>
-        </Grid>
-        <Grid item>
-          <Button variant={timeRange===3 ? "contained" : "outlined"} onClick={() => changeRange(3)}>Son 15 Gün</Button>
-        </Grid>
-        <Grid item>
-          <Button variant={timeRange===4 ? "contained" : "outlined"} onClick={() => changeRange(4)}>Son 30 Gün</Button>
-        </Grid>
-        <Grid item>
-          <Button variant="outlined" onClick={handleClickOpen}>
-            {time?.[0] && time?.[1] ? `${dayjs(time?.[0]).format("DD.MM.YYYY")} - ${dayjs(time?.[1]).format("DD.MM.YYYY")}` : 'Tarih Seç'}
-          </Button>
-        </Grid>
-        <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>{t("Dashboard.Financial Graph.Select Date Range")}</DialogTitle>
-          <DialogContent>
-            <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"}>
-          <DemoContainer components={[
-            'DateRangePicker',
-          ]}>
-            <DemoItem
-              label={
-                <></>
-              }
-              component="DateRangePicker"
-            >
-              <DateRangePicker
-                defaultValue={time}
-                localeText={{
-                  start: '',
-                  end: '',
-                }}
-                format="DD/MM/YYYY"
-                onChange={(value) => setTime(value)}
-              />
-            </DemoItem>
-          </DemoContainer>
-
-            </LocalizationProvider>
-
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">İptal</Button>
-            <Button onClick={handleClose} color="primary">Tamam</Button>
-          </DialogActions>
-        </Dialog>
-      </Grid>
       <Grid lg={12} sm={12}>
         {isLoading ? (
           <SkeletonWeeklyStatsCard />
