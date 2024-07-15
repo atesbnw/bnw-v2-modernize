@@ -74,7 +74,10 @@ export function useUsers() {
           return [
               <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
                 <IconEye />
-              </IconButton>
+              </IconButton>,
+              // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+              //   <IconPencil />
+              // </IconButton>
           ]
         }
       }
