@@ -35,19 +35,19 @@ const Menuitems = [
     id: uniqueId(),
     title: "Users.bc.User Management",
     icon: IconUsers,
-    // href: "/users",
-    children: [
-      {
-        id: uniqueId(),
-        title: "Users.title",
-        href: "/users"
-      },
-      {
-        id: uniqueId(),
-        title: "Users.User",
-        href: "/users/Ates123"
-      }
-    ]
+    href: "/users",
+    // children: [
+    //   {
+    //     id: uniqueId(),
+    //     title: "Users.title",
+    //     href: "/users"
+    //   },
+    //   {
+    //     id: uniqueId(),
+    //     title: "Users.User",
+    //     href: "/users/Ates123"
+    //   }
+    // ]
     // chip: "0",
     // chipColor: "secondary",
   },

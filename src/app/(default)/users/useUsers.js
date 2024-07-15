@@ -3,15 +3,17 @@
 import { useEffect, useState } from 'react';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
-import { IconPencil } from '@tabler/icons-react';
+import { IconEye, IconPencil } from '@tabler/icons-react';
 import {Faker, tr, fakerTR} from "@faker-js/faker";
 import IconButton from '@mui/material/IconButton';
+import { useRouter } from 'next/navigation';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 export function useUsers() {
+  const router = useRouter();
   const [data, setData] = useState({
     page: 1,
     pageSize: 25,
@@ -70,11 +72,9 @@ export function useUsers() {
         width: 170,
         getActions: (e) => {
           return [
-            <ButtonGroup>
-              <IconButton onClick={() => console.log(e)}>
-                <IconPencil />
+              <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+                <IconEye />
               </IconButton>
-            </ButtonGroup>
           ]
         }
       }
