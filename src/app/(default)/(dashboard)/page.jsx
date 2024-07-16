@@ -6,6 +6,8 @@ import FinancialGraph from '@/app/(default)/components/home/FinancialGraph';
 import TimeTabs from '@/app/components/shared/TimeTabs';
 import { Grid, Typography } from '@mui/material';
 import TopCircles from '@/app/(default)/components/home/Circle';
+import StatCards from '@/app/(default)/components/home/StatCards';
+import StatsRow from '@/app/(default)/components/home/StatsRow';
 
 export default function Dashboard() {
   const [isLoading, setLoading] = useState(true);
@@ -20,7 +22,12 @@ export default function Dashboard() {
 
       <TimeTabs topElement={<TopCircles />}>
         {(time) => (
-          <FinancialGraph timeRange={time} />
+          <Fragment>
+            <FinancialGraph timeRange={time} />
+            <StatCards />
+            <StatsRow />
+
+          </Fragment>
         )}
       </TimeTabs>
 

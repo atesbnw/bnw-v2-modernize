@@ -6,11 +6,15 @@ const Circle = styled(Box)(({ theme }) => ({
   width: 60,
   height: 60,
   borderRadius: '50%',
-  backgroundColor: theme.palette.primary.main,
+  borderWidth: 1,
+  borderStyle: "solid",
+  borderColor: theme.palette.primary.main,
+  color: theme.palette.primary.main,
+  backgroundColor: theme.palette.info.light,
+  // color: 'white',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: 'white',
   fontSize: 18,
   fontWeight: 'bold',
 }));
@@ -20,11 +24,11 @@ const TopCircles = () => {
     <Fragment>
       <Grid item sx={{alignItems: "center", display: "flex", flexDirection: "column"}}>
         <Circle>1423</Circle>
-        <Typography variant="subtitle1" align="center">ONLINE KULLANICI</Typography>
+        <Typography variant="subtitle2" align="center" sx={{py: 1}}>ONLINE KULLANICI</Typography>
       </Grid>
       <Grid item sx={{alignItems: "center", display: "flex", flexDirection: "column"}}>
         <Circle>14</Circle>
-        <Typography variant="subtitle1" align="center">ONLINE YETKİLİ</Typography>
+        <Typography variant="subtitle2" align="center" sx={{py: 1}}>ONLINE YETKİLİ</Typography>
       </Grid>
     </Fragment>
   )
