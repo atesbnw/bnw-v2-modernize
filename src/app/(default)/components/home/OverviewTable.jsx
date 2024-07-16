@@ -35,7 +35,6 @@ function OverviewTable({
   const secondarylight = theme.palette.secondary.light;
   const warning = theme.palette.warning.main;
 
-  // 1
   const optionsdoughnutchart = {
     chart: {
       id: 'donut-chart',
@@ -135,7 +134,7 @@ function OverviewTable({
 
                             {basic?.values && basic?.values?.map((value, i) => (
                               <TableCell id={basic?.id + '-' + i}>
-                                <Typography variant="subtitle2">${value}</Typography>
+                                <Typography variant="subtitle2">{value}</Typography>
                               </TableCell>
                             ))}
                           </TableRow>

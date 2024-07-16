@@ -54,13 +54,13 @@ const StatCards = () => {
           {visibleData.map(({ icon, ...topcard }, i) => (
             <Collapse key={i} in={i < 8 || showAll} timeout={600} className={"w-full sm:w-1/2 md:w-1/4 p-3"}>
               {/*<Grid item xs={12} sm={6} md={3}>*/}
-                  <Box bgcolor={"info.light"} textAlign="center">
-                    <CardContent className={"flex gap-3 items-center justify-center"}>
+                  <Box bgcolor={"info.light"} textAlign="center" className={""}>
+                    <CardContent className={"flex gap-3 items-center justify-center group"}>
                       <Box sx={{
                         backgroundColor: theme.palette.primary.main,
                         borderRadius: 2,
                         p:1
-                      }} className={"items-center flex"}>
+                      }} className={"items-center flex scale-90 group-hover:scale-100 transition-all ease-in-out"}>
                         {icon && icon}
                       </Box>
                       <Box className={"flex-1"}>

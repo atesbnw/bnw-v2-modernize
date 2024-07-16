@@ -28,13 +28,7 @@ const StatsRow = () => {
       ]);
     }
 
-    const timer = setInterval(() => {
       updateData();
-    }, 1500);
-
-    return () => {
-      timer && clearInterval(timer);
-    }
   }, []);
 
   return (
