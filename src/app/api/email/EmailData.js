@@ -25,24 +25,12 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: false,
-    label: 'Promotional',
+    label: 'Personal',
     attchments: [
       {
         id: '#1Attach',
         image: "/images/chat/icon-adobe.svg",
         title: 'adobe.pdf',
-        fileSize: '2MB',
-      },
-      {
-        id: '#2Attach',
-        image: "/images/chat/icon-chrome.svg",
-        title: 'abouts.html',
-        fileSize: '2MB',
-      },
-      {
-        id: '#3Attach',
-        image: "/images/chat/icon-zip-folder.svg",
-        title: 'cheese.zip',
         fileSize: '2MB',
       },
     ],
@@ -70,7 +58,7 @@ const EmailData = [
     draft: true,
     spam: false,
     trash: false,
-    label: 'Social',
+    label: 'System',
     attchments: [],
   },
   {
@@ -92,7 +80,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: false,
-    label: 'Promotional',
+    label: 'Personal',
     attchments: [
       {
         id: '#4Attach',
@@ -127,7 +115,7 @@ const EmailData = [
     draft: true,
     spam: false,
     trash: false,
-    label: 'Social',
+    label: 'System',
     attchments: [],
   },
   {
@@ -149,7 +137,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: false,
-    label: 'Social',
+    label: 'System',
     attchments: [],
   },
   {
@@ -171,7 +159,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: false,
-    label: 'Health',
+    label: 'Examine',
     attchments: [],
   },
   {
@@ -193,7 +181,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: false,
-    label: 'Social',
+    label: 'System',
     attchments: [],
   },
   {
@@ -215,7 +203,7 @@ const EmailData = [
     draft: false,
     spam: true,
     trash: false,
-    label: 'Social',
+    label: 'System',
     attchments: [],
   },
   {
@@ -237,7 +225,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: true,
-    label: 'Promotional',
+    label: 'Personal',
     attchments: [],
   },
   {
@@ -259,7 +247,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: false,
-    label: 'Health',
+    label: 'Examine',
     attchments: [],
   },
   {
@@ -281,7 +269,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: false,
-    label: 'Promotional',
+    label: 'Personal',
     attchments: [],
   },
   {
@@ -303,7 +291,7 @@ const EmailData = [
     draft: true,
     spam: false,
     trash: true,
-    label: 'Social',
+    label: 'System',
     attchments: [],
   },
   {
@@ -325,7 +313,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: false,
-    label: 'Health',
+    label: 'Examine',
     attchments: [],
   },
   {
@@ -347,7 +335,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: true,
-    label: 'Social',
+    label: 'System',
     attchments: [],
   },
   {
@@ -369,7 +357,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: true,
-    label: 'Promotional',
+    label: 'Personal',
     attchments: [],
   },
   {
@@ -391,7 +379,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: true,
-    label: 'Social',
+    label: 'System',
     attchments: [],
   },
   {
@@ -413,7 +401,7 @@ const EmailData = [
     draft: false,
     spam: true,
     trash: false,
-    label: 'Health',
+    label: 'Examine',
     attchments: [],
   },
   {
@@ -435,7 +423,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: false,
-    label: 'Promotional',
+    label: 'Personal',
     attchments: [],
   },
   {
@@ -457,7 +445,7 @@ const EmailData = [
     draft: true,
     spam: false,
     trash: false,
-    label: 'Health',
+    label: 'Examine',
     attchments: [],
   },
   {
@@ -479,7 +467,7 @@ const EmailData = [
     draft: false,
     spam: false,
     trash: false,
-    label: 'Social',
+    label: 'System',
     attchments: [],
   },
 ];

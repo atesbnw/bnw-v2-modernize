@@ -7,7 +7,7 @@ import { IconEdit, IconPin } from '@tabler/icons-react';
 function NotesItem({ operator, date, content, pinned }) {
   return (
     <Card variant="outlined" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'start', height: '100%' }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', color: 'light.main' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between'}}>
         <IconButton>
           <IconEdit />
         </IconButton>
