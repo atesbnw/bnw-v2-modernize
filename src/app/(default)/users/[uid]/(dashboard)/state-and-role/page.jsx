@@ -5,21 +5,14 @@ import { useFormik } from 'formik';
 import {
   Grid,
   Button,
-  Divider,
   MenuItem,
   FormHelperText,
-  Typography,
-  FormGroup,
-  FormControlLabel,
-  Stack, Box
+  Typography
 } from '@mui/material';
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
-import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import { validationSchema } from './validation';
-import UserIcons from "@/app/(default)/components/users/UserIcons";
-import CustomCheckbox from "@/app/components/forms/theme-elements/CustomCheckbox";
-import Link from "next/link";
+import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
 
 function Page() {
 
@@ -40,14 +33,9 @@ function Page() {
 
   return (
     <Fragment>
-      <Grid container mt={1} mb={2} spacing={1} justifyContent="space-between" alignItems="center">
-        <Grid item>
-          <Typography variant="h4">{t('menu.Users.State and Role')}</Typography>
-        </Grid>
-        <UserIcons/>
-      </Grid>
-
-      <Divider/>
+      <PlayerInfoHeader>
+        <Typography variant="h4" component="div">{t('menu.Users.State and Role')}</Typography>
+      </PlayerInfoHeader>
 
       <Grid mt={1} xs="auto">
         <form onSubmit={formik.handleSubmit}>

@@ -1,5 +1,5 @@
 "use client";
-import React, {memo, useState, useCallback, useMemo, Fragment} from 'react';
+import React, {memo, useState, useCallback, Fragment} from 'react';
 import { t } from 'i18next';
 import { useFormik } from 'formik';
 import {Grid, Avatar, Button, Divider, MenuItem, FormHelperText} from '@mui/material';
@@ -8,7 +8,7 @@ import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLab
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import { validationSchema } from './validation';
-import UserIcons from "@/app/(default)/components/users/UserIcons";
+import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
 
 function Page() {
 
@@ -30,14 +30,9 @@ function Page() {
 
   return (
     <Fragment>
-      <Grid container mt={1} mb={2} spacing={1} justifyContent="space-between" alignItems="center">
-        <Grid item>
-          <Typography variant="h4">{t('menu.Users.Personal Information')}</Typography>
-        </Grid>
-        <UserIcons/>
-      </Grid>
-
-      <Divider/>
+      <PlayerInfoHeader>
+        <Typography variant="h4" component="div">{t('menu.Users.Personal Information')}</Typography>
+      </PlayerInfoHeader>
 
       <Grid container mt={1} spacing={3}>
         <Grid item>

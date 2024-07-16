@@ -1,6 +1,7 @@
 import React, { memo, useState, useCallback } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Divider from "@mui/material/Divider";
 
 function TitleBar({ Left, title, Right }) {
   return (
@@ -11,7 +12,8 @@ function TitleBar({ Left, title, Right }) {
         flexWrap: 'nowrap',
         width: 100 +"%",
         alignItems: "center",
-        gap:3
+        gap:3,
+        mb:3
       }}>
       {Left && (
         <Box sx={{

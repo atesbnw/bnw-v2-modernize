@@ -34,11 +34,11 @@
       "Reports": "Reports",
       "Settings": "Settings",
       "Personal Information": "Personal Information",
-      "Player Info": "Player Info",
-      "Account Info": "Account Info",
-      "Contact Info": "Contact Info",
+      "Player Info": "Player Information",
+      "Account Info": "Account Information",
+      "Contact Info": "Contact Information",
       "State and Role": "Status and Role",
-      "Privacy Info": "Privacy Info",
+      "Privacy Info": "Privacy Information",
       "Notes": "Notes",
       "Messages": "Messages",
       "Documents": "Info and Documents",
@@ -107,6 +107,21 @@
         "Approval Status is required" : "Approval Status is required",
         "Loyalty System is required" : "Loyalty System is required",
         "Loyalty Status is required" : "Loyalty Status is required"
+      },
+      "Privacy Info Page": {
+        "resetPassword": "Reset Password",
+        "generatePassword": "Generate Secure Password",
+        "orEnterYourOwn": "or enter your own",
+        "newPassword": "New Password",
+        "repeatPassword": "Repeat Password",
+        "passwordCriteria": "Your password must be at least 6 characters long, include 1 uppercase letter, 1 number, and 1 special character.",
+        "savePassword": "Save Password",
+        "sendPasswordLink": "Send Password Link",
+        "sendPasswordLinkText": "For a user requesting a password change, you can send the password reset link to the user’s registered email address using the button below.",
+        "linkInfo": "Link Information to be sent to the user",
+        "sendLink": "Send Link to User",
+        "twoFactorAuthentication": "Two-Factor Authentication",
+        "disconnectAuthenticator": "Disconnect Google Authenticator"
       }
     },
     "Financial Transactions": {
