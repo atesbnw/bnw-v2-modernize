@@ -2,15 +2,13 @@
 import React, {memo, useState, useCallback, useMemo, Fragment} from 'react';
 import { t } from 'i18next';
 import { useFormik } from 'formik';
-import * as yup from 'yup';
-import { useParams, usePathname } from 'next/navigation';
-import {Grid, Avatar, Button, Divider, Stack, Fab, MenuItem, FormHelperText} from '@mui/material';
+import {Grid, Avatar, Button, Divider, MenuItem, FormHelperText} from '@mui/material';
 import Typography from '@mui/material/Typography';
-import { IconPlayerPause, IconHeart, IconCircle, IconLock, IconCheck, IconStar, IconUserCheck, IconBuildingStore } from '@tabler/icons-react';
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import { validationSchema } from './validation';
+import UserIcons from "@/app/(default)/components/users/UserIcons";
 
 function Page() {
 
@@ -32,33 +30,11 @@ function Page() {
 
   return (
     <Fragment>
-      <Grid container mt={1} mb={2} spacing={1} justifyContent="end">
-        <Stack direction="row" spacing={1}>
-          <Fab size="small" sx={{ backgroundColor: '#1877F2' }} >
-              <IconPlayerPause size={16} color="white"/>
-          </Fab>
-          <Fab size="small" sx={{ backgroundColor: '#1fcd36' }}>
-              <IconCircle size={16} color="white"/>
-          </Fab>
-          <Fab size="small" sx={{ backgroundColor: '#121212' }} disabled>
-              <IconLock size={16} color="white"/>
-          </Fab>
-          <Fab size="small" sx={{ backgroundColor: '#1fcd36' }} >
-              <IconCheck size={16} color="white"/>
-          </Fab>
-            <Fab size="small" sx={{ backgroundColor: '#ffd600' }} >
-                <IconStar size={16} color="white"/>
-            </Fab>
-            <Fab size="small" sx={{ backgroundColor: '#121212' }} >
-                <IconBuildingStore size={16} color="white"/>
-            </Fab>
-            <Fab size="small" sx={{ backgroundColor: '#CD201F' }} >
-                <IconHeart size={16} color="white"/>
-            </Fab>
-            <Fab size="small" sx={{ backgroundColor: '#1877F2' }} disabled>
-                <IconUserCheck size={16} color="white"/>
-            </Fab>
-        </Stack>
+      <Grid container mt={1} mb={2} spacing={1} justifyContent="space-between" alignItems="center">
+        <Grid item>
+          <Typography variant="h4">{t('menu.Users.Personal Information')}</Typography>
+        </Grid>
+        <UserIcons/>
       </Grid>
 
       <Divider/>
@@ -69,7 +45,7 @@ function Page() {
         </Grid>
         <Grid item xs container spacing={2} direction="column" justifyContent="center" >
             <Grid item>
-                <Typography variant="h4" >Eren Erdi - erenerdibnw</Typography>
+                <Typography variant="h4" >John Doe - johndoerobot</Typography>
             </Grid>
             <Grid item>
                 <Button variant="contained" size="small" sx={{mr:1}}>{t('menu.Users.Player Info Page.Edit Image')}</Button>
@@ -80,8 +56,8 @@ function Page() {
       <Grid mt={3}>
         <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={3} mb={3}>
-            <Grid item lg={6} md={12} sm={12}>
-              <CustomFormLabel htmlFor="firstname">First Name</CustomFormLabel>
+            <Grid item sm={6} xs={12}>
+              <CustomFormLabel htmlFor="firstname">{t('menu.Users.Player Info Page.First Name')}</CustomFormLabel>
               <CustomTextField
                 id="firstname"
                 name="firstname"
@@ -92,7 +68,7 @@ function Page() {
                 helperText={formik.touched.firstname && formik.errors.firstname}
               />
 
-              <CustomFormLabel htmlFor="lastname">Last Name</CustomFormLabel>
+              <CustomFormLabel htmlFor="lastname">{t('menu.Users.Player Info Page.Last Name')}</CustomFormLabel>
               <CustomTextField
                 id="lastname"
                 variant="outlined"
@@ -103,7 +79,7 @@ function Page() {
                 helperText={formik.touched.lastname && formik.errors.lastname}
               />
 
-              <CustomFormLabel htmlFor="documentNo">Document No</CustomFormLabel>
+              <CustomFormLabel htmlFor="documentNo">{t('menu.Users.Player Info Page.Document No')}</CustomFormLabel>
               <CustomTextField
                 id="documentNo"
                 variant="outlined"
@@ -114,7 +90,7 @@ function Page() {
                 helperText={formik.touched.documentNo && formik.errors.documentNo}
               />
 
-              <CustomFormLabel htmlFor="documentType">Document Type</CustomFormLabel>
+              <CustomFormLabel htmlFor="documentType">{t('menu.Users.Player Info Page.Document Type')}</CustomFormLabel>
               <CustomTextField
                 id="documentType"
                 variant="outlined"
@@ -125,8 +101,8 @@ function Page() {
                 helperText={formik.touched.documentType && formik.errors.documentType}
               />
             </Grid>
-            <Grid item lg={6} md={12} sm={12}>
-              <CustomFormLabel htmlFor="birthDate">Date of Birth</CustomFormLabel>
+            <Grid item sm={6} xs={12}>
+              <CustomFormLabel htmlFor="birthDate">{t('menu.Users.Player Info Page.Date of Birth')}</CustomFormLabel>
               <CustomTextField
                 id="birthDate"
                 type="date"
@@ -141,7 +117,7 @@ function Page() {
                 helperText={formik.touched.birthDate && formik.errors.birthDate}
               />
 
-              <CustomFormLabel htmlFor="birthPlace">Birth Place</CustomFormLabel>
+              <CustomFormLabel htmlFor="birthPlace">{t('menu.Users.Player Info Page.Birth Place')}</CustomFormLabel>
               <CustomTextField
                 id="birthPlace"
                 variant="outlined"
@@ -152,7 +128,7 @@ function Page() {
                 helperText={formik.touched.birthPlace && formik.errors.birthPlace}
               />
 
-              <CustomFormLabel htmlFor="genderSelect">Gender</CustomFormLabel>
+              <CustomFormLabel htmlFor="genderSelect">{t('menu.Users.Player Info Page.Gender')}</CustomFormLabel>
               <CustomSelect
                 id="genderSelect"
                 name="genderSelect"
@@ -171,12 +147,12 @@ function Page() {
                 </FormHelperText>
               )}
             </Grid>
-            <Grid item container lg={12} md={12} sm={12} justifyContent="right">
+            <Grid item container xs={12} justifyContent="right">
               <Button variant="contained" sx={{mr: 1,}} type="submit">
-                Save
+                {t('i.Save')}
               </Button>
               <Button variant="outlined" color="secondary">
-                Cancel
+                {t('i.Cancel')}
               </Button>
             </Grid>
           </Grid>
