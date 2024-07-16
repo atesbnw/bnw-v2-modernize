@@ -27,11 +27,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 function SideDialog({
-                                     open = false,
-                                     onClose = () => {},
-                                     title,
-                                     content,
-                                     actionButtons
+   open = false,
+   onClose = () => {},
+   title,
+   content,
+   actionButtons
 }) {
   return (
     <FullHeightDialog

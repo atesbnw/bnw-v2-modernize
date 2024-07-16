@@ -122,6 +122,11 @@
         "sendLink": "Send Link to User",
         "twoFactorAuthentication": "Two-Factor Authentication",
         "disconnectAuthenticator": "Disconnect Google Authenticator"
+      },
+      "Notes Page": {
+        "createNewNote": "Create New Note",
+        "noteAddedBy": "Note Added By",
+        "dateAdded": "Date Added"
       }
     },
     "Financial Transactions": {
