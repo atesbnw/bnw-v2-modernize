@@ -9,6 +9,8 @@ import TopCircles from '@/app/(default)/components/home/Circle';
 import StatCards from '@/app/(default)/components/home/StatCards';
 import StatsRow from '@/app/(default)/components/home/StatsRow';
 import OverviewTable from '@/app/(default)/components/home/OverviewTable';
+import { sportsbookOverview } from '@/app/(default)/components/home/fake/sportsbookOverview';
+import { casinoOverview } from '@/app/(default)/components/home/fake/casinoOverview';
 
 export default function Dashboard() {
   const [isLoading, setLoading] = useState(true);
@@ -27,7 +29,52 @@ export default function Dashboard() {
             <FinancialGraph timeRange={time} />
             <StatCards />
             <StatsRow />
-            <OverviewTable />
+
+
+            <OverviewTable
+              title={"Sportsbook Genel Bakış"}
+              data={[
+                ...sportsbookOverview
+              ]}
+            />
+
+
+            <Grid container spacing={1}>
+              <Grid item xs={12} sm={6} md={4}>
+                <OverviewTable
+                  title={"Casino Genel Bakış"}
+                  data={[
+                    ...casinoOverview
+                  ]}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <OverviewTable
+                  title={"Poker Genel Bakış"}
+                  data={[
+                    ...casinoOverview
+                  ]}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <OverviewTable
+                  title={"Sanal Oyunlar Genel Bakış"}
+                  data={[
+                    ...casinoOverview
+                  ]}
+                />
+              </Grid>
+            </Grid>
+
+
+            <OverviewTable
+              title={"Bonus Genel Bakış"}
+              data={[
+                ...sportsbookOverview
+              ]}
+            />
+
+
           </Fragment>
         )}
       </TimeTabs>

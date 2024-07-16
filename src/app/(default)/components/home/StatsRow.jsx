@@ -39,8 +39,7 @@ const StatsRow = () => {
 
   return (
     <Box sx={{
-      p: 2,
-      m: 2
+      p: 2
     }}>
       <Grid container spacing={1}>
         {data.map((item, index) => (
