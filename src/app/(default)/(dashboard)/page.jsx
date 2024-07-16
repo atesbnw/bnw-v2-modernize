@@ -8,6 +8,7 @@ import { Grid, Typography } from '@mui/material';
 import TopCircles from '@/app/(default)/components/home/Circle';
 import StatCards from '@/app/(default)/components/home/StatCards';
 import StatsRow from '@/app/(default)/components/home/StatsRow';
+import OverviewTable from '@/app/(default)/components/home/OverviewTable';
 
 export default function Dashboard() {
   const [isLoading, setLoading] = useState(true);
@@ -26,7 +27,7 @@ export default function Dashboard() {
             <FinancialGraph timeRange={time} />
             <StatCards />
             <StatsRow />
-
+            <OverviewTable />
           </Fragment>
         )}
       </TimeTabs>
