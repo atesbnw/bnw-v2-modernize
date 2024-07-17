@@ -3,10 +3,8 @@ import { initReactI18next } from 'react-i18next';
 import english from '../utils/languages/en.json';
 import turkish from '../utils/languages/tr.json';
 
-import financialTransactionsEN from '../utils/languages/pages/user-management/en/financial-transactions.json';
-import french from '../utils/languages/fr.json';
-import arabic from '../utils/languages/ar.json';
-import chinese from '../utils/languages/ch.json';
+import financialTransactionsEN from '@/utils/languages/pages/en/user-management/financial-transactions.json';
+
 
 const resources = {
   en: {
