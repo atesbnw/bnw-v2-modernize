@@ -35,6 +35,7 @@ function SideDialog({
 }) {
   return (
     <FullHeightDialog
+      unmountOnExit
       open={open}
       onClose={onClose}
       TransitionComponent={Transition}

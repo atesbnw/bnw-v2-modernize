@@ -1,3 +1,27 @@
 {
-  "search": "Search"
+  "poker": "Poker",
+  "okey": "Okey",
+  "balance": "Balance",
+  "investment": "Investment",
+  "withdraw": "Withdraw",
+  "receivedBonus": "Received Bonus",
+  "canceledBonus": "Canceled Bonus",
+  "played": "Played",
+  "gain": "Gain",
+  "memberProfitability": "Member Profitability",
+  "last_login": "Last Login",
+  "last_deposit": "Last Deposit",
+  "last_withdraw": "Last Withdraw",
+  "last_device": "Last Device",
+  "transactionDate":"Transaction Date",
+  "transactionType": "Transaction Type",
+  "category": "Category",
+  "subcategory": "Sub Category",
+  "transactionFlow": "Transaction Flow",
+  "status":  "Status",
+  "device": "Device",
+  "downloadCSV": "Download CSV",
+  "search": "Search",
+  "filter": "Filter",
+  "clearAllFilter": "Clear All Filter"
 }

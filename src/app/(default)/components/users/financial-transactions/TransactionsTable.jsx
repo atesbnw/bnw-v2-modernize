@@ -1,10 +1,9 @@
 import React, { memo, useState, useCallback, useEffect, Fragment } from 'react';
 import DataTable from '@/app/components/shared/DataTable';
 import IconButton from '@mui/material/IconButton';
-import { IconEye, IconFilter } from '@tabler/icons-react';
-import {Faker, tr, fakerTR} from "@faker-js/faker";
+import { IconFileDownload, IconFilter, IconFilterX } from '@tabler/icons-react';
+import { Faker, tr, fakerTR } from '@faker-js/faker';
 import { uniqueId } from 'lodash';
-import { GridToolbarContainer } from '@mui/x-data-grid-pro';
 import Box from '@mui/material/Box';
 import CustomFormLabel from '@/app/components/forms/theme-elements/CustomFormLabel';
 import { t } from 'i18next';
@@ -15,78 +14,80 @@ import { MenuItem } from '@mui/material';
 import SideDialog from '@/app/components/shared/SideDialog';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function TransactionsTable() {
   const [open, setOpen] = useState(false);
-  const [filter,setFilter] = useState({});
+  const [filter, setFilter] = useState({});
   const [data, setData] = useState({
     page: 1,
     pageSize: 10,
     totalData: 25,
     totalPage: 1,
     columns: [],
-    rows: []
+    rows: [],
   });
 
   useEffect(() => {
     const columns = [
       {
-        field: "transactionId",
-        headerName: "Transaction Id",
+        field: 'transactionId',
+        headerName: 'Transaction Id',
         // width: 200
       },
       {
-        field: "transactionDate",
-        headerName: "Transaction Date",
+        field: 'transactionDate',
+        headerName: 'Transaction Date',
         // width: 200
       },
       {
-        field: "transactionType",
-        headerName: "Transaction Type",
+        field: 'transactionType',
+        headerName: 'Transaction Type',
         // width: 200
       },
       {
-        field: "category",
-        headerName: "Category",
+        field: 'category',
+        headerName: 'Category',
         flex: 1,
         // width: 200
       },
       {
-        field: "subCategory",
-        headerName: "Sub Category",
+        field: 'subCategory',
+        headerName: 'Sub Category',
         // width: 200
       },
       {
-        field: "transactionDetail",
-        headerName: "Transaction Detail",
+        field: 'transactionDetail',
+        headerName: 'Transaction Detail',
         // width: 200
       },
       {
-        field: "Transaction Flow",
-        headerName: "Transaction Flow",
+        field: 'Transaction Flow',
+        headerName: 'Transaction Flow',
         // width: 200
       },
       {
-        field: "amount",
-        headerName: "Amount",
+        field: 'amount',
+        headerName: 'Amount',
         // width: 200
       },
       {
-        field: "beforeBalance",
-        headerName: "Before Balance",
+        field: 'beforeBalance',
+        headerName: 'Before Balance',
         // width: 200
       },
       {
-        field: "status",
-        headerName: "Status",
+        field: 'status',
+        headerName: 'Status',
         // width: 200
       },
       {
-        field: "device",
-        headerName: "Device",
+        field: 'device',
+        headerName: 'Device',
         // width: 200
       },
       // {
@@ -126,73 +127,102 @@ function TransactionsTable() {
       columns: columns,
       rows: rows,
       pageSize: rows?.length,
-      totalPage: Math.floor(data?.pageSize / (rows?.length || 1))
-    }))
+      totalPage: Math.floor(data?.pageSize / (rows?.length || 1)),
+    }));
   }, []);
 
   const updateFilter = useCallback((field, value) => {
     setFilter(prev => ({
       ...prev,
-      [field]: value
-    }))
-  }, [])
+      [field]: value,
+    }));
+  }, []);
 
   return (
     <Fragment>
-      <Stack direction={"row"} justifyContent={"end"}>
-        <IconButton onClick={() => setOpen(true)}>
-          <IconFilter />
-        </IconButton>
+      <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
+
+
+        <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
+          <IconButton color={'primary'} onClick={() => {}}>
+            <IconFileDownload />
+          </IconButton>
+        </Tooltip>
+
+
+        <Tooltip title={t('pages.user-management.user_management_financial_transactions.filter')}>
+          <IconButton color={'primary'} onClick={() => setOpen(true)}>
+            <IconFilter />
+          </IconButton>
+        </Tooltip>
+
+        {Object.values(filter)?.some(Boolean) && (
+          <Tooltip title={t('pages.user-management.user_management_financial_transactions.clearAllFilter')}>
+            <IconButton color={'error'} onClick={() => {
+              setFilter({});
+              setData(prev => ({ ...prev, filter: {} }));
+              setOpen(false);
+            }}>
+              <IconFilterX />
+            </IconButton>
+          </Tooltip>
+        )}
+
+
       </Stack>
       <SideDialog
-        title={"Filter"}
+        title={'Filter'}
         open={open}
         onClose={() => setOpen(false)}
-        content={ (
+        content={(
           <Box>
             <Grid container spacing={1} mb={2}>
               <Grid item sm={6} xs={12}>
-                <CustomFormLabel htmlFor="searchText">Search</CustomFormLabel>
+                <CustomFormLabel
+                  htmlFor="searchText">{t('pages.user-management.user_management_financial_transactions.search')}</CustomFormLabel>
                 <CustomTextField
                   id="searchText"
                   name="searchText"
                   variant="outlined"
                   fullWidth
                   value={filter?.searchText}
-                  onChange={(e) => updateFilter("searchText", e?.target.value)}
+                  onChange={(e) => updateFilter('searchText', e?.target.value)}
                 />
               </Grid>
               <Grid item sm={6} xs={12}>
-                <CustomFormLabel htmlFor="transactionDate">Transaction Date</CustomFormLabel>
+                <CustomFormLabel
+                  htmlFor="transactionDate">{t('pages.user-management.user_management_financial_transactions.transactionDate')}</CustomFormLabel>
                 <CustomTextField
                   id="transactionDate"
                   name="transactionDate"
                   variant="outlined"
                   fullWidth
                   value={filter?.transactionDate}
-                  onChange={(e) => updateFilter("transactionDate", e?.target.value)}
+                  onChange={(e) => updateFilter('transactionDate', e?.target.value)}
                 />
               </Grid>
               <Grid item sm={6} xs={12}>
-                <CustomFormLabel htmlFor="balance">Balance</CustomFormLabel>
+                <CustomFormLabel
+                  htmlFor="balance">{t('pages.user-management.user_management_financial_transactions.balance')}</CustomFormLabel>
                 <CustomTextField
                   id="balance"
                   name="balance"
                   variant="outlined"
                   fullWidth
                   value={filter?.balance}
-                  onChange={(e) => updateFilter("balance", e?.target.value)}
+                  onChange={(e) => updateFilter('balance', e?.target.value)}
                 />
               </Grid>
               <Grid item sm={6} xs={12}>
-                <CustomFormLabel htmlFor="transactionType">Transaction Type</CustomFormLabel>
+                <CustomFormLabel
+                  htmlFor="transactionType">{t('pages.user-management.user_management_financial_transactions.transactionType')}</CustomFormLabel>
                 <CustomSelect
                   id="transactionType"
                   name="transactionType"
                   fullWidth
                   variant="outlined"
-                  value={filter?.transactionType || "all"}
-                  onChange={(e) => updateFilter("transactionType", e?.target.value)}
+                  value={filter?.transactionType || 'all'}
+                  onChange={(e) => updateFilter('transactionType', e?.target.value)}
                 >
                   <MenuItem value="all">All</MenuItem>
                   <MenuItem value="deposit">Deposit</MenuItem>
@@ -200,14 +230,15 @@ function TransactionsTable() {
                 </CustomSelect>
               </Grid>
               <Grid item sm={6} xs={12}>
-                <CustomFormLabel htmlFor="category">Category</CustomFormLabel>
+                <CustomFormLabel
+                  htmlFor="category">{t('pages.user-management.user_management_financial_transactions.category')}</CustomFormLabel>
                 <CustomSelect
                   id="category"
                   name="category"
                   fullWidth
                   variant="outlined"
-                  value={filter?.category || "all"}
-                  onChange={(e) => updateFilter("category", e?.target.value)}
+                  value={filter?.category || 'all'}
+                  onChange={(e) => updateFilter('category', e?.target.value)}
                 >
                   <MenuItem value="all">All</MenuItem>
                   <MenuItem value="papara">Papara</MenuItem>
@@ -215,29 +246,15 @@ function TransactionsTable() {
                 </CustomSelect>
               </Grid>
               <Grid item sm={6} xs={12}>
-                <CustomFormLabel htmlFor="category">Category</CustomFormLabel>
-                <CustomSelect
-                  id="category"
-                  name="category"
-                  fullWidth
-                  variant="outlined"
-                  value={filter?.category || "all"}
-                  onChange={(e) => updateFilter("category", e?.target.value)}
-                >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="papara">Papara</MenuItem>
-                  <MenuItem value="casino">Casino</MenuItem>
-                </CustomSelect>
-              </Grid>
-              <Grid item sm={6} xs={12}>
-                <CustomFormLabel htmlFor="category">Sub Category</CustomFormLabel>
+                <CustomFormLabel
+                  htmlFor="subcategory">{t('pages.user-management.user_management_financial_transactions.subcategory')}</CustomFormLabel>
                 <CustomSelect
                   id="subcategory"
                   name="subcategory"
                   fullWidth
                   variant="outlined"
-                  value={filter?.subcategory || "all"}
-                  onChange={(e) => updateFilter("subcategory", e?.target.value)}
+                  value={filter?.subcategory || 'all'}
+                  onChange={(e) => updateFilter('subcategory', e?.target.value)}
                 >
                   <MenuItem value="all">All</MenuItem>
                   <MenuItem value="papara-key">Papara Key</MenuItem>
@@ -245,14 +262,15 @@ function TransactionsTable() {
                 </CustomSelect>
               </Grid>
               <Grid item sm={6} xs={12}>
-                <CustomFormLabel htmlFor="transactionFlow">Transaction Flow</CustomFormLabel>
+                <CustomFormLabel
+                  htmlFor="transactionFlow">{t('pages.user-management.user_management_financial_transactions.transactionFlow')}</CustomFormLabel>
                 <CustomSelect
                   id="transactionFlow"
                   name="transactionFlow"
                   fullWidth
                   variant="outlined"
-                  value={filter?.transactionFlow || "all"}
-                  onChange={(e) => updateFilter("transactionFlow", e?.target.value)}
+                  value={filter?.transactionFlow || 'all'}
+                  onChange={(e) => updateFilter('transactionFlow', e?.target.value)}
                 >
                   <MenuItem value="all">All</MenuItem>
                   <MenuItem value="req">Request</MenuItem>
@@ -260,14 +278,15 @@ function TransactionsTable() {
                 </CustomSelect>
               </Grid>
               <Grid item sm={6} xs={12}>
-                <CustomFormLabel htmlFor="status">Status</CustomFormLabel>
+                <CustomFormLabel
+                  htmlFor="status">{t('pages.user-management.user_management_financial_transactions.status')}</CustomFormLabel>
                 <CustomSelect
                   id="status"
                   name="status"
                   fullWidth
                   variant="outlined"
-                  value={filter?.status || "all"}
-                  onChange={(e) => updateFilter("status", e?.target.value)}
+                  value={filter?.status || 'all'}
+                  onChange={(e) => updateFilter('status', e?.target.value)}
                 >
                   <MenuItem value="all">All</MenuItem>
                   <MenuItem value="new">New</MenuItem>
@@ -275,14 +294,15 @@ function TransactionsTable() {
                 </CustomSelect>
               </Grid>
               <Grid item sm={6} xs={12}>
-                <CustomFormLabel htmlFor="device">Device</CustomFormLabel>
+                <CustomFormLabel
+                  htmlFor="device">{t('pages.user-management.user_management_financial_transactions.device')}</CustomFormLabel>
                 <CustomSelect
                   id="device"
                   name="device"
                   fullWidth
                   variant="outlined"
-                  value={filter?.device || "all"}
-                  onChange={(e) => updateFilter("device", e?.target.value)}
+                  value={filter?.device || 'all'}
+                  onChange={(e) => updateFilter('device', e?.target.value)}
                 >
                   <MenuItem value="all">All</MenuItem>
                 </CustomSelect>
@@ -292,17 +312,22 @@ function TransactionsTable() {
             </Grid>
           </Box>
         )}
-        actionButtons={<Button fullWidth onClick={() => {
-          setData(prev => ({...prev, filter: filter}));
-          setOpen(false)
-        }}>Filtrele</Button>}
-        />
-
-      <DataTable
-        search={false}
-        data={data}
-        toolbar={false}
+        actionButtons={(
+          <Fragment>
+            <Button fullWidth onClick={() => {
+              setData(prev => ({ ...prev, filter: filter }));
+              setOpen(false);
+            }}>{t('pages.user-management.user_management_financial_transactions.filter')}</Button>
+          </Fragment>
+        )}
       />
+      <Box sx={{ width: '100%', maxWidth: "65vw" }}>
+        <DataTable
+          search={false}
+          data={data}
+          toolbar={false}
+        />
+      </Box>
     </Fragment>
   );
 }

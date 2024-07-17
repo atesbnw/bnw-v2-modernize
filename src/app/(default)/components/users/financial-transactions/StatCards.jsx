@@ -1,18 +1,16 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Box, CardContent, Grid, Paper, Typography } from '@mui/material';
 import {
-  IconCash,
-  IconPercentage, IconExchange, IconChevronDown, IconChevronUp,
+  IconChevronDown, IconChevronUp,
 } from '@tabler/icons-react';
 import { useTheme } from '@mui/material/styles';
-import Carousel from 'react-material-ui-carousel'
 import {
-  chunkArray,
   useGridItemsPerPage,
 } from '@/app/(default)/components/users/financial-transactions/useGridItemsPerPage';
 import { TransitionGroup } from 'react-transition-group';
 import Collapse from '@mui/material/Collapse';
 import Button from '@mui/material/Button';
+import {t} from "i18next";
 
 const StatCards = () => {
   const theme = useTheme();
@@ -28,16 +26,16 @@ const StatCards = () => {
 
   useEffect(() => {
     setData([
-      { title: 'Bakiye', digits: '5.000,00₺ '},
-      { title: 'Poker', digits: '2.000,00₺'},
-      { title: 'Okey', digits: ' 5.000,00₺ '},
-      { title: 'Yatırım', digits: '46.000,00₺'},
-      { title: 'Çekim', digits: '30.000,00₺'},
-      { title: 'Alınan Bonus', digits: '46.000,00₺'},
-      { title: 'İptal Bonus', digits: '6.000,00₺'},
-      { title: 'Oynanan', digits: '46.000,00₺'},
-      { title: 'Kazanç', digits: '20.000,00₺'},
-      { title: 'Üye Karlılık', digits: '%42'},
+      { title: t("pages.user-management.user_management_financial_transactions.balance"), digits: '5.000,00₺ '},
+      { title: t("pages.user-management.user_management_financial_transactions.poker"), digits: '2.000,00₺'},
+      { title: t("pages.user-management.user_management_financial_transactions.okey"), digits: ' 5.000,00₺ '},
+      { title: t("pages.user-management.user_management_financial_transactions.investment"), digits: '46.000,00₺'},
+      { title: t("pages.user-management.user_management_financial_transactions.withdraw"), digits: '30.000,00₺'},
+      { title: t("pages.user-management.user_management_financial_transactions.receivedBonus"), digits: '46.000,00₺'},
+      { title: t("pages.user-management.user_management_financial_transactions.canceledBonus"), digits: '6.000,00₺'},
+      { title: t("pages.user-management.user_management_financial_transactions.played"), digits: '46.000,00₺'},
+      { title: t("pages.user-management.user_management_financial_transactions.gain"), digits: '20.000,00₺'},
+      { title: t("pages.user-management.user_management_financial_transactions.memberProfitability"), digits: '%42'},
     ]);
   }, []);
 
