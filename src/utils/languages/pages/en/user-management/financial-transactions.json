@@ -15,6 +15,7 @@
   "last_device": "Last Device",
   "transactionDate":"Transaction Date",
   "transactionType": "Transaction Type",
+  "transactionCategory": "Transaction Category",
   "category": "Category",
   "subcategory": "Sub Category",
   "transactionFlow": "Transaction Flow",
@@ -23,5 +24,16 @@
   "downloadCSV": "Download CSV",
   "search": "Search",
   "filter": "Filter",
-  "clearAllFilter": "Clear All Filter"
+  "clearAllFilter": "Clear All Filter",
+  "newManuelTransactionAdd": "Add New Manual Transaction",
+  "addManualTransaction": "Add Manual Transaction",
+  "editBalance": "Edit Balance",
+  "addBalance": "Add Balance",
+  "notes": "Notes",
+  "bonusType": "Bonus Type",
+  "addUserBonus": "Add Bonus to User",
+  "transferBonus": "Transfer Bonus",
+  "amount": "Amount",
+  "NewManuelTransactionAddWithID": "Add Associated Manual Transaction",
+  "associatedTransactionId": "Associated Transaction ID"
 }

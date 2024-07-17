@@ -12,6 +12,9 @@ import StatCards from '@/app/(default)/components/users/financial-transactions/S
 import LastActionsInfo from '@/app/(default)/components/users/financial-transactions/LastActionsInfo';
 import TransactionsTable from '@/app/(default)/components/users/financial-transactions/TransactionsTable';
 import Card from '@mui/material/Card';
+import Stack from '@mui/material/Stack';
+import NewManuelTransactionAdd from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAdd';
+import AddBonus from '@/app/(default)/components/users/financial-transactions/AddBonus';
 
 function Page() {
   const params = useParams();
@@ -20,22 +23,14 @@ function Page() {
 
   const ButtonComps = useCallback(() => {
     return (
-      <div style={{
-        display: 'flex',
-        gap: 4,
-        alignItems: 'center',
-      }}>
-        <div>
-          <Button variant={'contained'} onClick={() => {
-          }}>{t('menu.Financial Transactions.Add Bonus')}</Button>
-        </div>
-        <div>
-          <Button variant={'contained'} onClick={() => {
-          }}>
-            {t('menu.Financial Transactions.Add Manuel Transaction')}
-          </Button>
-        </div>
-      </div>
+      <Stack direction={"row"} className={"gap-1 items-center"}>
+        <Box>
+          <AddBonus />
+        </Box>
+        <Box>
+          <NewManuelTransactionAdd />
+        </Box>
+      </Stack>
     );
   }, []);
 
