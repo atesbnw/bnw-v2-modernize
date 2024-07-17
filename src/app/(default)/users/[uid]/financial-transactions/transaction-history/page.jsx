@@ -39,7 +39,7 @@ function Page() {
   }, []);
 
   return (
-    <PageContainer>
+    <PageContainer title={t('menu.Financial Transactions.Transaction History')}>
       {/*<Typography variant="h6" component="div">{}</Typography>*/}
       <TitleBar
         title={t('menu.Financial Transactions.Transaction History')}

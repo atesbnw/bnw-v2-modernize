@@ -2,13 +2,22 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import english from '../utils/languages/en.json';
 import turkish from '../utils/languages/tr.json';
+
+import financialTransactionsEN from '../utils/languages/pages/user-management/en/financial-transactions.json';
 import french from '../utils/languages/fr.json';
 import arabic from '../utils/languages/ar.json';
 import chinese from '../utils/languages/ch.json';
 
 const resources = {
   en: {
-    translation: english,
+    translation: {
+      ...english,
+      pages: {
+        "user-management": {
+          "financial-transactions": financialTransactionsEN
+        }
+      }
+    },
   },
   tr: {
     translation: turkish,

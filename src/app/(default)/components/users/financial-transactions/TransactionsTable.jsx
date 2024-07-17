@@ -1,17 +1,26 @@
-import React, { memo, useState, useCallback, useEffect } from 'react';
+import React, { memo, useState, useCallback, useEffect, Fragment } from 'react';
 import DataTable from '@/app/components/shared/DataTable';
 import IconButton from '@mui/material/IconButton';
 import { IconEye } from '@tabler/icons-react';
 import {Faker, tr, fakerTR} from "@faker-js/faker";
 import { uniqueId } from 'lodash';
+import { GridToolbarContainer } from '@mui/x-data-grid-pro';
+import Box from '@mui/material/Box';
+import CustomFormLabel from '@/app/components/forms/theme-elements/CustomFormLabel';
+import { t } from 'i18next';
+import CustomTextField from '@/app/components/forms/theme-elements/CustomTextField';
+import Grid from '@mui/material/Grid';
+import CustomSelect from '@/app/components/forms/theme-elements/CustomSelect';
+import { MenuItem } from '@mui/material';
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function TransactionsTable() {
+  const [filter,setFilter] = useState({});
   const [data, setData] = useState({
     page: 1,
-    pageSize: 25,
+    pageSize: 10,
     totalData: 25,
     totalPage: 1,
     columns: [],
@@ -21,8 +30,8 @@ function TransactionsTable() {
   useEffect(() => {
     const columns = [
       {
-        field: "id",
-        headerName: "Id",
+        field: "transactionId",
+        headerName: "Transaction Id",
         // width: 200
       },
       {
@@ -76,21 +85,21 @@ function TransactionsTable() {
         headerName: "Device",
         // width: 200
       },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 170,
-        getActions: (e) => {
-          return [
-            <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-              <IconEye />
-            </IconButton>,
-            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-            //   <IconPencil />
-            // </IconButton>
-          ]
-        }
-      }
+      // {
+      //   field: 'actions',
+      //   type: 'actions',
+      //   width: 170,
+      //   getActions: (e) => {
+      //     return [
+      //       <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+      //         <IconEye />
+      //       </IconButton>,
+      //       // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+      //       //   <IconPencil />
+      //       // </IconButton>
+      //     ]
+      //   }
+      // }
     ];
 
     const rows = Array.from(Array(50)).map(() => ({
@@ -117,10 +126,74 @@ function TransactionsTable() {
     }))
   }, []);
 
+  const updateFilter = useCallback((field, value) => {
+    setFilter(prev => ({
+      ...prev,
+      [field]: value
+    }))
+  }, [])
+
   return (
-    <DataTable
-      data={data}
-    />
+    <Fragment>
+      <Box>
+        <Grid container spacing={3} mb={3}>
+          <Grid item sm={3} xs={12}>
+            <CustomFormLabel htmlFor="searchText">Search</CustomFormLabel>
+            <CustomTextField
+              id="searchText"
+              name="searchText"
+              variant="outlined"
+              fullWidth
+              value={filter?.searchText}
+              onChange={(e) => updateFilter("searchText", e?.target.value)}
+            />
+          </Grid>
+          <Grid item sm={3} xs={12}>
+            <CustomFormLabel htmlFor="transactionDate">Transaction Date</CustomFormLabel>
+            <CustomTextField
+              id="transactionDate"
+              name="transactionDate"
+              variant="outlined"
+              fullWidth
+              value={filter?.transactionDate}
+              onChange={(e) => updateFilter("transactionDate", e?.target.value)}
+            />
+          </Grid>
+          <Grid item sm={3} xs={12}>
+            <CustomFormLabel htmlFor="balance">Balance</CustomFormLabel>
+            <CustomTextField
+              id="balance"
+              name="balance"
+              variant="outlined"
+              fullWidth
+              value={filter?.balance}
+              onChange={(e) => updateFilter("balance", e?.target.value)}
+            />
+          </Grid>
+          <Grid item sm={3} xs={12}>
+            <CustomFormLabel htmlFor="transactionType">Transaction Type</CustomFormLabel>
+            <CustomSelect
+              id="transactionType"
+              name="transactionType"
+              fullWidth
+              variant="outlined"
+              value={filter?.transactionType}
+              onChange={(e) => updateFilter("transactionType", e?.target.value)}
+            >
+              <MenuItem value="">All</MenuItem>
+              <MenuItem value="deposit">Deposit</MenuItem>
+              <MenuItem value="withdraw">Withdraw</MenuItem>
+            </CustomSelect>
+          </Grid>
+        </Grid>
+      </Box>
+
+      <DataTable
+        search={false}
+        data={data}
+        toolbar={false}
+      />
+    </Fragment>
   );
 }
 

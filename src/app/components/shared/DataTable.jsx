@@ -16,6 +16,7 @@ function DataTable({
                      data = [],
                      paginationMode = "client" || "server",
                      onFilterChange = () => {},
+                     toolbar = true,
                      loading
 }) {
   // const { data: demoData } = useDemoData({
@@ -37,7 +38,7 @@ function DataTable({
         loading={loading}
         rowHeight={38}
         slots={{
-          toolbar: () => <CustomToolbar />
+          toolbar: () => toolbar && <CustomToolbar />
         }}
         checkboxSelection={false}
         disableRowSelectionOnClick
