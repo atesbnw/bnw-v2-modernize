@@ -3,18 +3,14 @@ import { initReactI18next } from 'react-i18next';
 import english from '../utils/languages/en.json';
 import turkish from '../utils/languages/tr.json';
 
-import financialTransactionsEN from '@/utils/languages/pages/en/user-management/financial-transactions.json';
+import EN_PAGES from "./languages/pages/en";
 
 
 const resources = {
   en: {
     translation: {
       ...english,
-      pages: {
-        "user-management": {
-          "financial-transactions": financialTransactionsEN
-        }
-      }
+      pages: EN_PAGES
     },
   },
   tr: {
