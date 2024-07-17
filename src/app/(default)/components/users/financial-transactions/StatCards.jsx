@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Box, CardContent, Grid, Paper, Typography } from '@mui/material';
 import {
   IconCash,
-  IconPercentage, IconExchange,
+  IconPercentage, IconExchange, IconChevronDown, IconChevronUp,
 } from '@tabler/icons-react';
 import { useTheme } from '@mui/material/styles';
 import Carousel from 'react-material-ui-carousel'
@@ -10,13 +10,21 @@ import {
   chunkArray,
   useGridItemsPerPage,
 } from '@/app/(default)/components/users/financial-transactions/useGridItemsPerPage';
+import { TransitionGroup } from 'react-transition-group';
+import Collapse from '@mui/material/Collapse';
+import Button from '@mui/material/Button';
 
 const StatCards = () => {
   const theme = useTheme();
   const [data, setData] = useState([]);
   const itemsPerPage = useGridItemsPerPage();
-  const chunkedData = useMemo(() => chunkArray(data, itemsPerPage), [data, itemsPerPage]);
+  // const chunkedData = useMemo(() => chunkArray(data, itemsPerPage), [data, itemsPerPage]);
+  const [showAll, setShowAll] = useState(false);
+  const toggleShowAll = useCallback(() => setShowAll(!showAll), [showAll]);
 
+  const visibleData = useMemo(() => {
+    return showAll ? data : data?.slice(0, 8);
+  }, [data, showAll]);
 
   useEffect(() => {
     setData([
@@ -34,52 +42,103 @@ const StatCards = () => {
   }, []);
 
   return (
-    <Box sx={{ flexGrow: 1, pb: 3}}>
-      {/*<Grid container spacing={3} mt={1}>*/}
-      <Carousel navButtonsAlwaysInvisible={true} animation={"slide"} className={"group"} indicatorContainerProps={{
-        className: "group-hover:opacity-50 opacity-0 transition-opacity ease-in-out",
-      }}>
-        {chunkedData.map((chunk, chunkIndex) => (
-          <Grid container spacing={3} mt={1} key={chunkIndex}>
-            {chunk.map(({ icon, ...topcard }, i) => (
-              <Grid item xs={12} sm={6} md={3} key={i}>
-                <Box bgcolor={'info.light'} textAlign="center" className={''}>
-                  <CardContent className={'flex gap-3 items-center justify-center group'}>
-                    {icon && (
-                      <Box sx={{
-                        backgroundColor: theme.palette.primary.main,
-                        borderRadius: 2,
-                        p: 1,
-                      }} className={'items-center flex scale-90 group-hover:scale-100 transition-all ease-in-out'}>
-                        {icon}
-                      </Box>
-                    )}
-                    <Box className={'flex-1'}>
-                      <Typography
-                        color={'primary.main'}
-                        mt={1}
-                        variant="body1"
-                        fontWeight={600}
-                        className={'select-none'}
-                      >
-                        {topcard.title}
-                      </Typography>
-                      <Typography
-                        variant="h4"
-                        fontWeight={600}
-                        className={'select-none'}
-                      >
-                        {topcard.digits}
-                      </Typography>
+    <Box sx={{ flexGrow: 1, pl:4, pb: 4}}>
+
+
+      <Grid container spacing={3} mt={1}>
+      <TransitionGroup component={null} className="flex-wrap">
+        <Grid container spacing={3} mt={1}>
+          {visibleData.map(({ icon, ...topcard }, i) => (
+            <Collapse key={i} in={i < 8 || showAll} timeout={600} className={"w-full sm:w-1/2 md:w-1/4 p-3"}>
+              <Box bgcolor={'info.light'} textAlign="center" className={''}>
+                <CardContent className={'flex gap-3 items-center justify-center group'}>
+                  {icon && (
+                    <Box sx={{
+                      backgroundColor: theme.palette.primary.main,
+                      borderRadius: 2,
+                      p: 1,
+                    }} className={'items-center flex scale-90 group-hover:scale-100 transition-all ease-in-out'}>
+                      {icon}
                     </Box>
-                  </CardContent>
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        ))}
-      </Carousel>
-      {/*</Grid>*/}
+                  )}
+                  <Box className={'flex-1'}>
+                    <Typography
+                      color={'primary.main'}
+                      mt={1}
+                      variant="body1"
+                      fontWeight={600}
+                      className={'select-none'}
+                    >
+                      {topcard.title}
+                    </Typography>
+                    <Typography
+                      variant="h4"
+                      fontWeight={600}
+                      className={'select-none'}
+                    >
+                      {topcard.digits}
+                    </Typography>
+                  </Box>
+                </CardContent>
+              </Box>
+            </Collapse>
+          ))}
+        </Grid>
+      </TransitionGroup>
+      </Grid>
+
+      {data.length > 8 && (
+        <Box textAlign="center" mt={2}>
+          <Button variant="text" color="primary" onClick={toggleShowAll} fullWidth>
+            {!showAll ? <IconChevronDown size={18} /> : <IconChevronUp size={18} />}
+          </Button>
+        </Box>
+      )}
+
+
+      {/*<Carousel navButtonsAlwaysInvisible={true} animation={"slide"} className={"group"} indicatorContainerProps={{*/}
+      {/*  className: "group-hover:opacity-50 opacity-0 transition-opacity ease-in-out",*/}
+      {/*}}>*/}
+      {/*  {chunkedData.map((chunk, chunkIndex) => (*/}
+      {/*    <Grid container spacing={3} mt={1} key={chunkIndex}>*/}
+      {/*      {chunk.map(({ icon, ...topcard }, i) => (*/}
+      {/*        <Grid item xs={12} sm={6} md={3} key={i}>*/}
+      {/*          <Box bgcolor={'info.light'} textAlign="center" className={''}>*/}
+      {/*            <CardContent className={'flex gap-3 items-center justify-center group'}>*/}
+      {/*              {icon && (*/}
+      {/*                <Box sx={{*/}
+      {/*                  backgroundColor: theme.palette.primary.main,*/}
+      {/*                  borderRadius: 2,*/}
+      {/*                  p: 1,*/}
+      {/*                }} className={'items-center flex scale-90 group-hover:scale-100 transition-all ease-in-out'}>*/}
+      {/*                  {icon}*/}
+      {/*                </Box>*/}
+      {/*              )}*/}
+      {/*              <Box className={'flex-1'}>*/}
+      {/*                <Typography*/}
+      {/*                  color={'primary.main'}*/}
+      {/*                  mt={1}*/}
+      {/*                  variant="body1"*/}
+      {/*                  fontWeight={600}*/}
+      {/*                  className={'select-none'}*/}
+      {/*                >*/}
+      {/*                  {topcard.title}*/}
+      {/*                </Typography>*/}
+      {/*                <Typography*/}
+      {/*                  variant="h4"*/}
+      {/*                  fontWeight={600}*/}
+      {/*                  className={'select-none'}*/}
+      {/*                >*/}
+      {/*                  {topcard.digits}*/}
+      {/*                </Typography>*/}
+      {/*              </Box>*/}
+      {/*            </CardContent>*/}
+      {/*          </Box>*/}
+      {/*        </Grid>*/}
+      {/*      ))}*/}
+      {/*    </Grid>*/}
+      {/*  ))}*/}
+      {/*</Carousel>*/}
     </Box>
   );
 };

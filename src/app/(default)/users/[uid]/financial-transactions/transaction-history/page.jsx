@@ -11,6 +11,7 @@ import TimeTabs from '@/app/components/shared/TimeTabs';
 import StatCards from '@/app/(default)/components/users/financial-transactions/StatCards';
 import LastActionsInfo from '@/app/(default)/components/users/financial-transactions/LastActionsInfo';
 import TransactionsTable from '@/app/(default)/components/users/financial-transactions/TransactionsTable';
+import Card from '@mui/material/Card';
 
 function Page() {
   const params = useParams();
@@ -39,27 +40,27 @@ function Page() {
   }, []);
 
   return (
-    <PageContainer title={t('menu.Financial Transactions.Transaction History')}>
+    <PageContainer title={t('menu.Financial Transactions.Transaction History')} className={"space-y-4"}>
       {/*<Typography variant="h6" component="div">{}</Typography>*/}
       <TitleBar
         title={t('menu.Financial Transactions.Transaction History')}
         Right={ButtonComps}
       />
 
-      <TimeTabs justify={"between"}>
-        {(time) => (
-          <Fragment>
-
+      <Card variant="outlined" className={"pb-0"}>
+        <TimeTabs justify={'between'}>
+          {(time) => (
             <StatCards />
+          )}
+        </TimeTabs>
+      </Card>
 
-            <LastActionsInfo />
-
-            <TransactionsTable />
-
-          </Fragment>
-        )}
-      </TimeTabs>
-
+      <Card variant="outlined" className={"flex items-center justify-center pb-0"}>
+        <LastActionsInfo />
+      </Card>
+      <Card variant="outlined">
+        <TransactionsTable />
+      </Card>
     </PageContainer>
   );
 }

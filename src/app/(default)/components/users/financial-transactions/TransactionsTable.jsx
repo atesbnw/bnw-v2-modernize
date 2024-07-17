@@ -1,7 +1,7 @@
 import React, { memo, useState, useCallback, useEffect, Fragment } from 'react';
 import DataTable from '@/app/components/shared/DataTable';
 import IconButton from '@mui/material/IconButton';
-import { IconEye } from '@tabler/icons-react';
+import { IconEye, IconFilter } from '@tabler/icons-react';
 import {Faker, tr, fakerTR} from "@faker-js/faker";
 import { uniqueId } from 'lodash';
 import { GridToolbarContainer } from '@mui/x-data-grid-pro';
@@ -12,11 +12,15 @@ import CustomTextField from '@/app/components/forms/theme-elements/CustomTextFie
 import Grid from '@mui/material/Grid';
 import CustomSelect from '@/app/components/forms/theme-elements/CustomSelect';
 import { MenuItem } from '@mui/material';
+import SideDialog from '@/app/components/shared/SideDialog';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function TransactionsTable() {
+  const [open, setOpen] = useState(false);
   const [filter,setFilter] = useState({});
   const [data, setData] = useState({
     page: 1,
@@ -135,58 +139,164 @@ function TransactionsTable() {
 
   return (
     <Fragment>
-      <Box>
-        <Grid container spacing={3} mb={3}>
-          <Grid item sm={3} xs={12}>
-            <CustomFormLabel htmlFor="searchText">Search</CustomFormLabel>
-            <CustomTextField
-              id="searchText"
-              name="searchText"
-              variant="outlined"
-              fullWidth
-              value={filter?.searchText}
-              onChange={(e) => updateFilter("searchText", e?.target.value)}
-            />
-          </Grid>
-          <Grid item sm={3} xs={12}>
-            <CustomFormLabel htmlFor="transactionDate">Transaction Date</CustomFormLabel>
-            <CustomTextField
-              id="transactionDate"
-              name="transactionDate"
-              variant="outlined"
-              fullWidth
-              value={filter?.transactionDate}
-              onChange={(e) => updateFilter("transactionDate", e?.target.value)}
-            />
-          </Grid>
-          <Grid item sm={3} xs={12}>
-            <CustomFormLabel htmlFor="balance">Balance</CustomFormLabel>
-            <CustomTextField
-              id="balance"
-              name="balance"
-              variant="outlined"
-              fullWidth
-              value={filter?.balance}
-              onChange={(e) => updateFilter("balance", e?.target.value)}
-            />
-          </Grid>
-          <Grid item sm={3} xs={12}>
-            <CustomFormLabel htmlFor="transactionType">Transaction Type</CustomFormLabel>
-            <CustomSelect
-              id="transactionType"
-              name="transactionType"
-              fullWidth
-              variant="outlined"
-              value={filter?.transactionType}
-              onChange={(e) => updateFilter("transactionType", e?.target.value)}
-            >
-              <MenuItem value="">All</MenuItem>
-              <MenuItem value="deposit">Deposit</MenuItem>
-              <MenuItem value="withdraw">Withdraw</MenuItem>
-            </CustomSelect>
-          </Grid>
-        </Grid>
-      </Box>
+      <Stack direction={"row"} justifyContent={"end"}>
+        <IconButton onClick={() => setOpen(true)}>
+          <IconFilter />
+        </IconButton>
+      </Stack>
+      <SideDialog
+        title={"Filter"}
+        open={open}
+        onClose={() => setOpen(false)}
+        content={ (
+          <Box>
+            <Grid container spacing={1} mb={2}>
+              <Grid item sm={6} xs={12}>
+                <CustomFormLabel htmlFor="searchText">Search</CustomFormLabel>
+                <CustomTextField
+                  id="searchText"
+                  name="searchText"
+                  variant="outlined"
+                  fullWidth
+                  value={filter?.searchText}
+                  onChange={(e) => updateFilter("searchText", e?.target.value)}
+                />
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <CustomFormLabel htmlFor="transactionDate">Transaction Date</CustomFormLabel>
+                <CustomTextField
+                  id="transactionDate"
+                  name="transactionDate"
+                  variant="outlined"
+                  fullWidth
+                  value={filter?.transactionDate}
+                  onChange={(e) => updateFilter("transactionDate", e?.target.value)}
+                />
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <CustomFormLabel htmlFor="balance">Balance</CustomFormLabel>
+                <CustomTextField
+                  id="balance"
+                  name="balance"
+                  variant="outlined"
+                  fullWidth
+                  value={filter?.balance}
+                  onChange={(e) => updateFilter("balance", e?.target.value)}
+                />
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <CustomFormLabel htmlFor="transactionType">Transaction Type</CustomFormLabel>
+                <CustomSelect
+                  id="transactionType"
+                  name="transactionType"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.transactionType || "all"}
+                  onChange={(e) => updateFilter("transactionType", e?.target.value)}
+                >
+                  <MenuItem value="all">All</MenuItem>
+                  <MenuItem value="deposit">Deposit</MenuItem>
+                  <MenuItem value="withdraw">Withdraw</MenuItem>
+                </CustomSelect>
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <CustomFormLabel htmlFor="category">Category</CustomFormLabel>
+                <CustomSelect
+                  id="category"
+                  name="category"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.category || "all"}
+                  onChange={(e) => updateFilter("category", e?.target.value)}
+                >
+                  <MenuItem value="all">All</MenuItem>
+                  <MenuItem value="papara">Papara</MenuItem>
+                  <MenuItem value="casino">Casino</MenuItem>
+                </CustomSelect>
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <CustomFormLabel htmlFor="category">Category</CustomFormLabel>
+                <CustomSelect
+                  id="category"
+                  name="category"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.category || "all"}
+                  onChange={(e) => updateFilter("category", e?.target.value)}
+                >
+                  <MenuItem value="all">All</MenuItem>
+                  <MenuItem value="papara">Papara</MenuItem>
+                  <MenuItem value="casino">Casino</MenuItem>
+                </CustomSelect>
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <CustomFormLabel htmlFor="category">Sub Category</CustomFormLabel>
+                <CustomSelect
+                  id="subcategory"
+                  name="subcategory"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.subcategory || "all"}
+                  onChange={(e) => updateFilter("subcategory", e?.target.value)}
+                >
+                  <MenuItem value="all">All</MenuItem>
+                  <MenuItem value="papara-key">Papara Key</MenuItem>
+                  <MenuItem value="egt">EGT</MenuItem>
+                </CustomSelect>
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <CustomFormLabel htmlFor="transactionFlow">Transaction Flow</CustomFormLabel>
+                <CustomSelect
+                  id="transactionFlow"
+                  name="transactionFlow"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.transactionFlow || "all"}
+                  onChange={(e) => updateFilter("transactionFlow", e?.target.value)}
+                >
+                  <MenuItem value="all">All</MenuItem>
+                  <MenuItem value="req">Request</MenuItem>
+                  <MenuItem value="bet">Bet</MenuItem>
+                </CustomSelect>
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <CustomFormLabel htmlFor="status">Status</CustomFormLabel>
+                <CustomSelect
+                  id="status"
+                  name="status"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.status || "all"}
+                  onChange={(e) => updateFilter("status", e?.target.value)}
+                >
+                  <MenuItem value="all">All</MenuItem>
+                  <MenuItem value="new">New</MenuItem>
+                  <MenuItem value="confirmed">Confirmed</MenuItem>
+                </CustomSelect>
+              </Grid>
+              <Grid item sm={6} xs={12}>
+                <CustomFormLabel htmlFor="device">Device</CustomFormLabel>
+                <CustomSelect
+                  id="device"
+                  name="device"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.device || "all"}
+                  onChange={(e) => updateFilter("device", e?.target.value)}
+                >
+                  <MenuItem value="all">All</MenuItem>
+                </CustomSelect>
+              </Grid>
+
+
+            </Grid>
+          </Box>
+        )}
+        actionButtons={<Button fullWidth onClick={() => {
+          setData(prev => ({...prev, filter: filter}));
+          setOpen(false)
+        }}>Filtrele</Button>}
+        />
 
       <DataTable
         search={false}

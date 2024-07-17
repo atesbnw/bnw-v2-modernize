@@ -43,11 +43,11 @@ function LastActionsInfo() {
   }, []);
 
   return (
-    <Grid container spacing={2} className={"pl-2"}>
+    <Grid container spacing={2} className={"pl-2 h-full"}>
       {data.map((item) => {
         const {title, value, icon, type} = item;
         return (
-          <Grid item xs={6} sm={6} md={3} className={'p-2'}>
+          <Grid item xs={6} sm={6} md={3} className={'p-2 h-full'}>
             <Box className={"flex flex-col md:flex-row gap-2 justify-start  items-center bg-slate-500/5 flex-1 rounded-xl p-3 select-none"}>
               {type==="date" ? <IconHistoryToggle /> : <IconDevices />}
               <Box className={"md:items-start items-center flex flex-col"}>
