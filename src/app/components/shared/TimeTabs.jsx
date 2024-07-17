@@ -8,7 +8,7 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 
 
-function TimeTabs({topElement, children, onChange}) {
+function TimeTabs({topElement, children, onChange, justify = "end" || "between" || "start"}) {
   const [timeRange, setTimeRange] = useState(0);
   const [time, setTime] = useState([dayjs(), dayjs().add(7,"days")]);
   const [open, setOpen] = useState(false);
@@ -28,6 +28,7 @@ function TimeTabs({topElement, children, onChange}) {
       case 2: setTime([dayjs().subtract(7,"day").startOf("day"), dayjs().endOf("day")]); break;
       case 3: setTime([dayjs().subtract(15,"day").startOf("day"), dayjs().endOf("day")]); break;
       case 4: setTime([dayjs().subtract(30,"day").startOf("day"), dayjs().endOf("day")]); break;
+      case 5: setTime([dayjs().startOf("month"), dayjs().endOf("day")]); break;
 
       default: break;
     }
@@ -44,7 +45,7 @@ function TimeTabs({topElement, children, onChange}) {
     <Fragment>
       <Grid container spacing={2} alignItems="center">
         {topElement && topElement}
-        <Grid sx={{flex: 1}} />
+        {justify==="end" && <Grid sx={{ flex: 1 }} />}
         <Grid item>
           <Button variant={timeRange===0 ? "contained" : "outlined"} onClick={() => changeRange(0)} color="primary">Bugün</Button>
         </Grid>
@@ -61,10 +62,15 @@ function TimeTabs({topElement, children, onChange}) {
           <Button variant={timeRange===4 ? "contained" : "outlined"} onClick={() => changeRange(4)}>Son 30 Gün</Button>
         </Grid>
         <Grid item>
+          <Button variant={timeRange===5 ? "contained" : "outlined"} onClick={() => changeRange(5)}>Bu Ay</Button>
+        </Grid>
+        {justify==="between" && <Grid sx={{ flex: 1 }} />}
+        <Grid item>
           <Button variant="outlined" onClick={handleClickOpen}>
             {time?.[0] && time?.[1] ? `${dayjs(time?.[0]).format("DD.MM.YYYY")} - ${dayjs(time?.[1]).format("DD.MM.YYYY")}` : 'Tarih Seç'}
           </Button>
         </Grid>
+        {justify==="start" && <Grid sx={{ flex: 1 }} />}
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle>{t("Dashboard.Financial Graph.Select Date Range")}</DialogTitle>
           <DialogContent>
