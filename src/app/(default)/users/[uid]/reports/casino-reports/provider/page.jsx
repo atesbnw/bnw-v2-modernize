@@ -23,7 +23,7 @@ const faker = new Faker({
 });
 
 function Page() {
-  const SubTitle = () => " > EGT";
+  const SubTitle = () => "EGT";
   const LogoProvider = useCallback(() => {
     return (
       <Stack direction={"row"} className={"gap-1 items-center"}>

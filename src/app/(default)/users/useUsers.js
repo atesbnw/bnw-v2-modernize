@@ -94,10 +94,10 @@ export function useUsers() {
         uuid: faker.datatype.number({ min: 9000, max: 99999 }),
         username: faker.internet.userName(),
         name: faker.person.fullName(),
-        birthday: faker.date.birthdate(),
+        birthday: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
         ip: faker.internet.ipv4(),
-        registerDate: faker.date.birthdate(),
-        lastLoginDate: faker.date.birthdate(),
+        registerDate: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
+        lastLoginDate: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
         balance: faker.number.float(10),
         status: "active"
       }

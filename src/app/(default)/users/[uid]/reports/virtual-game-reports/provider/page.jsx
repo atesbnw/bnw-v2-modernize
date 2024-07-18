@@ -4,7 +4,7 @@ import { t } from 'i18next';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import TitleBar from '@/app/components/TitleBar';
-import {Box, Button, InputAdornment, Link} from "@mui/material";
+import {Box, Button, InputAdornment, Typography} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import {IconFileDownload, IconEye} from "@tabler/icons-react";
 import Tooltip from "@mui/material/Tooltip";
@@ -16,14 +16,28 @@ import Filter from "@/app/(default)/components/users/reports/Filter";
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
-import { useCasino } from '@/app/(default)/users/[uid]/reports/casino-reports/useCasino.js';
+import { useProvider } from '@/app/(default)/users/[uid]/reports/casino-reports/provider/useProvider.jsx';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function Page() {
-  const {casinoReports} = useCasino();
+  const SubTitle = () => "BetGames";
+  const LogoProvider = useCallback(() => {
+    return (
+      <Stack direction={"row"} className={"gap-1 items-center"}>
+        <Box className={"flex flex-row gap-2  items-center mr-4"}>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZQ05jMMR2tFIde25J-NbCvVi8aZwImJEgTA&s"
+            className={"h-20 aspect-square object-contain bg-slate-100 rounded-xl p-1"}
+          />
+        </Box>
+      </Stack>
+    );
+  }, []);
+
+  const {providerReports} = useProvider();
 
   const totalResultsData = [
     { title: t('pages.user-management.user_management_reports.Played'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
@@ -40,7 +54,9 @@ function Page() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <TitleBar
-            title={t('menu.Users.Reports Menu.Casino Reports')}
+            title={t('menu.Users.Reports Menu.Virtual Game Reports')}
+            LeftImage={LogoProvider}
+            SubTitle={SubTitle}
           />
         </Grid>
         <Grid item xs={12} className={"pt-0"}>
@@ -53,7 +69,7 @@ function Page() {
                   <CustomTextField
                     id="searchText"
                     name="searchText"
-                    placeholder={t('pages.user-management.user_management_reports.Provider Name')}
+                    placeholder={t('pages.user-management.user_management_reports.Game Name')}
                     variant="outlined"
                     fullWidth
                   />
@@ -109,7 +125,7 @@ function Page() {
             <Box sx={{ width: '100%'}}>
               <DataTable
                 search={false}
-                data={casinoReports}
+                data={providerReports}
                 toolbar={false}
               />
             </Box>

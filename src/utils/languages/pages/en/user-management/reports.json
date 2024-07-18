@@ -11,5 +11,18 @@
   "Difference" : "Difference",
   "Canceled" : "Canceled",
   "Take Back" : "Take Back",
-  "Payback" : "Payback"
+  "Payback" : "Payback",
+  "ID" : "ID",
+  "Amount" : "Amount",
+  "Bonus Type" : "Bonus Type",
+  "Status" : "Status",
+  "Result" : "Result",
+  "Operator" : "Operator",
+  "sameDayTransactions" : "Same Day Transactions",
+  "Transferred Bonus" :"Transferred Bonus",
+  "Creation Time" : "Creation Time",
+  "Start Time" :"Start Time",
+  "Expiration Time" : "Expiration Time",
+  "Check time" :"Check time",
+  "Situation" : "Situation"
 }

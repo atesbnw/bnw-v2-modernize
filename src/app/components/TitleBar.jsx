@@ -1,7 +1,7 @@
 import React, { memo, useState, useCallback } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Divider from "@mui/material/Divider";
+import {IconChevronRight} from "@tabler/icons-react";
 
 function TitleBar({ LeftImage, SubTitle, Left, title, Right }) {
   return (
@@ -29,7 +29,9 @@ function TitleBar({ LeftImage, SubTitle, Left, title, Right }) {
         <Typography variant="h2" component="div">
           {title}
           {SubTitle && (
-            <SubTitle />
+            <>
+              <IconChevronRight/> <SubTitle />
+            </>
           )}
         </Typography>
       </Box>
