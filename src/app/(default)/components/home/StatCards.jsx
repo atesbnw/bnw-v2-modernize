@@ -8,7 +8,14 @@ import {
   IconUsers,
   IconUserCheck,
   IconCoins,
-  IconPercentage, IconExchange, IconMoodDollar, IconDiscountOff, IconDiscountCheck, IconChevronDown, IconChevronUp,
+  IconPercentage,
+  IconExchange,
+  IconMoodDollar,
+  IconDiscountOff,
+  IconDiscountCheck,
+  IconChevronDown,
+  IconChevronUp,
+  IconUser,
 } from '@tabler/icons-react';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
@@ -33,18 +40,49 @@ const StatCards = () => {
 
   useEffect(() => {
     setData([
-      { title: "Toplam Bakiye", digits: "46.000,00₺", icon: <IconCash {...iconProps} /> },
-      { title: "Yatırım", digits: "46.000,00₺", icon: <IconExchange {...iconProps} /> },
-      { title: "Çekim", digits: "46.000,00₺", icon: <IconExchange {...iconProps} /> },
-      { title: "Alınan Bonus", digits: "46.000,00₺", icon: <IconDiscountCheck {...iconProps} /> },
-      { title: "İptal Bonus", digits: "30.000,00₺", icon: <IconDiscountOff {...iconProps} /> },
-      { title: "Oynanan", digits: "46.000,00₺", icon: <IconChartLine {...iconProps} /> },
-      { title: "Kazanç", digits: "30.000,00₺", icon: <IconMoodDollar {...iconProps} /> },
-      { title: "Toplam Üye Sayısı", digits: "150", icon: <IconUsers {...iconProps} /> },
-      { title: "Aktif Üye Sayısı", digits: "130", icon: <IconUserCheck {...iconProps} /> },
-      { title: "Bayi Hakediş", digits: "120,00₺", icon: <IconCoins {...iconProps} /> },
-      { title: "Bayi Komisyon Oranı", digits: "%15", icon: <IconPercentage {...iconProps} /> }
-    ])
+        { title: "DEPOSIT MONEY", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "WITHDRAW MONEY", digits: "4,100.18₺", icon: <IconExchange {...iconProps} /> },
+        { title: "PLAYER BALANCE", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "PROFIT", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "TURNOVER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "NUMBER OF DEPOSITS", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "NUMBER OF WITHDRAWALS", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "BONUS BALANCE", digits: "4,100.18₺", icon: <IconDiscountCheck {...iconProps} /> },
+        { title: "UNIQUE DEPOSITING MEMBER", digits: "4,100.18₺", icon: <IconUser {...iconProps} /> },
+        { title: "UNIQUE WITHDRAWING MEMBER", digits: "4,100.18₺", icon: <IconUser {...iconProps} /> },
+        { title: "TOTAL BONUS MEMBERS", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "UNIQUE MESSAGE MEMBER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "UNIQUE REGISTRATION MEMBER", digits: "4,100.18₺", icon: <IconUser {...iconProps} /> },
+        { title: "UNIQUE LOGIN MEMBER", digits: "4,100.18₺", icon: <IconUser {...iconProps} /> },
+        { title: "SUCCESSFUL LOGIN COUNT", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "DAILY LOGIN USER", digits: "4,100.18₺", icon: <IconUser {...iconProps} /> },
+        { title: "VIP MEMBER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "LOYAL MEMBER COUNT", digits: "4,100.18₺", icon: <IconUser {...iconProps} /> },
+        { title: "APPROVAL RATE", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "RECEIVED BONUS COUNT", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "CANCELED BONUS COUNT", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "TOTAL BONUS MEMBERS", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "FIRST DEPOSIT MEMBER", digits: "4,100.18₺", icon: <IconUser {...iconProps} /> },
+        { title: "FIRST WITHDRAWAL MEMBER", digits: "4,100.18₺", icon: <IconUser {...iconProps} /> },
+        { title: "FIRST BONUS MEMBER", digits: "4,100.18₺", icon: <IconUser {...iconProps} /> },
+        { title: "HIGHEST EARNING MEMBER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "HIGHEST LOSS MEMBER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "MOST EARNING DEALER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "MOST LOSING DEALER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "TOTAL DEALER COUNT", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "TOTAL CASINO PROFIT", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "TOTAL LIVE CASINO PROFIT", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "TOTAL VIRTUAL GAMES PROFIT", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "TOTAL SPORTS PROFIT", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "MOST EARNING CASINO MEMBER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "MOST EARNING LIVE CASINO MEMBER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "MOST EARNING VIRTUAL GAMES MEMBER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "MOST EARNING SPORTS MEMBER", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "TOTAL CASINO PROVIDERS", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "TOTAL LIVE CASINO PROVIDERS", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> },
+        { title: "TOTAL VIRTUAL GAMES PROVIDERS", digits: "4,100.18₺", icon: <IconCash {...iconProps} /> }
+      ]
+    )
   }, []);
 
   return (
