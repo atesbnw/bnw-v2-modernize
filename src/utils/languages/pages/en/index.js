@@ -129,7 +129,7 @@ const pages = {
   "user-management": {
     "user_management_dashboard" : user_management_dashboard,
     "user_management_financial_transactions" : user_management_financial_transactions,
-    "user_management_game_management" : user_management_game_management,
+    "game-management" : user_management_game_management,
     "user_management_reports" : user_management_reports,
     "user_management_settings" : user_management_settings,
     "user_management_user_management" : user_management_user_management

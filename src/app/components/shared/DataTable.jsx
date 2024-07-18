@@ -17,6 +17,7 @@ import { useTheme } from '@mui/material/styles';
      data = [],
      paginationMode = "client" || "server",
      onFilterChange = () => {},
+     checkboxSelection = false,
      toolbar = true,
      loading
   }) {
@@ -74,7 +75,7 @@ import { useTheme } from '@mui/material/styles';
         slots={{
           toolbar: () => toolbar && <CustomToolbar />
         }}
-        checkboxSelection={false}
+        checkboxSelection={checkboxSelection}
         disableRowSelectionOnClick
         disableColumnSelector
         paginationMode={paginationMode}

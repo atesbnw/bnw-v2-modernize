@@ -1,3 +1,9 @@
 {
-  "search": "Search"
+  "search": "Search",
+  "Desktop": "Desktop",
+  "Mobile":"Mobile",
+  "Locked": "Locked",
+  "Logo": "Logo",
+  "providerID": "Provider ID",
+  "providerName": "Provider Name"
 }
