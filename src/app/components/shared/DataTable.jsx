@@ -55,6 +55,12 @@ import { useTheme } from '@mui/material/styles';
         }}
         rows={data?.rows || []}
         columns={data?.columns || []}
+        autosizeOptions={{
+          columns: data?.columns || [],
+          expand: true,
+          includeOutliers: true,
+          includeHeaders: true,
+        }}
         pagination={true}
         autoPageSize={false}
         loading={loading}

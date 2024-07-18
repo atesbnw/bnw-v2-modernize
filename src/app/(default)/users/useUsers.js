@@ -7,6 +7,7 @@ import { IconEye, IconPencil } from '@tabler/icons-react';
 import {Faker, tr, fakerTR} from "@faker-js/faker";
 import IconButton from '@mui/material/IconButton';
 import { useRouter } from 'next/navigation';
+import {uniqueId} from "lodash";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -26,6 +27,11 @@ export function useUsers() {
   useEffect(() => {
     const columns = [
       {
+        field: "uuid",
+        headerName: "UID",
+        // width: 200
+      },
+      {
         field: "username",
         headerName: "Username",
         // width: 200
@@ -33,7 +39,7 @@ export function useUsers() {
       {
         field: "name",
         headerName: "Name",
-        flex: 1,
+        flex: 0.1,
         // width: 200
       },
       {
@@ -69,7 +75,7 @@ export function useUsers() {
       {
         field: 'actions',
         type: 'actions',
-        width: 170,
+        width: 100,
         getActions: (e) => {
           return [
               <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
@@ -84,7 +90,8 @@ export function useUsers() {
     ];
     const rows = Array.from(Array(50)).map((i,_) => (
       {
-        id: faker.string.uuid(),
+        id: uniqueId(),
+        uuid: faker.datatype.number({ min: 9000, max: 99999 }),
         username: faker.internet.userName(),
         name: faker.person.fullName(),
         birthday: faker.date.birthdate(),
