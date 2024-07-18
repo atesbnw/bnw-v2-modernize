@@ -31,7 +31,7 @@ function TopMenu() {
       to: `/users/${params?.uid}/game-management/casino-management`,
     },
     {
-      label: 'Reports.title',
+      label: 'menu.Users.Reports',
       // icon: <IconUserCircle size="20" />,
       to: `/users/${params?.uid}/reports/casino-reports`,
     },

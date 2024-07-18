@@ -12,47 +12,47 @@ export function useMenu() {
   const menu = [
     {
       id: uniqueId(),
-      title: "Reports.Casino Reports",
+      title: "menu.Users.Reports Menu.Casino Reports",
       href: `${url}/casino-reports`
     },
     {
       id: uniqueId(),
-      title: "Reports.Live Casino Reports",
+      title: "menu.Users.Reports Menu.Live Casino Reports",
       href: `${url}/live-casino-reports`
     },
     {
       id: uniqueId(),
-      title: "Reports.Virtual Game Reports",
+      title: "menu.Users.Reports Menu.Virtual Game Reports",
       href: `${url}/virtual-game-reports`,
     },
     {
       id: uniqueId(),
-      title: "Reports.Bet Reports",
+      title: "menu.Users.Reports Menu.Bet Reports",
       href: `${url}/bet-reports`,
     },
     {
       id: uniqueId(),
-      title: "Reports.Bonus Reports",
+      title: "menu.Users.Reports Menu.Bonus Reports",
       href: `${url}/bonus-reports`,
     },
     {
       id: uniqueId(),
-      title: "Reports.Finance Reports",
+      title: "menu.Users.Reports Menu.Finance Reports",
       href: `${url}/finance-reports`,
     },
     {
       id: uniqueId(),
-      title: "Reports.User Stats",
+      title: "menu.Users.Reports Menu.User Stats",
       href: `${url}/user-stats`,
     },
     {
       id: uniqueId(),
-      title: "Reports.Login Reports",
+      title: "menu.Users.Reports Menu.Login Reports",
       href: `${url}/login-reports`,
     },
     {
       id: uniqueId(),
-      title: "Reports.Transaction Logs",
+      title: "menu.Users.Reports Menu.Transaction Logs",
       href: `${url}/transaction-logs`,
     }
   ];

@@ -5,7 +5,7 @@ import { t } from 'i18next';
 function layout({ children }) {
 
   return (
-    <HeaderCustom menu={false} title={`${t("menu.Users.Settings")}`} activeItem={t("menu.Users.Settings")} >
+    <HeaderCustom menu={false} title={`${t("menu.Users.Settings")}`} activeItem="menu.Users.Settings" >
       {children}
     </HeaderCustom>
   );

@@ -36,7 +36,18 @@ import { useTheme } from '@mui/material/styles';
         // }}
         sx={{
           borderColor: 'grey.300',
+          '& .MuiDataGrid-cell.centerAll': {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+          '& .MuiDataGrid-cell.centerVertical': {
+            display: 'flex',
+            alignItems: 'center',
+          },
           '& .MuiDataGrid-cell': {
+            display: 'flex',
+            alignItems: 'center',
             borderRight: '1px solid',
             borderColor: 'grey.300',
           },
@@ -55,12 +66,7 @@ import { useTheme } from '@mui/material/styles';
         }}
         rows={data?.rows || []}
         columns={data?.columns || []}
-        autosizeOptions={{
-          columns: data?.columns || [],
-          expand: true,
-          includeOutliers: true,
-          includeHeaders: true,
-        }}
+        getRowHeight={() => 'auto'}
         pagination={true}
         autoPageSize={false}
         loading={loading}

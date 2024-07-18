@@ -1,3 +1,15 @@
 {
-  "search": "Search"
+  "Casino Reports": "Casino Reports",
+  "Search" : "Search",
+  "Provider Name" : "Provider Name",
+  "Game Name" : "Game Name",
+  "Min. Played" : "Min. Played",
+  "Max. Played" : "Max. Played",
+  "Total" : "Total",
+  "Played" : "Played",
+  "Won" : "Won",
+  "Difference" : "Difference",
+  "Canceled" : "Canceled",
+  "Take Back" : "Take Back",
+  "Payback" : "Payback"
 }
