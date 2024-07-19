@@ -17,6 +17,7 @@ import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLab
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
 import { useCasino } from '@/app/(default)/users/[uid]/reports/casino-reports/useCasino.js';
+import FilterModal from "@/app/(default)/components/users/reports/FilterModal";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -24,6 +25,15 @@ const faker = new Faker({
 
 function Page() {
   const {casinoReports} = useCasino();
+  const [filter, setFilter] = useState({});
+
+  const updateFilter = useCallback((field, value) => {
+    setFilter(prev => ({
+      ...prev,
+      [field]: value,
+    }));
+  }, []);
+
 
   const totalResultsData = [
     { title: t('pages.user-management.user_management_reports.Played'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
@@ -34,6 +44,22 @@ function Page() {
     { title: t('pages.user-management.user_management_reports.Payback'), value: faker.commerce.price(1000, 100000, 2) + '₺'}
   ];
 
+  const PageFilterButton = useCallback(() => {
+    return (
+      <Stack direction={"row"} justifyContent={"end"} className={"mb-3"}>
+        <FilterModal
+          filter={filter}
+          updateFilter={updateFilter}
+          resetFilter={() => {
+            setFilter({});
+            setData(prev => ({ ...prev, filter: {} }));
+          }}
+          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+        />
+      </Stack>
+    );
+  }, []);
+
   return (
     <Fragment>
 
@@ -41,6 +67,7 @@ function Page() {
         <Grid item xs={12}>
           <TitleBar
             title={t('menu.Users.Reports Menu.Casino Reports')}
+            Right={PageFilterButton}
           />
         </Grid>
         <Grid item xs={12} className={"pt-0"}>

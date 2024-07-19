@@ -143,7 +143,7 @@ function TransactionsTable() {
         <TitleBar
           title={(
             <Stack direction={"row"} gap={2} alignItems={"center"}>
-              <Typography variant={"h3"} color={"gray"}>
+              <Typography variant={"h3"}>
                 {t("menu.Game Management.Casino Management")}
               </Typography>
             </Stack>

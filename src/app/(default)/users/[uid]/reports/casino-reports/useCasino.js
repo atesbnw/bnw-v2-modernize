@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { IconEye, IconPencil } from '@tabler/icons-react';
 import {Faker, tr, fakerTR} from "@faker-js/faker";
 import IconButton from '@mui/material/IconButton';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import {uniqueId} from "lodash";
 
 const faker = new Faker({
@@ -11,7 +11,10 @@ const faker = new Faker({
 });
 
 export function useCasino() {
+
+  const params = useParams();
   const router = useRouter();
+
   const [data, setData] = useState({
     page: 1,
     pageSize: 10,
@@ -73,7 +76,7 @@ export function useCasino() {
         width: 170,
         getActions: (e) => {
           return [
-            <IconButton onClick={() => router.push(`/users/${e?.row?.username}/reports/casino-reports/provider`)}>
+            <IconButton onClick={() => router.push(`/users/${params.uid}/reports/casino-reports/${e.id}`)}>
               <IconEye />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>

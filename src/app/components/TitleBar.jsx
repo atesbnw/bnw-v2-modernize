@@ -2,8 +2,11 @@ import React, { memo, useState, useCallback } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import {IconChevronRight} from "@tabler/icons-react";
+import Stack from "@mui/material/Stack";
+import {t} from "i18next";
+import Link from "next/link";
 
-function TitleBar({ LeftImage, SubTitle, Left, title, Right }) {
+function TitleBar({ LeftImage, subTitle, link, Left, title, Right }) {
   return (
     <Box
       fullWidth
@@ -17,7 +20,14 @@ function TitleBar({ LeftImage, SubTitle, Left, title, Right }) {
       }}>
       {LeftImage && (
         <Box sx={{alignItems:"center"}}>
-          <LeftImage />
+          <Stack direction={"row"} className={"gap-1 items-center"}>
+            <Box className={"flex flex-row gap-2  items-center mr-4"}>
+              <img
+                src={LeftImage}
+                className={"h-20 aspect-square object-contain bg-white rounded-xl p-1"}
+              />
+            </Box>
+          </Stack>
         </Box>
       )}
       {Left && (
@@ -26,11 +36,21 @@ function TitleBar({ LeftImage, SubTitle, Left, title, Right }) {
         </Box>
       )}
       <Box sx={{ flex: 1 }}>
-        <Typography variant="h2" component="div">
-          {title}
-          {SubTitle && (
+        <Typography variant="h2" component="div" className={"flex gap-2 items-center"}>
+          {link ?
+            (
+              <Link href={link} color="">
+                <Typography variant="h2" component="div" color="text.primary">
+                  {title}
+                </Typography>
+              </Link>
+            )
+            : title || '' }
+
+
+          {subTitle && (
             <>
-              <IconChevronRight/> <SubTitle />
+              <IconChevronRight/> {subTitle}
             </>
           )}
         </Typography>

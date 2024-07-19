@@ -16,26 +16,17 @@ import Filter from "@/app/(default)/components/users/reports/Filter";
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
-import { useProvider } from '@/app/(default)/users/[uid]/reports/casino-reports/provider/useProvider.jsx';
+import { useProvider } from '@/app/(default)/users/[uid]/reports/casino-reports/[pid]/useProvider.jsx';
+import Link from "next/link";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function Page() {
-  const SubTitle = () => "EGT";
-  const LogoProvider = useCallback(() => {
-    return (
-      <Stack direction={"row"} className={"gap-1 items-center"}>
-        <Box className={"flex flex-row gap-2  items-center mr-4"}>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOLayqzmzNCN8PAkSw63ZQ6Aa5dAiSeycMrA&s"
-            className={"h-20 aspect-square object-contain bg-white rounded-xl p-1"}
-          />
-        </Box>
-      </Stack>
-    );
-  }, []);
+
+  const titleSubTitle = "EGT";
+  const titleProviderLogo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOLayqzmzNCN8PAkSw63ZQ6Aa5dAiSeycMrA&s";
 
   const {providerReports} = useProvider();
 
@@ -55,8 +46,9 @@ function Page() {
         <Grid item xs={12}>
           <TitleBar
             title={t('menu.Users.Reports Menu.Casino Reports')}
-            LeftImage={LogoProvider}
-            SubTitle={SubTitle}
+            link={"../casino-reports"}
+            LeftImage={titleProviderLogo}
+            subTitle={titleSubTitle}
           />
         </Grid>
         <Grid item xs={12} className={"pt-0"}>

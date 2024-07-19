@@ -74,7 +74,7 @@ export function useLiveCasino() {
         width: 170,
         getActions: (e) => {
           return [
-            <IconButton onClick={() => router.push(`/users/${e?.row?.username}/reports/live-casino-reports/provider`)}>
+            <IconButton onClick={() => router.push(`/users/${e?.row?.username}/reports/live-casino-reports/1`)}>
               <IconEye />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
