@@ -141,13 +141,7 @@ function TransactionsTable() {
     <Fragment>
       <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
         <TitleBar
-          title={(
-            <Stack direction={"row"} gap={2} alignItems={"center"}>
-              <Typography variant={"h3"} color={"gray"}>
-                {t("menu.Game Management.Sportsbook Management")}
-              </Typography>
-            </Stack>
-          )}
+          title={t("menu.Game Management.Sportsbook Management")}
         />
 
         <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>

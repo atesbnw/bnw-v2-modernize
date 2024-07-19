@@ -140,19 +140,9 @@ function TransactionsTable() {
     <Fragment>
       <Stack direction={'row'} justifyContent={'end'} className={'pb-4'} sx={{pt: 4, pb:2}}>
         <TitleBar
-          title={(
-            <Stack direction={"row"} gap={2} alignItems={"center"}>
-              <Link href={"../sportsbook-management"} className={""}>
-                <Typography variant={"h3"} color={"gray"}>
-                  {t("menu.Game Management.Sportsbook Management")}
-                </Typography>
-              </Link>
-              <IconChevronRight />
-              <Typography variant={"h3"}>
-                {decodeURIComponent(params?.cid).replace(/^\//, '')}
-              </Typography>
-            </Stack>
-          )}
+          title={t("menu.Game Management.Sportsbook Management")}
+          subTitle={decodeURIComponent(params?.cid).replace(/^\//, '')}
+          link={"../sportsbook-management"}
         />
 
         <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>

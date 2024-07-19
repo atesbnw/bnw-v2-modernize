@@ -140,9 +140,9 @@ function TransactionsTable() {
     <Fragment>
       <Stack direction={'row'} justifyContent={'end'} className={'pb-4'} sx={{pt: 4, pb:2}}>
         <TitleBar
-          title={t("menu.Game Management.Live Casino Management")}
+          title={t("menu.Game Management.Sportsbook Management")}
+          link={"../sportsbook-management"}
           subTitle={decodeURIComponent(params?.cid).replace(/^\//, '')}
-          link={"../live-casino-management"}
         />
 
         <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>

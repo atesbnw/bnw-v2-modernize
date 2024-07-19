@@ -1,48 +1,57 @@
-"use client";
-import React, { memo, useState, useCallback, useMemo } from 'react';
+'use client';
+import React, { memo, useState, useCallback, useMemo, Fragment } from 'react';
 import { t } from 'i18next';
 import { useParams, usePathname } from 'next/navigation';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TitleBar from '@/app/components/TitleBar';
 import Button from '@mui/material/Button';
+import PageContainer from '@/app/components/container/PageContainer';
+import TimeTabs from '@/app/components/shared/TimeTabs';
+import StatCards from '@/app/(default)/components/users/financial-transactions/StatCards';
+import LastActionsInfo from '@/app/(default)/components/users/financial-transactions/LastActionsInfo';
+import TransactionsTable from '@/app/(default)/components/users/financial-transactions/TransactionsTable';
+import Card from '@mui/material/Card';
+import Stack from '@mui/material/Stack';
+import NewManuelTransactionAdd from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAdd';
+import AddBonus from '@/app/(default)/components/users/financial-transactions/AddBonus';
+import Grid from "@mui/material/Grid";
 
 function Page() {
   const params = useParams();
   const pathname = usePathname();
 
-
-  const ButtonComps = useCallback(() => {
-    return (
-      <div style={{
-        display: "flex",
-        gap: 4,
-        alignItems: "center"
-      }}>
-        <div>
-          <Button variant={"contained"} onClick={() => {}}>{t('menu.Financial Transactions.Add Bonus')}</Button>
-        </div>
-        <div>
-          <Button variant={"contained"} onClick={() => {}}>
-            {t('menu.Financial Transactions.Add Manuel Transaction')}
-          </Button>
-        </div>
-      </div>
-    )
-  }, []);
-
   return (
-    <Box sx={{
-      flex: 1
-    }}>
-      {/*<Typography variant="h6" component="div">{}</Typography>*/}
-      <TitleBar
-        title={t('menu.Financial Transactions.Transaction History')}
-        Right={ButtonComps}
-      />
+    <PageContainer title={t('menu.Financial Transactions.Transaction History')}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <TitleBar
+            title={t('menu.Financial Transactions.Transaction History')}
 
+          />
+        </Grid>
 
-    </Box>
+        <Grid item xs={12} className={"pt-0"}>
+          <Card variant="outlined">
+            <TimeTabs justify={'between'}>
+              {(time) => (
+                <StatCards />
+              )}
+            </TimeTabs>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} className={"mt-3"}>
+          <LastActionsInfo />
+        </Grid>
+
+        <Grid item xs={12} className={"mt-0"}>
+          <Card variant="outlined">
+            <TransactionsTable />
+          </Card>
+        </Grid>
+      </Grid>
+    </PageContainer>
   );
 }
 
