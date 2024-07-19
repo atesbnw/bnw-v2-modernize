@@ -43,10 +43,11 @@ function Page() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <TitleBar
-            title={t('menu.Financial Transactions.Transaction History')}
+            title={t('menu.Users.Player Info')}
             Right={ButtonComps}
           />
         </Grid>
+
         <Grid item xs={12} className={"pt-0"}>
           <Card variant="outlined" >
             <TimeTabs justify={'between'}>
@@ -56,9 +57,11 @@ function Page() {
             </TimeTabs>
           </Card>
         </Grid>
+
         <Grid item xs={12} className={"mt-3"}>
           <LastActionsInfo />
         </Grid>
+
         <Grid item xs={12} className={"mt-0"}>
           <Card variant="outlined" >
             <AccountInformation />

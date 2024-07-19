@@ -173,13 +173,11 @@ function TransactionsTable() {
 
       </Stack>
 
-      <Box sx={{ width: '100%', maxWidth: "65vw" }}>
-        <DataTable
-          search={false}
-          data={data}
-          toolbar={false}
-        />
-      </Box>
+      <DataTable
+        search={false}
+        data={data}
+        toolbar={false}
+      />
     </Fragment>
   );
 }

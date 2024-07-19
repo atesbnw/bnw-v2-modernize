@@ -15,6 +15,7 @@ import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import NewManuelTransactionAdd from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAdd';
 import AddBonus from '@/app/(default)/components/users/financial-transactions/AddBonus';
+import Grid from "@mui/material/Grid";
 
 function Page() {
   const params = useParams();
@@ -36,26 +37,34 @@ function Page() {
 
   return (
     <PageContainer title={t('menu.Financial Transactions.Transaction History')}>
-      {/*<Typography variant="h6" component="div">{}</Typography>*/}
-      <TitleBar
-        title={t('menu.Financial Transactions.Transaction History')}
-        Right={ButtonComps}
-      />
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <TitleBar
+            title={t('menu.Financial Transactions.Transaction History')}
+            Right={ButtonComps}
+          />
+        </Grid>
 
-      <Card variant="outlined" className={"pb-0"}>
-        <TimeTabs justify={'between'}>
-          {(time) => (
-            <StatCards />
-          )}
-        </TimeTabs>
-      </Card>
+        <Grid item xs={12} className={"pt-0"}>
+          <Card variant="outlined">
+            <TimeTabs justify={'between'}>
+              {(time) => (
+                <StatCards />
+              )}
+            </TimeTabs>
+          </Card>
+        </Grid>
 
-      <Card variant="outlined" className={"flex items-center justify-center pb-0"}>
-        <LastActionsInfo />
-      </Card>
-      <Card variant="outlined">
-        <TransactionsTable />
-      </Card>
+        <Grid item xs={12} className={"mt-3"}>
+          <LastActionsInfo />
+        </Grid>
+
+        <Grid item xs={12} className={"mt-0"}>
+          <Card variant="outlined">
+            <TransactionsTable />
+          </Card>
+        </Grid>
+      </Grid>
     </PageContainer>
   );
 }

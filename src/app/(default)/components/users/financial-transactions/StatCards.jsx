@@ -40,57 +40,55 @@ const StatCards = () => {
   }, []);
 
   return (
-    <Box sx={{ flexGrow: 1, pl:4, pb: 4}}>
-
-
+    <Box sx={{ flexGrow: 1,}}>
       <Grid container spacing={3} mt={1}>
-      <TransitionGroup component={null} className="flex-wrap">
-        <Grid container spacing={3} mt={1}>
-          {visibleData.map(({ icon, ...topcard }, i) => (
-            <Collapse key={i} in={i < 8 || showAll} timeout={600} className={"w-full sm:w-1/2 md:w-1/4 p-3"}>
-              <Box bgcolor={'info.light'} textAlign="center" className={''}>
-                <CardContent className={'flex gap-3 items-center justify-center group'}>
-                  {icon && (
-                    <Box sx={{
-                      backgroundColor: theme.palette.primary.main,
-                      borderRadius: 2,
-                      p: 1,
-                    }} className={'items-center flex scale-90 group-hover:scale-100 transition-all ease-in-out'}>
-                      {icon}
+        <TransitionGroup component={null} className="flex-wrap">
+          <Grid item container mt={1}>
+            {visibleData.map(({ icon, ...topcard }, i) => (
+              <Collapse key={i} in={i < 8 || showAll} timeout={600} className={"w-full sm:w-1/2 md:w-1/4 p-2"}>
+                <Box bgcolor={'info.light'} textAlign="center" className={''}>
+                  <CardContent className={'flex gap-3 items-center justify-center group'}>
+                    {icon && (
+                      <Box sx={{
+                        backgroundColor: theme.palette.primary.main,
+                        borderRadius: 2,
+                        p: 1,
+                      }} className={'items-center flex scale-90 group-hover:scale-100 transition-all ease-in-out'}>
+                        {icon}
+                      </Box>
+                    )}
+                    <Box className={'flex-1'}>
+                      <Typography
+                        color={'primary.main'}
+                        mt={1}
+                        variant="body1"
+                        fontWeight={600}
+                        className={'select-none'}
+                      >
+                        {topcard.title}
+                      </Typography>
+                      <Typography
+                        variant="h4"
+                        fontWeight={600}
+                        className={'select-none'}
+                      >
+                        {topcard.digits}
+                      </Typography>
                     </Box>
-                  )}
-                  <Box className={'flex-1'}>
-                    <Typography
-                      color={'primary.main'}
-                      mt={1}
-                      variant="body1"
-                      fontWeight={600}
-                      className={'select-none'}
-                    >
-                      {topcard.title}
-                    </Typography>
-                    <Typography
-                      variant="h4"
-                      fontWeight={600}
-                      className={'select-none'}
-                    >
-                      {topcard.digits}
-                    </Typography>
-                  </Box>
-                </CardContent>
-              </Box>
-            </Collapse>
-          ))}
-        </Grid>
-      </TransitionGroup>
+                  </CardContent>
+                </Box>
+              </Collapse>
+            ))}
+          </Grid>
+        </TransitionGroup>
       </Grid>
 
       {data.length > 8 && (
-        <Box textAlign="center" mt={2}>
-          <Button variant="text" color="primary" onClick={toggleShowAll} fullWidth>
+        <Grid textAlign="center" mt={2} alignItems="center" justifyContent="center">
+          <Button variant="outlined" color="primary" onClick={toggleShowAll} >
             {!showAll ? <IconChevronDown size={18} /> : <IconChevronUp size={18} />}
           </Button>
-        </Box>
+        </Grid>
       )}
 
 
