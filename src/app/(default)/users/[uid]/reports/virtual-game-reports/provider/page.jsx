@@ -16,7 +16,7 @@ import Filter from "@/app/(default)/components/users/reports/Filter";
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
-import { useProvider } from '@/app/(default)/users/[uid]/reports/casino-reports/provider/useProvider.jsx';
+import { useProvider } from '@/app/(default)/users/[uid]/reports/virtual-game-reports/provider/useProvider';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
