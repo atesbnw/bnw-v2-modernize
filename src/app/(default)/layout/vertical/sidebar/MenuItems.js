@@ -56,19 +56,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "menu.Merchants.title",
     icon: IconBuildingStore,
-    // href: "/merchants",
-    children: [
-      {
-        id: uniqueId(),
-        title: "menu.Merchants.title",
-        href: "/merchants"
-      },
-      {
-        id: uniqueId(),
-        title: "menu.Merchants.profile",
-        href: "/merchants/bayi123"
-      }
-    ]
+    href: "/merchants",
     // chip: "0",
     // chipColor: "secondary",
   },
