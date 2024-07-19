@@ -207,6 +207,16 @@
   "Dashboard": {
     "Financial Graph": {
       "Select Date Range": "Select Date Range"
+    },
+    "dateRange": {
+      "yesterday": "Yesterday",
+      "today": "Today",
+      "thisWeek": "This week",
+      "lastWeek": "Last week",
+      "last7Day": "Last 7 days",
+      "thisMonth": "This month",
+      "lastMonth": "Last month",
+      "reset": "Reset"
     }
   },
   "Users": {
