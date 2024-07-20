@@ -33,6 +33,7 @@
   "bonusType": "Bonus Type",
   "addUserBonus": "Add Bonus to User",
   "transferBonus": "Transfer Bonus",
+  "Stats": "Stats",
   "amount": "Amount",
   "NewManuelTransactionAddWithID": "Add Associated Manual Transaction",
   "associatedTransactionId": "Associated Transaction ID"

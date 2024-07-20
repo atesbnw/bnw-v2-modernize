@@ -41,9 +41,9 @@ const StatCards = () => {
 
   return (
     <Box sx={{ flexGrow: 1,}}>
-      <Grid container spacing={3} mt={1}>
+      <Grid container spacing={3}>
         <TransitionGroup component={null} className="flex-wrap">
-          <Grid item container mt={1}>
+          <Grid item container>
             {visibleData.map(({ icon, ...topcard }, i) => (
               <Collapse key={i} in={i < 8 || showAll} timeout={600} className={"w-full sm:w-1/2 md:w-1/4 p-2"}>
                 <Box bgcolor={'info.light'} textAlign="center" className={''}>

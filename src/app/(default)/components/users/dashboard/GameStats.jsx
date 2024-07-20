@@ -32,6 +32,7 @@ function GameStats() {
           variant="scrollable"
           allowScrollButtonsMobile
           aria-label="scrollable prevent tabs example"
+          className={"mb-4"}
         >
           {GameTabs.map((tab,_) => {
             return (
@@ -47,12 +48,6 @@ function GameStats() {
         </Tabs>
 
         <CustomTabPanel value={tab} index={0}>
-          <Grid container spacing={1} justifyContent="end" className={"mb-3"}>
-            <Grid item><Button color="primary">Today</Button></Grid>
-            <Grid item><Button color="primary">Yesterday</Button></Grid>
-            <Grid item><Button color="primary">Last 7 Days</Button></Grid>
-          </Grid>
-
           <Grid container spacing={3}>
             <GameStatBox
               title={"En Çok Oynadigi Oyun"}

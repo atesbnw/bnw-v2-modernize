@@ -21,6 +21,7 @@ function InnerMenu({
     <Drawer
       variant={lgUp ? 'permanent' : 'temporary'}
       sx={{
+        backgroundColor: 'red',
         width: drawerWidth,
         flexShrink: 0,
         zIndex: lgUp ? 0 : 1,

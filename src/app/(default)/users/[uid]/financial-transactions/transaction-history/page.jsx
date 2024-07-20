@@ -16,6 +16,7 @@ import Stack from '@mui/material/Stack';
 import NewManuelTransactionAdd from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAdd';
 import AddBonus from '@/app/(default)/components/users/financial-transactions/AddBonus';
 import Grid from "@mui/material/Grid";
+import ParentCard from "@/app/components/shared/ParentCard";
 
 function Page() {
   const params = useParams();
@@ -45,15 +46,16 @@ function Page() {
           />
         </Grid>
 
+
         <Grid item xs={12} className={"pt-0"}>
-          <Card variant="outlined">
-            <TimeTabs justify={'between'}>
-              {(time) => (
-                <StatCards />
-              )}
-            </TimeTabs>
-          </Card>
+          <ParentCard
+            title={t('pages.user-management.user_management_financial_transactions.Stats')}
+            action={<TimeTabs/>}
+          >
+            <StatCards />
+          </ParentCard>
         </Grid>
+
 
         <Grid item xs={12} className={"mt-3"}>
           <LastActionsInfo />

@@ -36,11 +36,7 @@ const contactInfo = [
 function AccountInformation() {
   return (
     <Fragment>
-
-      <PlayerInfoHeader>
-        <Typography variant="h3" component="div">{t('pages.user-management.user_management_dashboard.Account')}</Typography>
-      </PlayerInfoHeader>
-      <Grid container spacing={3} className={"mt-2"}>
+      <Grid container rowSpacing={0} columnSpacing={3} className={"mt-2"}>
         <Grid item sm={12} md={1}>
           <img
             src='https://via.placeholder.com/100x100'

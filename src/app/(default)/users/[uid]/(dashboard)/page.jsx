@@ -7,7 +7,7 @@ import TitleBar from "@/app/components/TitleBar";
 import Stack from "@mui/material/Stack";
 import TimeTabs from "@/app/components/shared/TimeTabs";
 import StatCards from "@/app/(default)/components/users/dashboard/StatCards";
-import Card from "@mui/material/Card";
+import {Card, CardHeader, CardActions} from "@mui/material";
 import LastActionsInfo from "@/app/(default)/components/users/dashboard/LastActionsInfo";
 import CategoryStats from "@/app/(default)/components/users/dashboard/CategoryStats";
 import GameStats from "@/app/(default)/components/users/dashboard/GameStats";
@@ -16,7 +16,8 @@ import AccountInformation from "@/app/(default)/components/users/dashboard/Accou
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-
+import ParentCard from '@/app/components/shared/ParentCard';
+import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
 
 
 function Page() {
@@ -49,39 +50,61 @@ function Page() {
         </Grid>
 
         <Grid item xs={12} className={"pt-0"}>
-          <Card variant="outlined" >
-            <TimeTabs justify={'between'}>
-              {(time) => (
-                <StatCards />
-              )}
-            </TimeTabs>
-          </Card>
+          <ParentCard
+            title={t('pages.user-management.user_management_dashboard.Stats')}
+            action={<TimeTabs/>}
+          >
+            <StatCards />
+          </ParentCard>
         </Grid>
+
 
         <Grid item xs={12} className={"mt-3"}>
           <LastActionsInfo />
         </Grid>
 
         <Grid item xs={12} className={"mt-0"}>
-          <Card variant="outlined" >
+          <ParentCard
+            title={t('pages.user-management.user_management_dashboard.Account')}
+            action={<PlayerInfoHeader />}
+          >
             <AccountInformation />
-          </Card>
+          </ParentCard>
         </Grid>
+
 
         <Grid item xs={12} className={"mt-3"}>
           <CategoryStats />
         </Grid>
 
         <Grid item xs={12}>
-          <Card variant="outlined" >
+          <ParentCard
+            title={t('pages.user-management.user_management_dashboard.Casino')}
+            action={
+              <Stack direction="row" spacing={2}>
+                <Box><Button color="primary">Today</Button></Box>
+                <Box><Button color="primary">Yesterday</Button></Box>
+                <Box><Button color="primary">Last 7 Days</Button></Box>
+              </Stack>
+            }
+          >
             <GameStats />
-          </Card>
+          </ParentCard>
         </Grid>
 
         <Grid item xs={12}>
-          <Card variant="outlined" >
+          <ParentCard
+            title={t('pages.user-management.user_management_dashboard.Sport Bets')}
+            action={
+              <Stack direction="row" spacing={2}>
+                <Box><Button color="primary">Today</Button></Box>
+                <Box><Button color="primary">Yesterday</Button></Box>
+                <Box><Button color="primary">Last 7 Days</Button></Box>
+              </Stack>
+            }
+          >
             <SportsStats />
-          </Card>
+          </ParentCard>
         </Grid>
 
       </Grid>

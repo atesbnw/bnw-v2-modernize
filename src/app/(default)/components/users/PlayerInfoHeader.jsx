@@ -14,7 +14,7 @@ import {t} from "i18next";
 function PlayerInfoHeader({children}) {
   return (
     <Fragment>
-      <Grid container mt={1} mb={2} spacing={1} justifyContent="space-between" alignItems="center">
+      <Grid container className={"mt-0.5"} spacing={1} justifyContent="space-between" alignItems="center">
         <Grid item>
           {children}
         </Grid>
@@ -45,7 +45,6 @@ function PlayerInfoHeader({children}) {
           </Fab>
         </Stack>
       </Grid>
-      <Divider/>
     </Fragment>
   );
 }

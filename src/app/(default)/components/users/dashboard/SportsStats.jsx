@@ -6,18 +6,6 @@ import {Grid, Divider,Button,Typography } from "@mui/material";
 function SportsStats() {
   return (
     <Fragment>
-      <Grid container spacing={1}>
-        <Grid item sm={4} xs={12} >
-          <Typography variant={"h3"}>{t('pages.user-management.user_management_dashboard.Sport Bets')}</Typography>
-        </Grid>
-        <Grid item container sm={8} xs={12}  spacing={1} justifyContent="end">
-          <Grid item><Button color="primary">Today</Button></Grid>
-          <Grid item><Button color="primary">Yesterday</Button></Grid>
-          <Grid item><Button color="primary">Last 7 Days</Button></Grid>
-        </Grid>
-      </Grid>
-
-      <Divider className={"my-6"}/>
 
       <Grid container spacing={1}>
         <GameStatBox

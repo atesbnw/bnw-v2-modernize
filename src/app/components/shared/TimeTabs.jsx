@@ -1,6 +1,6 @@
 import React, { memo, useState, useCallback, useEffect, Fragment, useMemo } from 'react';
 import dayjs from 'dayjs';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { t } from 'i18next';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -89,45 +89,41 @@ function TimeTabs({topElement, children, onChange, gridSize, justify = "end" || 
 
   return (
     <Fragment>
-      <Grid container spacing={2} alignItems="center" justifyContent='end'>
-        <Grid item lg={gridSize || 4}>
-          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"}>
-            <DemoContainer components={[
+      <Box style={{width:240}} >
+        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"}>
+          <DemoContainer
+            sx={{margin:0, padding:0}}
+            components={[
               'DateRangePicker',
             ]}>
-              <DemoItem
-                label={
-                  <></>
-                }
-                component="DateRangePicker"
-              >
-                <DateRangePicker
-                  defaultValue={time}
-                  localeText={{
-                    start: '',
-                    end: '',
-                  }}
-                  format="DD/MM/YYYY"
-                  onChange={(value) => setTime(value)}
-                  slots={{field: SingleInputDateRangeField}}
-                  slotProps={{
-                    shortcuts: {
-                      items: shortcutsItems,
-                    },
-                    actionBar: {actions: []}
-                  }}
-                  format={"DD/MM/YYYY"}
-                  calendars={2}
-                />
-              </DemoItem>
-            </DemoContainer>
+            <DemoItem
+              label={
+                <></>
+              }
+              component="DateRangePicker"
+            >
+              <DateRangePicker
+                defaultValue={time}
+                localeText={{
+                  start: '',
+                  end: '',
+                }}
+                onChange={(value) => setTime(value)}
+                slots={{field: SingleInputDateRangeField}}
+                slotProps={{
+                  shortcuts: {
+                    items: shortcutsItems,
+                  },
+                  actionBar: {actions: []}
+                }}
+                format={"DD/MM/YYYY"}
+                calendars={2}
+              />
+            </DemoItem>
+          </DemoContainer>
 
-          </LocalizationProvider>
-
-
-        </Grid>
-
-      </Grid>
+        </LocalizationProvider>
+      </Box>
       {children && children(time)}
     </Fragment>
   );
