@@ -13,8 +13,8 @@ import Stack from "@mui/material/Stack";
 import { Faker, tr, fakerTR } from '@faker-js/faker';
 import TotalResults from "@/app/(default)/components/users/reports/TotalResults";
 import {uniqueId} from "lodash";
-import FilterModal from "@/app/(default)/components/users/reports/live-casino-reports/FilterModal";
 import {useParams, useRouter} from "next/navigation";
+import FilterModal from "@/app/(default)/components/users/reports/virtual-game-reports/FilterModal";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -25,8 +25,9 @@ function Page() {
   const router = useRouter();
   const [filter, setFilter] = useState({});
 
-  const titleSubTitle = "EGT";
+  const titleSubTitle = "BetGames";
   const titleProviderLogo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOLayqzmzNCN8PAkSw63ZQ6Aa5dAiSeycMrA&s";
+
 
   const [data, setData] = useState({
     page: 1,
@@ -36,6 +37,7 @@ function Page() {
     columns: [],
     rows: [],
   });
+
 
   useEffect(() => {
     const columns = [
@@ -128,7 +130,7 @@ function Page() {
         <Grid item xs={12}>
           <Stack direction={'row'} justifyContent={'center'}>
             <TitleBar
-              title={t('menu.Users.Reports Menu.Casino Reports')}
+              title={t('menu.Users.Reports Menu.Virtual Game Reports')}
               link={"../casino-reports"}
               LeftImage={titleProviderLogo}
               subTitle={titleSubTitle}

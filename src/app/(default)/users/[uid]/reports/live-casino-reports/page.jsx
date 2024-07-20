@@ -16,14 +16,118 @@ import Filter from "@/app/(default)/components/users/reports/Filter";
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
-import { useLiveCasino } from '@/app/(default)/users/[uid]/reports/live-casino-reports/useLiveCasino';
+import {useParams, useRouter} from "next/navigation";
+import {uniqueId} from "lodash";
+import FilterModal from "@/app/(default)/components/users/reports/live-casino-reports/FilterModal";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function Page() {
-  const {liveCasinoReports} = useLiveCasino();
+  const params = useParams();
+  const router = useRouter();
+  const [filter, setFilter] = useState({});
+
+  const [data, setData] = useState({
+    page: 1,
+    pageSize: 10,
+    totalData: 20,
+    totalPage: 1,
+    columns: [],
+    rows: [],
+  });
+
+
+  useEffect(() => {
+    const columns = [
+      {
+        field: 'providerLogo',
+        headerName: '',
+        renderCell: (params) => <img src={params.value} width={70} height="auto" />,
+        cellClassName: 'centerAll'
+        // width: 200
+      },
+      {
+        field: 'providerTitle',
+        headerName: 'Provider Title',
+        // width: 200
+        flex: 1,
+      },
+      {
+        field: 'played',
+        headerName: 'Played',
+        // width: 200
+      },
+      {
+        field: 'won',
+        headerName: 'Won',
+        // width: 200
+      },
+      {
+        field: 'difference',
+        headerName: 'Difference',
+        // width: 200
+      },
+      {
+        field: 'canceled',
+        headerName: 'Canceled',
+        // width: 200
+      },
+      {
+        field: 'takeBack',
+        headerName: 'Take Back',
+        // width: 200
+      },
+      {
+        field: 'payback',
+        headerName: 'Payback',
+        // width: 200
+      },
+      {
+        field: 'actions',
+        type: 'actions',
+        width: 170,
+        getActions: (e) => {
+          return [
+            <IconButton onClick={() => router.push(`/users/${params.uid}/reports/live-casino-reports/${e.id}`)}>
+              <IconEye />
+            </IconButton>,
+            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+            //   <IconPencil />
+            // </IconButton>
+          ]
+        }
+      }
+    ];
+
+    const rows = Array.from(Array(20)).map(() => ({
+      id: uniqueId(),
+      providerLogo: faker.helpers.arrayElement(['https://getlogovector.com/wp-content/uploads/2021/11/evolution-gaming-logo-vector.png']),
+      providerTitle: faker.helpers.arrayElement(['EGT', 'Pragmatic Play', 'Netent']),
+      played: faker.commerce.price(1000, 100000, 2) + '₺',
+      won: faker.commerce.price(1000, 100000, 2) + '₺',
+      difference: faker.commerce.price(1000, 100000, 2) + '₺',
+      canceled: faker.commerce.price(1000, 100000, 2) + '₺',
+      takeBack: faker.commerce.price(1000, 100000, 2) + '₺',
+      payback: faker.commerce.price(1000, 100000, 2) + '₺',
+    }));
+
+    setData((prev) => ({
+      ...prev,
+      columns: columns,
+      rows: rows,
+      pageSize: rows?.length,
+      totalPage: Math.floor(data?.pageSize / (rows?.length || 1)),
+    }));
+  }, []);
+
+  const updateFilter = useCallback((field, value) => {
+    setFilter(prev => ({
+      ...prev,
+      [field]: value,
+    }));
+  }, []);
 
   const totalResultsData = [
     { title: t('pages.user-management.user_management_reports.Played'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
@@ -37,56 +141,22 @@ function Page() {
   return (
     <Fragment>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
-          <TitleBar
-            title={t('menu.Users.Reports Menu.Live Casino Reports')}
-          />
-        </Grid>
-        <Grid item xs={12} className={"pt-0"}>
-          <Card variant="outlined">
-            <Filter>
-              <Grid container spacing={2} >
-                <Grid item xs={12} md={3}>
-                  <CustomFormLabel
-                    htmlFor="searchText">{t('pages.user-management.user_management_reports.Search')}</CustomFormLabel>
-                  <CustomTextField
-                    id="searchText"
-                    name="searchText"
-                    placeholder={t('pages.user-management.user_management_reports.Provider Name')}
-                    variant="outlined"
-                    fullWidth
-                  />
-                </Grid>
-                <Grid item xs={12} md={2}>
-                  <CustomFormLabel
-                    htmlFor="minPlayed">{t('pages.user-management.user_management_reports.Min. Played')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="minPlayed"
-                    name="minPlayed"
-                    type="number"
-                    fullWidth
-                  />
-                </Grid>
-                <Grid item xs={12} md={2}>
-                  <CustomFormLabel
-                    htmlFor="maxPlayed">{t('pages.user-management.user_management_reports.Max. Played')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="minPlayed"
-                    name="minPlayed"
-                    type="number"
-                    fullWidth
-                  />
-                </Grid>
-              </Grid>
-            </Filter>
-          </Card>
+          <Stack direction={'row'} justifyContent={'center'}>
+            <TitleBar
+              title={t('menu.Users.Reports Menu.Live Casino Reports')}
+            />
+            <FilterModal
+              filter={filter}
+              updateFilter={updateFilter}
+              resetFilter={() => {
+                setFilter({});
+                setData(prev => ({ ...prev, filter: {} }));
+              }}
+              onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+            />
+          </Stack>
         </Grid>
 
         <Grid item xs={12}>
@@ -106,13 +176,11 @@ function Page() {
               </Tooltip>
             </Stack>
 
-            <Box sx={{ width: '100%'}}>
-              <DataTable
-                search={false}
-                data={liveCasinoReports}
-                toolbar={false}
-              />
-            </Box>
+            <DataTable
+              search={false}
+              data={data}
+              toolbar={false}
+            />
 
           </Card>
         </Grid>

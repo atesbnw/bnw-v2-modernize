@@ -12,18 +12,118 @@ import DataTable from "@/app/components/shared/DataTable";
 import Stack from "@mui/material/Stack";
 import { Faker, tr, fakerTR } from '@faker-js/faker';
 import TotalResults from "@/app/(default)/components/users/reports/TotalResults";
-import Filter from "@/app/(default)/components/users/reports/Filter";
-import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
-import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
-import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
-import { useVirtualGames } from '@/app/(default)/users/[uid]/reports/virtual-game-reports/useVirtualGames';
+import {useParams, useRouter} from "next/navigation";
+import {uniqueId} from "lodash";
+import FilterModal from "@/app/(default)/components/users/reports/virtual-game-reports/FilterModal";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function Page() {
-  const {virtualGamesReports} = useVirtualGames();
+  const params = useParams();
+  const router = useRouter();
+  const [filter, setFilter] = useState({});
+
+  const [data, setData] = useState({
+    page: 1,
+    pageSize: 10,
+    totalData: 20,
+    totalPage: 1,
+    columns: [],
+    rows: [],
+  });
+
+
+  useEffect(() => {
+    const columns = [
+      {
+        field: 'providerLogo',
+        headerName: '',
+        renderCell: (params) => <img src={params.value} width={70} height="auto" />,
+        cellClassName: 'centerAll'
+        // width: 200
+      },
+      {
+        field: 'providerTitle',
+        headerName: 'Provider Title',
+        // width: 200
+        flex: 1,
+      },
+      {
+        field: 'played',
+        headerName: 'Played',
+        // width: 200
+      },
+      {
+        field: 'won',
+        headerName: 'Won',
+        // width: 200
+      },
+      {
+        field: 'difference',
+        headerName: 'Difference',
+        // width: 200
+      },
+      {
+        field: 'canceled',
+        headerName: 'Canceled',
+        // width: 200
+      },
+      {
+        field: 'takeBack',
+        headerName: 'Take Back',
+        // width: 200
+      },
+      {
+        field: 'payback',
+        headerName: 'Payback',
+        // width: 200
+      },
+      {
+        field: 'actions',
+        type: 'actions',
+        width: 170,
+        getActions: (e) => {
+          return [
+            <IconButton onClick={() => router.push(`/users/${params.uid}/reports/virtual-game-reports/${e.id}`)}>
+              <IconEye />
+            </IconButton>,
+            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+            //   <IconPencil />
+            // </IconButton>
+          ]
+        }
+      }
+    ];
+
+    const rows = Array.from(Array(20)).map(() => ({
+      id: uniqueId(),
+      providerLogo: faker.helpers.arrayElement(['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZQ05jMMR2tFIde25J-NbCvVi8aZwImJEgTA&s']),
+      providerTitle: faker.helpers.arrayElement(['BetGames', 'Live Games', 'Ses Gaming']),
+      played: faker.commerce.price(1000, 100000, 2) + '₺',
+      won: faker.commerce.price(1000, 100000, 2) + '₺',
+      difference: faker.commerce.price(1000, 100000, 2) + '₺',
+      canceled: faker.commerce.price(1000, 100000, 2) + '₺',
+      takeBack: faker.commerce.price(1000, 100000, 2) + '₺',
+      payback: faker.commerce.price(1000, 100000, 2) + '₺',
+    }));
+
+    setData((prev) => ({
+      ...prev,
+      columns: columns,
+      rows: rows,
+      pageSize: rows?.length,
+      totalPage: Math.floor(data?.pageSize / (rows?.length || 1)),
+    }));
+  }, []);
+
+  const updateFilter = useCallback((field, value) => {
+    setFilter(prev => ({
+      ...prev,
+      [field]: value,
+    }));
+  }, []);
 
   const totalResultsData = [
     { title: t('pages.user-management.user_management_reports.Played'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
@@ -37,56 +137,22 @@ function Page() {
   return (
     <Fragment>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
-          <TitleBar
-            title={t('menu.Users.Reports Menu.Virtual Game Reports')}
-          />
-        </Grid>
-        <Grid item xs={12} className={"pt-0"}>
-          <Card variant="outlined">
-            <Filter>
-              <Grid container spacing={2} >
-                <Grid item xs={12} md={3}>
-                  <CustomFormLabel
-                    htmlFor="searchText">{t('pages.user-management.user_management_reports.Search')}</CustomFormLabel>
-                  <CustomTextField
-                    id="searchText"
-                    name="searchText"
-                    placeholder={t('pages.user-management.user_management_reports.Provider Name')}
-                    variant="outlined"
-                    fullWidth
-                  />
-                </Grid>
-                <Grid item xs={12} md={2}>
-                  <CustomFormLabel
-                    htmlFor="minPlayed">{t('pages.user-management.user_management_reports.Min. Played')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="minPlayed"
-                    name="minPlayed"
-                    type="number"
-                    fullWidth
-                  />
-                </Grid>
-                <Grid item xs={12} md={2}>
-                  <CustomFormLabel
-                    htmlFor="maxPlayed">{t('pages.user-management.user_management_reports.Max. Played')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="minPlayed"
-                    name="minPlayed"
-                    type="number"
-                    fullWidth
-                  />
-                </Grid>
-              </Grid>
-            </Filter>
-          </Card>
+          <Stack direction={'row'} justifyContent={'center'}>
+            <TitleBar
+              title={t('menu.Users.Reports Menu.Virtual Game Reports')}
+            />
+            <FilterModal
+              filter={filter}
+              updateFilter={updateFilter}
+              resetFilter={() => {
+                setFilter({});
+                setData(prev => ({ ...prev, filter: {} }));
+              }}
+              onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+            />
+          </Stack>
         </Grid>
 
         <Grid item xs={12}>
@@ -109,7 +175,7 @@ function Page() {
             <Box sx={{ width: '100%'}}>
               <DataTable
                 search={false}
-                data={virtualGamesReports}
+                data={data}
                 toolbar={false}
               />
             </Box>

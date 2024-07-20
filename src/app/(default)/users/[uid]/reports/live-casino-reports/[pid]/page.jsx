@@ -12,32 +12,110 @@ import DataTable from "@/app/components/shared/DataTable";
 import Stack from "@mui/material/Stack";
 import { Faker, tr, fakerTR } from '@faker-js/faker';
 import TotalResults from "@/app/(default)/components/users/reports/TotalResults";
-import Filter from "@/app/(default)/components/users/reports/Filter";
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
-import { useProvider } from '@/app/(default)/users/[uid]/reports/casino-reports/[pid]/useProvider.jsx';
+import {uniqueId} from "lodash";
+import {useParams, useRouter} from "next/navigation";
+import FilterModal from "@/app/(default)/components/users/reports/live-casino-reports/FilterModal";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function Page() {
-  const SubTitle = () => "EGT";
-  const LogoProvider = useCallback(() => {
-    return (
-      <Stack direction={"row"} className={"gap-1 items-center"}>
-        <Box className={"flex flex-row gap-2  items-center mr-4"}>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOLayqzmzNCN8PAkSw63ZQ6Aa5dAiSeycMrA&s"
-            className={"h-20 aspect-square object-contain bg-white rounded-xl p-1"}
-          />
-        </Box>
-      </Stack>
-    );
+
+  const params = useParams();
+  const router = useRouter();
+  const [filter, setFilter] = useState({});
+
+  const titleSubTitle = "EGT";
+  const titleProviderLogo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOLayqzmzNCN8PAkSw63ZQ6Aa5dAiSeycMrA&s";
+
+  const [data, setData] = useState({
+    page: 1,
+    pageSize: 10,
+    totalData: 20,
+    totalPage: 1,
+    columns: [],
+    rows: [],
+  });
+
+
+  useEffect(() => {
+    const columns = [
+      {
+        field: 'providerLogo',
+        headerName: '',
+        renderCell: (params) => <img src={params.value} width={70} height="auto" />,
+        cellClassName: 'centerAll'
+        // width: 200
+      },
+      {
+        field: 'gameName',
+        headerName: 'Game Name',
+        // width: 200
+        flex: 1,
+      },
+      {
+        field: 'played',
+        headerName: 'Played',
+        // width: 200
+      },
+      {
+        field: 'won',
+        headerName: 'Won',
+        // width: 200
+      },
+      {
+        field: 'difference',
+        headerName: 'Difference',
+        // width: 200
+      },
+      {
+        field: 'canceled',
+        headerName: 'Canceled',
+        // width: 200
+      },
+      {
+        field: 'takeBack',
+        headerName: 'Take Back',
+        // width: 200
+      },
+      {
+        field: 'payback',
+        headerName: 'Payback',
+        // width: 200
+      }
+    ];
+
+    const rows = Array.from(Array(20)).map(() => ({
+      id: uniqueId(),
+      providerLogo: faker.helpers.arrayElement(['https://static.casino.guru/pict/31244/Flaming-Hot.png?timestamp=1653449168000&imageDataId=214490&width=320&height=247']),
+      gameName: faker.helpers.arrayElement(['Flaming Hot', '40 Burning Hot', '20 Dazzling Hot']),
+      played: faker.commerce.price(1000, 100000, 2) + '₺',
+      won: faker.commerce.price(1000, 100000, 2) + '₺',
+      difference: faker.commerce.price(1000, 100000, 2) + '₺',
+      canceled: faker.commerce.price(1000, 100000, 2) + '₺',
+      takeBack: faker.commerce.price(1000, 100000, 2) + '₺',
+      payback: faker.commerce.price(1000, 100000, 2) + '₺',
+    }));
+
+    setData((prev) => ({
+      ...prev,
+      columns: columns,
+      rows: rows,
+      pageSize: rows?.length,
+      totalPage: Math.floor(data?.pageSize / (rows?.length || 1)),
+    }));
   }, []);
 
-  const {providerReports} = useProvider();
+  const updateFilter = useCallback((field, value) => {
+    setFilter(prev => ({
+      ...prev,
+      [field]: value,
+    }));
+  }, []);
 
   const totalResultsData = [
     { title: t('pages.user-management.user_management_reports.Played'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
@@ -50,59 +128,25 @@ function Page() {
 
   return (
     <Fragment>
-
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
-          <TitleBar
-            title={t('menu.Users.Reports Menu.Live Casino Reports')}
-            LeftImage={LogoProvider}
-            SubTitle={SubTitle}
-          />
-        </Grid>
-        <Grid item xs={12} className={"pt-0"}>
-          <Card variant="outlined">
-            <Filter>
-              <Grid container spacing={2} >
-                <Grid item xs={12} md={3}>
-                  <CustomFormLabel
-                    htmlFor="searchText">{t('pages.user-management.user_management_reports.Search')}</CustomFormLabel>
-                  <CustomTextField
-                    id="searchText"
-                    name="searchText"
-                    placeholder={t('pages.user-management.user_management_reports.Game Name')}
-                    variant="outlined"
-                    fullWidth
-                  />
-                </Grid>
-                <Grid item xs={12} md={2}>
-                  <CustomFormLabel
-                    htmlFor="minPlayed">{t('pages.user-management.user_management_reports.Min. Played')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="minPlayed"
-                    name="minPlayed"
-                    type="number"
-                    fullWidth
-                  />
-                </Grid>
-                <Grid item xs={12} md={2}>
-                  <CustomFormLabel
-                    htmlFor="maxPlayed">{t('pages.user-management.user_management_reports.Max. Played')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="minPlayed"
-                    name="minPlayed"
-                    type="number"
-                    fullWidth
-                  />
-                </Grid>
-              </Grid>
-            </Filter>
-          </Card>
+          <Stack direction={'row'} justifyContent={'center'}>
+            <TitleBar
+              title={t('menu.Users.Reports Menu.Live Casino Reports')}
+              link={"../live-casino-reports"}
+              LeftImage={titleProviderLogo}
+              subTitle={titleSubTitle}
+            />
+            <FilterModal
+              filter={filter}
+              updateFilter={updateFilter}
+              resetFilter={() => {
+                setFilter({});
+                setData(prev => ({ ...prev, filter: {} }));
+              }}
+              onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+            />
+          </Stack>
         </Grid>
 
         <Grid item xs={12}>
@@ -125,7 +169,7 @@ function Page() {
             <Box sx={{ width: '100%'}}>
               <DataTable
                 search={false}
-                data={providerReports}
+                data={data}
                 toolbar={false}
               />
             </Box>
