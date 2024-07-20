@@ -6,15 +6,15 @@ import {Grid, Button, Divider, MenuItem, FormHelperText, Typography} from '@mui/
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
-import { validationSchema } from './validation';
 import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
+import { validationSchema } from './validation';
 
 function Page() {
 
   const formik = useFormik({
     initialValues: {
-      playerId: 'Eren',
-      registrationDate: '01/08/2020 21:35',
+      playerId: '',
+      registrationDate: '',
       language: '',
       username: '',
       currency: '',

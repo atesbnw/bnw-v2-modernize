@@ -7,8 +7,10 @@
   "Outlined": "Outlined",
   "External Link": "External Link",
   "i" : {
+    "All": "All",
     "New": "New",
     "Save" : "Save",
+    "Apply": "Apply",
     "Cancel" : "Cancel",
     "Edit" : "Edit",
     "Delete" : "Delete",
@@ -56,6 +58,11 @@
         "User Stats": "User Stats",
         "Login Reports": "Login Reports",
         "Transaction Logs": "Transaction Logs"
+      },
+      "Settings Menu": {
+        "Casino Limitations": "Casino Limitations",
+        "Sportsbook Limitations": "Sportsbook Limitations",
+        "Finance Limitations": "Finance Limitations"
       },
       "Player Info Page": {
         "Edit Image": "Edit Image",

@@ -38,7 +38,7 @@ function TopMenu() {
     {
       label: 'menu.Users.Settings',
       // icon: <IconPhoto size="20" />,
-      to: `/users/${params?.uid}/settings`
+      to: `/users/${params?.uid}/settings/casino-limitations`,
     },
   ];
 
