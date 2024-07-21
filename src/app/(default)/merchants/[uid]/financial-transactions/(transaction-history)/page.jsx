@@ -27,7 +27,6 @@ function Page() {
         <Grid item xs={12}>
           <TitleBar
             title={t('menu.Financial Transactions.Transaction History')}
-
           />
         </Grid>
 

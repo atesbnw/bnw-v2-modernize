@@ -51,6 +51,11 @@
   "Sport Bets": "Sport Bets",
   "Played": "Played",
   "Won": "Won",
-  "Difference": "Difference"
-
+  "Difference": "Difference",
+  "Most Played Game": "Most Played Game",
+  "Most Won Game": "Most Won Game",
+  "Most Lost Game": "Most Lost Game",
+  "Most Played Sport": "Most Played Sport",
+  "Most Won Sport": "Most Won Sport",
+  "Most Lost Sport": "Most Lost Sport"
 }

@@ -9,7 +9,7 @@ function SportsStats() {
 
       <Grid container spacing={1}>
         <GameStatBox
-          title={"En Çok Tercih Ettigi Spor"}
+          title={t('pages.user-management.user_management_dashboard.Most Played Sport')}
           subTitle={"Futbol / Almanya / Bundesliga"}
           image={"/images/svgs/football-ball.svg"}
           data={[
@@ -31,7 +31,7 @@ function SportsStats() {
           ]}
         />
         <GameStatBox
-          title={"En Çok Kazandıgi Spor"}
+          title={t('pages.user-management.user_management_dashboard.Most Won Sport')}
           subTitle={"Basketbol / ABD / NBA"}
           image={"/images/svgs/basketball-ball.svg"}
           data={[
@@ -53,7 +53,7 @@ function SportsStats() {
           ]}
         />
         <GameStatBox
-          title={"En Çok Kaybettigi Spor"}
+          title={t('pages.user-management.user_management_dashboard.Most Lost Sport')}
           subTitle={"Futbol / Fransa / Serie-A"}
           image={"/images/svgs/football-ball.svg"}
           data={[

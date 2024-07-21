@@ -1,28 +1,120 @@
 "use client";
 import React, { memo, useState, useCallback, useMemo, Fragment } from 'react';
-import Breadcrumb from '@/app/base/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/components/container/PageContainer';
 import { t } from 'i18next';
-import { useParams } from 'next/navigation';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import HeaderCustom from '@/app/(default)/components/users/HeaderCustom';
-
+import Grid from '@mui/material/Grid';
+import TitleBar from "@/app/components/TitleBar";
+import Stack from "@mui/material/Stack";
+import TimeTabs from "@/app/components/shared/TimeTabs";
+import StatCards from "@/app/(default)/components/merchants/dashboard/StatCards";
+import LastActionsInfo from "@/app/(default)/components/merchants/dashboard/LastActionsInfo";
+import GameStats from "@/app/(default)/components/merchants/dashboard/GameStats";
+import SportsStats from "@/app/(default)/components/merchants/dashboard/SportsStats";
+import AccountInformation from "@/app/(default)/components/merchants/dashboard/AccountInformation";
+import Button from "@mui/material/Button";
+import ParentCard from '@/app/components/shared/ParentCard';
+import MerchantIcons from "@/app/(default)/components/merchants/MerchantIcons";
+import ShowReferenceCode from "@/app/(default)/components/merchants/dashboard/ShowReferenceCode";
+import UpdateCommissionRate from "@/app/(default)/components/merchants/dashboard/UpdateCommissionRate";
+import MerchantMemberList from "@/app/(default)/components/merchants/dashboard/MerchantMemberList";
+import IconButton from "@mui/material/IconButton";
+import {IconFileDownload} from "@tabler/icons-react";
+import Tooltip from "@mui/material/Tooltip";
+import FilterModal from "@/app/(default)/components/merchants/dashboard/FilterModal";
 
 function Page() {
-  const params = useParams();
+  const [filter, setFilter] = useState({});
 
+  const updateFilter = useCallback((field, value) => {
+    setFilter(prev => ({
+      ...prev,
+      [field]: value,
+    }));
+  }, []);
+
+  const ButtonComps = useCallback(() => {
+    return (
+      <Stack direction={"row"} className={"gap-1 items-center"}>
+        <Box className={"flex flex-row gap-2  items-center mr-4"}>
+          <ShowReferenceCode/>
+        </Box>
+        <Box>
+          <UpdateCommissionRate/>
+        </Box>
+      </Stack>
+    );
+  }, []);
 
   return (
     <Fragment>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <TitleBar
+            title={t('menu.Merchants.profile')}
+            Right={ButtonComps}
+          />
+        </Grid>
+
+        <Grid item xs={12} className={"pt-0"}>
+          <ParentCard
+            title={t('pages.merchants.dashboard.Stats')}
+            action={<TimeTabs/>}
+          >
+            <StatCards />
+          </ParentCard>
+        </Grid>
 
 
-        <Box>
-          {/*<Typography variant="h6" component="div">{t('menu.Users.Financial Transactions')}</Typography>*/}
-          <Typography variant="h6" component="div">{params?.uid}</Typography>
-        </Box>
+        <Grid item xs={12} className={"mt-3"}>
+          <LastActionsInfo />
+        </Grid>
 
-</Fragment>
+        <Grid item xs={12} className={"mt-0"}>
+          <ParentCard
+            title={t('pages.merchants.dashboard.Account')}
+            action={<MerchantIcons />}
+          >
+            <AccountInformation />
+          </ParentCard>
+        </Grid>
+
+        <Grid item xs={12}>
+          <MerchantMemberList />
+        </Grid>
+
+        <Grid item xs={12}>
+          <ParentCard
+            title={t('pages.merchants.dashboard.Casino')}
+            action={
+              <Stack direction="row" spacing={2}>
+                <Box><Button color="primary">Today</Button></Box>
+                <Box><Button color="primary">Yesterday</Button></Box>
+                <Box><Button color="primary">Last 7 Days</Button></Box>
+              </Stack>
+            }
+          >
+            <GameStats />
+          </ParentCard>
+        </Grid>
+
+
+        <Grid item xs={12}>
+          <ParentCard
+            title={t('pages.merchants.dashboard.Sport Bets')}
+            action={
+              <Stack direction="row" spacing={2}>
+                <Box><Button color="primary">Today</Button></Box>
+                <Box><Button color="primary">Yesterday</Button></Box>
+                <Box><Button color="primary">Last 7 Days</Button></Box>
+              </Stack>
+            }
+          >
+            <SportsStats />
+          </ParentCard>
+        </Grid>
+
+      </Grid>
+    </Fragment>
   );
 }
 

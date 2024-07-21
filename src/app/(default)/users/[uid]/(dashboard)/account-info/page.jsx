@@ -9,7 +9,6 @@ import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
 import { validationSchema } from './validation';
 import ParentCard from "@/app/components/shared/ParentCard";
-import AccountInformation from "@/app/(default)/components/users/dashboard/AccountInformation";
 
 function Page() {
 

@@ -37,7 +37,7 @@ export function useMenu() {
         {
           id: uniqueId(),
           title: "menu.Users.State and Role",
-          href: `${url}/state-and-role`,
+          href: `${url}/status-and-role`,
         },
       ]
     },

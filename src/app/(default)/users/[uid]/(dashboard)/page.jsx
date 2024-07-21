@@ -7,7 +7,6 @@ import TitleBar from "@/app/components/TitleBar";
 import Stack from "@mui/material/Stack";
 import TimeTabs from "@/app/components/shared/TimeTabs";
 import StatCards from "@/app/(default)/components/users/dashboard/StatCards";
-import {Card, CardHeader, CardActions} from "@mui/material";
 import LastActionsInfo from "@/app/(default)/components/users/dashboard/LastActionsInfo";
 import CategoryStats from "@/app/(default)/components/users/dashboard/CategoryStats";
 import GameStats from "@/app/(default)/components/users/dashboard/GameStats";
@@ -18,7 +17,6 @@ import Typography from "@mui/material/Typography";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import ParentCard from '@/app/components/shared/ParentCard';
 import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
-
 
 function Page() {
 
@@ -71,7 +69,6 @@ function Page() {
             <AccountInformation />
           </ParentCard>
         </Grid>
-
 
         <Grid item xs={12} className={"mt-3"}>
           <CategoryStats />

@@ -36,11 +36,6 @@ function TopMenu() {
       // icon: <IconUserCircle size="20" />,
       to: `${url}/${params?.uid}/reports/casino-reports`,
     },
-    {
-      label: 'menu.Users.Settings',
-      // icon: <IconPhoto size="20" />,
-      to: `${url}/${params?.uid}/settings`
-    },
   ];
 
   return (

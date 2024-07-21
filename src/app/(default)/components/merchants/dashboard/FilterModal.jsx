@@ -13,20 +13,21 @@ import SideDialog from '@/app/components/shared/SideDialog';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import { IconFilter, IconFilterX } from '@tabler/icons-react';
+import TimeTabs from "@/app/components/shared/TimeTabs";
 
 function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
   const [open, setOpen] = useState(false);
 
   return (
     <Fragment>
-      <Tooltip title={t('pages.user-management.user_management_user_management.filter')}>
+      <Tooltip title={t('i.Filter')}>
         <IconButton color={'primary'} onClick={() => setOpen(true)}>
           <IconFilter />
         </IconButton>
       </Tooltip>
 
       {Object.values(filter)?.some(Boolean) && (
-        <Tooltip title={t('pages.user-management.user_management_user_management.clearAllFilter')}>
+        <Tooltip title={t('i.ClearAllFilter')}>
           <IconButton color={'error'} onClick={() => {
             resetFilter && resetFilter()
             setOpen(false);
@@ -37,69 +38,26 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
       )}
 
       <SideDialog
-        title={t("pages.user-management.user_management_user_management.filter")}
+        title={t("pages.merchants.dashboard.Merchant Member List")}
         open={open}
         onClose={() => setOpen(false)}
         content={(
           <Box>
             <Grid container spacing={1} mb={2}>
               <Grid item xs={12}>
+                <TimeTabs gridSize={12}/>
+              </Grid>
+              <Grid item xs={12}>
                 <CustomFormLabel
-                  htmlFor="searchText">{t('pages.user-management.user_management_user_management.search')}</CustomFormLabel>
+                  htmlFor="searchText">{t('pages.merchants.dashboard.search')}</CustomFormLabel>
                 <CustomTextField
                   id="searchText"
                   name="searchText"
-                  placeholder={t('pages.user-management.user_management_user_management.searchPlaceholder')}
+                  placeholder={t('pages.merchants.dashboard.searchPlaceholder')}
                   variant="outlined"
                   fullWidth
                   value={filter?.searchText}
                   onChange={(e) => updateFilter('searchText', e?.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <CustomFormLabel
-                  htmlFor="balanceMin">{t('pages.user-management.user_management_user_management.balance')}</CustomFormLabel>
-              </Grid>
-              <Grid item xs={6} className={"pt-0"}>
-                <CustomTextField
-                  id="balanceMin"
-                  name="balanceMin"
-                  placeholder={t('pages.user-management.user_management_user_management.min')}
-                  variant="outlined"
-                  type="number"
-                  fullWidth
-                  value={filter?.balanceMin}
-                  onChange={(e) => updateFilter('balanceMin', e?.target.value)}
-                />
-              </Grid>
-              <Grid item xs={6} className={"pt-0"}>
-                <CustomTextField
-                  id="balanceMax"
-                  name="balanceMax"
-                  placeholder={"Net Kar"}
-                  variant="outlined"
-                  type="number"
-                  fullWidth
-                  value={filter?.balanceMax}
-                  onChange={(e) => updateFilter('balanceMax', e?.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12} className={"columns-2 mt-3"}>
-                <FormControlLabel
-                  control={<CustomCheckbox />}
-                  label={t('pages.user-management.user_management_user_management.todayBirthdays')}
-                />
-                <FormControlLabel
-                  control={<CustomCheckbox />}
-                  label={t('pages.user-management.user_management_user_management.sameDayRegistered')}
-                />
-                <FormControlLabel
-                  control={<CustomCheckbox />}
-                  label={t('pages.user-management.user_management_user_management.sameIP')}
-                />
-                <FormControlLabel
-                  control={<CustomCheckbox />}
-                  label={t('pages.user-management.user_management_user_management.sameLastLogin')}
                 />
               </Grid>
 
@@ -108,7 +66,13 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
         )}
         actionButtons={(
           <Fragment>
-            <Button variant={"contained"} fullWidth>{t('pages.user-management.user_management_user_management.filter')}</Button>
+            <Button
+              fullWidth
+              variant='contained'
+              onClick={() => {
+                onConfirm();
+                setOpen(false);
+              }}>{t('i.Filter')}</Button>
           </Fragment>
         )}
       />

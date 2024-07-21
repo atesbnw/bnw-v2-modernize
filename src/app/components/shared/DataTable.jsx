@@ -47,10 +47,12 @@ import { useTheme } from '@mui/material/styles';
             alignItems: 'center',
           },
           '& .MuiDataGrid-cell': {
+            minHeight: 40,
             display: 'flex',
             alignItems: 'center',
             borderRight: '1px solid',
             borderColor: 'grey.300',
+            // py: 1,
           },
           '& .MuiDataGrid-columnHeaders': {
             borderColor: 'grey.300',

@@ -50,7 +50,7 @@ function GameStats() {
         <CustomTabPanel value={tab} index={0}>
           <Grid container spacing={3}>
             <GameStatBox
-              title={"En Çok Oynadigi Oyun"}
+              title={t('pages.user-management.user_management_dashboard.Most Played Game')}
               subTitle={"Wild & Turkey / Netent"}
               image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGO2wGcJymC1ydiocdohoy1YgVg-L196iWQ&s"}
               data={[
@@ -72,7 +72,7 @@ function GameStats() {
               ]}
             />
             <GameStatBox
-              title={"En Çok Kazandıgi Oyun"}
+              title={t('pages.user-management.user_management_dashboard.Most Won Game')}
               subTitle={"Twin Spin / Netent"}
               image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKvUttnM9IyBOfzC0QvTGK7uc_0L_0Iz4IBg&s"}
               data={[
@@ -94,7 +94,7 @@ function GameStats() {
               ]}
             />
             <GameStatBox
-              title={"En Çok Kaybettigi Oyun"}
+              title={t('pages.user-management.user_management_dashboard.Most Lost Game')}
               subTitle={"Mythic Maiden / Netent"}
               image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW7Yn6AoRDFzBWW3prXnT8AZ2-E3GFrb4PAg&s"}
               data={[

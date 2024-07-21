@@ -18,6 +18,7 @@
     "Search" : "Search",
     "Select All" : "Select All",
     "Clear All" : "Clear All",
+    "ClearAllFilter" : "Clear All Filter",
     "Reset Search" : "Reset Search",
     "Select" : "Select",
     "Filter" : "Filter",
@@ -29,7 +30,9 @@
     "Warning" : "Warning",
     "Error" : "Error",
     "Success" : "Success",
-    "Info" : "Info"
+    "Info" : "Info",
+    "Copy" : "Copy",
+    "Copied!" : "Copied!"
   },
   "menu": {
     "Home": "Dashboard",
@@ -204,7 +207,18 @@
     },
     "Merchants": {
       "title": "Merchants",
-      "profile": "Merchant Profile"
+      "profile": "Merchant Profile",
+      "Reports Menu" : {
+        "Casino Reports": "Casino Reports",
+        "Live Casino Reports": "Live Casino Reports",
+        "Virtual Game Reports": "Virtual Game Reports",
+        "Bet Reports": "Bet Reports",
+        "Bonus Reports": "Bonus Reports",
+        "Finance Reports": "Finance Reports",
+        "User Stats": "User Stats",
+        "Login Reports": "Login Reports",
+        "Transaction Logs": "Transaction Logs"
+      }
     },
     "Operator Management": {
       "title": "Operators",

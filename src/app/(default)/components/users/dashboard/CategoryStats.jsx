@@ -34,12 +34,12 @@ function CategoryStats() {
   }, []);
 
   return (
-    <Grid container spacing={2} className={"pl-2 h-full"}>
+    <Grid container spacing={2}>
       {data.map((item, index) => {
         const {title, value, icon, type} = item;
         return (
-          <Grid item xs={6} sm={6} md={3} className={'p-2 h-full'} key={index}>
-            <Box className={"flex flex-col md:flex-row gap-2 justify-start  items-center bg-slate-500/5 flex-1 rounded-xl p-3 select-none"}>
+          <Grid item xs={6} sm={6} md={3} key={index}>
+            <Box className={"flex flex-col md:flex-row gap-2 h-full justify-start  items-center bg-slate-500/5 flex-1 rounded-xl p-4 select-none"}>
               {type==="casino" ? <IconDice5 /> : <IconBallFootball />}
               <Box className={"md:items-start items-center flex flex-col"}>
                 <Typography variant={'body2'} fontWeight={'bold'}>{title}</Typography>
