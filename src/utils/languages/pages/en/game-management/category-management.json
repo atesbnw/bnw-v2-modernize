@@ -1,3 +1,8 @@
 {
-  "search": "Search"
+  "search": "Search",
+  "casinoCategories": "Casino Categories",
+  "liveCasinoCategories": "Live Casino Categories",
+  "addNewCategory": "Add New Category",
+  "editCategory": "Edit Category",
+  "categoryIcon": "Category Icon"
 }

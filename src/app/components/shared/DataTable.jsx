@@ -17,8 +17,10 @@ import { useTheme } from '@mui/material/styles';
      data = [],
      paginationMode = "client" || "server",
      onFilterChange = () => {},
+     rowOrderChange = () => {},
      checkboxSelection = false,
      toolbar = true,
+     rowReordering = false,
      loading
   }) {
   // const { data: demoData } = useDemoData({
@@ -82,6 +84,8 @@ import { useTheme } from '@mui/material/styles';
         disableColumnSelector
         paginationMode={paginationMode}
         filterMode={paginationMode}
+        rowReordering={rowReordering}
+        onRowOrderChange={rowOrderChange}
         onFilterChange={(paginationMode==="server" && typeof onFilterChange === "function") ? onFilterChange : null}
         initialState={{
           pagination: {

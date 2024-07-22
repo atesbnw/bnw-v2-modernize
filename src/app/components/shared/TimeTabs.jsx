@@ -8,7 +8,7 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 import { SingleInputDateRangeField } from '@mui/x-date-pickers-pro/SingleInputDateRangeField';
 
-function TimeTabs({topElement, children, onChange, gridSize, justify = "end" || "between" || "start"}) {
+function TimeTabs({children, onChange, value}) {
   const [timeRange, setTimeRange] = useState(0);
   const [time, setTime] = useState([dayjs(), dayjs().add(7,"days")]);
   const [open, setOpen] = useState(false);
@@ -87,9 +87,13 @@ function TimeTabs({topElement, children, onChange, gridSize, justify = "end" || 
     }
   }, [time]);
 
+  useEffect(() => {
+    if(value && value!==time) setTime(value)
+  }, [value]);
+
   return (
     <Fragment>
-      <Box style={{width:240}} >
+      <Box style={{width:270}} >
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"}>
           <DemoContainer
             sx={{margin:0, padding:0}}

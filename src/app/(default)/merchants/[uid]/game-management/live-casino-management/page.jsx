@@ -164,14 +164,12 @@ function TransactionsTable() {
 
       </Stack>
 
-      <Box sx={{ width: '100%', maxWidth: "65vw" }}>
         <DataTable
           checkboxSelection={true}
           search={false}
           data={data}
           toolbar={false}
         />
-      </Box>
     </Fragment>
   );
 }

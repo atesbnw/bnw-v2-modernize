@@ -4,6 +4,14 @@
   "Mobile":"Mobile",
   "Locked": "Locked",
   "Logo": "Logo",
+  "Icon": "Icon",
   "providerID": "Provider ID",
-  "providerName": "Provider Name"
+  "categoryID": "Category ID",
+  "categoryOrder": "Category Order",
+  "createdAt": "Created At",
+  "operator": "Operator",
+  "providerName": "Provider Name",
+  "categoryName": "Category Name",
+  "status": "Status",
+  "addDate": "Add Date"
 }
