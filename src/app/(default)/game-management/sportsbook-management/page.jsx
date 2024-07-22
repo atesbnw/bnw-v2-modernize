@@ -2,20 +2,17 @@
 import React, { memo, useState, useCallback, useEffect, Fragment } from 'react';
 import DataTable from '@/app/components/shared/DataTable';
 import IconButton from '@mui/material/IconButton';
-import { IconChevronRight, IconEye, IconFileDownload } from '@tabler/icons-react';
+import { IconEye, IconFileDownload } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import Box from '@mui/material/Box';
 import { t } from 'i18next';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
-import FilterModal from '@/app/(default)/components/users/game-management/FilterModal';
-import Typography from '@mui/material/Typography';
-import NewManuelTransactionAddWithID from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAddWithID';
+import FilterModal from '@/app/(default)/components/game-management/FilterModal';
 import { faker } from '@faker-js/faker';
 import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
 import TitleBar from '@/app/components/TitleBar';
 import { useParams, useRouter } from 'next/navigation';
-import Link from 'next/link';
 
 function TransactionsTable() {
   const params = useParams();

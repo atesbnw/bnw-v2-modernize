@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import { t } from 'i18next';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
-import FilterModal from '@/app/(default)/components/users/game-management/FilterModal';
+import FilterModal from '@/app/(default)/components/game-management/FilterModal';
 import { faker } from '@faker-js/faker';
 import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
 import TitleBar from '@/app/components/TitleBar';

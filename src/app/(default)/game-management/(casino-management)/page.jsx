@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import { t } from 'i18next';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
-import FilterModal from '@/app/(default)/components/users/game-management/FilterModal';
+import FilterModal from '@/app/(default)/components/game-management/FilterModal';
 import Typography from '@mui/material/Typography';
 import NewManuelTransactionAddWithID from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAddWithID';
 import { faker } from '@faker-js/faker';

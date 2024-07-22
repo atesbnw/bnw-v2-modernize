@@ -1,3 +1,13 @@
 {
-  "search": "Search"
+  "search": "Search",
+  "category": "Category",
+  "updatedAt": "Updated at",
+  "lastEditOperator": "Last Edit Operator",
+  "provider": "Provider",
+  "username": "Username",
+  "password":  "Password",
+  "backofficeUrl": "Backoffice Url",
+  "note": "Note",
+  "editAdminAddress": "Edit Admin Address",
+  "addNewAdminAddress": "Add New Admin Address"
 }
