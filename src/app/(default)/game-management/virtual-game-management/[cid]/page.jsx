@@ -2,7 +2,7 @@
 import React, { memo, useState, useCallback, useEffect, Fragment } from 'react';
 import DataTable from '@/app/components/shared/DataTable';
 import IconButton from '@mui/material/IconButton';
-import { IconChevronRight, IconEye, IconFileDownload } from '@tabler/icons-react';
+import { IconChevronRight, IconFileDownload } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import Box from '@mui/material/Box';
 import { t } from 'i18next';
@@ -14,12 +14,11 @@ import NewManuelTransactionAddWithID from '@/app/(default)/components/users/fina
 import { faker } from '@faker-js/faker';
 import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
 import TitleBar from '@/app/components/TitleBar';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
 function TransactionsTable() {
   const params = useParams();
-  const router = useRouter();
   const [filter, setFilter] = useState({});
   const [data, setData] = useState({
     page: 1,
@@ -94,21 +93,21 @@ function TransactionsTable() {
         )
         // width: 200
       },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 170,
-        getActions: (e) => {
-          return [
-            <IconButton onClick={() => router.push(`/merchants/${params?.uid}/game-management/sportsbook-management/${e?.row?.providerName}`)}>
-              <IconEye />
-            </IconButton>,
-            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-            //   <IconPencil />
-            // </IconButton>
-          ]
-        }
-      }
+      // {
+      //   field: 'actions',
+      //   type: 'actions',
+      //   width: 170,
+      //   getActions: (e) => {
+      //     return [
+      //       <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+      //         <IconEye />
+      //       </IconButton>,
+      //       // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+      //       //   <IconPencil />
+      //       // </IconButton>
+      //     ]
+      //   }
+      // }
     ];
 
     const rows = Array.from(Array(50)).map(() => ({
@@ -139,9 +138,11 @@ function TransactionsTable() {
 
   return (
     <Fragment>
-      <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
+      <Stack direction={'row'} justifyContent={'end'} className={'pb-4'} sx={{pt: 4, pb:2}}>
         <TitleBar
-          title={t("menu.Game Management.Sportsbook Management")}
+          link={"../virtual-game-management"}
+          title={t("menu.Game Management.Virtual Game Management")}
+          subTitle={decodeURIComponent(params?.cid).replace(/^\//, '')}
         />
 
         <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>

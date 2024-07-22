@@ -8,7 +8,7 @@ function layout({ children }) {
   const {menu} = useMenu();
 
   return (
-    <HeaderCustom menu={menu} title={`${t("menu.Merchants.profile")}`} activeItem={t("menu.Users.Game Management")} >
+    <HeaderCustom menu={menu} title={`${t("menu.Merchants.profile")}`} activeItem={t("menu.Game Management.Casino Management")} >
       {children}
     </HeaderCustom>
   );

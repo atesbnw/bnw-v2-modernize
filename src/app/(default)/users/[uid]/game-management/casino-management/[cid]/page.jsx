@@ -140,7 +140,7 @@ function TransactionsTable() {
     <Fragment>
       <Stack direction={'row'} justifyContent={'end'} className={'pb-4'} sx={{pt: 4, pb:2}}>
         <TitleBar
-          link="../casino-management"
+          link="../game-management"
           title={t("menu.Game Management.Casino Management")}
           subTitle={decodeURIComponent(params?.cid).replace(/^\//, '')}
         />

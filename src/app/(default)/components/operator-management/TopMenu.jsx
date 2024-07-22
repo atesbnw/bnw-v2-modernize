@@ -29,7 +29,7 @@ function TopMenu() {
     {
       label: 'menu.Users.Game Management',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.uid}/game-management/casino-management`,
+      to: `${url}/${params?.uid}/game-management`,
     },
     {
       label: 'Reports.title',

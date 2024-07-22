@@ -1,20 +1,14 @@
 'use client';
-import React, { memo, useState, useCallback, useMemo, Fragment } from 'react';
+import React, { memo } from 'react';
 import { t } from 'i18next';
 import { useParams, usePathname } from 'next/navigation';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import TitleBar from '@/app/components/TitleBar';
-import Button from '@mui/material/Button';
 import PageContainer from '@/app/components/container/PageContainer';
 import TimeTabs from '@/app/components/shared/TimeTabs';
 import StatCards from '@/app/(default)/components/users/financial-transactions/StatCards';
 import LastActionsInfo from '@/app/(default)/components/users/financial-transactions/LastActionsInfo';
 import TransactionsTable from '@/app/(default)/components/users/financial-transactions/TransactionsTable';
 import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import NewManuelTransactionAdd from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAdd';
-import AddBonus from '@/app/(default)/components/users/financial-transactions/AddBonus';
 import Grid from "@mui/material/Grid";
 
 function Page() {

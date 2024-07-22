@@ -100,7 +100,7 @@ function TransactionsTable() {
         width: 170,
         getActions: (e) => {
           return [
-            <IconButton onClick={() => router.push(`/merchants/${params?.uid}/game-management/sportsbook-management/${e?.row?.providerName}`)}>
+            <IconButton onClick={() => router.push(`/merchants/${params?.uid}/game-management/${e?.row?.providerName}`)}>
               <IconEye />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
@@ -141,7 +141,7 @@ function TransactionsTable() {
     <Fragment>
       <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
         <TitleBar
-          title={t("menu.Game Management.Sportsbook Management")}
+          title={t("menu.Game Management.Casino Management")}
         />
 
         <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>

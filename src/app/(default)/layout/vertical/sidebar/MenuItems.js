@@ -86,19 +86,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "menu.Game Management.title",
     icon: IconGamepad,
-    // href: "/game-management",
-    children: [
-      {
-        id: uniqueId(),
-        title: "menu.Game Management.title",
-        href: "/game-management/casino-management"
-      },
-      {
-        id: uniqueId(),
-        title: "menu.Game Management.provider",
-        href: "/game-management/casino-management/EGT"
-      }
-    ]
+    href: "/game-management",
     // chip: "0",
     // chipColor: "secondary",
   },

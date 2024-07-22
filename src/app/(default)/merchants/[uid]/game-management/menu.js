@@ -13,7 +13,7 @@ export const useMenu = () => {
     {
       id: uniqueId(),
       title: "menu.Game Management.Casino Management",
-      href: `${url}/casino-management`
+      href: `${url}`
     },
     {
       id: uniqueId(),
