@@ -1,3 +1,24 @@
 {
-  "search": "Search"
+  "filter": "Filter",
+  "clearAllFilter": "Clear All Filters",
+  "search": "Search",
+  "searchPlaceholder": "Username / Name / Surname / IP",
+  "registrationDate": "Registration Date",
+  "balance": "Balance",
+  "min": "Min",
+  "max": "Max",
+  "currency": "Currency",
+  "approvalType": "Approval Type",
+  "account": "Account",
+  "activity": "Activity",
+  "memberType": "Member Type",
+  "clearSearch": "Clear Search",
+  "searchButton": "Search",
+  "downloadCSV": "Download as CSV",
+  "sameHeight": "Cards stretch to have the same height",
+  "todayBirthdays": "Today Birthdays",
+  "sameDayRegistered": "Same Day Registered",
+  "sameIP": "Same IP",
+  "sameLastLogin": "Same Last Login"
 }
+

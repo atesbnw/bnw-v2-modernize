@@ -20,26 +20,26 @@ function TopMenu() {
     {
       label: 'menu.Users.Dashboard',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.uid}`,
+      to: `${url}/${params?.oid}`,
     },
     {
       label: 'menu.Users.Financial Transactions',
-      to: `${url}/${params?.uid}/financial-transactions/transaction-history`,
+      to: `${url}/${params?.oid}/financial-transactions/transaction-history`,
     },
     {
       label: 'menu.Users.Game Management',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.uid}/game-management`,
+      to: `${url}/${params?.oid}/game-management`,
     },
     {
       label: 'Reports.title',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.uid}/reports/casino-reports`,
+      to: `${url}/${params?.oid}/reports/casino-reports`,
     },
     {
       label: 'menu.Users.Settings',
       // icon: <IconPhoto size="20" />,
-      to: `${url}/${params?.uid}/settings`
+      to: `${url}/${params?.oid}/settings`
     },
   ];
 

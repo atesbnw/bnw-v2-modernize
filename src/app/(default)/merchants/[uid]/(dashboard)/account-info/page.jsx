@@ -6,7 +6,7 @@ import {Grid, Button, Divider, MenuItem, FormHelperText, Typography} from '@mui/
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
-import MerchantInfoHeader from "@/app/(default)/components/merchants/MerchantInfoHeader";
+import MerchantIcons from "@/app/(default)/components/merchants/MerchantIcons";
 import { validationSchema } from './validation';
 import ParentCard from "@/app/components/shared/ParentCard";
 
@@ -34,7 +34,7 @@ function Page() {
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
             title={t('pages.merchants.dashboard.Account Info')}
-            action={<MerchantInfoHeader/>}
+            action={<MerchantIcons/>}
           >
             <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
               <Grid item xs={12} sm={12} lg={6}>

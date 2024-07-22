@@ -9,7 +9,7 @@ import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLab
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import { validationSchema } from './validation';
-import MerchantIcons from "@/app/(default)/components/merchants/MerchantIcons";
+import OperatorIcons from "@/app/(default)/components/operator-management/OperatorIcons";
 import ParentCard from "@/app/components/shared/ParentCard";
 
 function Page() {
@@ -35,8 +35,8 @@ function Page() {
       <form onSubmit={formik.handleSubmit}>
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
-            title={t('pages.merchants.dashboard.Merchant Information')}
-            action={<MerchantIcons/>}
+            title={t('pages.operator-management.dashboard.Operator Information')}
+            action={<OperatorIcons/>}
           >
             <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
               <Grid item container xs={12}  spacing={3}>
@@ -48,13 +48,13 @@ function Page() {
                     <Typography variant="h4">John Doe - johndoerobot</Typography>
                   </Grid>
                   <Grid item>
-                    <Button variant="contained" size="small" sx={{mr: 1}}>{t('pages.merchants.dashboard.Merchant Info Page.Edit Image')}</Button>
-                    <Button variant="outlined" size="small">{t('pages.merchants.dashboard.Merchant Info Page.Remove Image')}</Button>
+                    <Button variant="contained" size="small" sx={{mr: 1}}>{t('pages.operator-management.dashboard.Operator Info Page.Edit Image')}</Button>
+                    <Button variant="outlined" size="small">{t('pages.operator-management.dashboard.Operator Info Page.Remove Image')}</Button>
                   </Grid>
                 </Grid>
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="firstname">{t('pages.merchants.dashboard.Merchant Info Page.First Name')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="firstname">{t('pages.operator-management.dashboard.Operator Info Page.First Name')}</CustomFormLabel>
                 <CustomTextField
                   id="firstname"
                   name="firstname"
@@ -66,7 +66,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="lastname">{t('pages.merchants.dashboard.Merchant Info Page.Last Name')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="lastname">{t('pages.operator-management.dashboard.Operator Info Page.Last Name')}</CustomFormLabel>
                 <CustomTextField
                   id="lastname"
                   variant="outlined"
@@ -78,7 +78,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="birthDate">{t('pages.merchants.dashboard.Merchant Info Page.Date of Birth')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="birthDate">{t('pages.operator-management.dashboard.Operator Info Page.Date of Birth')}</CustomFormLabel>
                 <CustomTextField
                   id="birthDate"
                   type="date"
@@ -94,7 +94,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="birthPlace">{t('pages.merchants.dashboard.Merchant Info Page.Birth Place')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="birthPlace">{t('pages.operator-management.dashboard.Operator Info Page.Birth Place')}</CustomFormLabel>
                 <CustomTextField
                   id="birthPlace"
                   variant="outlined"
@@ -107,7 +107,7 @@ function Page() {
 
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="genderSelect">{t('pages.merchants.dashboard.Merchant Info Page.Gender')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="genderSelect">{t('pages.operator-management.dashboard.Operator Info Page.Gender')}</CustomFormLabel>
                 <CustomSelect
                   id="genderSelect"
                   name="genderSelect"
@@ -127,7 +127,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="documentNo">{t('pages.merchants.dashboard.Merchant Info Page.Document No')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="documentNo">{t('pages.operator-management.dashboard.Operator Info Page.Document No')}</CustomFormLabel>
                 <CustomTextField
                   id="documentNo"
                   variant="outlined"
@@ -139,7 +139,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="documentType">{t('pages.merchants.dashboard.Merchant Info Page.Document Type')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="documentType">{t('pages.operator-management.dashboard.Operator Info Page.Document Type')}</CustomFormLabel>
                 <CustomTextField
                   id="documentType"
                   variant="outlined"

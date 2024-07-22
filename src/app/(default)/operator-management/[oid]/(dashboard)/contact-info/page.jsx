@@ -7,7 +7,6 @@ import {
   Button,
   MenuItem,
   FormHelperText,
-  Typography,
   FormControlLabel,
   Stack, Box
 } from '@mui/material';
@@ -16,7 +15,7 @@ import CustomTextField from "@/app/components/forms/theme-elements/CustomTextFie
 import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import { validationSchema } from './validation';
 import CustomCheckbox from "@/app/components/forms/theme-elements/CustomCheckbox";
-import MerchantIcons from "@/app/(default)/components/merchants/MerchantIcons";
+import OperatorIcons from "@/app/(default)/components/operator-management/OperatorIcons";
 import ParentCard from "@/app/components/shared/ParentCard";
 
 function Page() {
@@ -43,12 +42,12 @@ function Page() {
       <form onSubmit={formik.handleSubmit}>
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
-            title={t('pages.merchants.dashboard.Contact Info')}
-            action={<MerchantIcons/>}
+            title={t('pages.operator-management.dashboard.Contact Info')}
+            action={<OperatorIcons/>}
           >
             <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel sx={{mt: 0}}  htmlFor="mobilePhone">{t('pages.merchants.dashboard.Contact Info Page.Mobile Phone')}</CustomFormLabel>
+                <CustomFormLabel sx={{mt: 0}}  htmlFor="mobilePhone">{t('pages.operator-management.dashboard.Contact Info Page.Mobile Phone')}</CustomFormLabel>
                 <CustomTextField
                   id="mobilePhone"
                   name="mobilePhone"
@@ -61,7 +60,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel  sx={{mt: 0}}  htmlFor="email">{t('pages.merchants.dashboard.Contact Info Page.Email')}</CustomFormLabel>
+                <CustomFormLabel  sx={{mt: 0}}  htmlFor="email">{t('pages.operator-management.dashboard.Contact Info Page.Email')}</CustomFormLabel>
                 <CustomTextField
                   id="email"
                   name="email"
@@ -78,7 +77,7 @@ function Page() {
               </Grid>
 
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="country">{t('pages.merchants.dashboard.Contact Info Page.Country')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="country">{t('pages.operator-management.dashboard.Contact Info Page.Country')}</CustomFormLabel>
                 <CustomSelect
                   id="country"
                   name="country"
@@ -98,7 +97,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="city">{t('pages.merchants.dashboard.Contact Info Page.City')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="city">{t('pages.operator-management.dashboard.Contact Info Page.City')}</CustomFormLabel>
                 <CustomSelect
                   id="city"
                   name="city"
@@ -118,7 +117,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="region">{t('pages.merchants.dashboard.Contact Info Page.Region')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="region">{t('pages.operator-management.dashboard.Contact Info Page.Region')}</CustomFormLabel>
                 <CustomTextField
                   id="region"
                   variant="outlined"
@@ -130,7 +129,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="address">{t('pages.merchants.dashboard.Contact Info Page.Address')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="address">{t('pages.operator-management.dashboard.Contact Info Page.Address')}</CustomFormLabel>
                 <CustomTextField
                   id="address"
                   variant="outlined"
@@ -142,7 +141,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="postalCode">{t('pages.merchants.dashboard.Contact Info Page.Postal Code')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="postalCode">{t('pages.operator-management.dashboard.Contact Info Page.Postal Code')}</CustomFormLabel>
                 <CustomTextField
                   id="postalCode"
                   variant="outlined"
@@ -155,20 +154,20 @@ function Page() {
               </Grid>
 
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="communicationPreferences">{t('pages.merchants.dashboard.Contact Info Page.Communication Preferences')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="communicationPreferences">{t('pages.operator-management.dashboard.Contact Info Page.Communication Preferences')}</CustomFormLabel>
                 <Stack direction="row" spacing={2}>
                   <Box mt="-10px" mb={3}>
                     <FormControlLabel
                       control={<CustomCheckbox value="email" name="communicationPreferences" onChange={formik.handleChange} />}
-                      label={t('pages.merchants.dashboard.Contact Info Page.Email')}
+                      label={t('pages.operator-management.dashboard.Contact Info Page.Email')}
                     />
                     <FormControlLabel
                       control={<CustomCheckbox value="phone" name="communicationPreferences" onChange={formik.handleChange} />}
-                      label={t('pages.merchants.dashboard.Contact Info Page.Mobile Phone')}
+                      label={t('pages.operator-management.dashboard.Contact Info Page.Mobile Phone')}
                     />
                     <FormControlLabel
                       control={<CustomCheckbox value="sms" name="communicationPreferences" onChange={formik.handleChange} />}
-                      label={t('pages.merchants.dashboard.Contact Info Page.SMS')}
+                      label={t('pages.operator-management.dashboard.Contact Info Page.SMS')}
                     />
                   </Box>
                 </Stack>

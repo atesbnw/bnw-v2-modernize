@@ -4,18 +4,9 @@ import { t } from 'i18next';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import TitleBar from '@/app/components/TitleBar';
-import {Box, Button, InputAdornment, Link} from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import {IconFileDownload, IconEye} from "@tabler/icons-react";
-import Tooltip from "@mui/material/Tooltip";
-import DataTable from "@/app/components/shared/DataTable";
 import Stack from "@mui/material/Stack";
 import { Faker, tr, fakerTR } from '@faker-js/faker';
 import TotalResults from "@/app/(default)/components/users/reports/TotalResults";
-import Filter from "@/app/(default)/components/users/reports/Filter";
-import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
-import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
-import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
 import FilterModal from "@/app/(default)/components/users/reports/bet-reports/FilterModal";
 import {useParams, useRouter} from "next/navigation";
 

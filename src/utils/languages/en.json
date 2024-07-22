@@ -32,7 +32,8 @@
     "Success" : "Success",
     "Info" : "Info",
     "Copy" : "Copy",
-    "Copied!" : "Copied!"
+    "Copied!" : "Copied!",
+    "downloadCSV" : "Download CSV"
   },
   "menu": {
     "Home": "Dashboard",

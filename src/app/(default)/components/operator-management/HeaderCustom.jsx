@@ -14,7 +14,7 @@ function HeaderCustom({children, title, activeItem, menu}) {
   const params = useParams();
   const url = useMemo(() => {
     return `/operator-management`;
-  }, [params?.uid]);
+  }, [params?.oid]);
 
   const BCrumb = [
     {
@@ -23,11 +23,11 @@ function HeaderCustom({children, title, activeItem, menu}) {
     },
     {
       to: `${url}`,
-      title: "menu.Merchants.title",
+      title: "menu.Operator Management.title",
     },
     {
-      ...(activeItem ? {to: `${url}/${params?.uid}`} : {}),
-      title: params?.uid,
+      ...(activeItem ? {to: `${url}/${params?.oid}`} : {}),
+      title: params?.oid,
     },
     ...(activeItem ? [{
       title: activeItem

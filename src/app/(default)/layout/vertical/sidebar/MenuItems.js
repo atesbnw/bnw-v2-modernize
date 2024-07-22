@@ -65,19 +65,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "menu.Operator Management.title",
     icon: IconUserCog,
-    // href: "/operator-management",
-    children: [
-      {
-        id: uniqueId(),
-        title: "menu.Operator Management.title",
-        href: "/operator-management"
-      },
-      {
-        id: uniqueId(),
-        title: "menu.Operator Management.profile",
-        href: "/operator-management/bayi123"
-      }
-    ]
+    href: "/operator-management",
     // chip: "0",
     // chipColor: "secondary",
   },

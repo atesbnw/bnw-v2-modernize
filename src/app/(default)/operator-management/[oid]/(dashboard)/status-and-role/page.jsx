@@ -12,7 +12,7 @@ import {
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
 import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import { validationSchema } from './validation';
-import MerchantIcons from "@/app/(default)/components/merchants/MerchantIcons";
+import OperatorIcons from "@/app/(default)/components/operator-management/OperatorIcons";
 import ParentCard from "@/app/components/shared/ParentCard";
 
 function Page() {
@@ -33,12 +33,12 @@ function Page() {
       <form onSubmit={formik.handleSubmit}>
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
-            title={t('pages.merchants.dashboard.Status and Role')}
-            action={<MerchantIcons/>}
+            title={t('pages.operator-management.dashboard.Status and Role')}
+            action={<OperatorIcons/>}
           >
             <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel sx={{mt: 0}}  htmlFor="accountStatus">{t('pages.merchants.dashboard.Status and Role Page.Account Status')}</CustomFormLabel>
+                <CustomFormLabel sx={{mt: 0}}  htmlFor="accountStatus">{t('pages.operator-management.dashboard.Status and Role Page.Account Status')}</CustomFormLabel>
                 <CustomSelect
                   id="accountStatus"
                   name="accountStatus"
@@ -57,7 +57,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel sx={{mt: 0}}  htmlFor="userRole">{t('pages.merchants.dashboard.Status and Role Page.User Role')}</CustomFormLabel>
+                <CustomFormLabel sx={{mt: 0}}  htmlFor="userRole">{t('pages.operator-management.dashboard.Status and Role Page.User Role')}</CustomFormLabel>
                 <CustomSelect
                   id="userRole"
                   name="userRole"

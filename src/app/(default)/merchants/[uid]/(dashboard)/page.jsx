@@ -17,10 +17,6 @@ import MerchantIcons from "@/app/(default)/components/merchants/MerchantIcons";
 import ShowReferenceCode from "@/app/(default)/components/merchants/dashboard/ShowReferenceCode";
 import UpdateCommissionRate from "@/app/(default)/components/merchants/dashboard/UpdateCommissionRate";
 import MerchantMemberList from "@/app/(default)/components/merchants/dashboard/MerchantMemberList";
-import IconButton from "@mui/material/IconButton";
-import {IconFileDownload} from "@tabler/icons-react";
-import Tooltip from "@mui/material/Tooltip";
-import FilterModal from "@/app/(default)/components/merchants/dashboard/FilterModal";
 
 function Page() {
   const [filter, setFilter] = useState({});
