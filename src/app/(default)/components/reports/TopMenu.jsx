@@ -25,7 +25,7 @@ function TopMenu() {
       to: `${url}`,
     },
     {
-      label: 'Reports.Finance Reports',
+      label: 'menu.Users.Reports Menu.Finance Reports',
       // icon: <IconUserCircle size="20" />,
       to: `${url}/finance-reports`,
     },

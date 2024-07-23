@@ -107,7 +107,7 @@ function Page() {
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
       providerLogo: faker.helpers.arrayElement(['https://getlogovector.com/wp-content/uploads/2021/11/evolution-gaming-logo-vector.png']),
-      providerTitle: faker.helpers.arrayElement(['EGT', 'Pragmatic Play', 'Netent']),
+      providerTitle: faker.helpers.arrayElement(['EGT', 'Pragmatic Play', 'Netent', "Evolution"]),
       played: faker.commerce.price(1000, 100000, 2) + '₺',
       won: faker.commerce.price(1000, 100000, 2) + '₺',
       difference: faker.commerce.price(1000, 100000, 2) + '₺',

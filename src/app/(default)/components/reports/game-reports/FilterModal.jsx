@@ -49,7 +49,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                 <CustomTextField
                   id="searchText"
                   name="searchText"
-                  placeholder={t('pages.operator-management.operator-management.searchPlaceholder')}
+                  placeholder={t('pages.reports.game-reports.searchPlaceholder')}
                   variant="outlined"
                   fullWidth
                   value={filter?.searchText}
@@ -90,7 +90,8 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
         )}
         actionButtons={(
           <Fragment>
-            <Button fullWidth
+            <Button
+              variant={"contained"}
               onClick={() => {
                 onConfirm();
                 setOpen(false);

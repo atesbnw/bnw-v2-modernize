@@ -1,5 +1,6 @@
 {
   "search": "Search",
   "minPlaying": "Min Playing",
-  "maxPlaying": "Max Playing"
+  "maxPlaying": "Max Playing",
+  "searchPlaceholder": "Provider Name"
 }

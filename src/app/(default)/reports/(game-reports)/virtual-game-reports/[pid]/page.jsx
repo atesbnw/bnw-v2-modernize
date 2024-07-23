@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 import FilterModal from '@/app/(default)/components/reports/game-reports/FilterModal';
 import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
 import TimeTabs from '@/app/components/shared/TimeTabs';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
 import { IconEye } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
@@ -16,7 +16,8 @@ import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
 
 function Page() {
-  const title = t("menu.Users.Reports Menu.Bet Reports");
+  const params = useParams();
+  const title = t("menu.Users.Reports Menu.Virtual Game Reports");
   const [filter, setFilter] = useState({});
   const updateFilter = useCallback((field, value) => {
     setFilter(prev => ({
@@ -53,7 +54,7 @@ function Page() {
       },
       {
         field: 'providerTitle',
-        headerName: 'Provider Title',
+        headerName: 'Game',
         // width: 200
         flex: 1,
       },
@@ -86,28 +87,13 @@ function Page() {
         field: 'payback',
         headerName: 'Payback',
         // width: 200
-      },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 170,
-        getActions: (e) => {
-          return [
-            <IconButton onClick={() => router.push(`/reports/bet-reports/${e.row?.providerTitle}`)}>
-              <IconEye />
-            </IconButton>,
-            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-            //   <IconPencil />
-            // </IconButton>
-          ]
-        }
       }
     ];
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      providerLogo: faker.helpers.arrayElement(['https://getlogovector.com/wp-content/uploads/2021/11/evolution-gaming-logo-vector.png',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrS2jgqiRGVV6dOm-hkxr-JhLaWbpoxMim8Q&s","https://www.liveblackjack.co/wp-content/uploads/2019/08/lucky_streak.png"]),
-      providerTitle: faker.helpers.arrayElement(['Lucky Streak', 'XPG', 'Ezugi', "Evolution"]),
+      providerLogo: faker.helpers.arrayElement(['https://getlogovector.com/wp-content/uploads/2021/11/evolution-gaming-logo-vector.png']),
+      providerTitle: faker.helpers.arrayElement(['Twist', 'Roulette', 'Wild & Rift', "Floaming Hot", "40 Burning Hot", "20 Dazzling Hot"]),
       played: faker.commerce.price(1000, 100000, 2) + '₺',
       won: faker.commerce.price(1000, 100000, 2) + '₺',
       difference: faker.commerce.price(1000, 100000, 2) + '₺',
@@ -128,6 +114,8 @@ function Page() {
   return (
     <Box className={"flex flex-col gap-4"}>
       <TitleBar
+        link={"../virtual-game-reports"}
+        subTitle={decodeURIComponent(params?.pid)}
         title={title}
         Right={() => (
           <TimeTabs justify={"start"} />
