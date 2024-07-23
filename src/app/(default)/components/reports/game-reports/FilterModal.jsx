@@ -7,28 +7,28 @@ import CustomTextField from '@/app/components/forms/theme-elements/CustomTextFie
 import CustomSelect from '@/app/components/forms/theme-elements/CustomSelect';
 import { MenuItem } from '@mui/material';
 import Button from '@mui/material/Button';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import CustomCheckbox from "@/app/components/forms/theme-elements/CustomCheckbox";
 import SideDialog from '@/app/components/shared/SideDialog';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import { IconFilter, IconFilterX } from '@tabler/icons-react';
-import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
-import TimeTabs from '@/app/components/shared/TimeTabs';
 
 function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
   const [open, setOpen] = useState(false);
 
   return (
     <Fragment>
-      <Tooltip title={t('pages.user-management.user_management_financial_transactions.filter')}>
+      <Tooltip title={t('pages.operator-management.operator-management.filter')}>
         <IconButton color={'primary'} onClick={() => setOpen(true)}>
           <IconFilter />
         </IconButton>
       </Tooltip>
 
       {Object.values(filter)?.some(Boolean) && (
-        <Tooltip title={t('pages.user-management.user_management_financial_transactions.clearAllFilter')}>
+        <Tooltip title={t('pages.operator-management.operator-management.clearAllFilter')}>
           <IconButton color={'error'} onClick={() => {
-            resetFilter && resetFilter();
+            resetFilter && resetFilter()
             setOpen(false);
           }}>
             <IconFilterX />
@@ -37,50 +37,53 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
       )}
 
       <SideDialog
-        title={t('pages.user-management.user_management_financial_transactions.filter')}
+        title={t("pages.operator-management.operator-management.filter")}
         open={open}
         onClose={() => setOpen(false)}
         content={(
           <Box>
             <Grid container spacing={1} mb={2}>
-              <Grid item sm={12} xs={12}>
+              <Grid item xs={12}>
                 <CustomFormLabel
-                  htmlFor="searchText">{t('pages.user-management.user_management_financial_transactions.search')}</CustomFormLabel>
+                  htmlFor="searchText">{t('pages.operator-management.operator-management.search')}</CustomFormLabel>
                 <CustomTextField
                   id="searchText"
                   name="searchText"
+                  placeholder={t('pages.operator-management.operator-management.searchPlaceholder')}
                   variant="outlined"
                   fullWidth
                   value={filter?.searchText}
                   onChange={(e) => updateFilter('searchText', e?.target.value)}
                 />
               </Grid>
-              <Grid item sm={12} xs={12}>
-                <CustomFormLabel
-                  htmlFor="category">{t('pages.game-management.admin-address.category')}</CustomFormLabel>
-                <CustomSelect
-                  id="category"
-                  name="category"
-                  fullWidth
-                  value={filter?.category || "all"}
-                  onChange={(e) => updateFilter('category', e?.target.value)}
+              <Grid item xs={12}>
+                {/*<CustomFormLabel*/}
+                {/*  htmlFor="balanceMin">{t('pages.user-management.user_management_user_management.balance')}</CustomFormLabel>*/}
+              </Grid>
+              <Grid item xs={6} className={"pt-0"}>
+                <CustomTextField
+                  id="balanceMin"
+                  name="balanceMin"
+                  placeholder={t('pages.reports.game-reports.minPlaying')}
                   variant="outlined"
-                >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="casino">Casino</MenuItem>
-                  <MenuItem value="slot">slot</MenuItem>
-                </CustomSelect>
+                  type="number"
+                  fullWidth
+                  value={filter?.balanceMin}
+                  onChange={(e) => updateFilter('balanceMin', e?.target.value)}
+                />
               </Grid>
-              <Grid item sm={12} xs={12}>
-                <CustomFormLabel
-                  htmlFor="transactionType">{t('pages.game-management.admin-address.updatedAt')}</CustomFormLabel>
-               <TimeTabs
-                 value={filter?.updatedAt}
-                 onChange={e => updateFilter("updatedAt", e)}
-                 justify={"start"}
-               />
+              <Grid item xs={6} className={"pt-0"}>
+                <CustomTextField
+                  id="balanceMax"
+                  name="balanceMax"
+                  placeholder={t('pages.reports.game-reports.maxPlaying')}
+                  variant="outlined"
+                  type="number"
+                  fullWidth
+                  value={filter?.balanceMax}
+                  onChange={(e) => updateFilter('balanceMax', e?.target.value)}
+                />
               </Grid>
-
 
             </Grid>
           </Box>
@@ -88,11 +91,10 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
         actionButtons={(
           <Fragment>
             <Button fullWidth
-                    variant={'contained'}
-                    onClick={() => {
-                      onConfirm();
-                      setOpen(false);
-                    }}>{t('pages.user-management.user_management_financial_transactions.filter')}</Button>
+              onClick={() => {
+                onConfirm();
+                setOpen(false);
+              }}>{t('pages.operator-management.operator-management.filter')}</Button>
           </Fragment>
         )}
       />

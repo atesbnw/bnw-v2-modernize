@@ -7,6 +7,7 @@ import { useUsers } from '@/app/(default)/users/useUsers';
 import Stack from "@mui/material/Stack";
 import React, {useCallback, useState} from "react";
 import FilterModal from "@/app/(default)/components/users/users-list/FilterModal";
+import Box from '@mui/material/Box';
 
 function Page() {
   const [filter, setFilter] = useState({});
@@ -32,10 +33,7 @@ function Page() {
 
 
   return (
-    <PageContainer title={t("Users.bc.User Management")} description="" style={{
-      flex: 1,
-      overflowX: "auto"
-    }}>
+    <Box>
       <Breadcrumb title={t("Users.bc.User Management")} items={BCrumb} />
 
       <Stack direction={"row"} justifyContent={"end"} className={"mb-3"}>
@@ -55,7 +53,7 @@ function Page() {
         toolbar={false}
       />
 
-    </PageContainer>
+    </Box>
   );
 }
 

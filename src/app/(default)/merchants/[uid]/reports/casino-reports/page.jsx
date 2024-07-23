@@ -10,15 +10,11 @@ import {IconFileDownload, IconEye} from "@tabler/icons-react";
 import Tooltip from "@mui/material/Tooltip";
 import DataTable from "@/app/components/shared/DataTable";
 import Stack from "@mui/material/Stack";
-import { Faker, tr, fakerTR } from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 import TotalResults from "@/app/(default)/components/users/reports/TotalResults";
 import FilterModal from "@/app/(default)/components/users/reports/casino-reports/FilterModal";
 import {useParams, useRouter} from "next/navigation";
 import {uniqueId} from "lodash";
-
-const faker = new Faker({
-  locale: [fakerTR, tr],
-});
 
 function Page() {
   const params = useParams();
@@ -170,13 +166,11 @@ function Page() {
               </Tooltip>
             </Stack>
 
-            <Box sx={{ width: '100%'}}>
               <DataTable
                 search={false}
                 data={data}
                 toolbar={false}
               />
-            </Box>
 
           </Card>
         </Grid>

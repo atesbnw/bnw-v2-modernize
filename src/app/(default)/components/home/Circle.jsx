@@ -21,7 +21,7 @@ const Circle = styled(Box)(({ theme }) => ({
 
 const TopCircles = () => {
   return(
-    <Fragment>
+    <Box className={"flex items-center gap-3"}>
       <Grid item sx={{alignItems: "center", display: "flex", flexDirection: "row", gap: 2, py: 1}}>
         <Circle>1423</Circle>
         <Typography variant="subtitle2" align="center" sx={{py: 1}}>ONLINE KULLANICI</Typography>
@@ -30,7 +30,7 @@ const TopCircles = () => {
         <Circle>14</Circle>
         <Typography variant="subtitle2" align="center" sx={{py: 1}}>ONLINE YETKİLİ</Typography>
       </Grid>
-    </Fragment>
+    </Box>
   )
 }
 

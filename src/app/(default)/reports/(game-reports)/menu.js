@@ -12,22 +12,22 @@ export function useMenu() {
   const menu = [
     {
       id: uniqueId(),
-      title: "Reports.Casino Reports",
+      title: "menu.Users.Reports Menu.Casino Reports",
       href: `${url}`
     },
     {
       id: uniqueId(),
-      title: "Reports.Live Casino Reports",
+      title: "menu.Users.Reports Menu.Live Casino Reports",
       href: `${url}/live-casino-reports`,
     },
     {
       id: uniqueId(),
-      title: "Reports.Virtual Game Reports",
+      title: "menu.Users.Reports Menu.Virtual Game Reports",
       href: `${url}/virtual-game-reports`,
     },
     {
       id: uniqueId(),
-      title: "Reports.Bet Reports",
+      title: "menu.Users.Reports Menu.Bet Reports",
       href: `${url}/bet-reports`,
     }
   ];
