@@ -17,7 +17,7 @@ function TopMenu() {
   };
   const ProfileTabs = [
     {
-      label: 'Tools.Bonus',
+      label: 'Tools.Bonuses',
       // icon: <IconUserCircle size="20" />,
       to: `/tools`,
     },
