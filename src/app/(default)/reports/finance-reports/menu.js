@@ -12,12 +12,12 @@ export function useMenu() {
   const menu = [
     {
       id: uniqueId(),
-      title: "Reports.Finance Reports",
+      title: "menu.Users.Reports Menu.Finance Reports",
       href: `${url}`
     },
     {
       id: uniqueId(),
-      title: "Reports.Bonus Reports",
+      title: "menu.Users.Reports Menu.Bonus Reports",
       href: `${url}/bonus-reports`,
     },
     {

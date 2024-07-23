@@ -1,10 +1,10 @@
-import React, { memo, useState, useCallback } from 'react';
+import React, { memo, useState, useCallback, Fragment } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import {IconChevronRight} from "@tabler/icons-react";
 import Stack from "@mui/material/Stack";
-import {t} from "i18next";
 import Link from "next/link";
+import classNames from "classnames";
 
 function TitleBar({ LeftImage, subTitle, link, Left, title, Right }) {
   return (
@@ -39,7 +39,7 @@ function TitleBar({ LeftImage, subTitle, link, Left, title, Right }) {
         <Typography variant="h2" component="div" className={"flex gap-2 items-center"}>
           {link ?
             (
-              <Link href={link} color="">
+              <Link href={link}>
                 <Typography variant="h2" component="div" color="text.primary">
                   {title}
                 </Typography>
@@ -49,9 +49,24 @@ function TitleBar({ LeftImage, subTitle, link, Left, title, Right }) {
 
 
           {subTitle && (
-            <>
-              <IconChevronRight/> {subTitle}
-            </>
+            typeof subTitle === "string" ? (
+              <Box className={"flex items-center gap-1 opacity-75"}>
+                <IconChevronRight/> {subTitle}
+              </Box>
+            ) : Array.isArray(subTitle) ? subTitle?.map((m,i) => (
+              <Box className={classNames("flex items-center gap-1", {
+                "opacity-75": subTitle?.length-1 === i
+              })} key={m}>
+                <IconChevronRight/>
+                {typeof m === "string" ? m : (
+                  <Link href={m?.link}>
+                    <Typography variant="h2" component="div" color="text.primary">
+                      {m?.title}
+                    </Typography>
+                  </Link>
+                )}
+              </Box>
+            )) : null
           )}
         </Typography>
       </Box>
