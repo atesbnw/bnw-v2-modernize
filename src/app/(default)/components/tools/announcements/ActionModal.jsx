@@ -176,7 +176,6 @@ function ActionModal({id, data}) {
               <MenuItem value="private">Private</MenuItem>
               <MenuItem value="all">ALL</MenuItem>
             </CustomSelect>
-
           </Grid>
           {value?.targetUser === 'private' && (
             <Grid item xs={6} lg={4}>
@@ -212,7 +211,30 @@ function ActionModal({id, data}) {
 
           <Grid item xs={12}>
             <Typography variant={"h3"}>{t('pages.tools.announcements.Description')}</Typography>
-            <CustomFormLabel htmlFor="title">{t('pages.tools.announcements.Title')}</CustomFormLabel>
+
+          </Grid>
+          <Grid item xs={6} lg={4}>
+            <CustomFormLabel  sx={{mt:0}} htmlFor="language">{t('pages.tools.announcements.Language')}</CustomFormLabel>
+              <CustomSelect
+                id="language"
+                name="language"
+                fullWidth
+                variant="outlined"
+                value={value?.language}
+                onChange={(e) => updateValue('language', e?.target.value)}
+              >
+                <MenuItem value="tr">Turkish</MenuItem>
+                <MenuItem value="en">English</MenuItem>
+              </CustomSelect>
+
+          </Grid>
+          <Grid item xs={6} lg={4}>
+            <CustomFormLabel  sx={{mt:0}} htmlFor="language">&nbsp;</CustomFormLabel>
+            <Button variant="contained" sx={{mr: 1}}>{t('i.Select')}</Button>
+            <Button variant="contained">{t('i.Save')}</Button>
+          </Grid>
+          <Grid item xs={12}>
+            <CustomFormLabel sx={{mt:0}}  htmlFor="title">{t('pages.tools.announcements.Title')}</CustomFormLabel>
             <CustomTextField
               id="title"
               name="title"
