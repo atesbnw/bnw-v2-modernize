@@ -4,7 +4,7 @@ import TitleBar from '@/app/components/TitleBar';
 import {t} from "i18next";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import FilterModal from '@/app/(default)/components/reports/user-reports/user-game-reports/FilterModal';
+import FilterModal from '@/app/(default)/components/reports/user-reports/user-game-reports/sub/FilterModal';
 import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
 import TimeTabs from '@/app/components/shared/TimeTabs';
 import { useParams, useRouter } from 'next/navigation';
@@ -47,26 +47,16 @@ function Page() {
   useEffect(() => {
     const columns = [
       {
-        field: 'mostPlay',
-        headerName: t('pages.reports.user-reports.mostPlay'),
+        field: 'logo',
+        headerName: '',
         renderCell: (params) => <img src={params.value} width={70} height="auto" />,
         cellClassName: 'centerAll'
         // width: 200
       },
       {
-        field: 'username',
-        headerName: t('pages.reports.user-reports.username'),
+        field: 'gameName',
+        headerName: t('pages.reports.user-reports.gameName'),
         flex: 1,
-      },
-      {
-        field: 'userId',
-        headerName: t('pages.reports.user-reports.userId'),
-        // width: 200
-      },
-      {
-        field: 'category',
-        headerName: t('pages.reports.user-reports.category'),
-        // width: 200
       },
       {
         field: 'play',
@@ -97,30 +87,15 @@ function Page() {
         field: 'payback',
         headerName: t('pages.reports.user-reports.payback'),
         // width: 200
-      },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 170,
-        getActions: (e) => {
-          return [
-            <IconButton onClick={() => router.push(`/reports/user-reports/user-game-reports/${e.row?.username}`)}>
-              <IconEye />
-            </IconButton>,
-            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-            //   <IconPencil />
-            // </IconButton>
-          ]
-        }
       }
     ];
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      mostPlay: faker.helpers.arrayElement(['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk0mnLg3qFsLZPtHPzOVPt-tISk_9CyCkIqQ&s','https://images-platform.99static.com//0VlTLrmx9f4e-1F5nvt7ZLf3Axw=/162x147:831x816/fit-in/500x500/99designs-contests-attachments/123/123983/attachment_123983096','https://static.vecteezy.com/system/resources/previews/005/562/562/non_2x/casino-logo-banner-with-golden-crown-and-treasure-royal-gambling-background-with-precious-stones-game-card-symbols-vector.jpg']),
-      username: faker.internet.userName(),
-      userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
-      category: faker.helpers.arrayElement(['Casino', 'Live Casino', 'Virtual Games']),
+      logo: faker.helpers.arrayElement(['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk0mnLg3qFsLZPtHPzOVPt-tISk_9CyCkIqQ&s','https://images-platform.99static.com//0VlTLrmx9f4e-1F5nvt7ZLf3Axw=/162x147:831x816/fit-in/500x500/99designs-contests-attachments/123/123983/attachment_123983096','https://static.vecteezy.com/system/resources/previews/005/562/562/non_2x/casino-logo-banner-with-golden-crown-and-treasure-royal-gambling-background-with-precious-stones-game-card-symbols-vector.jpg']),
+      gameName: faker.helpers.arrayElement(['Flaming Hot', '40 Burning Hot', '20 Dazzling Hot']),
+      // userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
+      // category: faker.helpers.arrayElement(['Casino', 'Live Casino', 'Virtual Games']),
       play: faker.commerce.price(1000, 100000, 2) + "₺",
       won: faker.commerce.price(1000, 100000, 2) + "₺",
       diff: faker.commerce.price(1000, 100000, 2) + "₺",
@@ -142,6 +117,11 @@ function Page() {
     <Box className={"flex flex-col gap-4"}>
       <TitleBar
         title={title}
+        link={"../user-game-reports"}
+        subTitle={[
+          { title: decodeURIComponent(params?.uid), link: `../${params?.uid}`},
+          decodeURIComponent(params?.pid)
+        ]}
         Right={() => (
             <TimeTabs justify={"start"} />
         )}

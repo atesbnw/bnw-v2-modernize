@@ -2,15 +2,12 @@
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import TitleBar from '@/app/components/TitleBar';
 import {t} from "i18next";
-import PageContainer from '@/app/components/container/PageContainer';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import FilterModal from '@/app/(default)/components/reports/bonus-reports/FilterModal';
+import FilterModal from '@/app/(default)/components/reports/user-reports/user-balance-reports/FilterModal';
 import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
 import TimeTabs from '@/app/components/shared/TimeTabs';
 import { useParams, useRouter } from 'next/navigation';
-import IconButton from '@mui/material/IconButton';
-import { IconEye } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
@@ -27,7 +24,7 @@ function Page() {
   }, []);
   const totalResultsData = [
     { title: t('pages.reports.user-reports.totalCurrentBalance'), value: faker.commerce.price(24000, 100000, 2) + '₺'},
-    { title: t('pages.reports.user-reports.totalUniqueUser'), value: faker.commerce.price(100, 330, 2)},
+    { title: t('pages.reports.user-reports.totalUniqueUser'), value: faker.datatype.number({ min: 100, max: 400 }).toString()},
   ];
   const router = useRouter();
   const [data, setData] = useState({
@@ -42,60 +39,41 @@ function Page() {
   useEffect(() => {
     const columns = [
       {
-        field: 'providerLogo',
-        headerName: '',
-        renderCell: (params) => <img src={params.value} width={70} height="auto" />,
-        cellClassName: 'centerAll'
+        field: 'transactionId',
+        headerName: t('pages.reports.user-reports.transactionId'),
         // width: 200
       },
       {
-        field: 'providerTitle',
-        headerName: 'Game',
-        // width: 200
+        field: 'username',
+        headerName: t('pages.reports.user-reports.username'),
         flex: 1,
       },
       {
-        field: 'played',
-        headerName: 'Played',
+        field: 'userId',
+        headerName: t('pages.reports.user-reports.userId'),
         // width: 200
       },
       {
-        field: 'won',
-        headerName: 'Won',
+        field: 'updatedAt',
+        headerName: t('pages.reports.user-reports.updatedAt'),
+        width: 200,
         // width: 200
       },
       {
-        field: 'difference',
-        headerName: 'Difference',
+        field: 'currentBalance',
+        headerName: t('pages.reports.user-reports.currentBalance'),
+        width: 200,
         // width: 200
       },
-      {
-        field: 'canceled',
-        headerName: 'Canceled',
-        // width: 200
-      },
-      {
-        field: 'takeBack',
-        headerName: 'Take Back',
-        // width: 200
-      },
-      {
-        field: 'payback',
-        headerName: 'Payback',
-        // width: 200
-      }
     ];
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      providerLogo: faker.helpers.arrayElement(['https://getlogovector.com/wp-content/uploads/2021/11/evolution-gaming-logo-vector.png']),
-      providerTitle: faker.helpers.arrayElement(['Twist', 'Roulette', 'Wild & Rift', "Floaming Hot", "40 Burning Hot", "20 Dazzling Hot"]),
-      played: faker.commerce.price(1000, 100000, 2) + '₺',
-      won: faker.commerce.price(1000, 100000, 2) + '₺',
-      difference: faker.commerce.price(1000, 100000, 2) + '₺',
-      canceled: faker.commerce.price(1000, 100000, 2) + '₺',
-      takeBack: faker.commerce.price(1000, 100000, 2) + '₺',
-      payback: faker.commerce.price(1000, 100000, 2) + '₺',
+      transactionId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
+      username: faker.internet.userName(),
+      userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
+      updatedAt: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
+      currentBalance: faker.commerce.price(1000, 100000, 2) + "₺",
     }));
 
     setData((prev) => ({
@@ -112,21 +90,24 @@ function Page() {
       <TitleBar
         title={title}
         Right={() => (
-          <TimeTabs justify={"start"} />
+          <Stack direction={"row"} justifyContent={"end"} className={"mb-3 items-center"}>
+
+            <TimeTabs justify={"start"} />
+
+            <FilterModal
+              filter={filter}
+              updateFilter={updateFilter}
+              resetFilter={() => {
+                setFilter({});
+                setData(prev => ({ ...prev, filter: {} }));
+              }}
+              onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+            />
+          </Stack>
         )}
       />
 
-        <Stack direction={"row"} justifyContent={"end"} className={"mb-3"}>
-          <FilterModal
-            filter={filter}
-            updateFilter={updateFilter}
-            resetFilter={() => {
-              setFilter({});
-              setData(prev => ({ ...prev, filter: {} }));
-            }}
-            onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-          />
-        </Stack>
+
 
         <SummaryBar
           title={t('pages.merchants.reports.Total')}

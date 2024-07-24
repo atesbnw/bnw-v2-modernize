@@ -8,10 +8,8 @@ import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 import { SingleInputDateRangeField } from '@mui/x-date-pickers-pro/SingleInputDateRangeField';
 
-function TimeTabs({children, onChange, value, topElement, justify = "end"}) {
-  const [timeRange, setTimeRange] = useState(0);
+function TimeTabs({children, onChange, value, topElement, justify = "end", gridSize = "auto"}) {
   const [time, setTime] = useState([dayjs(), dayjs().add(7,"days")]);
-  const [open, setOpen] = useState(false);
   const shortcutsItems = useMemo(() => [
     {
       label: t("Dashboard.dateRange.yesterday"),
@@ -59,27 +57,6 @@ function TimeTabs({children, onChange, value, topElement, justify = "end"}) {
     // { label: 'Reset', getValue: () => [null, null] },
   ], []);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const changeRange = useCallback((v) => {
-    switch (v){
-      case 0: setTime([dayjs().startOf("day"), dayjs().endOf("day")]); break;
-      case 1: setTime([dayjs().subtract(1,"day").startOf("day"), dayjs().subtract(1,"day").endOf("day")]); break;
-      case 2: setTime([dayjs().subtract(7,"day").startOf("day"), dayjs().endOf("day")]); break;
-      case 3: setTime([dayjs().subtract(15,"day").startOf("day"), dayjs().endOf("day")]); break;
-      case 4: setTime([dayjs().subtract(30,"day").startOf("day"), dayjs().endOf("day")]); break;
-      case 5: setTime([dayjs().startOf("month"), dayjs().endOf("day")]); break;
-
-      default: break;
-    }
-    setTimeRange(v);
-  }, []);
 
   useEffect(() => {
     if(onChange && typeof onChange === "function") {
@@ -94,7 +71,7 @@ function TimeTabs({children, onChange, value, topElement, justify = "end"}) {
   return (
     <Fragment>
       <Box className={"flex flex-col md:flex-row"}>
-        {justify==="end" && (
+        {(justify==="end" && gridSize!==12) && (
           <Box className={"md:flex-1"}>
             {topElement && topElement}
           </Box>

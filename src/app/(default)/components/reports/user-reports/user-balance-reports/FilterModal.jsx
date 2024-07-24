@@ -13,21 +13,20 @@ import SideDialog from '@/app/components/shared/SideDialog';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import { IconFilter, IconFilterX } from '@tabler/icons-react';
-import TimeTabs from "@/app/components/shared/TimeTabs";
 
 function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
   const [open, setOpen] = useState(false);
 
   return (
     <Fragment>
-      <Tooltip title={t('i.Filter')}>
+      <Tooltip title={t('pages.operator-management.operator-management.filter')}>
         <IconButton color={'primary'} onClick={() => setOpen(true)}>
           <IconFilter />
         </IconButton>
       </Tooltip>
 
       {Object.values(filter)?.some(Boolean) && (
-        <Tooltip title={t('i.ClearAllFilter')}>
+        <Tooltip title={t('pages.operator-management.operator-management.clearAllFilter')}>
           <IconButton color={'error'} onClick={() => {
             resetFilter && resetFilter()
             setOpen(false);
@@ -38,26 +37,41 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
       )}
 
       <SideDialog
-        title={t("pages.merchants.dashboard.Merchant Member List")}
+        title={t("pages.operator-management.operator-management.filter")}
         open={open}
         onClose={() => setOpen(false)}
         content={(
           <Box>
             <Grid container spacing={1} mb={2}>
               <Grid item xs={12}>
-                <TimeTabs justify={"start"} gridSize={12}/>
-              </Grid>
-              <Grid item xs={12}>
                 <CustomFormLabel
-                  htmlFor="searchText">{t('pages.merchants.dashboard.search')}</CustomFormLabel>
+                  htmlFor="searchText">{t('pages.operator-management.operator-management.search')}</CustomFormLabel>
                 <CustomTextField
                   id="searchText"
                   name="searchText"
-                  placeholder={t('pages.merchants.dashboard.searchPlaceholder')}
+                  placeholder={t('pages.reports.game-reports.searchPlaceholder')}
                   variant="outlined"
                   fullWidth
                   value={filter?.searchText}
                   onChange={(e) => updateFilter('searchText', e?.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                {/*<CustomFormLabel*/}
+                {/*  htmlFor="balanceMin">{t('pages.user-management.user_management_user_management.balance')}</CustomFormLabel>*/}
+              </Grid>
+              <Grid item xs={12} className={"pt-0"}>
+                <CustomFormLabel
+                  htmlFor="totalBalance">{t('pages.reports.user-reports.totalBalance')}</CustomFormLabel>
+                <CustomTextField
+                  id="totalBalance"
+                  name="totalBalance"
+                  placeholder={t('pages.reports.user-reports.totalBalance')}
+                  variant="outlined"
+                  type="number"
+                  fullWidth
+                  value={filter?.totalBalance}
+                  onChange={(e) => updateFilter('totalBalance', e?.target.value)}
                 />
               </Grid>
 
@@ -67,12 +81,11 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
         actionButtons={(
           <Fragment>
             <Button
-              fullWidth
-              variant='contained'
+              variant={"contained"}
               onClick={() => {
                 onConfirm();
                 setOpen(false);
-              }}>{t('i.Filter')}</Button>
+              }}>{t('pages.operator-management.operator-management.filter')}</Button>
           </Fragment>
         )}
       />

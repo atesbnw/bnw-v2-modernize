@@ -1,23 +1,22 @@
-"use client";
-import React, { memo, useCallback, useEffect, useState } from 'react';
-import TitleBar from '@/app/components/TitleBar';
-import {t} from "i18next";
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import FilterModal from '@/app/(default)/components/reports/user-reports/user-game-reports/FilterModal';
-import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
-import TimeTabs from '@/app/components/shared/TimeTabs';
-import { useParams, useRouter } from 'next/navigation';
-import { uniqueId } from 'lodash';
+import React, { memo, useState, useCallback, useEffect } from 'react';
+import { t } from 'i18next';
 import { faker } from '@faker-js/faker';
-import DataTable from '@/app/components/shared/DataTable';
+import { useParams, useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
 import { IconEye } from '@tabler/icons-react';
+import { uniqueId } from 'lodash';
+import Box from '@mui/material/Box';
+import TitleBar from '@/app/components/TitleBar';
+import TimeTabs from '@/app/components/shared/TimeTabs';
+import Stack from '@mui/material/Stack';
+import FilterModal from '@/app/(default)/components/reports/user-reports/user-game-reports/sub/FilterModal';
+import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
+import DataTable from '@/app/components/shared/DataTable';
 
-function Page() {
+function CasinoTab() {
   const params = useParams();
-  const title = t("Reports.User Game Reports");
   const [filter, setFilter] = useState({});
+
   const updateFilter = useCallback((field, value) => {
     setFilter(prev => ({
       ...prev,
@@ -47,26 +46,16 @@ function Page() {
   useEffect(() => {
     const columns = [
       {
-        field: 'mostPlay',
-        headerName: t('pages.reports.user-reports.mostPlay'),
+        field: 'logo',
+        headerName: '',
         renderCell: (params) => <img src={params.value} width={70} height="auto" />,
         cellClassName: 'centerAll'
         // width: 200
       },
       {
-        field: 'username',
-        headerName: t('pages.reports.user-reports.username'),
+        field: 'provider',
+        headerName: t('pages.reports.user-reports.provider'),
         flex: 1,
-      },
-      {
-        field: 'userId',
-        headerName: t('pages.reports.user-reports.userId'),
-        // width: 200
-      },
-      {
-        field: 'category',
-        headerName: t('pages.reports.user-reports.category'),
-        // width: 200
       },
       {
         field: 'play',
@@ -104,7 +93,7 @@ function Page() {
         width: 170,
         getActions: (e) => {
           return [
-            <IconButton onClick={() => router.push(`/reports/user-reports/user-game-reports/${e.row?.username}`)}>
+            <IconButton onClick={() => router.push(`/reports/user-reports/user-game-reports/${params?.uid}/${e.row?.provider}`)}>
               <IconEye />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
@@ -117,10 +106,9 @@ function Page() {
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      mostPlay: faker.helpers.arrayElement(['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk0mnLg3qFsLZPtHPzOVPt-tISk_9CyCkIqQ&s','https://images-platform.99static.com//0VlTLrmx9f4e-1F5nvt7ZLf3Axw=/162x147:831x816/fit-in/500x500/99designs-contests-attachments/123/123983/attachment_123983096','https://static.vecteezy.com/system/resources/previews/005/562/562/non_2x/casino-logo-banner-with-golden-crown-and-treasure-royal-gambling-background-with-precious-stones-game-card-symbols-vector.jpg']),
-      username: faker.internet.userName(),
-      userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
-      category: faker.helpers.arrayElement(['Casino', 'Live Casino', 'Virtual Games']),
+      logo: faker.helpers.arrayElement(['https://getlogovector.com/wp-content/uploads/2021/11/evolution-gaming-logo-vector.png','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7mgeXFwmA1yjsB9IxQ33OMU0KeebpnvFZYA&s','https://seeklogo.com/images/P/pragmatic-play-logo-C41E3B3527-seeklogo.com.png','https://liongaming.io/wp-content/uploads/2024/04/BoomingGames.webp']),
+      provider: faker.helpers.arrayElement(["EGT", 'Nentent', 'Evolution', "Pragmatic Play", "Booming Games"]),
+      // userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
       play: faker.commerce.price(1000, 100000, 2) + "₺",
       won: faker.commerce.price(1000, 100000, 2) + "₺",
       diff: faker.commerce.price(1000, 100000, 2) + "₺",
@@ -140,12 +128,6 @@ function Page() {
 
   return (
     <Box className={"flex flex-col gap-4"}>
-      <TitleBar
-        title={title}
-        Right={() => (
-            <TimeTabs justify={"start"} />
-        )}
-      />
 
       <Stack direction={"row"} justifyContent={"end"} className={"mb-3 items-center"}>
 
@@ -160,10 +142,10 @@ function Page() {
         />
       </Stack>
 
-        <SummaryBar
-          title={t('pages.merchants.reports.Total')}
-          data={totalResultsData}
-        />
+      <SummaryBar
+        title={t('pages.merchants.reports.Total')}
+        data={totalResultsData}
+      />
 
 
       <DataTable
@@ -175,4 +157,4 @@ function Page() {
   );
 }
 
-export default memo(Page);
+export default memo(CasinoTab);
