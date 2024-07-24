@@ -40,7 +40,7 @@ function Page() {
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <TitleBar
-            title={t('menu.Operators.profile')}
+            title={t('menu.Operator Management.profile')}
           />
         </Grid>
         <Grid item xs={12} className={"pt-0"}>

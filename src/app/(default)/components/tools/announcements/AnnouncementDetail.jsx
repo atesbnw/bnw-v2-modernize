@@ -4,7 +4,7 @@ import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Typogra
 import {t} from "i18next";
 import Divider from "@mui/material/Divider";
 
-function BonusDetail(props) {
+function AnnouncementDetail(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -87,4 +87,4 @@ function BonusDetail(props) {
   );
 }
 
-export default BonusDetail;
+export default AnnouncementDetail;

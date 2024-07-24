@@ -149,7 +149,7 @@ function Page() {
 
         <Grid item xs={12} className={"pt-0"}>
           <ParentCard
-            title={t('pages.tools.bonus.Bonuses')}
+            title=''
             action={
               <FilterModal
                 filter={filter}
@@ -161,7 +161,7 @@ function Page() {
                 onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
               />
             }
-          >
+           >
 
             <DataTable
               search={false}

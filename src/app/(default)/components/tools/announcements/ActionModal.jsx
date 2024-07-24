@@ -1,0 +1,281 @@
+import React, {Fragment, memo, useCallback, useEffect, useState} from 'react';
+import { t } from 'i18next';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import CloseIcon from '@mui/icons-material/Close';
+import Slide from '@mui/material/Slide';
+import {Box, FormControl, FormHelperText, Grid, MenuItem} from "@mui/material";
+import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
+import {LocalizationProvider} from "@mui/x-date-pickers";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
+import {DateTimePicker} from "@mui/x-date-pickers/DateTimePicker";
+import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
+import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
+import {IconCloudUpload, IconPencil, IconPlus} from "@tabler/icons-react";
+import {CloudUpload} from "@mui/icons-material";
+import dayjs from "dayjs";
+import {styled} from "@mui/material/styles";
+import dynamic from "next/dynamic";
+import '@/app/base/forms/form-quill/Quill.css';
+import 'react-quill/dist/quill.snow.css';
+import Tooltip from "@mui/material/Tooltip";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
+
+const ReactQuill = dynamic(
+  async () => {
+    const { default: RQ } = await import('react-quill');
+    // eslint-disable-next-line react/display-name
+    return ({ ...props }) => <RQ {...props} />;
+  },
+  {
+    ssr: false,
+  },
+);
+
+function ActionModal({id, data}) {
+  const [startDateTime, setStartDateTime] = React.useState(dayjs());
+  const [finishDateTime, setFinishDateTime] = React.useState(dayjs());
+
+  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = useState({});
+
+  const updateValue = useCallback((field, value) => {
+    setValue(prev => ({
+      ...prev,
+      [field]: value,
+    }));
+  }, []);
+
+  useEffect(() => {
+    data && setValue(prev => ({
+      ...prev,
+      ...data
+    }))
+  }, [data]);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <Fragment>
+      {id ? (
+        <IconButton onClick={() => setOpen(true)}>
+          <IconPencil />
+        </IconButton>
+      ) : (
+        <Button variant="contained" onClick={() => setOpen(true)}>
+          {t('pages.tools.announcements.Create Announcement')}
+        </Button>
+      )}
+
+      <Dialog
+        fullScreen
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Transition}
+      >
+        <AppBar sx={{ position: 'relative' }}>
+          <Toolbar>
+            <IconButton
+              edge="start"
+              color="inherit"
+              onClick={handleClose}
+              aria-label="close"
+            >
+              <CloseIcon />
+            </IconButton>
+            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+              {t('pages.tools.announcements.Create Announcement')}
+            </Typography>
+            <Button autoFocus variant="contained" color="success" onClick={() => {
+              console.log(value)
+              setValue({})
+              setOpen(false);
+            }}>
+              {t('i.Save')}
+            </Button>
+          </Toolbar>
+        </AppBar>
+
+        <Grid container spacing={3} className={"p-6"}>
+          <Grid item xs={6} sm={4} lg={3}>
+            <CustomFormLabel sx={{mt: 0}} htmlFor="startDate">{t('pages.tools.announcements.Start Date')}</CustomFormLabel>
+            <FormControl sx={{width: '100%'}}>
+              <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"} >
+                <DateTimePicker
+                  value={startDateTime}
+                  onChange={(newValue) => {
+                    setStartDateTime(newValue);
+                  }}
+                  format={"DD.MM.YYYY HH:mm:ss"}
+                  ampm={false}
+                  renderInput={(inputProps) => (
+                    <CustomTextField
+                      {...inputProps}
+                    />
+                  )}
+                />
+              </LocalizationProvider>
+            </FormControl>
+          </Grid>
+          <Grid item xs={6} sm={4} lg={3}>
+            <CustomFormLabel sx={{mt: 0}} htmlFor="startDate">{t('pages.tools.announcements.End Date')}</CustomFormLabel>
+            <FormControl sx={{width: '100%'}}>
+              <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"} >
+                <DateTimePicker
+                  value={finishDateTime}
+                  onChange={(newValue) => {
+                    setFinishDateTime(newValue);
+                  }}
+                  format={"DD.MM.YYYY HH:mm:ss"}
+                  ampm={false}
+                  renderInput={(inputProps) => (
+                    <CustomTextField
+                      {...inputProps}
+                    />
+                  )}
+                />
+              </LocalizationProvider>
+            </FormControl>
+          </Grid>
+          <Grid xs={12}/>
+          <Grid item xs={6} sm={4} lg={2}>
+            <CustomFormLabel sx={{mt:0}} htmlFor="targetUser">{t('pages.tools.announcements.Target User')}</CustomFormLabel>
+            <CustomSelect
+              id="targetUser"
+              name="targetUser"
+              fullWidth
+              variant="outlined"
+              value={value?.targetUser}
+              onChange={(e) => updateValue('targetUser', e?.target.value)}
+            >
+              <MenuItem value="private">Private</MenuItem>
+              <MenuItem value="all">ALL</MenuItem>
+            </CustomSelect>
+
+          </Grid>
+          {value?.targetUser === 'private' && (
+            <Grid item xs={6} lg={4}>
+              <Box>
+                <CustomFormLabel htmlFor="addUser">{t('pages.tools.announcements.Add User')}</CustomFormLabel>
+                <CustomTextField
+                  id="addUser"
+                  name="addUser"
+                  variant="outlined"
+                  fullWidth
+                  placeholder={t('pages.tools.announcements.addUserPlaceholder')}
+                  value={value?.addUser}
+                  onChange={(e) => updateValue('addUser', e?.target.value)}
+                />
+              </Box>
+              <Box className={"my-3"}>{t('pages.tools.announcements.or')}</Box>
+              <Box>
+                <Button
+                  component="label"
+                  role={undefined}
+                  variant="contained"
+                  tabIndex={-1}
+                  startIcon={<IconCloudUpload />}
+                >
+                  {t('pages.tools.announcements.uploadFile')}
+                  <VisuallyHiddenInput type="file" />
+                </Button>
+                <Box className={"mt-2"}>{t('pages.tools.announcements.fileUploadText1')}</Box>
+                <Box>{t('pages.tools.announcements.fileUploadText2')}</Box>
+              </Box>
+            </Grid>
+          )}
+
+          <Grid item xs={12}>
+            <Typography variant={"h3"}>{t('pages.tools.announcements.Description')}</Typography>
+            <CustomFormLabel htmlFor="title">{t('pages.tools.announcements.Title')}</CustomFormLabel>
+            <CustomTextField
+              id="title"
+              name="title"
+              placeholder={t('pages.tools.announcements.TitlePlaceholder')}
+              variant="outlined"
+              fullWidth
+              value={value?.title}
+              onChange={(e) => updateValue('title', e?.target.value)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <CustomFormLabel sx={{mt:0}}  htmlFor="text">{t('pages.tools.announcements.Description')}</CustomFormLabel>
+            <ReactQuill
+              placeholder={t('pages.tools.announcements.DescriptionPlaceholder')}
+              value={value?.text}
+            />
+          </Grid>
+          <Grid item xs={4}>
+              <CustomFormLabel htmlFor="descriptionText">{t('pages.tools.announcements.Image')}</CustomFormLabel>
+              <Button
+                fullWidth
+                sx={{height:'6rem'}}
+                component="label"
+                role={undefined}
+                color='secondary'
+                variant="outlined"
+                tabIndex={-1}
+                startIcon={<CloudUpload />}
+              >
+                Upload file
+                <VisuallyHiddenInput name="file" id="file" type="file" />
+              </Button>
+              <Box mt={2} dangerouslySetInnerHTML={{ __html: t('pages.tools.announcements.ImageUploadText') }} >{}</Box>
+            </Grid>
+        </Grid>
+        <Box
+          sx={{
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            p: 2,
+            backgroundColor: 'background.paper',
+            boxShadow: 3,
+          }}
+
+        >
+          <Box className={"flex justify-end"}>
+            <Button sx={{mr: 1}} variant="contained" onClick={() => {
+              console.log(value)
+              setValue({})
+              setOpen(false);
+            }}>
+              {t('i.Save')}
+            </Button>
+            <Button variant="outlined" color="secondary" onClick={handleClose}>
+              {t('i.Cancel')}
+            </Button>
+          </Box>
+        </Box>
+      </Dialog>
+    </Fragment>
+  );
+}
+
+export default memo(ActionModal);

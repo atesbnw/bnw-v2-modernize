@@ -22,25 +22,25 @@ function TopMenu() {
       // icon: <IconUserCircle size="20" />,
       to: `${url}/${params?.oid}`,
     },
-    {
-      label: 'menu.Users.Financial Transactions',
-      to: `${url}/${params?.oid}/financial-transactions/transaction-history`,
-    },
-    {
-      label: 'menu.Users.Game Management',
-      // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.oid}/game-management`,
-    },
-    {
-      label: 'Reports.title',
-      // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.oid}/reports/casino-reports`,
-    },
-    {
-      label: 'menu.Users.Settings',
-      // icon: <IconPhoto size="20" />,
-      to: `${url}/${params?.oid}/settings`
-    },
+    // {
+    //   label: 'menu.Users.Financial Transactions',
+    //   to: `${url}/${params?.oid}/financial-transactions/transaction-history`,
+    // },
+    // {
+    //   label: 'menu.Users.Game Management',
+    //   // icon: <IconUserCircle size="20" />,
+    //   to: `${url}/${params?.oid}/game-management`,
+    // },
+    // {
+    //   label: 'Reports.title',
+    //   // icon: <IconUserCircle size="20" />,
+    //   to: `${url}/${params?.oid}/reports/casino-reports`,
+    // },
+    // {
+    //   label: 'menu.Users.Settings',
+    //   // icon: <IconPhoto size="20" />,
+    //   to: `${url}/${params?.oid}/settings`
+    // },
   ];
 
   return (
