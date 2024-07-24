@@ -32,7 +32,7 @@ export function useMenu() {
     },
     {
       id: uniqueId(),
-      title: "Reports.User Stats",
+      title: "menu.Users.Reports Menu.User Stats",
       href: `${url}/user-stats`,
     },
     {

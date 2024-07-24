@@ -11,8 +11,6 @@ import { useParams, useRouter } from 'next/navigation';
 import { uniqueId } from 'lodash';
 import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
-import IconButton from '@mui/material/IconButton';
-import { IconEye } from '@tabler/icons-react';
 
 function Page() {
   const params = useParams();

@@ -90,24 +90,22 @@ function Page() {
       <TitleBar
         title={title}
         Right={() => (
-          <Stack direction={"row"} justifyContent={"end"} className={"mb-3 items-center"}>
-
-            <TimeTabs justify={"start"} />
-
-            <FilterModal
-              filter={filter}
-              updateFilter={updateFilter}
-              resetFilter={() => {
-                setFilter({});
-                setData(prev => ({ ...prev, filter: {} }));
-              }}
-              onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-            />
-          </Stack>
+          <TimeTabs justify={"start"} />
         )}
       />
 
+      <Stack direction={"row"} justifyContent={"end"} className={"mb-3 items-center"}>
 
+        <FilterModal
+          filter={filter}
+          updateFilter={updateFilter}
+          resetFilter={() => {
+            setFilter({});
+            setData(prev => ({ ...prev, filter: {} }));
+          }}
+          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+        />
+      </Stack>
 
         <SummaryBar
           title={t('pages.merchants.reports.Total')}

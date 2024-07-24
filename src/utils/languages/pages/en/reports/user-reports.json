@@ -1,6 +1,7 @@
 {
   "search": "Search",
   "searchPlaceholder": "Username / User ID",
+  "operatorSearchPlaceholder": "Username / Transaction ID",
   "totalCurrentBalance": "Total Current Balance",
   "totalUniqueUser": "Total Unique User",
   "transactionId": "Transaction Id",
@@ -31,5 +32,35 @@
   "totalWithdraw":  "Total Withdraw",
   "withdrawCount": "Withdraw Count",
   "totalDepositCount":  "Total Deposit Count",
-  "totalWithdrawCount": "Withdraw Count"
+  "totalWithdrawCount": "Withdraw Count",
+  "totalDiff": "Total Diff",
+  "totalTransferredBonus": "Total Transferred Bonus",
+  "amount": "Amount",
+  "transaction": "Transaction",
+  "sub_category": "Sub Category",
+  "status": "Status",
+  "operator":  "Operator",
+  "ip": "IP",
+  "transactionDate": "Transaction Date",
+  "cart": {
+    "lastSportBet": "Last Sport Bet",
+    "lastCasinoBet": "Last Casino Bet",
+    "lastLiveCasinoBet": "Last Live Casino Bet",
+    "lastCasinoBonus": "Last Casino Bonus",
+    "lastLiveCasinoBonus": "Last Live Casino Bonus",
+    "totalSportBet": "Total Sport Bet",
+    "totalCasinoBet": "Total Casino Bet",
+    "totalSportProfit": "Total Sport Profit",
+    "totalCasinoProfit": "Total Casino Profit",
+    "totalSportBonus": "Total Sport Bonus",
+    "totalCasinoBonus": "Total Casino Bonus",
+    "totalSportProfitRate": "Total Sport Profit Rate",
+    "totalCasinoProfitRate": "Total Casino Profit Rate",
+    "totalSportInvestments": "Total Investments / Amount",
+    "totalWithdrawals": "Total Withdrawals / Amount",
+    "lastInvestmentDate": "Last Investment Date",
+    "lastWithdrawalDate": "Last Withdrawal Date",
+    "lastBonusDate": "Last Bonus Date"
+  }
+
 }
