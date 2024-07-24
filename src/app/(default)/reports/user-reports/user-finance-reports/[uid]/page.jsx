@@ -30,7 +30,6 @@ function Page() {
     { title: t('pages.merchants.reports.Difference'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.reports.user-reports.totalDepositCount'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.reports.user-reports.totalWithdrawCount'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.reports.user-reports.totalUser'), value: faker.datatype.number({ min: 1000000, max: 9999999 }).toString()},
   ];
   const router = useRouter();
   const [data, setData] = useState({
@@ -45,23 +44,6 @@ function Page() {
   useEffect(() => {
     const columns = [
       {
-        field: 'logo',
-        headerName: 'Logo',
-        renderCell: (params) => <img src={params.value} width={70} height="auto" />,
-        cellClassName: 'centerAll'
-        // width: 200
-      },
-      {
-        field: 'provider',
-        headerName: t('pages.reports.user-reports.provider'),
-        flex: 1,
-      },
-      {
-        field: 'category',
-        headerName: t('pages.reports.user-reports.category'),
-        // width: 200
-      },
-      {
         field: 'username',
         headerName: t('pages.reports.user-reports.username'),
         // width: 200
@@ -74,6 +56,7 @@ function Page() {
       {
         field: 'totalDeposit',
         headerName: t('pages.reports.user-reports.totalDeposit'),
+        flex:1
         // width: 200
       },
       {
@@ -95,29 +78,14 @@ function Page() {
         field: 'diff',
         headerName: t('pages.reports.user-reports.diff'),
         // width: 200
-      },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 170,
-        getActions: (e) => {
-          return [
-            <IconButton onClick={() => router.push(`/reports/user-reports/user-finance-reports/${e.row?.provider}`)}>
-              <IconEye />
-            </IconButton>,
-            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-            //   <IconPencil />
-            // </IconButton>
-          ]
-        }
       }
     ];
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      logo: faker.helpers.arrayElement(['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAcsnqRilJNGe_NVFwQm_OX6Mf6wFoDowGIg&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq_rlWDp4NbQb1PYTzGBfJYkFKY7njllV1DQ&s']),
-      provider: faker.helpers.arrayElement(['Payfix', 'Papara', 'Turbo Havale', 'Anında KK']),
-      category: faker.helpers.arrayElement(['Credit Card', 'Bank Transfer', 'Payfix']),
+      // logo: faker.helpers.arrayElement(['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAcsnqRilJNGe_NVFwQm_OX6Mf6wFoDowGIg&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq_rlWDp4NbQb1PYTzGBfJYkFKY7njllV1DQ&s']),
+      // provider: faker.helpers.arrayElement(['Payfix', 'Papara', 'Turbo Havale', 'Anında KK']),
+      // category: faker.helpers.arrayElement(['Credit Card', 'Bank Transfer', 'Payfix']),
       username: faker.internet.userName(),
       userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
       totalDeposit: faker.commerce.price(1000, 100000, 2) + "₺",
@@ -140,6 +108,8 @@ function Page() {
     <Box className={"flex flex-col gap-4"}>
       <TitleBar
         title={title}
+        link={"../user-finance-reports"}
+        subTitle={decodeURIComponent(params?.uid)}
         Right={() => (
             <TimeTabs justify={"start"} />
         )}

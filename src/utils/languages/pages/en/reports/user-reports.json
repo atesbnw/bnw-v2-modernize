@@ -1,5 +1,6 @@
 {
   "search": "Search",
+  "searchPlaceholder": "Username / User ID",
   "totalCurrentBalance": "Total Current Balance",
   "totalUniqueUser": "Total Unique User",
   "transactionId": "Transaction Id",
@@ -24,5 +25,11 @@
   "casino": "Casino",
   "liveCasino": "Live Casino",
   "virtualGames": "Virtual Games",
-  "gameName": "Game Name"
+  "gameName": "Game Name",
+  "totalDeposit":  "Total Deposit",
+  "depositCount": "Deposit Count",
+  "totalWithdraw":  "Total Withdraw",
+  "withdrawCount": "Withdraw Count",
+  "totalDepositCount":  "Total Deposit Count",
+  "totalWithdrawCount": "Withdraw Count"
 }
