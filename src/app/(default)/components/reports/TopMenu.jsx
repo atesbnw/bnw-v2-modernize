@@ -32,7 +32,7 @@ function TopMenu() {
     {
       label: 'Reports.User Reports',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}/user-reports/user-balance-reports`,
+      to: `${url}/user-reports`,
     },
     {
       label: 'Reports.General Reports',

@@ -37,7 +37,7 @@ export function useMenu() {
     },
     {
       id: uniqueId(),
-      title: "Reports.Finance Reports",
+      title: "menu.Users.Reports Menu.Finance Reports",
       href: `${url}/finance-reports`,
     },
     {

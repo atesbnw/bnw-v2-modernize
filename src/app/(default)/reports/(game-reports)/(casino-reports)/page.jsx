@@ -147,7 +147,7 @@ function Page() {
         </Stack>
 
         <SummaryBar
-          title={"General Total"}
+          title={t('pages.merchants.reports.Total')}
           data={totalResultsData}
         />
 

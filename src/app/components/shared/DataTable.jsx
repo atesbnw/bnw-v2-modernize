@@ -38,7 +38,7 @@ import { useTheme } from '@mui/material/styles';
         //   flex: 1
         // }}
         sx={{
-          borderColor: 'grey.300',
+          borderColor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
           '& .MuiDataGrid-cell.centerAll': {
             display: 'flex',
             alignItems: 'center',
@@ -53,16 +53,16 @@ import { useTheme } from '@mui/material/styles';
             display: 'flex',
             alignItems: 'center',
             borderRight: '1px solid',
-            borderColor: 'grey.300',
+            borderColor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
             // py: 1,
           },
           '& .MuiDataGrid-columnHeaders': {
-            borderColor: 'grey.300',
+            borderColor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
           },
           '& .MuiDataGrid-columnHeader': {
             backgroundColor: theme.palette.mode === 'dark' ? '#1b222c' : 'grey.50',
             borderRight: '1px solid',
-            borderColor: 'grey.300',
+            borderColor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
           },
           '& .MuiDataGrid-columnHeaderTitle': {
             fontWeight: 'bold !important',

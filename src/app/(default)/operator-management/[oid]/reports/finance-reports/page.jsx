@@ -14,7 +14,7 @@ function Page() {
   return (
     <Box>
       <TitleBar
-        title={t('Reports.Finance Reports')}
+        title={t('menu.Users.Reports Menu.Finance Reports')}
       />
     </Box>
   );
