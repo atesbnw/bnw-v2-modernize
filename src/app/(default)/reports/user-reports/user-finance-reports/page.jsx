@@ -13,6 +13,7 @@ import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
 import IconButton from '@mui/material/IconButton';
 import { IconEye } from '@tabler/icons-react';
+import ParentCard from '@/app/components/shared/ParentCard';
 
 function Page() {
   const params = useParams();
@@ -140,13 +141,15 @@ function Page() {
     <Box className={"flex flex-col gap-4"}>
       <TitleBar
         title={title}
-        Right={() => (
-            <TimeTabs justify={"start"} />
-        )}
       />
 
-      <Stack direction={"row"} justifyContent={"end"} className={"mb-3 items-center"}>
+        <SummaryBar
+          title={t('pages.merchants.reports.Total')}
+          data={totalResultsData}
+        />
 
+
+      <ParentCard title={""} action={(
         <FilterModal
           filter={filter}
           updateFilter={updateFilter}
@@ -156,19 +159,13 @@ function Page() {
           }}
           onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
         />
-      </Stack>
-
-        <SummaryBar
-          title={t('pages.merchants.reports.Total')}
-          data={totalResultsData}
+      )}>
+        <DataTable
+          search={false}
+          data={data}
+          toolbar={false}
         />
-
-
-      <DataTable
-        search={false}
-        data={data}
-        toolbar={false}
-      />
+      </ParentCard>
     </Box>
   );
 }

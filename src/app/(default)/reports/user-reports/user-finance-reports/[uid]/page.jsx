@@ -1,7 +1,7 @@
-"use client";
+'use client';
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import TitleBar from '@/app/components/TitleBar';
-import {t} from "i18next";
+import { t } from 'i18next';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import FilterModal from '@/app/(default)/components/reports/user-reports/user-finance-reports/FilterModal';
@@ -11,10 +11,11 @@ import { useParams, useRouter } from 'next/navigation';
 import { uniqueId } from 'lodash';
 import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
+import ParentCard from '@/app/components/shared/ParentCard';
 
 function Page() {
   const params = useParams();
-  const title = t("Reports.User Finance Reports");
+  const title = t('Reports.User Finance Reports');
   const [filter, setFilter] = useState({});
   const updateFilter = useCallback((field, value) => {
     setFilter(prev => ({
@@ -23,11 +24,11 @@ function Page() {
     }));
   }, []);
   const totalResultsData = [
-    { title: t('pages.reports.user-reports.totalDeposit'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.reports.user-reports.totalWithdraw'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.merchants.reports.Difference'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.reports.user-reports.totalDepositCount'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.reports.user-reports.totalWithdrawCount'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
+    { title: t('pages.reports.user-reports.totalDeposit'), value: faker.commerce.price(1000, 100000, 2) + '₺' },
+    { title: t('pages.reports.user-reports.totalWithdraw'), value: faker.commerce.price(1000, 100000, 2) + '₺' },
+    { title: t('pages.merchants.reports.Difference'), value: faker.commerce.price(1000, 100000, 2) + '₺' },
+    { title: t('pages.reports.user-reports.totalDepositCount'), value: faker.commerce.price(1000, 100000, 2) + '₺' },
+    { title: t('pages.reports.user-reports.totalWithdrawCount'), value: faker.commerce.price(1000, 100000, 2) + '₺' },
   ];
   const router = useRouter();
   const [data, setData] = useState({
@@ -54,7 +55,7 @@ function Page() {
       {
         field: 'totalDeposit',
         headerName: t('pages.reports.user-reports.totalDeposit'),
-        flex:1
+        flex: 1,
         // width: 200
       },
       {
@@ -76,7 +77,7 @@ function Page() {
         field: 'diff',
         headerName: t('pages.reports.user-reports.diff'),
         // width: 200
-      }
+      },
     ];
 
     const rows = Array.from(Array(20)).map(() => ({
@@ -86,11 +87,11 @@ function Page() {
       // category: faker.helpers.arrayElement(['Credit Card', 'Bank Transfer', 'Payfix']),
       username: faker.internet.userName(),
       userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
-      totalDeposit: faker.commerce.price(1000, 100000, 2) + "₺",
-      depositCount: faker.commerce.price(1000, 100000, 2) + "₺",
-      totalWithdraw: faker.commerce.price(1000, 100000, 2) + "₺",
-      withdrawCount: faker.commerce.price(1000, 100000, 2) + "₺",
-      diff: faker.commerce.price(1000, 100000, 2) + "₺"
+      totalDeposit: faker.commerce.price(1000, 100000, 2) + '₺',
+      depositCount: faker.commerce.price(1000, 100000, 2) + '₺',
+      totalWithdraw: faker.commerce.price(1000, 100000, 2) + '₺',
+      withdrawCount: faker.commerce.price(1000, 100000, 2) + '₺',
+      diff: faker.commerce.price(1000, 100000, 2) + '₺',
     }));
 
     setData((prev) => ({
@@ -103,18 +104,21 @@ function Page() {
   }, []);
 
   return (
-    <Box className={"flex flex-col gap-4"}>
+    <Box className={'flex flex-col gap-4'}>
       <TitleBar
         title={title}
-        link={"../user-finance-reports"}
+        link={'../user-finance-reports'}
         subTitle={decodeURIComponent(params?.uid)}
-        Right={() => (
-            <TimeTabs justify={"start"} />
-        )}
       />
 
-      <Stack direction={"row"} justifyContent={"end"} className={"mb-3 items-center"}>
 
+      <SummaryBar
+        title={t('pages.merchants.reports.Total')}
+        data={totalResultsData}
+      />
+
+
+      <ParentCard title={''} action={(
         <FilterModal
           filter={filter}
           updateFilter={updateFilter}
@@ -124,19 +128,13 @@ function Page() {
           }}
           onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
         />
-      </Stack>
-
-        <SummaryBar
-          title={t('pages.merchants.reports.Total')}
-          data={totalResultsData}
+      )}>
+        <DataTable
+          search={false}
+          data={data}
+          toolbar={false}
         />
-
-
-      <DataTable
-        search={false}
-        data={data}
-        toolbar={false}
-      />
+      </ParentCard>
     </Box>
   );
 }

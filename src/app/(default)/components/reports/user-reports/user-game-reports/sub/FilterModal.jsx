@@ -14,6 +14,7 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import { IconFilter, IconFilterX } from '@tabler/icons-react';
 import Stack from '@mui/material/Stack';
+import TimeTabs from '@/app/components/shared/TimeTabs';
 
 function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
   const [open, setOpen] = useState(false);
@@ -44,6 +45,9 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
         content={(
           <Box>
             <Grid container spacing={1} mb={2}>
+              <Grid item xs={12}>
+                <TimeTabs justify={"start"} onChange={(time) => updateFilter("timeRange", time)} value={filter?.timeRange} />
+              </Grid>
               <Grid item xs={12}>
                 <CustomFormLabel
                   htmlFor="searchText">{t('pages.operator-management.operator-management.search')}</CustomFormLabel>

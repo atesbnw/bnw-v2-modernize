@@ -24,9 +24,6 @@ function Page() {
         title={title}
         subTitle={decodeURIComponent(params?.uid)}
         link={"../user-game-reports"}
-        Right={() => (
-            <TimeTabs justify={"start"} />
-        )}
       />
 
       <Tabs

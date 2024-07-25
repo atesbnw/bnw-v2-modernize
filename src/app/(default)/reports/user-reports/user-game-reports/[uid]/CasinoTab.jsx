@@ -12,6 +12,7 @@ import Stack from '@mui/material/Stack';
 import FilterModal from '@/app/(default)/components/reports/user-reports/user-game-reports/sub/FilterModal';
 import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
 import DataTable from '@/app/components/shared/DataTable';
+import ParentCard from '@/app/components/shared/ParentCard';
 
 function CasinoTab() {
   const params = useParams();
@@ -129,8 +130,13 @@ function CasinoTab() {
   return (
     <Box className={"flex flex-col gap-4"}>
 
-      <Stack direction={"row"} justifyContent={"end"} className={"mb-3 items-center"}>
+      <SummaryBar
+        title={t('pages.merchants.reports.Total')}
+        data={totalResultsData}
+      />
 
+
+      <ParentCard title={""} action={(
         <FilterModal
           filter={filter}
           updateFilter={updateFilter}
@@ -140,19 +146,14 @@ function CasinoTab() {
           }}
           onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
         />
-      </Stack>
+      )}>
+        <DataTable
+          search={false}
+          data={data}
+          toolbar={false}
+        />
+      </ParentCard>
 
-      <SummaryBar
-        title={t('pages.merchants.reports.Total')}
-        data={totalResultsData}
-      />
-
-
-      <DataTable
-        search={false}
-        data={data}
-        toolbar={false}
-      />
     </Box>
   );
 }

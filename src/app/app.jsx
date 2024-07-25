@@ -27,4 +27,4 @@ const MyApp = ({ children }) => {
     );
 };
 
-export default MyApp;
+export default React.memo(MyApp);

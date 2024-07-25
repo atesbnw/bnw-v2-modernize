@@ -14,6 +14,7 @@ import { IconEye } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
+import ParentCard from '@/app/components/shared/ParentCard';
 
 function Page() {
   const params = useParams();
@@ -117,22 +118,7 @@ function Page() {
         link={"../bonus-reports"}
         subTitle={decodeURIComponent(params?.pid)}
         title={title}
-        Right={() => (
-          <TimeTabs justify={"start"} />
-        )}
       />
-
-        <Stack direction={"row"} justifyContent={"end"} className={"mb-3"}>
-          <FilterModal
-            filter={filter}
-            updateFilter={updateFilter}
-            resetFilter={() => {
-              setFilter({});
-              setData(prev => ({ ...prev, filter: {} }));
-            }}
-            onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-          />
-        </Stack>
 
         <SummaryBar
           title={t('pages.merchants.reports.Total')}
@@ -140,11 +126,23 @@ function Page() {
         />
 
 
-      <DataTable
-        search={false}
-        data={data}
-        toolbar={false}
-      />
+      <ParentCard title={""} action={(
+        <FilterModal
+          filter={filter}
+          updateFilter={updateFilter}
+          resetFilter={() => {
+            setFilter({});
+            setData(prev => ({ ...prev, filter: {} }));
+          }}
+          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+        />
+      )}>
+        <DataTable
+          search={false}
+          data={data}
+          toolbar={false}
+        />
+      </ParentCard>
     </Box>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
@@ -30,4 +30,4 @@ const RTL = (props) => {
   return <>{children}</>;
 };
 
-export default RTL;
+export default memo(RTL);
