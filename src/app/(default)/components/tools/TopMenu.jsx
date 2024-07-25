@@ -32,7 +32,7 @@ function TopMenu() {
       to: `/tools/bulk-message`,
     },
     {
-      label: 'Tools.Bulk Mail',
+      label: 'Tools.Bulk Email',
       // icon: <IconUserCircle size="20" />,
       to: `/tools/bulk-email`,
     },

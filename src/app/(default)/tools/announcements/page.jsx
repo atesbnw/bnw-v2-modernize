@@ -169,7 +169,7 @@ function Page() {
 
         <Grid item xs={12} className={"pt-0"}>
           <ParentCard
-            title={t('pages.tools.announcements.Announcements')}
+            title=""
             action={
               <FilterModal
                 filter={filter}

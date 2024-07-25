@@ -22,7 +22,6 @@ import {styled} from "@mui/material/styles";
 import dynamic from "next/dynamic";
 import '@/app/base/forms/form-quill/Quill.css';
 import 'react-quill/dist/quill.snow.css';
-import Tooltip from "@mui/material/Tooltip";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -52,8 +51,7 @@ const ReactQuill = dynamic(
 );
 
 function ActionModal({id, data}) {
-  const [startDateTime, setStartDateTime] = React.useState(dayjs());
-  const [finishDateTime, setFinishDateTime] = React.useState(dayjs());
+  const [deliveryTime, setDeliveryTime] = React.useState(dayjs());
 
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = useState({});
@@ -88,7 +86,7 @@ function ActionModal({id, data}) {
         </IconButton>
       ) : (
         <Button variant="contained" onClick={() => setOpen(true)}>
-          {t('pages.tools.announcements.Create Announcement')}
+          {t('pages.tools.bulk-message.Create Bulk Message')}
         </Button>
       )}
 
@@ -110,9 +108,9 @@ function ActionModal({id, data}) {
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
               {id ? (
-                t('pages.tools.announcements.Edit Announcement')
+                t('pages.tools.bulk-message.Edit Bulk Message')
               ) : (
-                t('pages.tools.announcements.Create Announcement')
+                t('pages.tools.bulk-message.Create Bulk Message')
               )}
             </Typography>
             <Button autoFocus variant="contained" color="success" onClick={() => {
@@ -127,33 +125,13 @@ function ActionModal({id, data}) {
 
         <Grid container spacing={3} className={"p-6"}>
           <Grid item xs={6} sm={4} lg={3}>
-            <CustomFormLabel sx={{mt: 0}} htmlFor="startDate">{t('pages.tools.announcements.Start Date')}</CustomFormLabel>
+            <CustomFormLabel sx={{mt: 0}} htmlFor="deliveryTime">{t('pages.tools.bulk-message.Delivery Time')}</CustomFormLabel>
             <FormControl sx={{width: '100%'}}>
               <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"} >
                 <DateTimePicker
-                  value={startDateTime}
+                  value={deliveryTime}
                   onChange={(newValue) => {
-                    setStartDateTime(newValue);
-                  }}
-                  format={"DD.MM.YYYY HH:mm:ss"}
-                  ampm={false}
-                  renderInput={(inputProps) => (
-                    <CustomTextField
-                      {...inputProps}
-                    />
-                  )}
-                />
-              </LocalizationProvider>
-            </FormControl>
-          </Grid>
-          <Grid item xs={6} sm={4} lg={3}>
-            <CustomFormLabel sx={{mt: 0}} htmlFor="startDate">{t('pages.tools.announcements.End Date')}</CustomFormLabel>
-            <FormControl sx={{width: '100%'}}>
-              <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"} >
-                <DateTimePicker
-                  value={finishDateTime}
-                  onChange={(newValue) => {
-                    setFinishDateTime(newValue);
+                    setDeliveryTime(newValue);
                   }}
                   format={"DD.MM.YYYY HH:mm:ss"}
                   ampm={false}
@@ -168,7 +146,7 @@ function ActionModal({id, data}) {
           </Grid>
           <Grid xs={12}/>
           <Grid item xs={6} sm={4} lg={2}>
-            <CustomFormLabel sx={{mt:0}} htmlFor="targetUser">{t('pages.tools.announcements.Target User')}</CustomFormLabel>
+            <CustomFormLabel sx={{mt:0}} htmlFor="targetUser">{t('pages.tools.bulk-message.Target User')}</CustomFormLabel>
             <CustomSelect
               id="targetUser"
               name="targetUser"
@@ -184,18 +162,18 @@ function ActionModal({id, data}) {
           {value?.targetUser === 'private' && (
             <Grid item xs={6} lg={4}>
               <Box>
-                <CustomFormLabel htmlFor="addUser">{t('pages.tools.announcements.Add User')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="addUser">{t('pages.tools.bulk-message.Add User')}</CustomFormLabel>
                 <CustomTextField
                   id="addUser"
                   name="addUser"
                   variant="outlined"
                   fullWidth
-                  placeholder={t('pages.tools.announcements.addUserPlaceholder')}
+                  placeholder={t('pages.tools.bulk-message.addUserPlaceholder')}
                   value={value?.addUser}
                   onChange={(e) => updateValue('addUser', e?.target.value)}
                 />
               </Box>
-              <Box className={"my-3"}>{t('pages.tools.announcements.or')}</Box>
+              <Box className={"my-3"}>{t('pages.tools.bulk-message.or')}</Box>
               <Box>
                 <Button
                   component="label"
@@ -204,21 +182,21 @@ function ActionModal({id, data}) {
                   tabIndex={-1}
                   startIcon={<IconCloudUpload />}
                 >
-                  {t('pages.tools.announcements.uploadFile')}
+                  {t('pages.tools.bulk-message.uploadFile')}
                   <VisuallyHiddenInput type="file" />
                 </Button>
-                <Box className={"mt-2"}>{t('pages.tools.announcements.fileUploadText1')}</Box>
-                <Box>{t('pages.tools.announcements.fileUploadText2')}</Box>
+                <Box className={"mt-2"}>{t('pages.tools.bulk-message.fileUploadText1')}</Box>
+                <Box>{t('pages.tools.bulk-message.fileUploadText2')}</Box>
               </Box>
             </Grid>
           )}
 
           <Grid item xs={12}>
-            <Typography variant={"h3"}>{t('pages.tools.announcements.Description')}</Typography>
+            <Typography variant={"h3"}>{t('pages.tools.bulk-message.Description')}</Typography>
 
           </Grid>
           <Grid item xs={6} lg={4}>
-            <CustomFormLabel  sx={{mt:0}} htmlFor="language">{t('pages.tools.announcements.Language')}</CustomFormLabel>
+            <CustomFormLabel  sx={{mt:0}} htmlFor="language">{t('pages.tools.bulk-message.Language')}</CustomFormLabel>
               <CustomSelect
                 id="language"
                 name="language"
@@ -238,11 +216,11 @@ function ActionModal({id, data}) {
             <Button variant="contained">{t('i.Save')}</Button>
           </Grid>
           <Grid item xs={12}>
-            <CustomFormLabel sx={{mt:0}}  htmlFor="title">{t('pages.tools.announcements.Title')}</CustomFormLabel>
+            <CustomFormLabel sx={{mt:0}}  htmlFor="title">{t('pages.tools.bulk-message.Title')}</CustomFormLabel>
             <CustomTextField
               id="title"
               name="title"
-              placeholder={t('pages.tools.announcements.TitlePlaceholder')}
+              placeholder={t('pages.tools.bulk-message.TitlePlaceholder')}
               variant="outlined"
               fullWidth
               value={value?.title}
@@ -250,14 +228,14 @@ function ActionModal({id, data}) {
             />
           </Grid>
           <Grid item xs={12}>
-            <CustomFormLabel sx={{mt:0}}  htmlFor="text">{t('pages.tools.announcements.Description')}</CustomFormLabel>
+            <CustomFormLabel sx={{mt:0}}  htmlFor="text">{t('pages.tools.bulk-message.Description')}</CustomFormLabel>
             <ReactQuill
-              placeholder={t('pages.tools.announcements.DescriptionPlaceholder')}
+              placeholder={t('pages.tools.bulk-message.DescriptionPlaceholder')}
               value={value?.text}
             />
           </Grid>
           <Grid item xs={4}>
-              <CustomFormLabel htmlFor="descriptionText">{t('pages.tools.announcements.Image')}</CustomFormLabel>
+              <CustomFormLabel htmlFor="descriptionText">{t('pages.tools.bulk-message.Image')}</CustomFormLabel>
               <Button
                 fullWidth
                 sx={{height:'6rem'}}
@@ -271,7 +249,7 @@ function ActionModal({id, data}) {
                 Upload file
                 <VisuallyHiddenInput name="file" id="file" type="file" />
               </Button>
-              <Box mt={2} dangerouslySetInnerHTML={{ __html: t('pages.tools.announcements.ImageUploadText') }} >{}</Box>
+              <Box mt={2} dangerouslySetInnerHTML={{ __html: t('pages.tools.bulk-message.ImageUploadText') }} >{}</Box>
             </Grid>
         </Grid>
         <Box
