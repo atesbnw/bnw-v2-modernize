@@ -1,3 +1,13 @@
 {
-  "search": "Search"
+  "search": "Search",
+  "Segmentation": "Segmentation",
+  "Create New Package": "Create New Package",
+  "Edit New Package": "Edit New Package",
+  "System Pre Defined Packages": "System Pre Defined Packages",
+  "Customer Defined Packages": "Customer Defined Packages",
+  "Basic Segmentation Package": "Basic Segmentation Package",
+  "Medium Segmentation Package": "Medium Segmentation Package",
+  "Advanced Segmentation Package": "Advanced Segmentation Package",
+  "VIP Segmentation Package": "VIP Segmentation Package",
+  "Hotel Customer Package": "Hotel Customer Package"
 }

@@ -18,7 +18,7 @@ function TopMenu() {
   const url = `/settings`;
   const ProfileTabs = [
     {
-      label: 'Settings.Commission Percents',
+      label: 'Settings.Commission Rate',
       // icon: <IconUserCircle size="20" />,
       to: `${url}`,
     },

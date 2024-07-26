@@ -33,7 +33,10 @@
     "Info" : "Info",
     "Copy" : "Copy",
     "Copied!" : "Copied!",
-    "downloadCSV" : "Download CSV"
+    "downloadCSV" : "Download CSV",
+    "See Details" : "See Details",
+    "See More" : "See More",
+    "View" : "View"
   },
   "menu": {
     "Home": "Dashboard",
