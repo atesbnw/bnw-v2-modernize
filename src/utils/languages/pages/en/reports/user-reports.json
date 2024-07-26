@@ -29,6 +29,7 @@
   "liveCasino": "Live Casino",
   "virtualGames": "Virtual Games",
   "gameName": "Game Name",
+  "sports": "Sports",
   "totalDeposit":  "Total Deposit",
   "depositCount": "Deposit Count",
   "totalWithdraw":  "Total Withdraw",
@@ -101,5 +102,12 @@
   "netProfitMax": "Net Profit Max",
   "providerCommission": "Provider Commission",
   "financeCommission": "Finance Commission",
-  "depositWithdraw": "Deposit / Withdraw"
+  "depositWithdraw": "Deposit / Withdraw",
+  "providerReports":  "Provider Reports",
+  "financeReports": "Finance Reports",
+  "currency": "Currency",
+  "exchange":"Exchange",
+  "parity": "Parity",
+  "commissionPercent": "Commission Percent",
+  "commissionTotal": "Commission Total"
 }

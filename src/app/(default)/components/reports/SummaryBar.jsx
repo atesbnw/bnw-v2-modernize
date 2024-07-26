@@ -6,7 +6,7 @@ import ParentCard from '@/app/components/shared/ParentCard';
 
 const SummaryBar = ({ data, title }) => {
   return (
-    <ParentCard title={title}
+    <Card title={""}
       variant={"outlined"}
       className={"flex flex-col md:flex-row md:items-center"}
     >
@@ -21,7 +21,7 @@ const SummaryBar = ({ data, title }) => {
           </Grid>
         ))}
       </Grid>
-    </ParentCard>
+    </Card>
   );
 };
 
