@@ -17,7 +17,7 @@ export function useMenu() {
     },
     {
       id: uniqueId(),
-      title: "Reports.Bet Reports",
+      title: "menu.Users.Reports Menu.Bet Reports",
       href: `${url}/bet-reports`,
     }
   ];

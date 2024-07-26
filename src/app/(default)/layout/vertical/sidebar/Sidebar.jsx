@@ -84,7 +84,7 @@ const Sidebar = ({items = MenuItems}) => {
                 {/* ------------------------------------------- */}
                 <SidebarItems items={items} />
               </Scrollbar>
-              <Profile />
+              {/*<Profile />*/}
             </Box>
           </Drawer>
         </Box>
