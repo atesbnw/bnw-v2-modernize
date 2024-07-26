@@ -17,18 +17,20 @@ const Logo = () => {
       <LinkStyled href="/">
         {customizer.activeMode === "dark" ? (
           <Image
-            src="/images/logos/light-logo.svg"
+            src="/bnw-logo-white.png"
             alt="logo"
             height={customizer.TopbarHeight}
             width={174}
+            className={"object-contain"}
             priority
           />
         ) : (
           <Image
-            src={"/images/logos/dark-logo.svg"}
+            src={"/bnw-logo.png"}
             alt="logo"
             height={customizer.TopbarHeight}
             width={174}
+            className={"object-contain"}
             priority
           />
         )}
