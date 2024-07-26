@@ -4,11 +4,22 @@
 html { overflow-y: scroll; overflow-x: hidden; }
 
 
-.data-table-container{
-    max-width: calc(100vw - 20rem);
-}
+
 .data-table-container.w-side{
     max-width: calc(100vw - 40rem);
+}
+@media (min-width: 1200px){
+    .data-table-container{
+        max-width: calc(100vw - 20rem);
+    }
+    .data-table-container.w-wide{
+        max-width: calc(100vw - 4rem);
+    }
+}
+@media (max-width: 1200px){
+    .data-table-container.w-side{
+        max-width: calc(100vw - 4rem);
+    }
 }
 @media (max-width: 600px){
     .data-table-container.w-side{

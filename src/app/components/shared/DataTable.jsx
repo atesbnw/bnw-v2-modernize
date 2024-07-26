@@ -1,41 +1,47 @@
-"use client";
+'use client';
 import React, { memo, useState, useCallback } from 'react';
-import {Box, useMediaQuery} from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import { DataGridPro, GridToolbarContainer, GridToolbarQuickFilter } from '@mui/x-data-grid-pro';
 import { useDemoData } from '@mui/x-data-grid-generator';
 import { useTheme } from '@mui/material/styles';
-import classNames from "classnames";
+import classNames from 'classnames';
+import { useSelector } from 'react-redux';
 
-  const CustomToolbar = memo(function CustomToolbarComponent(){
-    return (
-      <GridToolbarContainer>
-        <GridToolbarQuickFilter />
-      </GridToolbarContainer>
-    )
-  });
+const CustomToolbar = memo(function CustomToolbarComponent() {
+  return (
+    <GridToolbarContainer>
+      <GridToolbarQuickFilter />
+    </GridToolbarContainer>
+  );
+});
 
-  function DataTable({
-     data = [],
-     paginationMode = "client" || "server",
-     onFilterChange = () => {},
-     rowOrderChange = () => {},
-     checkboxSelection = false,
-     toolbar = true,
-     rowReordering = false,
-     withSideMenu = false,
-     loading
-  }) {
+function DataTable({
+                     data = [],
+                     paginationMode = 'client' || 'server',
+                     onFilterChange = () => {
+                     },
+                     rowOrderChange = () => {
+                     },
+                     checkboxSelection = false,
+                     toolbar = true,
+                     rowReordering = false,
+                     withSideMenu = true,
+                     loading,
+                   }) {
   // const { data: demoData } = useDemoData({
   //   dataSet: 'Employee',
   //   rowLength: 10,
   //   editable: true,
   // });
 
+  const customizer = useSelector((state) => state.customizer);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <Box sx={{ width: '100%'  }} className={classNames("data-table-container", {
-      "w-side": withSideMenu
+    <Box sx={{ width: '100%' }} className={classNames('data-table-container', {
+      'w-side': withSideMenu,
+      "w-wide": customizer.isCollapse,
     })}>
       <DataGridPro
         // sx={{
@@ -85,7 +91,7 @@ import classNames from "classnames";
         loading={loading}
         rowHeight={38}
         slots={{
-          toolbar: () => toolbar && <CustomToolbar />
+          toolbar: () => toolbar && <CustomToolbar />,
         }}
         checkboxSelection={checkboxSelection}
         disableColumnResize={false}
@@ -95,14 +101,14 @@ import classNames from "classnames";
         filterMode={paginationMode}
         rowReordering={rowReordering}
         onRowOrderChange={rowOrderChange}
-        onFilterChange={(paginationMode==="server" && typeof onFilterChange === "function") ? onFilterChange : null}
+        onFilterChange={(paginationMode === 'server' && typeof onFilterChange === 'function') ? onFilterChange : null}
         initialState={{
           pagination: {
             rowCount: data?.totalData || data?.rows?.length || 0,
             paginationModel: {
               page: data?.page || 1,
               pageSize: data?.pageSize || 25,
-            }
+            },
           },
         }}
       />
