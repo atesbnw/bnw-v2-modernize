@@ -157,12 +157,12 @@
   },
   "Domain Management": {
     "title": "Domain Management",
-    "Add Domain": "Domain Ekle",
-    "Change Domain": "Domain Değiştir"
+    "Add Domain": "Add Domain",
+    "Change Domain": "Change Domain"
   },
   "Settings": {
     "title": "Settings",
-    "Commission Percents": "Commission Percents",
+    "Commission Rate": "Commission Rate",
     "Limitation": "Limitation",
     "Segmentation": "Segmentation",
     "Permissions": "Permissions",

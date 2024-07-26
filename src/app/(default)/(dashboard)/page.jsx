@@ -114,7 +114,7 @@ export default function Dashboard() {
                   <GameStatBox
                     title={"Canlı Casino"}
                     subTitle={"Evolution"}
-                    image={"https://getlogovector.com/wp-content/uploads/2021/11/evolution-gaming-logo-vector.png"}
+                    image={"https://www.paulbellard.com/wp-content/uploads/2020/03/evolution-gaming-logo.jpg"}
                     data={[
                       {
                         title: "Oynanan",

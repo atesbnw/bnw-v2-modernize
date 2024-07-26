@@ -107,7 +107,7 @@ function Page() {
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      providerLogo: faker.helpers.arrayElement(['https://getlogovector.com/wp-content/uploads/2021/11/evolution-gaming-logo-vector.png']),
+      providerLogo: faker.helpers.arrayElement(['https://www.paulbellard.com/wp-content/uploads/2020/03/evolution-gaming-logo.jpg']),
       providerTitle: faker.helpers.arrayElement(['Twist', 'Roulette', 'Wild & Rift', "Floaming Hot", "40 Burning Hot", "20 Dazzling Hot"]),
       played: faker.commerce.price(1000, 100000, 2) + '₺',
       won: faker.commerce.price(1000, 100000, 2) + '₺',

@@ -97,17 +97,17 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
-    title: "Domain Management.title",
-    icon: IconGlobe,
-    href: "/domain-management"
+    title: "Settings.title",
+    icon: IconSettings,
+    href: "/settings"
     // chip: "0",
     // chipColor: "secondary",
   },
   {
     id: uniqueId(),
-    title: "Settings.title",
-    icon: IconSettings,
-    href: "/settings"
+    title: "Domain Management.title",
+    icon: IconGlobe,
+    href: "/domain-management"
     // chip: "0",
     // chipColor: "secondary",
   },

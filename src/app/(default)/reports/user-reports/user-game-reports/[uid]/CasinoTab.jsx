@@ -107,7 +107,7 @@ function CasinoTab() {
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      logo: faker.helpers.arrayElement(['https://getlogovector.com/wp-content/uploads/2021/11/evolution-gaming-logo-vector.png','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7mgeXFwmA1yjsB9IxQ33OMU0KeebpnvFZYA&s','https://seeklogo.com/images/P/pragmatic-play-logo-C41E3B3527-seeklogo.com.png','https://liongaming.io/wp-content/uploads/2024/04/BoomingGames.webp']),
+      logo: faker.helpers.arrayElement(['https://www.paulbellard.com/wp-content/uploads/2020/03/evolution-gaming-logo.jpg','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7mgeXFwmA1yjsB9IxQ33OMU0KeebpnvFZYA&s','https://seeklogo.com/images/P/pragmatic-play-logo-C41E3B3527-seeklogo.com.png','https://liongaming.io/wp-content/uploads/2024/04/BoomingGames.webp']),
       provider: faker.helpers.arrayElement(["EGT", 'Nentent', 'Evolution', "Pragmatic Play", "Booming Games"]),
       // userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
       play: faker.commerce.price(1000, 100000, 2) + "₺",

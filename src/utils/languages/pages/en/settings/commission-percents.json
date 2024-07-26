@@ -1,3 +1,15 @@
 {
-  "search": "Search"
+  "Commission Rate": "Commission Rate",
+  "Edit Commission Rate": "Edit Commission Rate",
+  "search": "Search",
+  "searchPlaceholder": "Provider Name, ID",
+  "Settings": "Settings",
+  "Provider ID": "Provider ID",
+  "Provider Name": "Provider Name",
+  "Category": "Category",
+  "Commission Start Date": "Commission Start Date",
+  "Payment Methods": "Payment Methods",
+  "Method ID": "Method ID",
+  "Method Name": "Method Name",
+  "methodSearchPlaceholder": "Method Name, ID"
 }
