@@ -1,4 +1,17 @@
 /*@tailwind base;*/
 @tailwind components;
 @tailwind utilities;
-html { overflow-y: scroll; }
+html { overflow-y: scroll; overflow-x: hidden; }
+
+
+.data-table-container{
+    max-width: calc(100vw - 20rem);
+}
+.data-table-container.w-side{
+    max-width: calc(100vw - 40rem);
+}
+@media (max-width: 600px){
+    .data-table-container.w-side{
+        max-width: calc(100vw - 4rem);
+    }
+}

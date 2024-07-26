@@ -4,6 +4,7 @@ import {Box, useMediaQuery} from '@mui/material';
 import { DataGridPro, GridToolbarContainer, GridToolbarQuickFilter } from '@mui/x-data-grid-pro';
 import { useDemoData } from '@mui/x-data-grid-generator';
 import { useTheme } from '@mui/material/styles';
+import classNames from "classnames";
 
   const CustomToolbar = memo(function CustomToolbarComponent(){
     return (
@@ -21,6 +22,7 @@ import { useTheme } from '@mui/material/styles';
      checkboxSelection = false,
      toolbar = true,
      rowReordering = false,
+     withSideMenu = false,
      loading
   }) {
   // const { data: demoData } = useDemoData({
@@ -32,7 +34,9 @@ import { useTheme } from '@mui/material/styles';
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%'  }} className={classNames("data-table-container", {
+      "w-side": withSideMenu
+    })}>
       <DataGridPro
         // sx={{
         //   flex: 1
@@ -56,9 +60,9 @@ import { useTheme } from '@mui/material/styles';
             borderColor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
             // py: 1,
           },
-          '& .MuiDataGrid-iconSeparator': {
-            display: 'none',
-          },
+          // '& .MuiDataGrid-iconSeparator': {
+          //   display: 'none',
+          // },
           '& .MuiDataGrid-columnHeaders': {
             borderColor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
           },
@@ -84,7 +88,7 @@ import { useTheme } from '@mui/material/styles';
           toolbar: () => toolbar && <CustomToolbar />
         }}
         checkboxSelection={checkboxSelection}
-        disableColumnResize
+        disableColumnResize={false}
         disableRowSelectionOnClick
         disableColumnSelector
         paginationMode={paginationMode}

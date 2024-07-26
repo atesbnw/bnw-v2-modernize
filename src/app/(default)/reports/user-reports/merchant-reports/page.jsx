@@ -197,6 +197,7 @@ function Page() {
         </Stack>
       )}>
         <DataTable
+          withSideMenu={true}
           search={false}
           data={data}
           toolbar={false}
