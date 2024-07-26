@@ -179,14 +179,14 @@ function Page() {
       Right={ButtonComps}
     />
 
-    <Grid container spacing={2} direction="row" justifyContent="space-around" alignItems="stretch">
+    <Grid container spacing={2} direction="row" alignItems="stretch">
 
       <Grid item xs={12} >
         <Typography variant="h4">{t('pages.settings.limitation.System Pre Defined Packages')}</Typography>
       </Grid>
 
       {data.filter(item => item.category==='system').map((item, index) => (
-        <Grid item xs={12} sm={4} lg={3} key={index}>
+        <Grid item xs={12} sm={6} lg={3} key={index}>
           <Card sx={{ backgroundColor: item.bgColor, color:'white', display: 'flex', flexDirection: 'column', height: '100%' }} variant="outlined">
             <CardContent sx={{ flexGrow: 1, textAlign:'center', paddingTop:'5px'}}>
               <Typography variant="h5"><strong>{item.title}</strong></Typography>
@@ -215,7 +215,7 @@ function Page() {
 
     </Grid>
 
-    <Grid container mt={6} spacing={2} direction="row" justifyContent="" alignItems="stretch">
+    <Grid container mt={6} spacing={2} direction="row" alignItems="stretch">
       <Grid item xs={12} >
         <Typography variant="h4">{t('pages.settings.limitation.Customer Defined Packages')}</Typography>
       </Grid>

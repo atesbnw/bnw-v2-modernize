@@ -34,6 +34,7 @@
     "axios": "^1.6.8",
     "axios-mock-adapter": "^1.22.0",
     "chance": "^1.1.11",
+    "classnames": "^2.5.1",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.11",
     "formik": "^2.4.5",

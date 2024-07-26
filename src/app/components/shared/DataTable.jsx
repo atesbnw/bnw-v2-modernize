@@ -15,6 +15,7 @@ const CustomToolbar = memo(function CustomToolbarComponent() {
   );
 });
 
+<<<<<<< Updated upstream
 function DataTable({
                      data = [],
                      paginationMode = 'client' || 'server',
@@ -28,6 +29,19 @@ function DataTable({
                      withSideMenu = true,
                      loading,
                    }) {
+=======
+  function DataTable({
+     data = [],
+     paginationMode = "client" || "server",
+     onFilterChange = () => {},
+     rowOrderChange = () => {},
+     checkboxSelection = false,
+     toolbar = true,
+     rowReordering = false,
+     withSideMenu = true,
+     loading
+  }) {
+>>>>>>> Stashed changes
   // const { data: demoData } = useDemoData({
   //   dataSet: 'Employee',
   //   rowLength: 10,

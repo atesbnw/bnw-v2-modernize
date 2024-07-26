@@ -176,6 +176,7 @@ function Page() {
           >
 
             <DataTable
+              withSideMenu={false}
               search={false}
               data={data}
               toolbar={false}

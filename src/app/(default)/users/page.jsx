@@ -49,6 +49,7 @@ function Page() {
       </Stack>
 
       <DataTable
+        withSideMenu={false}
         data={users}
         toolbar={false}
       />

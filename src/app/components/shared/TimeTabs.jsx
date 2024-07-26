@@ -9,7 +9,8 @@ import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 import { SingleInputDateRangeField } from '@mui/x-date-pickers-pro/SingleInputDateRangeField';
 
 function TimeTabs({children, onChange, value, topElement, justify = "end", gridSize = "auto"}) {
-  const [time, setTime] = useState([dayjs(), dayjs().add(7,"days")]);
+  // const [time, setTime] = useState([dayjs(), dayjs().add(7,"days")]);
+  const [time, setTime] = useState();
   const shortcutsItems = useMemo(() => [
     {
       label: t("Dashboard.dateRange.yesterday"),

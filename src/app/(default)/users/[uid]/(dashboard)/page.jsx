@@ -50,7 +50,7 @@ function Page() {
         <Grid item xs={12} className={"pt-0"}>
           <ParentCard
             title={t('pages.user-management.user_management_dashboard.Stats')}
-            action={<TimeTabs/>}
+            action={<TimeTabs />}
           >
             <StatCards />
           </ParentCard>

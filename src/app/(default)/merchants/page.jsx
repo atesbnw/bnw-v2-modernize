@@ -51,6 +51,7 @@ function Page() {
       </Stack>
 
       <DataTable
+        withSideMenu={false}
         data={merchants}
         toolbar={false}
       />

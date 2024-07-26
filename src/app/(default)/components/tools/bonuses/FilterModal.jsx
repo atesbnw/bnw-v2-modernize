@@ -46,7 +46,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
           <Box>
             <Grid container spacing={1} mb={2}>
               <Grid item xs={12}>
-                <TimeTabs />
+                <TimeTabs justify={"full"} onChange={(time) => updateFilter("timeRange", time)} value={filter?.timeRange} />
               </Grid>
               <Grid item xs={12}>
                 <CustomFormLabel sx={{mt:1}} htmlFor="searchText">{t('pages.tools.bonus.Search')}</CustomFormLabel>
