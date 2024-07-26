@@ -71,14 +71,14 @@ function TimeTabs({children, onChange, value, topElement, justify = "end", gridS
   return (
     <Fragment>
       <Box className={"flex flex-col md:flex-row"}>
-        {(justify==="end" && gridSize!==12) && (
+        {(justify==="end" && justify!=="full") && (
           <Box className={"md:flex-1"}>
             {topElement && topElement}
           </Box>
         ) || (
             topElement && topElement
         )}
-        <Box style={{width:270}}>
+        <Box style={{width: justify==="full" ? 100 + "%" : 270}}>
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"}>
             <DemoContainer
               sx={{margin:0, padding:0}}

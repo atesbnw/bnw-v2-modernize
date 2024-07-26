@@ -1,5 +1,5 @@
 'use client';
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import TitleBar from '@/app/components/TitleBar';
 import { t } from 'i18next';
 import Box from '@mui/material/Box';
@@ -21,7 +21,7 @@ function Page() {
       [field]: value,
     }));
   }, []);
-  const totalResultsData = [
+  const totalResultsData = useMemo(() => [
     { title: t('pages.reports.user-reports.totalDeposit'), value: faker.commerce.price(24000, 100000, 2) + '₺' },
     { title: t('pages.reports.user-reports.totalWithdraw'), value: faker.commerce.price(24000, 100000, 2) + '₺' },
     {
@@ -33,7 +33,7 @@ function Page() {
       title: t('pages.reports.user-reports.totalUser'),
       value: faker.datatype.number({ min: 100, max: 400 }).toString(),
     },
-  ];
+  ], []);
   const router = useRouter();
   const [data, setData] = useState({
     page: 1,

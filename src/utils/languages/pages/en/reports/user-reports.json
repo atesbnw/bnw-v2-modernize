@@ -3,6 +3,7 @@
   "searchPlaceholder": "Username / User ID",
   "operatorSearchPlaceholder": "Username / Transaction ID",
   "loginLogsSearchPlaceholder": "Username / ID / IP",
+  "commissionReportsSearchPlaceholder": "Provider name",
   "totalCurrentBalance": "Total Current Balance",
   "totalUniqueUser": "Total Unique User",
   "transactionId": "Transaction Id",
@@ -97,5 +98,8 @@
   "totalProfit": "Total Profit",
   "netProfit": "Net Profit",
   "netProfitMin": "Net Profit Min",
-  "netProfitMax": "Net Profit Max"
+  "netProfitMax": "Net Profit Max",
+  "providerCommission": "Provider Commission",
+  "financeCommission": "Finance Commission",
+  "depositWithdraw": "Deposit / Withdraw"
 }
