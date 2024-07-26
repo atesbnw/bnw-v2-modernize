@@ -20,18 +20,18 @@ const DocsListItem = ({title, uploadDate, uploadedBy, note, status, img}) => {
           <img src={img} alt={title} style={{ width: '100%' }} />
 
           <Box mt={1}>
-            <Typography variant="body2" sx={{fontWeight:'bold'}} component="span">{t('menu.Users.Docs Page.uploadDate')}: </Typography>
+            <Typography variant="body2" sx={{fontWeight:'bold'}} component="span">{t('pages.user-management.user_management_dashboard.Docs Page.uploadDate')}: </Typography>
             <Typography variant="body2" component="span">{uploadDate}</Typography>
           </Box>
           <Box>
-            <Typography variant="body2" sx={{fontWeight:'bold'}} component="span">{t('menu.Users.Docs Page.uploadedBy')}: </Typography>
+            <Typography variant="body2" sx={{fontWeight:'bold'}} component="span">{t('pages.user-management.user_management_dashboard.Docs Page.uploadedBy')}: </Typography>
             <Typography variant="body2" component="span">{uploadedBy}</Typography>
           </Box>
 
           <Divider sx={{my:2}} />
 
           <Box mt={1}>
-            <Typography variant="body2" sx={{fontWeight:'bold'}} component="span">{t('menu.Users.Docs Page.note')}: </Typography>
+            <Typography variant="body2" sx={{fontWeight:'bold'}} component="span">{t('pages.user-management.user_management_dashboard.Docs Page.note')}: </Typography>
             <Typography variant="body2" component="span">{note}</Typography>
           </Box>
 
@@ -47,9 +47,9 @@ const DocsListItem = ({title, uploadDate, uploadedBy, note, status, img}) => {
           <Box>
             <IconButton>
               {status === 'approved' ? (
-                  <Chip variant="outlined" color="success" label={t('menu.Users.Docs Page.approved')} size="small" icon={<IconCheck />} />
+                  <Chip variant="outlined" color="success" label={t('pages.user-management.user_management_dashboard.Docs Page.approved')} size="small" icon={<IconCheck />} />
                 )
-                : <Chip variant="outlined" label={t('menu.Users.Docs Page.awaitingApproval')} size="small" icon={<IconClock />} />}
+                : <Chip variant="outlined" label={t('pages.user-management.user_management_dashboard.Docs Page.awaitingApproval')} size="small" icon={<IconClock />} />}
             </IconButton>
           </Box>
         </CardActions>

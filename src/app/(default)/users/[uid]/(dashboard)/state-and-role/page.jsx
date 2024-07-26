@@ -37,12 +37,12 @@ function Page() {
       <form onSubmit={formik.handleSubmit}>
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
-            title={t('menu.Users.State and Role')}
+            title={t('pages.user-management.user_management_dashboard.Status and Role Page.Status and Role')}
             action={<PlayerInfoHeader/>}
           >
             <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel sx={{mt: 0}}  htmlFor="accountStatus">{t('menu.Users.Status and Role Page.Account Status')}</CustomFormLabel>
+                <CustomFormLabel sx={{mt: 0}}  htmlFor="accountStatus">{t('pages.user-management.user_management_dashboard.Status and Role Page.Account Status')}</CustomFormLabel>
                 <CustomSelect
                   id="accountStatus"
                   name="accountStatus"
@@ -61,7 +61,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel sx={{mt: 0}}  htmlFor="userRole">{t('menu.Users.Status and Role Page.User Role')}</CustomFormLabel>
+                <CustomFormLabel sx={{mt: 0}}  htmlFor="userRole">{t('pages.user-management.user_management_dashboard.Status and Role Page.User Role')}</CustomFormLabel>
                 <CustomSelect
                   id="userRole"
                   name="userRole"
@@ -80,7 +80,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="userSegment">{t('menu.Users.Status and Role Page.User Segment')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="userSegment">{t('pages.user-management.user_management_dashboard.Status and Role Page.User Segment')}</CustomFormLabel>
                 <CustomSelect
                   id="userSegment"
                   name="userSegment"
@@ -99,7 +99,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="approvalStatus">{t('menu.Users.Status and Role Page.Approval Status')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="approvalStatus">{t('pages.user-management.user_management_dashboard.Status and Role Page.Approval Status')}</CustomFormLabel>
                 <CustomSelect
                   id="approvalStatus"
                   name="approvalStatus"
@@ -118,7 +118,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="loyaltySystem">{t('menu.Users.Status and Role Page.Loyalty System')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="loyaltySystem">{t('pages.user-management.user_management_dashboard.Status and Role Page.Loyalty System')}</CustomFormLabel>
                 <CustomSelect
                   id="loyaltySystem"
                   name="loyaltySystem"
@@ -137,7 +137,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="loyaltyStatus">{t('menu.Users.Status and Role Page.Loyalty Status')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="loyaltyStatus">{t('pages.user-management.user_management_dashboard.Status and Role Page.Loyalty Status')}</CustomFormLabel>
                 <CustomSelect
                   id="loyaltyStatus"
                   name="loyaltyStatus"

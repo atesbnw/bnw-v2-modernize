@@ -34,7 +34,7 @@ function Page() {
       <form onSubmit={formik.handleSubmit}>
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
-            title={t('menu.Users.Personal Information')}
+            title={t('pages.user-management.user_management_dashboard.Personal Information')}
             action={<PlayerInfoHeader/>}
           >
             <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
@@ -47,13 +47,13 @@ function Page() {
                     <Typography variant="h4">John Doe - johndoerobot</Typography>
                   </Grid>
                   <Grid item>
-                    <Button variant="contained" size="small" sx={{mr: 1}}>{t('menu.Users.Player Info Page.Edit Image')}</Button>
-                    <Button variant="outlined" size="small">{t('menu.Users.Player Info Page.Remove Image')}</Button>
+                    <Button variant="contained" size="small" sx={{mr: 1}}>{t('pages.user-management.user_management_dashboard.Player Info Page.Edit Image')}</Button>
+                    <Button variant="outlined" size="small">{t('pages.user-management.user_management_dashboard.Player Info Page.Remove Image')}</Button>
                   </Grid>
                 </Grid>
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="firstname">{t('menu.Users.Player Info Page.First Name')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="firstname">{t('pages.user-management.user_management_dashboard.Player Info Page.First Name')}</CustomFormLabel>
                 <CustomTextField
                   id="firstname"
                   name="firstname"
@@ -65,7 +65,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="lastname">{t('menu.Users.Player Info Page.Last Name')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="lastname">{t('pages.user-management.user_management_dashboard.Player Info Page.Last Name')}</CustomFormLabel>
                 <CustomTextField
                   id="lastname"
                   variant="outlined"
@@ -77,7 +77,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="birthDate">{t('menu.Users.Player Info Page.Date of Birth')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="birthDate">{t('pages.user-management.user_management_dashboard.Player Info Page.Date of Birth')}</CustomFormLabel>
                 <CustomTextField
                   id="birthDate"
                   type="date"
@@ -93,7 +93,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="birthPlace">{t('menu.Users.Player Info Page.Birth Place')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="birthPlace">{t('pages.user-management.user_management_dashboard.Player Info Page.Birth Place')}</CustomFormLabel>
                 <CustomTextField
                   id="birthPlace"
                   variant="outlined"
@@ -106,7 +106,7 @@ function Page() {
 
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="genderSelect">{t('menu.Users.Player Info Page.Gender')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="genderSelect">{t('pages.user-management.user_management_dashboard.Player Info Page.Gender')}</CustomFormLabel>
                 <CustomSelect
                   id="genderSelect"
                   name="genderSelect"
@@ -126,7 +126,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="documentNo">{t('menu.Users.Player Info Page.Document No')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="documentNo">{t('pages.user-management.user_management_dashboard.Player Info Page.Document No')}</CustomFormLabel>
                 <CustomTextField
                   id="documentNo"
                   variant="outlined"
@@ -138,7 +138,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="documentType">{t('menu.Users.Player Info Page.Document Type')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="documentType">{t('pages.user-management.user_management_dashboard.Player Info Page.Document Type')}</CustomFormLabel>
                 <CustomTextField
                   id="documentType"
                   variant="outlined"

@@ -26,48 +26,47 @@ export function useOperators() {
       {
         field: "uuid",
         headerName: "UID",
-        // width: 200
+        flex: 0.6
       },
       {
         field: "username",
         headerName: "Username",
-        // width: 200
+        flex: 1
       },
       {
         field: "name",
         headerName: "Name",
-        flex: 0.1,
-        // width: 200
+        flex: 1
       },
       {
         field: "birthday",
         headerName: "Birthday",
-        // width: 200
+        flex: 1
       },
       {
         field: "ip",
         headerName: "IP",
-        // width: 200
+        flex: 1
       },
       {
         field: "registerDate",
         headerName: "Register Date",
-        // width: 200
+        flex: 1
       },
       {
         field: "lastLoginDate",
         headerName: "Last Login Date",
-        // width: 200
+        flex: 1
       },
       {
         field: "balance",
         headerName: "Balance",
-        // width: 200
+        flex: 1
       },
       {
         field: "status",
         headerName: "Status",
-        // width: 200
+        flex: 0.6
       },
       {
         field: 'actions',

@@ -20,11 +20,11 @@ const DocsFilter = () => {
   const filterData = [
     {
       id: 1,
-      filterbyTitle: t('menu.Users.Docs Page.docsMenu'),
+      filterbyTitle: t('pages.user-management.user_management_dashboard.Docs Page.docsMenu'),
     },
     {
       id: 3,
-      name: t('menu.Users.Docs Page.Uploaded'),
+      name: t('pages.user-management.user_management_dashboard.Docs Page.Uploaded'),
       icon: DriveFolderUploadRounded,
       color: 'inherit',
       chip: 3,
@@ -32,7 +32,7 @@ const DocsFilter = () => {
     },
     {
       id: 2,
-      name: t('menu.Users.Docs Page.Approved'),
+      name: t('pages.user-management.user_management_dashboard.Docs Page.Approved'),
       icon: CheckCircle,
       color: 'inherit',
       chip: 3,
@@ -40,7 +40,7 @@ const DocsFilter = () => {
     },
     {
       id: 5,
-      name: t('menu.Users.Docs Page.Rejected'),
+      name: t('pages.user-management.user_management_dashboard.Docs Page.Rejected'),
       icon: Cancel,
       color: 'inherit',
       chip: 3,
@@ -48,7 +48,7 @@ const DocsFilter = () => {
     },
     {
       id: 7,
-      name: t('menu.Users.Docs Page.Trash'),
+      name: t('pages.user-management.user_management_dashboard.Docs Page.Trash'),
       icon: Delete,
       color: 'inherit',
       chip: 3,
@@ -68,19 +68,19 @@ const DocsFilter = () => {
     },
     {
       id: 10,
-      name: t('menu.Users.Docs Page.Personal'),
+      name: t('pages.user-management.user_management_dashboard.Docs Page.Personal'),
       icon: FolderRounded,
       color: 'primary.main',
     },
     {
       id: 11,
-      name: t('menu.Users.Docs Page.System'),
+      name: t('pages.user-management.user_management_dashboard.Docs Page.System'),
       icon: FolderRounded,
       color: 'error.main',
     },
     {
       id: 12,
-      name: t('menu.Users.Docs Page.Examine'),
+      name: t('pages.user-management.user_management_dashboard.Docs Page.Examine'),
       icon: FolderRounded,
       color: 'success.main',
     },

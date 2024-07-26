@@ -43,12 +43,12 @@ function Page() {
       <form onSubmit={formik.handleSubmit}>
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
-            title={t('menu.Users.Contact Info')}
+            title={t('pages.user-management.user_management_dashboard.Contact Information')}
             action={<PlayerInfoHeader/>}
           >
             <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel sx={{mt: 0}}  htmlFor="mobilePhone">{t('menu.Users.Contact Info Page.Mobile Phone')}</CustomFormLabel>
+                <CustomFormLabel sx={{mt: 0}}  htmlFor="mobilePhone">{t('pages.user-management.user_management_dashboard.Contact Info Page.Mobile Phone')}</CustomFormLabel>
                 <CustomTextField
                   id="mobilePhone"
                   name="mobilePhone"
@@ -61,7 +61,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel sx={{mt: 0}}  htmlFor="email">{t('menu.Users.Contact Info Page.Email')}</CustomFormLabel>
+                <CustomFormLabel sx={{mt: 0}}  htmlFor="email">{t('pages.user-management.user_management_dashboard.Contact Info Page.Email')}</CustomFormLabel>
                 <CustomTextField
                   id="email"
                   name="email"
@@ -77,26 +77,26 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="communicationPreferences">{t('menu.Users.Contact Info Page.Communication Preferences')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="communicationPreferences">{t('pages.user-management.user_management_dashboard.Contact Info Page.Communication Preferences')}</CustomFormLabel>
                 <Stack direction="row" spacing={2}>
                   <Box mt="-10px" mb={3}>
                     <FormControlLabel
                       control={<CustomCheckbox value="email" name="communicationPreferences" onChange={formik.handleChange} />}
-                      label={t('menu.Users.Contact Info Page.Email')}
+                      label={t('pages.user-management.user_management_dashboard.Contact Info Page.Email')}
                     />
                     <FormControlLabel
                       control={<CustomCheckbox value="phone" name="communicationPreferences" onChange={formik.handleChange} />}
-                      label={t('menu.Users.Contact Info Page.Mobile Phone')}
+                      label={t('pages.user-management.user_management_dashboard.Contact Info Page.Mobile Phone')}
                     />
                     <FormControlLabel
                       control={<CustomCheckbox value="sms" name="communicationPreferences" onChange={formik.handleChange} />}
-                      label={t('menu.Users.Contact Info Page.SMS')}
+                      label={t('pages.user-management.user_management_dashboard.Contact Info Page.SMS')}
                     />
                   </Box>
                 </Stack>
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="country">{t('menu.Users.Contact Info Page.Country')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="country">{t('pages.user-management.user_management_dashboard.Contact Info Page.Country')}</CustomFormLabel>
                 <CustomSelect
                   id="country"
                   name="country"
@@ -116,7 +116,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="city">{t('menu.Users.Contact Info Page.City')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="city">{t('pages.user-management.user_management_dashboard.Contact Info Page.City')}</CustomFormLabel>
                 <CustomSelect
                   id="city"
                   name="city"
@@ -136,7 +136,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="region">{t('menu.Users.Contact Info Page.Region')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="region">{t('pages.user-management.user_management_dashboard.Contact Info Page.Region')}</CustomFormLabel>
                 <CustomTextField
                   id="region"
                   variant="outlined"
@@ -148,7 +148,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="address">{t('menu.Users.Contact Info Page.Address')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="address">{t('pages.user-management.user_management_dashboard.Contact Info Page.Address')}</CustomFormLabel>
                 <CustomTextField
                   id="address"
                   variant="outlined"
@@ -160,7 +160,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="postalCode">{t('menu.Users.Contact Info Page.Postal Code')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="postalCode">{t('pages.user-management.user_management_dashboard.Contact Info Page.Postal Code')}</CustomFormLabel>
                 <CustomTextField
                   id="postalCode"
                   variant="outlined"

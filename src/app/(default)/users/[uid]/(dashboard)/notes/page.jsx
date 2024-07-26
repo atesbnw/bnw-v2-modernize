@@ -13,10 +13,10 @@ function Page() {
   return (
     <Fragment>
       <TitleBar
-        title={t('menu.Users.Notes')}
+        title={t('pages.user-management.user_management_dashboard.Notes Page.Notes')}
         Right={() => (
           <Button onClick={() => setOpen(true)} variant="contained">
-            {t('menu.Users.Notes Page.createNewNote')}
+            {t('pages.user-management.user_management_dashboard.Notes Page.createNewNote')}
           </Button>
         )}
       />
@@ -24,7 +24,7 @@ function Page() {
         open={open}
         permanent
         onClose={() => setOpen(false)}
-        title={t('menu.Users.Notes Page.createNewNote')}
+        title={t('pages.user-management.user_management_dashboard.Notes Page.createNewNote')}
         content={<AddNewNote />}
         actionButtons={<Button variant={"contained"}>{t('i.Save')}</Button>}
       />

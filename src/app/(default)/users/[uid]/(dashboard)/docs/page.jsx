@@ -22,17 +22,17 @@ function Page() {
   return (
     <Fragment>
       <TitleBar
-        title={t('menu.Users.Documents')}
+        title={t('pages.user-management.user_management_dashboard.Docs Page.Info and Documents')}
         Right={() => (
           <Button onClick={() => setOpen(true)}>
-            {t('menu.Users.Docs Page.addNewDocument')}
+            {t('pages.user-management.user_management_dashboard.Docs Page.addNewDocument')}
           </Button>
         )}
       />
       <SideDialog
         open={open}
         onClose={() => setOpen(false)}
-        title={t('menu.Users.Docs Page.addNewDocument')}
+        title={t('pages.user-management.user_management_dashboard.Docs Page.addNewDocument')}
         content={<AddDocumentModal />}
         actionButtons={<Button variant={"contained"}>{t('i.Add')}</Button>}
       />

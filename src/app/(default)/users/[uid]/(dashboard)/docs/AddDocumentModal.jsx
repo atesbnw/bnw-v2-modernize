@@ -39,7 +39,7 @@ function AddDocumentModal() {
 
   return (
     <Fragment>
-      <CustomFormLabel htmlFor="documentType">{t('menu.Users.Docs Page.Document Type')}</CustomFormLabel>
+      <CustomFormLabel htmlFor="documentType">{t('pages.user-management.user_management_dashboard.Docs Page.Document Type')}</CustomFormLabel>
       <CustomSelect
         id="documentType"
         name="documentType"
@@ -52,7 +52,7 @@ function AddDocumentModal() {
         <MenuItem value="Driving License">Driving License</MenuItem>
       </CustomSelect>
 
-      <CustomFormLabel htmlFor="file">{t('menu.Users.Docs Page.Document File')}</CustomFormLabel>
+      <CustomFormLabel htmlFor="file">{t('pages.user-management.user_management_dashboard.Docs Page.Document File')}</CustomFormLabel>
       <Button
         fullWidth
         sx={{height:'6rem'}}
@@ -67,7 +67,7 @@ function AddDocumentModal() {
         <VisuallyHiddenInput name="file" id="file" type="file" />
       </Button>
 
-      <CustomFormLabel htmlFor="note">{t('menu.Users.Docs Page.Notes')}</CustomFormLabel>
+      <CustomFormLabel htmlFor="note">{t('pages.user-management.user_management_dashboard.Docs Page.Notes')}</CustomFormLabel>
       <CustomTextField
         mb={3}
         name="note"
@@ -81,7 +81,7 @@ function AddDocumentModal() {
 
       <FormControlLabel sx={{mt:2}}
         control={<CustomCheckbox value="email" name="communicationPreferences" onChange={formik.handleChange} />}
-        label={t('menu.Users.Docs Page.Approve Document')}
+        label={t('pages.user-management.user_management_dashboard.Docs Page.Approve Document')}
       />
     </Fragment>
   );

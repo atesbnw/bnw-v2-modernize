@@ -29,53 +29,52 @@ export function useMerchants() {
       {
         field: "uuid",
         headerName: "Merchant ID",
-        // width: 200
+        flex: 0.6
       },
       {
         field: "merchantName",
         headerName: "Merchant Name",
-        flex:1,
-        // width: 200
+        flex:1
       },
       {
         field: "totalMembers",
         headerName: "Total Members",
-        // width: 200
+        flex:1
       },
       {
         field: "merchantOpenDate",
         headerName: "Merchant Open Date",
-        // width: 200
+        flex:1
       },
       {
         field: "memberGroup",
         headerName: "Member Group",
-        // width: 200
+        flex:1
       },
       {
         field: "lastMemberRegisterDate",
         headerName: "Last Member Register Date",
-        // width: 200
+        flex:1
       },
       {
         field: "lastPlayingGame",
         headerName: "Last Playing Game",
-        // width: 200
+        flex:1
       },
       {
         field: "lastLoginDate",
         headerName: "Last Login",
-        // width: 200
+        flex:1
       },
       {
         field: "currentBalance",
         headerName: "Current Balance",
-        // width: 200
+        flex:1
       },
       {
         field: "profit",
         headerName: "Profit",
-        // width: 200
+        flex:1
       },
       {
         field: 'actions',

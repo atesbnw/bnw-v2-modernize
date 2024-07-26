@@ -1,6 +1,6 @@
 "use client";
 import React, { memo, useState, useCallback } from 'react';
-import Box from '@mui/material/Box';
+import {Box, useMediaQuery} from '@mui/material';
 import { DataGridPro, GridToolbarContainer, GridToolbarQuickFilter } from '@mui/x-data-grid-pro';
 import { useDemoData } from '@mui/x-data-grid-generator';
 import { useTheme } from '@mui/material/styles';
@@ -30,9 +30,9 @@ import { useTheme } from '@mui/material/styles';
   // });
 
   const theme = useTheme();
-
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   return (
-    <Box sx={{  maxWidth: "100%" }}>
+    <Box sx={{ width: '100%' }}>
       <DataGridPro
         // sx={{
         //   flex: 1
@@ -56,6 +56,9 @@ import { useTheme } from '@mui/material/styles';
             borderColor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
             // py: 1,
           },
+          '& .MuiDataGrid-iconSeparator': {
+            display: 'none',
+          },
           '& .MuiDataGrid-columnHeaders': {
             borderColor: theme.palette.mode === 'dark' ? 'grey.800' : 'grey.300',
           },
@@ -69,6 +72,7 @@ import { useTheme } from '@mui/material/styles';
             overflow: 'visible !important',
           },
         }}
+        disableExtendRowFullWidth={!isSmallScreen}
         rows={data?.rows || []}
         columns={data?.columns || []}
         getRowHeight={() => 'auto'}
@@ -80,6 +84,7 @@ import { useTheme } from '@mui/material/styles';
           toolbar: () => toolbar && <CustomToolbar />
         }}
         checkboxSelection={checkboxSelection}
+        disableColumnResize
         disableRowSelectionOnClick
         disableColumnSelector
         paginationMode={paginationMode}

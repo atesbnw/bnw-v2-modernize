@@ -33,12 +33,12 @@ function Page() {
       <form onSubmit={formik.handleSubmit}>
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
-            title={t('menu.Users.Account Info')}
+            title={t('pages.user-management.user_management_dashboard.Account Information')}
             action={<PlayerInfoHeader/>}
           >
             <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel sx={{mt: 0}} htmlFor="playerId">{t('menu.Users.Account Info Page.Player ID')}</CustomFormLabel>
+                <CustomFormLabel sx={{mt: 0}} htmlFor="playerId">{t('pages.user-management.user_management_dashboard.Account Info Page.Player ID')}</CustomFormLabel>
                 <CustomTextField
                   id="playerId"
                   name="playerId"
@@ -51,7 +51,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel sx={{mt: 0}} htmlFor="registrationDate">{t('menu.Users.Account Info Page.Registration Date')}</CustomFormLabel>
+                <CustomFormLabel sx={{mt: 0}} htmlFor="registrationDate">{t('pages.user-management.user_management_dashboard.Account Info Page.Registration Date')}</CustomFormLabel>
                 <CustomTextField
                   id="registrationDate"
                   variant="outlined"
@@ -66,7 +66,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="language">{t('menu.Users.Account Info Page.Language')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="language">{t('pages.user-management.user_management_dashboard.Account Info Page.Language')}</CustomFormLabel>
                 <CustomSelect
                   id="language"
                   name="language"
@@ -86,7 +86,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="username">{t('menu.Users.Account Info Page.Username')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="username">{t('pages.user-management.user_management_dashboard.Account Info Page.Username')}</CustomFormLabel>
                 <CustomTextField
                   id="username"
                   variant="outlined"
@@ -98,7 +98,7 @@ function Page() {
                 />
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="currency">{t('menu.Users.Account Info Page.Currency')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="currency">{t('pages.user-management.user_management_dashboard.Account Info Page.Currency')}</CustomFormLabel>
                 <CustomSelect
                   id="currency"
                   name="currency"
@@ -118,7 +118,7 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="dealerCode">{t('menu.Users.Account Info Page.Dealer Code')}</CustomFormLabel>
+                <CustomFormLabel htmlFor="dealerCode">{t('pages.user-management.user_management_dashboard.Account Info Page.Dealer Code')}</CustomFormLabel>
                 <CustomTextField
                   id="dealerCode"
                   variant="outlined"
@@ -131,7 +131,7 @@ function Page() {
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
                 <CustomFormLabel
-                  htmlFor="promotionCode">{t('menu.Users.Account Info Page.Promotion Code')}</CustomFormLabel>
+                  htmlFor="promotionCode">{t('pages.user-management.user_management_dashboard.Account Info Page.Promotion Code')}</CustomFormLabel>
                 <CustomTextField
                   id="promotionCode"
                   variant="outlined"

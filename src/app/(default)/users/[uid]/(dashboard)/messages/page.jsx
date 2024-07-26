@@ -29,10 +29,10 @@ function Page() {
     <Fragment>
 
       <TitleBar
-        title={t('menu.Users.Messages')}
+        title={t('pages.user-management.user_management_dashboard.Messages Page.Messages')}
         Right={() => (
           <Button onClick={() => setOpen(true)} variant="contained">
-            {t('menu.Users.Messages Page.createNewMessage')}
+            {t('pages.user-management.user_management_dashboard.Messages Page.createNewMessage')}
           </Button>
         )}
       />
@@ -40,7 +40,7 @@ function Page() {
         open={open}
         permanent
         onClose={() => setOpen(false)}
-        title={t('menu.Users.Messages Page.createNewMessage')}
+        title={t('pages.user-management.user_management_dashboard.Messages Page.createNewMessage')}
         content={<AddNewMessage />}
         actionButtons={<Button variant={"contained"}>{t('i.Save')}</Button>}
       />

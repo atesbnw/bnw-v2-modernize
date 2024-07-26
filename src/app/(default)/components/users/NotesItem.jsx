@@ -20,11 +20,11 @@ function NotesItem({ operator, date, content, pinned }) {
       <CardContent sx={{p:2}}>
         <Typography variant="h5" sx={{mb:3}}>{content}</Typography>
         <Box sx={{mb:1}}>
-          <Typography variant="body2" sx={{fontWeight:'bold'}}>{t('menu.Users.Notes Page.noteAddedBy')}: </Typography>
+          <Typography variant="body2" sx={{fontWeight:'bold'}}>{t('pages.user-management.user_management_dashboard.Notes Page.noteAddedBy')}: </Typography>
           {operator}
         </Box>
         <Box sx={{mb:1}}>
-          <Typography variant="body2" sx={{fontWeight:'bold'}}>{t('menu.Users.Notes Page.dateAdded')}: </Typography>
+          <Typography variant="body2" sx={{fontWeight:'bold'}}>{t('pages.user-management.user_management_dashboard.Notes Page.dateAdded')}: </Typography>
           {date}
         </Box>
       </CardContent>

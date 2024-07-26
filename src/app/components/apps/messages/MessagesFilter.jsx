@@ -30,11 +30,11 @@ const MessagesFilter = () => {
   const filterData = [
     {
       id: 1,
-      filterbyTitle: t('menu.Users.Messages Page.Messages'),
+      filterbyTitle: t('pages.user-management.user_management_dashboard.Messages Page.Messages'),
     },
     {
       id: 3,
-      name: t('menu.Users.Messages Page.Sent'),
+      name: t('pages.user-management.user_management_dashboard.Messages Page.Sent'),
       icon: IconSend,
       color: 'inherit',
       chip: 3,
@@ -42,7 +42,7 @@ const MessagesFilter = () => {
     },
     {
       id: 2,
-      name: t('menu.Users.Messages Page.Starred'),
+      name: t('pages.user-management.user_management_dashboard.Messages Page.Starred'),
       icon: IconStar,
       color: 'inherit',
       chip: 3,
@@ -50,7 +50,7 @@ const MessagesFilter = () => {
     },
     {
       id: 5,
-      name: t('menu.Users.Messages Page.Trash'),
+      name: t('pages.user-management.user_management_dashboard.Messages Page.Trash'),
       icon: IconTrash,
       color: 'inherit',
       chip: 3,
@@ -70,19 +70,19 @@ const MessagesFilter = () => {
     },
     {
       id: 10,
-      name: t('menu.Users.Messages Page.Personal'),
+      name: t('pages.user-management.user_management_dashboard.Messages Page.Personal'),
       icon: IconFolder,
       color: 'primary.main',
     },
     {
       id: 11,
-      name: t('menu.Users.Messages Page.System'),
+      name: t('pages.user-management.user_management_dashboard.Messages Page.System'),
       icon: IconFolder,
       color: 'error.main',
     },
     {
       id: 12,
-      name: t('menu.Users.Messages Page.Examine'),
+      name: t('pages.user-management.user_management_dashboard.Messages Page.Examine'),
       icon: IconFolder,
       color: 'success.main',
     },
