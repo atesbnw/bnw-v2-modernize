@@ -9,7 +9,7 @@ function layout({ children }) {
   const {menu} = useMenu();
 
   return (
-    <HeaderCustom menu={menu} title={t("Settings.title")} activeItem={t("Settings.Commission Percents")}>
+    <HeaderCustom menu={menu} title={t("Settings.title")} activeItem={t("Settings.Commission Rate")}>
       {children}
     </HeaderCustom>
   );

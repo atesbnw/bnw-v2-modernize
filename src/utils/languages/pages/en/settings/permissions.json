@@ -1,3 +1,7 @@
 {
-  "search": "Search"
+  "Permissions": "Permissions",
+  "Create New Package": "Create New Package",
+  "Edit New Package": "Edit New Package",
+  "System Pre Defined Packages": "System Pre Defined Packages",
+  "Customer Defined Packages": "Customer Defined Packages"
 }
