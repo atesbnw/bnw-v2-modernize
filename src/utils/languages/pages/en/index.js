@@ -63,17 +63,18 @@ import user_management_user_management from '@/utils/languages/pages/en/user-man
 
 
 const pages = {
-  "content-management": {
-    "banners": content_management_banners,
-    "content-management": content_management_content_management,
-    "custom-css": content_management_custom_css,
-    "popups": content_management_popups,
-    "private-days": content_management_private_days,
-    "promotions": content_management_promotions,
-    "site-design": content_management_site_design,
-    "site-menu": content_management_site_menu,
-    "sliders": content_management_sliders
-  },
+  "content-management": content_management_content_management,
+// {
+//     "banners": content_management_banners,
+//     "content-management": ,
+//     "custom-css": content_management_custom_css,
+//     "popups": content_management_popups,
+//     "private-days": content_management_private_days,
+//     "promotions": content_management_promotions,
+//     "site-design": content_management_site_design,
+//     "site-menu": content_management_site_menu,
+//     "sliders": content_management_sliders
+//   },
   "domain-management": {
     "domain-management": domain_management_domain_management
   },

@@ -1,3 +1,22 @@
 {
-  "search": "Search"
+  "search": "Search",
+  "addMedia": "Add Media",
+  "list": "List",
+  "onPublished": "On published",
+  "expired": "Expired",
+  "addSlider": "Add Slider",
+  "order": "Order",
+  "views": "Views",
+  "everybody": "Everybody",
+  "internal": "Internal",
+  "external": "External",
+  "time": "Time",
+  "titleDesc": "Title/Description",
+  "linkType": "Link Type",
+  "platform": "Platform",
+  "language": "Language",
+  "updatedAt": "Updated at",
+  "status": "Status",
+  "target": "Target",
+  "link": "Link"
 }

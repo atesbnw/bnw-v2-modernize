@@ -74,7 +74,7 @@ function TitleBar({ LeftImage, subTitle, link, Left, title, Right }) {
         <Box sx={{
           alignItems:"center"
         }}>
-          <Right />
+          {typeof Right === "function" ? <Right /> : Right}
         </Box>
       )}
     </Box>
