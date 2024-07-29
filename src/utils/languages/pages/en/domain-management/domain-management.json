@@ -1,3 +1,26 @@
 {
-  "search": "Search"
+  "Domain Management": "Domain Management",
+  "Domains": "Domains",
+  "Add Domain": "Add Domain",
+  "Edit Domain": "Edit Domain",
+  "Change Domain": "Change Domain",
+  "Domain Name": "Domain Name",
+  "activeDomainInfo": "Active Domain Information",
+  "lastTransitionDate": "Last Transition Date",
+  "ID": "ID",
+  "operator": "Operator",
+  "desktop": "Desktop",
+  "mobile": "Mobile",
+  "www": "WWW",
+  "ssl": "SSL",
+  "firewall": "Firewall",
+  "underAttackMode": "Under Attack Mode",
+  "remainingDomainCount": "Remaining Domain Count",
+  "active": "Active",
+  "passive": "Passive",
+  "id": "ID",
+  "zoneAddress": "Zone Address",
+  "merchant": "Merchant",
+  "pageRules": "Page Rules",
+  "status": "Status"
 }
