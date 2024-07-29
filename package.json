@@ -63,6 +63,7 @@
     "simplebar-react": "^3.2.4",
     "slick-carousel": "^1.8.1",
     "stylis-plugin-rtl": "^2.1.1",
+    "verbum": "^0.6.2",
     "yup": "^0.32.11"
   },
   "devDependencies": {

@@ -27,6 +27,26 @@ import {LocalizationProvider} from "@mui/x-date-pickers";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
 import CustomCheckbox from "@/app/components/forms/theme-elements/CustomCheckbox";
+import {
+  EditorComposer,
+  Editor,
+  ToolbarPlugin,
+  AlignDropdown,
+  BackgroundColorPicker,
+  BoldButton,
+  CodeFormatButton,
+  FloatingLinkEditor,
+  FontFamilyDropdown,
+  FontSizeDropdown,
+  InsertDropdown,
+  InsertLinkButton,
+  ItalicButton,
+  TextColorPicker,
+  TextFormatDropdown,
+  UnderlineButton,
+  Divider,
+} from 'verbum';
+
 
 const ReactQuill = dynamic(
   async () => {
@@ -50,6 +70,7 @@ const multipleSelectItems = [
 ];
 
 function Page() {
+  const [descriptionTextState, setDescriptionTextState] = useState(`<b>aras</b><i>test metni</i>`);
   const [startDateTime, setStartDateTime] = React.useState(dayjs());
   const [finishDateTime, setFinishDateTime] = React.useState(dayjs());
 
@@ -70,7 +91,7 @@ function Page() {
       endDate: '',
       minimumAmount: '',
       maximumAmount: '',
-      descriptionText: '',
+      descriptionText: '<b>aras</b><i>test metni</i>',
       validForAllMembers: '',
       validOnlyForApprovedMembers: '',
       validOnlyForVIPMembers: '',
@@ -424,15 +445,34 @@ function Page() {
                   <CustomFormLabel
                     htmlFor="descriptionText">{t('pages.tools.bonus.descriptionText')}</CustomFormLabel>
 
-                  <ReactQuill
-                    // value={formik.values.descriptionText}
-                    // onChange={formik.descriptionText}
-                    // value={text}
-                    // onChange={(value) => {
-                    //   setText(value);
-                    // }}
-                    placeholder="Type here..."
-                  />
+                  <EditorComposer>
+                    <Editor
+                      defaultValue={descriptionTextState}
+                      hashtagsEnabled={true}
+                      onChange={(val) => setDescriptionTextState(val)}
+                      autoLinkEnabled={true}
+                      emojisEnabled={true}
+                      actionsEnabled={true}
+                    >
+                      <ToolbarPlugin defaultFontSize="20px" style={{height: "50px"}}>
+                        <FontFamilyDropdown />
+                        <FontSizeDropdown />
+                        <Divider />
+                        <BoldButton />
+                        <ItalicButton />
+                        <UnderlineButton />
+                        <CodeFormatButton />
+                        <InsertLinkButton />
+                        <TextColorPicker />
+                        <BackgroundColorPicker />
+                        <TextFormatDropdown />
+                        <Divider />
+                        <InsertDropdown enablePoll={true} />
+                        <Divider />
+                        <AlignDropdown />
+                      </ToolbarPlugin>
+                    </Editor>
+                  </EditorComposer>
                 </Grid>
 
                 <Grid item container xs={12} justifyContent="right" mt={3}>
