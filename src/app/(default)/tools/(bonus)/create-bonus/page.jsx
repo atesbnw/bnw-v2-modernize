@@ -454,7 +454,7 @@ function Page() {
                       emojisEnabled={true}
                       actionsEnabled={true}
                     >
-                      <ToolbarPlugin defaultFontSize="20px" style={{height: "50px"}}>
+                      <ToolbarPlugin defaultFontSize="20px">
                         <FontFamilyDropdown />
                         <FontSizeDropdown />
                         <Divider />

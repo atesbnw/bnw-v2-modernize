@@ -32,17 +32,13 @@ const StatsRow = () => {
   }, []);
 
   return (
-    <Box sx={{
-      p: 2
-    }}>
+    <Box my={4}>
       <Grid container spacing={1}>
         {data.map((item, index) => (
           <Grid item xs={12} sm={6} md={2} key={index}>
-            <Box className={"flex items-center gap-1 py-4 px-2"} sx={{
-              backgroundColor: theme.palette.primary.light,
-            }}>
+            <Box className={"flex items-center gap-1 py-4 px-2"} bgcolor={"info.light"}>
               <Box className={'flex flex-col items-center flex-1'}>
-                <Typography variant="body2" color={"primary.main"}>{item.title}</Typography>
+                <Typography variant="body2" color={"primary.dark"}>{item.title}</Typography>
                 <Typography variant="h6">{item.value}</Typography>
               </Box>
               <Box className={'flex items-center'}>

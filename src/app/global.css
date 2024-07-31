@@ -20,9 +20,20 @@ html { overflow-y: scroll; overflow-x: hidden; }
     .data-table-container.w-side{
         max-width: calc(100vw - 4rem);
     }
+    .data-table-container.w-wide{
+        max-width: calc(100vw - 4rem);
+    }
 }
 @media (max-width: 600px){
     .data-table-container.w-side{
         max-width: calc(100vw - 4rem);
     }
+}
+.editor-shell {
+    border: 1px solid #dddddd;
+    max-width: 100% !important;;
+}
+.toolbar {
+    height: 46px !important;
+    border-bottom: 1px solid #dddddd;
 }

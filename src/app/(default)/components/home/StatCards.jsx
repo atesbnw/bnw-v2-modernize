@@ -86,8 +86,8 @@ const StatCards = () => {
   }, []);
 
   return (
-    <Box sx={{ flexGrow: 1, p: 2 }}>
-      <Grid container spacing={3} mt={1}>
+    <Box>
+      <Grid container spacing={2} mt={1}>
         <TransitionGroup component={null} className="flex-wrap">
           {visibleData.map(({ icon, ...topcard }, i) => (
             <Collapse key={i} in={i < 8 || showAll} timeout={600} className={"w-full sm:w-1/2 md:w-1/4 p-3"}>
@@ -128,11 +128,11 @@ const StatCards = () => {
         </TransitionGroup>
       </Grid>
       {data.length > 8 && (
-        <Box textAlign="center" mt={2}>
-          <Button variant="text" color="primary" onClick={toggleShowAll} fullWidth>
+        <Grid textAlign="center" mt={2} alignItems="center" justifyContent="center">
+          <Button variant="outlined" color="primary" onClick={toggleShowAll} >
             {!showAll ? <IconChevronDown size={18} /> : <IconChevronUp size={18} />}
           </Button>
-        </Box>
+        </Grid>
       )}
 
 

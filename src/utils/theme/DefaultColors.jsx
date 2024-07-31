@@ -19,7 +19,8 @@ const baselightTheme = {
     },
     info: {
       main: '#539BFF',
-      light: '#EBF3FE',
+      light: '#ddeafd',
+      // light: '#EBF3FE',
       dark: '#1682d4',
       contrastText: '#ffffff',
     },

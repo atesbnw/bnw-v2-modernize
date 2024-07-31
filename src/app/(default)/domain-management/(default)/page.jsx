@@ -224,7 +224,7 @@ function Page() {
             title={t('pages.domain-management.domain-management.Domains')}
           >
             <DataTable
-              // withSideMenu={false}
+              withSideMenu={false}
               search={false}
               data={data}
               toolbar={false}
