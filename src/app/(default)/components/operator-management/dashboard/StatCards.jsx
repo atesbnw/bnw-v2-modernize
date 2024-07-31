@@ -27,14 +27,12 @@ const StatCards = () => {
   useEffect(() => {
     setData([
       { title: t("pages.user-management.user_management_dashboard.balance"), digits: '5.000,00₺ '},
-      { title: t("pages.user-management.user_management_dashboard.poker"), digits: '2.000,00₺'},
-      { title: t("pages.user-management.user_management_dashboard.okey"), digits: ' 5.000,00₺ '},
-      { title: t("pages.user-management.user_management_dashboard.investment"), digits: '46.000,00₺'},
+      { title: t("pages.user-management.user_management_dashboard.deposit"), digits: '46.000,00₺'},
       { title: t("pages.user-management.user_management_dashboard.withdraw"), digits: '30.000,00₺'},
       { title: t("pages.user-management.user_management_dashboard.receivedBonus"), digits: '46.000,00₺'},
       { title: t("pages.user-management.user_management_dashboard.canceledBonus"), digits: '6.000,00₺'},
-      { title: t("pages.user-management.user_management_dashboard.played"), digits: '46.000,00₺'},
-      { title: t("pages.user-management.user_management_dashboard.gain"), digits: '20.000,00₺'},
+      { title: t("pages.user-management.user_management_dashboard.wagered"), digits: '46.000,00₺'},
+      { title: t("pages.user-management.user_management_dashboard.win"), digits: '20.000,00₺'},
       { title: t("pages.user-management.user_management_dashboard.memberProfitability"), digits: '%42'},
     ]);
   }, []);

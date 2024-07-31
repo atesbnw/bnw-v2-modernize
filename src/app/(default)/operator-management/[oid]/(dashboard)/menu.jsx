@@ -16,7 +16,7 @@ export function useMenu() {
       children: [
         {
           id: uniqueId(),
-          title: "menu.Home",
+          title: "menu.Operator Management.profile",
           href: `${url}`,
         },
         {

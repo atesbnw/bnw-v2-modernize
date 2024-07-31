@@ -37,7 +37,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
       )}
 
       <SideDialog
-        title={t("pages.merchants.dashboard.Merchant Member List")}
+        title={t("pages.operator-management.dashboard.Transaction List Filter")}
         open={open}
         onClose={() => setOpen(false)}
         content={(
