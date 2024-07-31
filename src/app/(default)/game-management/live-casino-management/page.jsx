@@ -2,7 +2,7 @@
 import React, { memo, useState, useCallback, useEffect, Fragment } from 'react';
 import DataTable from '@/app/components/shared/DataTable';
 import IconButton from '@mui/material/IconButton';
-import { IconEye, IconFileDownload } from '@tabler/icons-react';
+import { IconChevronRight, IconEye, IconFileDownload } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import Box from '@mui/material/Box';
 import { t } from 'i18next';
@@ -98,7 +98,7 @@ function TransactionsTable() {
         getActions: (e) => {
           return [
             <IconButton onClick={() => router.push(`/game-management/live-casino-management/${e?.row?.providerName}`)}>
-              <IconEye />
+              <IconChevronRight />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
             //   <IconPencil />
@@ -166,6 +166,8 @@ function TransactionsTable() {
           search={false}
           data={data}
           toolbar={false}
+          onRowClick={(e) => router.push(`/game-management/live-casino-management/${e?.row?.providerName}`)}
+          rowReordering={true}
         />
     </Fragment>
   );

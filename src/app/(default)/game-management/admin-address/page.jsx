@@ -13,6 +13,7 @@ import TitleBar from '@/app/components/TitleBar';
 import { useParams, useRouter } from 'next/navigation';
 import { useTheme } from '@mui/material/styles';
 import ActionModal from '@/app/(default)/components/game-management/admin-address/ActionModal';
+import Box from '@mui/material/Box';
 
 function AdminAddress() {
   const theme = useTheme();
@@ -76,7 +77,9 @@ function AdminAddress() {
         renderCell: ({ value }) => {
           return (
             <Tooltip title={value}>
-              <IconInfoCircle color={theme.palette.warning.main} />
+              <Box className={"flex items-center justify-center w-full"}>
+                <IconInfoCircle color={theme.palette.warning.main} />
+              </Box>
             </Tooltip>
           )
         }

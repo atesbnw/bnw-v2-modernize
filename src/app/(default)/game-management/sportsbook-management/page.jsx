@@ -91,21 +91,21 @@ function TransactionsTable() {
         )
         // width: 200
       },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 170,
-        getActions: (e) => {
-          return [
-            <IconButton onClick={() => router.push(`/game-management/sportsbook-management/${e?.row?.providerName}`)}>
-              <IconEye />
-            </IconButton>,
-            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-            //   <IconPencil />
-            // </IconButton>
-          ]
-        }
-      }
+      // {
+      //   field: 'actions',
+      //   type: 'actions',
+      //   width: 170,
+      //   getActions: (e) => {
+      //     return [
+      //       <IconButton onClick={() => router.push(`/game-management/sportsbook-management/${e?.row?.providerName}`)}>
+      //         <IconEye />
+      //       </IconButton>,
+      //       // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+      //       //   <IconPencil />
+      //       // </IconButton>
+      //     ]
+      //   }
+      // }
     ];
 
     const rows = Array.from(Array(50)).map(() => ({
@@ -166,6 +166,8 @@ function TransactionsTable() {
           search={false}
           data={data}
           toolbar={false}
+          onRowClick={e => router.push(`/game-management/sportsbook-management/${e?.row?.providerName}`)}
+          rowReordering={true}
         />
     </Fragment>
   );

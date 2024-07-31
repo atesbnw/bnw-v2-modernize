@@ -25,11 +25,11 @@ export function useMenu() {
       title: "menu.Game Management.Virtual Game Management",
       href: `${url}/virtual-game-management`,
     },
-    {
-      id: uniqueId(),
-      title: "menu.Game Management.Sportsbook Management",
-      href: `${url}/sportsbook-management`,
-    },
+    // {
+    //   id: uniqueId(),
+    //   title: "menu.Game Management.Sportsbook Management",
+    //   href: `${url}/sportsbook-management`,
+    // },
     {
       id: uniqueId(),
       title: "menu.Game Management.Category Management",

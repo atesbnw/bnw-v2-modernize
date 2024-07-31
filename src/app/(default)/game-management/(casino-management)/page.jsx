@@ -101,7 +101,7 @@ function TransactionsTable() {
         getActions: (e) => {
           return [
             <IconButton onClick={() => router.push(`/game-management/${e?.row?.providerName}`)}>
-              <IconEye />
+              <IconChevronRight />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
             //   <IconPencil />
@@ -169,6 +169,8 @@ function TransactionsTable() {
           search={false}
           data={data}
           toolbar={false}
+          onRowClick={(e) => router.push(`/game-management/${e?.row?.providerName}`)}
+          rowReordering={true}
         />
     </Fragment>
   );

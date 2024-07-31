@@ -27,6 +27,7 @@ function DataTable({
                      rowReordering = false,
                      withSideMenu = true,
                      loading,
+                      ...props
                    }) {
 
   // const { data: demoData } = useDemoData({
@@ -45,6 +46,7 @@ function DataTable({
       "w-wide": customizer.isCollapse,
     })}>
       <DataGridPro
+        {...props}
         // sx={{
         //   flex: 1
         // }}
