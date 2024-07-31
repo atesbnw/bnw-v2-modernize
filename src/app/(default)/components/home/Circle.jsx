@@ -1,6 +1,7 @@
-import React, { Fragment, memo } from 'react';
+import React, { memo } from 'react';
 import { styled } from '@mui/system';
 import { Box, Grid, Typography } from '@mui/material';
+import {t} from "i18next";
 
 const Circle = styled(Box)(({ theme }) => ({
   width: 50,
@@ -24,11 +25,11 @@ const TopCircles = () => {
     <Box className={"flex items-center gap-3"}>
       <Grid item sx={{alignItems: "center", display: "flex", flexDirection: "row", gap: 2, py: 1}}>
         <Circle>1423</Circle>
-        <Typography variant="subtitle2" align="center" sx={{py: 1}}>ONLINE KULLANICI</Typography>
+        <Typography variant="subtitle2" align="center" sx={{py: 1}}>{t("Dashboard.Online Users")}</Typography>
       </Grid>
       <Grid item sx={{alignItems: "center", display: "flex", flexDirection: "row", gap: 2, py: 1}}>
         <Circle>14</Circle>
-        <Typography variant="subtitle2" align="center" sx={{py: 1}}>ONLINE YETKİLİ</Typography>
+        <Typography variant="subtitle2" align="center" sx={{py: 1}}>{t("Dashboard.Online Admins")}</Typography>
       </Grid>
     </Box>
   )

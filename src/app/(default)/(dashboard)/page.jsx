@@ -17,10 +17,10 @@ import Stack from '@mui/material/Stack';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { t } from 'i18next';
-import Link from 'next/link';
+import { faker } from '@faker-js/faker';
 import CustomTabPanel from '@/app/(default)/components/home/CustomTabPanel';
 
-export default function Dashboard() {
+function Dashboard() {
   const [tab, setTab] = useState(0);
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
@@ -54,7 +54,7 @@ export default function Dashboard() {
             <Grid container spacing={1}>
               <Grid item xs={12} sm={12} md={4}>
                 <OverviewTable
-                  title={"Casino Genel Bakış"}
+                  title={t("Dashboard.Overviews.Casino")}
                   data={[
                     ...casinoOverview
                   ]}
@@ -62,7 +62,7 @@ export default function Dashboard() {
               </Grid>
               <Grid item xs={12} sm={12} md={4}>
                 <OverviewTable
-                  title={"Poker Genel Bakış"}
+                  title={t("Dashboard.Overviews.Poker")}
                   data={[
                     ...casinoOverview
                   ]}
@@ -70,7 +70,7 @@ export default function Dashboard() {
               </Grid>
               <Grid item xs={12} sm={12} md={4}>
                 <OverviewTable
-                  title={"Sanal Oyunlar Genel Bakış"}
+                    title={t("Dashboard.Overviews.Virtual Games")}
                   data={[
                     ...casinoOverview
                   ]}
@@ -80,7 +80,7 @@ export default function Dashboard() {
 
 
             <OverviewTable
-              title={"Bonus Genel Bakış"}
+              title={t("Dashboard.Overviews.Bonus")}
               data={[
                 ...sportsbookOverview
               ]}
@@ -88,7 +88,7 @@ export default function Dashboard() {
 
             <Box className={"space-y-4"}>
               <DashboardCard
-                title={"En çok oynanan sağlayıcılar"}
+                title={t('pages.reports.user-reports.mostPlay')}
                 subtitle={""}
               >
                 <Grid container spacing={1}>
@@ -98,61 +98,61 @@ export default function Dashboard() {
                     image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOLayqzmzNCN8PAkSw63ZQ6Aa5dAiSeycMrA&s"}
                     data={[
                       {
-                        title: "Oynanan",
+                        title: "Play",
                         value: 300000,
                         currency: "TRY"
                       },
                       {
-                        title: "Kazanan",
+                        title: "Win",
                         value: 124000,
                         currency: "TRY"
                       },
                       {
-                        title: "Fark",
+                        title: "Diff",
                         value: 760000,
                         currency: "TRY"
                       }
                     ]}
                   />
                   <GameStatBox
-                    title={"Canlı Casino"}
+                    title={"Live Casino"}
                     subTitle={"Evolution"}
                     image={"https://www.paulbellard.com/wp-content/uploads/2020/03/evolution-gaming-logo.jpg"}
                     data={[
                       {
-                        title: "Oynanan",
+                        title: "Play",
                         value: 6200000,
                         currency: "TRY"
                       },
                       {
-                        title: "Kazanan",
+                        title: "Win",
                         value: 5624000,
                         currency: "TRY"
                       },
                       {
-                        title: "Fark",
+                        title: "Diff",
                         value: 160000,
                         currency: "TRY"
                       }
                     ]}
                   />
                   <GameStatBox
-                    title={"Sanal Oyunlar"}
+                    title={"Virtual Games"}
                     subTitle={"EGT"}
                     image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOLayqzmzNCN8PAkSw63ZQ6Aa5dAiSeycMrA&s"}
                     data={[
                       {
-                        title: "Oynanan",
+                        title: "Play",
                         value: 653000,
                         currency: "TRY"
                       },
                       {
-                        title: "Kazanan",
+                        title: "Win",
                         value: 544000,
                         currency: "TRY"
                       },
                       {
-                        title: "Fark",
+                        title: "Diff",
                         value: 760000,
                         currency: "TRY"
                       }
@@ -176,7 +176,7 @@ export default function Dashboard() {
                   allowScrollButtonsMobile
                   aria-label="scrollable prevent tabs example"
                 >
-                  {["Slot Oyunları", "Canlı Casino"].map((tab,_) => {
+                  {["Slot Games", "Live Casino", "Virtual Games"].map((tab,_) => {
                     return (
                       <Tab
                         iconPosition="start"
@@ -189,79 +189,78 @@ export default function Dashboard() {
                   })}
                 </Tabs>
 
-                <CustomTabPanel value={tab} index={0}>
-                  <Grid container spacing={1}>
-                    <GameStatBox
-                      title={"En Çok Oynanan Oyun"}
-                      subTitle={"Wild & Turkey / Netent"}
-                      image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGO2wGcJymC1ydiocdohoy1YgVg-L196iWQ&s"}
-                      data={[
-                        {
-                          title: "Oynanan",
-                          value: 400000,
-                          currency: "TRY"
-                        },
-                        {
-                          title: "Kazanan",
-                          value: 24000,
-                          currency: "TRY"
-                        },
-                        {
-                          title: "Fark",
-                          value: 510000,
-                          currency: "TRY"
-                        }
-                      ]}
-                    />
-                    <GameStatBox
-                      title={"En Çok Kazandıran Oyun"}
-                      subTitle={"Twin Spin / Netent"}
-                      image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKvUttnM9IyBOfzC0QvTGK7uc_0L_0Iz4IBg&s"}
-                      data={[
-                        {
-                          title: "Oynanan",
-                          value: 9200000,
-                          currency: "TRY"
-                        },
-                        {
-                          title: "Kazanan",
-                          value: 8624000,
-                          currency: "TRY"
-                        },
-                        {
-                          title: "Fark",
-                          value: 230000,
-                          currency: "TRY"
-                        }
-                      ]}
-                    />
-                    <GameStatBox
-                      title={"En Çok Kaybettiren Oyun"}
-                      subTitle={"Mythic Maiden / Netent"}
-                      image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW7Yn6AoRDFzBWW3prXnT8AZ2-E3GFrb4PAg&s"}
-                      data={[
-                        {
-                          title: "Oynanan",
-                          value: 553000,
-                          currency: "TRY"
-                        },
-                        {
-                          title: "Kazanan",
-                          value: 244000,
-                          currency: "TRY"
-                        },
-                        {
-                          title: "Fark",
-                          value: 160000,
-                          currency: "TRY"
-                        }
-                      ]}
-                    />
-                  </Grid>
-                </CustomTabPanel>
-                <CustomTabPanel value={tab} index={1}>
-                  Item 2
-                </CustomTabPanel>
+                {Array.from(Array(3)).map((_, index) => (
+                  <CustomTabPanel value={tab} index={index}>
+                    <Grid container spacing={1}>
+                      <GameStatBox
+                        title={"Dashboard.Most Played Game"}
+                        subTitle={"Wild & Turkey / Netent"}
+                        image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGO2wGcJymC1ydiocdohoy1YgVg-L196iWQ&s"}
+                        data={[
+                          {
+                            title: "Play",
+                            value: faker.datatype.number({ min: 100000000, max: 999000000 }),
+                            currency: "TRY"
+                          },
+                          {
+                            title: "Win",
+                            value: faker.datatype.number({ min: 100000000, max: 999000000 }),
+                            currency: "TRY"
+                          },
+                          {
+                            title: "Diff",
+                            value: faker.datatype.number({ min: 100000000, max: 999000000 }),
+                            currency: "TRY"
+                          }
+                        ]}
+                      />
+                      <GameStatBox
+                        title={t("Dashboard.Most Profitable Game")}
+                        subTitle={"Twin Spin / Netent"}
+                        image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKvUttnM9IyBOfzC0QvTGK7uc_0L_0Iz4IBg&s"}
+                        data={[
+                          {
+                            title: "Play",
+                            value: faker.datatype.number({ min: 100000000, max: 999000000 }),
+                            currency: "TRY"
+                          },
+                          {
+                            title: "Win",
+                            value: faker.datatype.number({ min: 100000000, max: 999000000 }),
+                            currency: "TRY"
+                          },
+                          {
+                            title: "Diff",
+                            value: faker.datatype.number({ min: 100000000, max: 999000000 }),
+                            currency: "TRY"
+                          }
+                        ]}
+                      />
+                      <GameStatBox
+                        title={t("Dashboard.Most Losing Game")}
+                        subTitle={"Mythic Maiden / Netent"}
+                        image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW7Yn6AoRDFzBWW3prXnT8AZ2-E3GFrb4PAg&s"}
+                        data={[
+                          {
+                            title: "Play",
+                            value: faker.datatype.number({ min: 100000000, max: 999000000 }),
+                            currency: "TRY"
+                          },
+                          {
+                            title: "Win",
+                            value: faker.datatype.number({ min: 100000000, max: 999000000 }),
+                            currency: "TRY"
+                          },
+                          {
+                            title: "Diff",
+                            value: faker.datatype.number({ min: 100000000, max: 999000000 }),
+                            currency: "TRY"
+                          }
+                        ]}
+                      />
+                    </Grid>
+                  </CustomTabPanel>
+                ))}
               </Box>
             </DashboardCard>
 
@@ -277,17 +276,17 @@ export default function Dashboard() {
             {/*      image={"/images/svgs/football-ball.svg"}*/}
             {/*      data={[*/}
             {/*        {*/}
-            {/*          title: "Oynanan",*/}
+            {/*          title: "Play",*/}
             {/*          value: 300000,*/}
             {/*          currency: "TRY"*/}
             {/*        },*/}
             {/*        {*/}
-            {/*          title: "Kazanan",*/}
+            {/*          title: "Win",*/}
             {/*          value: 124000,*/}
             {/*          currency: "TRY"*/}
             {/*        },*/}
             {/*        {*/}
-            {/*          title: "Fark",*/}
+            {/*          title: "Diff",*/}
             {/*          value: 760000,*/}
             {/*          currency: "TRY"*/}
             {/*        }*/}
@@ -299,17 +298,17 @@ export default function Dashboard() {
             {/*      image={"/images/svgs/basketball-ball.svg"}*/}
             {/*      data={[*/}
             {/*        {*/}
-            {/*          title: "Oynanan",*/}
+            {/*          title: "Play",*/}
             {/*          value: 6200000,*/}
             {/*          currency: "TRY"*/}
             {/*        },*/}
             {/*        {*/}
-            {/*          title: "Kazanan",*/}
+            {/*          title: "Win",*/}
             {/*          value: 5624000,*/}
             {/*          currency: "TRY"*/}
             {/*        },*/}
             {/*        {*/}
-            {/*          title: "Fark",*/}
+            {/*          title: "Diff",*/}
             {/*          value: 160000,*/}
             {/*          currency: "TRY"*/}
             {/*        }*/}
@@ -321,17 +320,17 @@ export default function Dashboard() {
             {/*      image={"/images/svgs/football-ball.svg"}*/}
             {/*      data={[*/}
             {/*        {*/}
-            {/*          title: "Oynanan",*/}
+            {/*          title: "Play",*/}
             {/*          value: 653000,*/}
             {/*          currency: "TRY"*/}
             {/*        },*/}
             {/*        {*/}
-            {/*          title: "Kazanan",*/}
+            {/*          title: "Win",*/}
             {/*          value: 544000,*/}
             {/*          currency: "TRY"*/}
             {/*        },*/}
             {/*        {*/}
-            {/*          title: "Fark",*/}
+            {/*          title: "Diff",*/}
             {/*          value: 760000,*/}
             {/*          currency: "TRY"*/}
             {/*        }*/}
@@ -405,3 +404,5 @@ export default function Dashboard() {
     </PageContainer>
   );
 }
+
+export default React.memo(Dashboard);

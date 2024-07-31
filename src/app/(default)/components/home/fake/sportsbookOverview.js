@@ -5,14 +5,14 @@ export const sportsbookOverview = [
     id: uniqueId(),
     columns: [
       '',
-      'Maç Öncesi',
-      'Canlı',
-      'Toplam',
+      'Pre-Match',
+      'Live',
+      'Total',
     ],
     rows: [
       {
         id: uniqueId(),
-        name: 'Ciro',
+        name: 'Total',
         values: [
           '485,73₺',
           '425,73₺',
@@ -21,7 +21,7 @@ export const sportsbookOverview = [
       },
       {
         id: uniqueId(),
-        name: 'Kazançlar',
+        name: 'Earnings',
         values: [
           '485,73₺',
           '425,73₺',
@@ -30,7 +30,7 @@ export const sportsbookOverview = [
       },
       {
         id: uniqueId(),
-        name: 'Açık Bahisler',
+        name: 'Opened Bet',
         values: [
           '185,73₺',
           '225,73₺',
@@ -52,14 +52,14 @@ export const sportsbookOverview = [
     id: uniqueId(),
     columns: [
       '',
-      'Maç Öncesi',
-      'Canlı',
-      'Toplam',
+      'Pre-Match',
+      'Live',
+      'Total',
     ],
     rows: [
       {
         id: uniqueId(),
-        name: 'Karlılık',
+        name: 'Profitability',
         values: [
           '485,73₺',
           '425,73₺',
@@ -68,7 +68,7 @@ export const sportsbookOverview = [
       },
       {
         id: uniqueId(),
-        name: 'Bahis Sayısı',
+        name: 'Bets',
         values: [
           '485,73₺',
           '425,73₺',
@@ -77,7 +77,7 @@ export const sportsbookOverview = [
       },
       {
         id: uniqueId(),
-        name: 'Ortalama Bahis',
+        name: 'Average Bet',
         values: [
           '185,73₺',
           '225,73₺',
@@ -86,7 +86,7 @@ export const sportsbookOverview = [
       },
       {
         id: uniqueId(),
-        name: 'K. Başına Bahis',
+        name: 'Bet per User',
         values: [
           '65,73₺',
           '15,73₺',
@@ -99,14 +99,14 @@ export const sportsbookOverview = [
     id: uniqueId(),
     columns: [
       '',
-      'Maç Öncesi',
-      'Canlı',
-      'Toplam',
+      'Pre-Match',
+      'Live',
+      'Total',
     ],
     rows: [
       {
         id: uniqueId(),
-        name: 'Oyuncu Sayısı',
+        name: 'Players',
         values: [
           '485,73₺',
           '425,73₺',
@@ -115,7 +115,7 @@ export const sportsbookOverview = [
       },
       {
         id: uniqueId(),
-        name: 'Kayıplar',
+        name: 'Losses',
         values: [
           '485,73₺',
           '425,73₺',
@@ -124,7 +124,7 @@ export const sportsbookOverview = [
       },
       {
         id: uniqueId(),
-        name: 'İadeler',
+        name: 'Refunds',
         values: [
           '185,73₺',
           '225,73₺',

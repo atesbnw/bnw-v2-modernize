@@ -110,6 +110,18 @@
     }
   },
   "Dashboard": {
+    "Online Users": "ONLINE USER",
+    "Online Admins": "ONLINE STUFF",
+    "Most Losing Game": "Most Losing Game",
+    "Most Profitable Game": "Most Profitable Game",
+    "Most Played Game": "Most Played Game",
+    "Overviews": {
+      "Casino": "Casino Overview",
+      "Poker": "Poker Overview",
+      "Virtual Games": "Virtual Games Overview",
+      "Bonus": "Bonus Overview"
+
+    },
     "Financial Graph": {
       "Select Date Range": "Select Date Range"
     },

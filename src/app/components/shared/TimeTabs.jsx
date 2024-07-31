@@ -80,7 +80,7 @@ function TimeTabs({children, onChange, value, topElement, justify = "end", gridS
             topElement && topElement
         )}
         <Box style={{width: justify==="full" ? 100 + "%" : 270}}>
-          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"}>
+          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"en"}>
             <DemoContainer
               sx={{margin:0, padding:0}}
               components={[

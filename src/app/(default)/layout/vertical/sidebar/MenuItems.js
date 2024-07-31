@@ -119,18 +119,18 @@ const Menuitems = [
     // chip: "0",
     // chipColor: "secondary",
   },
-  {
-    navlabel: true,
-    subheader: "Base",
-  },
-  {
-    id: uniqueId(),
-    title: "Modern",
-    icon: IconAperture,
-    href: "/base/",
-    // chip: "New",
-    // chipColor: "secondary",
-  },
+  // {
+  //   navlabel: true,
+  //   subheader: "Base",
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: "Modern",
+  //   icon: IconAperture,
+  //   href: "/base/",
+  //   // chip: "New",
+  //   // chipColor: "secondary",
+  // },
 
 ];
 
