@@ -40,7 +40,7 @@ function Page() {
   return (
     <Fragment>
       <Grid container spacing={3}>
-        <Grid item xs={12}>
+        <Grid item xs={12} className={"mb-4"}>
           <TitleBar
             title={t('menu.Users.Player Info')}
             Right={ButtonComps}

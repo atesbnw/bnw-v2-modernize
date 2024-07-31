@@ -141,236 +141,238 @@ function Page() {
 
   return (
     <Fragment>
-      <Stack direction={'row'} justifyContent={'center'}>
-        <TitleBar
-          title={t('menu.Users.Settings Menu.Casino Limitations')}
-        />
-        <Button variant="outlined" onClick={toggleReadOnly} style={{width: '200px', height: "30px"}}>
-          {isReadOnly ? 'Make Editable' : 'Make Read Only'}
-        </Button>
-      </Stack>
+      <Box className={"flex flex-col gap-4"}>
+        <Stack direction={'row'} justifyContent={'center'}>
+          <TitleBar
+            title={t('menu.Users.Settings Menu.Finance Limitations')}
+          />
+          <Button variant="outlined" onClick={toggleReadOnly} style={{width: '200px', height: "30px"}}>
+            {isReadOnly ? 'Make Editable' : 'Make Read Only'}
+          </Button>
+        </Stack>
 
-      <form onSubmit={formik.handleSubmit}>
-        <Grid container spacing={3}>
-          <Grid item>
-            <ParentCard title={t('pages.user-management.user_management_settings.Deposit / Withdraw Limitation')}>
-              <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel sx={{mt: 0}} htmlFor="maxSingleDeposit">{t('pages.user-management.user_management_settings.Max Single Deposit')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="maxSingleDeposit"
-                    name="maxSingleDeposit"
-                    type="number"
-                    fullWidth
-                    value={formik.values.maxSingleDeposit}
-                    onChange={formik.handleChange}
-                    readOnly={isReadOnly}
-                  />
+        <form onSubmit={formik.handleSubmit}>
+          <Grid container spacing={3}>
+            <Grid item>
+              <ParentCard title={t('pages.user-management.user_management_settings.Deposit / Withdraw Limitation')}>
+                <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel sx={{mt: 0}} htmlFor="maxSingleDeposit">{t('pages.user-management.user_management_settings.Max Single Deposit')}</CustomFormLabel>
+                    <CustomOutlinedInput
+                      startAdornment={
+                        <InputAdornment position="start">₺</InputAdornment>
+                      }
+                      id="maxSingleDeposit"
+                      name="maxSingleDeposit"
+                      type="number"
+                      fullWidth
+                      value={formik.values.maxSingleDeposit}
+                      onChange={formik.handleChange}
+                      readOnly={isReadOnly}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel sx={{mt: 0}} htmlFor="maxDailyDeposit">{t('pages.user-management.user_management_settings.Max Daily Deposit')}</CustomFormLabel>
+                    <CustomOutlinedInput
+                      startAdornment={
+                        <InputAdornment position="start">₺</InputAdornment>
+                      }
+                      id="maxDailyDeposit"
+                      name="maxDailyDeposit"
+                      type="number"
+                      fullWidth
+                      value={formik.values.maxDailyDeposit}
+                      onChange={formik.handleChange}
+                      readOnly={isReadOnly}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel sx={{mt: 0}} htmlFor="maxWeeklyDeposit">{t('pages.user-management.user_management_settings.Max Weekly Deposit')}</CustomFormLabel>
+                    <CustomOutlinedInput
+                      startAdornment={
+                        <InputAdornment position="start">₺</InputAdornment>
+                      }
+                      id="maxWeeklyDeposit"
+                      name="maxWeeklyDeposit"
+                      type="number"
+                      fullWidth
+                      value={formik.values.maxWeeklyDeposit}
+                      onChange={formik.handleChange}
+                      readOnly={isReadOnly}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel sx={{mt: 0}} htmlFor="maxMonthlyDeposit">{t('pages.user-management.user_management_settings.Max Monthly Deposit')}</CustomFormLabel>
+                    <CustomOutlinedInput
+                      startAdornment={
+                        <InputAdornment position="start">₺</InputAdornment>
+                      }
+                      id="maxMonthlyDeposit"
+                      name="maxMonthlyDeposit"
+                      type="number"
+                      fullWidth
+                      value={formik.values.maxMonthlyDeposit}
+                      onChange={formik.handleChange}
+                      readOnly={isReadOnly}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel sx={{mt: 0}} htmlFor="maxYearlyDeposit">{t('pages.user-management.user_management_settings.Max Yearly Deposit')}</CustomFormLabel>
+                    <CustomOutlinedInput
+                      startAdornment={
+                        <InputAdornment position="start">₺</InputAdornment>
+                      }
+                      id="maxYearlyDeposit"
+                      name="maxYearlyDeposit"
+                      type="number"
+                      fullWidth
+                      value={formik.values.maxYearlyDeposit}
+                      onChange={formik.handleChange}
+                      readOnly={isReadOnly}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel sx={{mt: 0}} htmlFor="blockDepositMethods">{t('pages.user-management.user_management_settings.Block Deposit Methods')}</CustomFormLabel>
+                    <CustomSelect
+                      id="blockDepositMethods"
+                      name="blockDepositMethods"
+                      fullWidth
+                      variant="outlined"
+                      readOnly={isReadOnly}
+                      value={formik.values.blockDepositMethods}
+                      onChange={formik.handleChange}
+                    >
+                      <MenuItem value="No">No</MenuItem>
+                      <MenuItem value="Yes">Yes</MenuItem>
+                    </CustomSelect>
+                  </Grid>
+                  <Grid item xs={12} mt={5} mb={1}>
+                    <Divider/>
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel htmlFor="maxSingleWithdraw">{t('pages.user-management.user_management_settings.Max Single Withdraw')}</CustomFormLabel>
+                    <CustomOutlinedInput
+                      startAdornment={
+                        <InputAdornment position="start">₺</InputAdornment>
+                      }
+                      id="maxSingleWithdraw"
+                      name="maxSingleWithdraw"
+                      type="number"
+                      fullWidth
+                      value={formik.values.maxSingleWithdraw}
+                      onChange={formik.handleChange}
+                      readOnly={isReadOnly}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel htmlFor="maxDailyWithdraw">{t('pages.user-management.user_management_settings.Max Daily Withdraw')}</CustomFormLabel>
+                    <CustomOutlinedInput
+                      startAdornment={
+                        <InputAdornment position="start">₺</InputAdornment>
+                      }
+                      id="maxDailyWithdraw"
+                      name="maxDailyWithdraw"
+                      type="number"
+                      fullWidth
+                      value={formik.values.maxDailyWithdraw}
+                      onChange={formik.handleChange}
+                      readOnly={isReadOnly}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel htmlFor="maxWeeklyWithdraw">{t('pages.user-management.user_management_settings.Max Weekly Withdraw')}</CustomFormLabel>
+                    <CustomOutlinedInput
+                      startAdornment={
+                        <InputAdornment position="start">₺</InputAdornment>
+                      }
+                      id="maxWeeklyWithdraw"
+                      name="maxWeeklyWithdraw"
+                      type="number"
+                      fullWidth
+                      value={formik.values.maxWeeklyWithdraw}
+                      onChange={formik.handleChange}
+                      readOnly={isReadOnly}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel htmlFor="maxMonthlyWithdraw">{t('pages.user-management.user_management_settings.Max Monthly Withdraw')}</CustomFormLabel>
+                    <CustomOutlinedInput
+                      startAdornment={
+                        <InputAdornment position="start">₺</InputAdornment>
+                      }
+                      id="maxMonthlyWithdraw"
+                      name="maxMonthlyWithdraw"
+                      type="number"
+                      fullWidth
+                      value={formik.values.maxMonthlyWithdraw}
+                      onChange={formik.handleChange}
+                      readOnly={isReadOnly}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel htmlFor="maxYearlyWithdraw">{t('pages.user-management.user_management_settings.Max Yearly Withdraw')}</CustomFormLabel>
+                    <CustomOutlinedInput
+                      startAdornment={
+                        <InputAdornment position="start">₺</InputAdornment>
+                      }
+                      id="maxYearlyWithdraw"
+                      name="maxYearlyWithdraw"
+                      type="number"
+                      fullWidth
+                      value={formik.values.maxYearlyWithdraw}
+                      onChange={formik.handleChange}
+                      readOnly={isReadOnly}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={12} lg={2}>
+                    <CustomFormLabel htmlFor="blockWithdrawMethods">{t('pages.user-management.user_management_settings.Block Withdraw Methods')}</CustomFormLabel>
+                    <CustomSelect
+                      id="blockWithdrawMethods"
+                      name="blockWithdrawMethods"
+                      fullWidth
+                      variant="outlined"
+                      readOnly={isReadOnly}
+                      value={formik.values.blockWithdrawMethods}
+                      onChange={formik.handleChange}
+                    >
+                      <MenuItem value="No">No</MenuItem>
+                      <MenuItem value="Yes">Yes</MenuItem>
+                    </CustomSelect>
+                  </Grid>
                 </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel sx={{mt: 0}} htmlFor="maxDailyDeposit">{t('pages.user-management.user_management_settings.Max Daily Deposit')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="maxDailyDeposit"
-                    name="maxDailyDeposit"
-                    type="number"
-                    fullWidth
-                    value={formik.values.maxDailyDeposit}
-                    onChange={formik.handleChange}
-                    readOnly={isReadOnly}
-                  />
+              </ParentCard>
+            </Grid>
+            <Grid item xs>
+              <ParentCard title={t('pages.user-management.user_management_settings.Payment Method Access')}>
+                <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
+                  <Grid item xs={12} sm={12} lg={6}>
+                    <RadioGroup row aria-label="paymentMethodFilter" name="paymentMethodFilter" defaultValue="All" >
+                      <FormControlLabel value="All" control={<CustomRadio />} label={t('i.All')} />
+                      <FormControlLabel value="onlyDepositMethods" control={<CustomRadio />} label={t('pages.user-management.user_management_settings.Only Deposit Methods')} />
+                      <FormControlLabel value="onlyWithdrawMethods" control={<CustomRadio />} label={t('pages.user-management.user_management_settings.Only Withdraw Methods')} />
+                    </RadioGroup>
+                  </Grid>
+                  <Grid item xs={12} mt={3}>
+                    <DataTable
+                      search={false}
+                      data={data}
+                      toolbar={false}
+                    />
+                  </Grid>
+                  <Grid item container xs={12} justifyContent="right" mt={3}>
+                    <Button variant="contained" sx={{mr: 1}} type="submit">
+                      {t('i.Save')}
+                    </Button>
+                    <Button variant="outlined" color="secondary">
+                      {t('i.Cancel')}
+                    </Button>
+                  </Grid>
                 </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel sx={{mt: 0}} htmlFor="maxWeeklyDeposit">{t('pages.user-management.user_management_settings.Max Weekly Deposit')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="maxWeeklyDeposit"
-                    name="maxWeeklyDeposit"
-                    type="number"
-                    fullWidth
-                    value={formik.values.maxWeeklyDeposit}
-                    onChange={formik.handleChange}
-                    readOnly={isReadOnly}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel sx={{mt: 0}} htmlFor="maxMonthlyDeposit">{t('pages.user-management.user_management_settings.Max Monthly Deposit')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="maxMonthlyDeposit"
-                    name="maxMonthlyDeposit"
-                    type="number"
-                    fullWidth
-                    value={formik.values.maxMonthlyDeposit}
-                    onChange={formik.handleChange}
-                    readOnly={isReadOnly}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel sx={{mt: 0}} htmlFor="maxYearlyDeposit">{t('pages.user-management.user_management_settings.Max Yearly Deposit')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="maxYearlyDeposit"
-                    name="maxYearlyDeposit"
-                    type="number"
-                    fullWidth
-                    value={formik.values.maxYearlyDeposit}
-                    onChange={formik.handleChange}
-                    readOnly={isReadOnly}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel sx={{mt: 0}} htmlFor="blockDepositMethods">{t('pages.user-management.user_management_settings.Block Deposit Methods')}</CustomFormLabel>
-                  <CustomSelect
-                    id="blockDepositMethods"
-                    name="blockDepositMethods"
-                    fullWidth
-                    variant="outlined"
-                    readOnly={isReadOnly}
-                    value={formik.values.blockDepositMethods}
-                    onChange={formik.handleChange}
-                  >
-                    <MenuItem value="No">No</MenuItem>
-                    <MenuItem value="Yes">Yes</MenuItem>
-                  </CustomSelect>
-                </Grid>
-                <Grid item xs={12} mt={5} mb={1}>
-                  <Divider/>
-                </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel htmlFor="maxSingleWithdraw">{t('pages.user-management.user_management_settings.Max Single Withdraw')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="maxSingleWithdraw"
-                    name="maxSingleWithdraw"
-                    type="number"
-                    fullWidth
-                    value={formik.values.maxSingleWithdraw}
-                    onChange={formik.handleChange}
-                    readOnly={isReadOnly}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel htmlFor="maxDailyWithdraw">{t('pages.user-management.user_management_settings.Max Daily Withdraw')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="maxDailyWithdraw"
-                    name="maxDailyWithdraw"
-                    type="number"
-                    fullWidth
-                    value={formik.values.maxDailyWithdraw}
-                    onChange={formik.handleChange}
-                    readOnly={isReadOnly}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel htmlFor="maxWeeklyWithdraw">{t('pages.user-management.user_management_settings.Max Weekly Withdraw')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="maxWeeklyWithdraw"
-                    name="maxWeeklyWithdraw"
-                    type="number"
-                    fullWidth
-                    value={formik.values.maxWeeklyWithdraw}
-                    onChange={formik.handleChange}
-                    readOnly={isReadOnly}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel htmlFor="maxMonthlyWithdraw">{t('pages.user-management.user_management_settings.Max Monthly Withdraw')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="maxMonthlyWithdraw"
-                    name="maxMonthlyWithdraw"
-                    type="number"
-                    fullWidth
-                    value={formik.values.maxMonthlyWithdraw}
-                    onChange={formik.handleChange}
-                    readOnly={isReadOnly}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel htmlFor="maxYearlyWithdraw">{t('pages.user-management.user_management_settings.Max Yearly Withdraw')}</CustomFormLabel>
-                  <CustomOutlinedInput
-                    startAdornment={
-                      <InputAdornment position="start">₺</InputAdornment>
-                    }
-                    id="maxYearlyWithdraw"
-                    name="maxYearlyWithdraw"
-                    type="number"
-                    fullWidth
-                    value={formik.values.maxYearlyWithdraw}
-                    onChange={formik.handleChange}
-                    readOnly={isReadOnly}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={12} lg={2}>
-                  <CustomFormLabel htmlFor="blockWithdrawMethods">{t('pages.user-management.user_management_settings.Block Withdraw Methods')}</CustomFormLabel>
-                  <CustomSelect
-                    id="blockWithdrawMethods"
-                    name="blockWithdrawMethods"
-                    fullWidth
-                    variant="outlined"
-                    readOnly={isReadOnly}
-                    value={formik.values.blockWithdrawMethods}
-                    onChange={formik.handleChange}
-                  >
-                    <MenuItem value="No">No</MenuItem>
-                    <MenuItem value="Yes">Yes</MenuItem>
-                  </CustomSelect>
-                </Grid>
-              </Grid>
-            </ParentCard>
+              </ParentCard>
+            </Grid>
           </Grid>
-          <Grid item xs>
-            <ParentCard title={t('pages.user-management.user_management_settings.Payment Method Access')}>
-              <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
-                <Grid item xs={12} sm={12} lg={6}>
-                  <RadioGroup row aria-label="paymentMethodFilter" name="paymentMethodFilter" defaultValue="All" >
-                    <FormControlLabel value="All" control={<CustomRadio />} label={t('i.All')} />
-                    <FormControlLabel value="onlyDepositMethods" control={<CustomRadio />} label={t('pages.user-management.user_management_settings.Only Deposit Methods')} />
-                    <FormControlLabel value="onlyWithdrawMethods" control={<CustomRadio />} label={t('pages.user-management.user_management_settings.Only Withdraw Methods')} />
-                  </RadioGroup>
-                </Grid>
-                <Grid item xs={12} mt={3}>
-                  <DataTable
-                    search={false}
-                    data={data}
-                    toolbar={false}
-                  />
-                </Grid>
-                <Grid item container xs={12} justifyContent="right" mt={3}>
-                  <Button variant="contained" sx={{mr: 1}} type="submit">
-                    {t('i.Save')}
-                  </Button>
-                  <Button variant="outlined" color="secondary">
-                    {t('i.Cancel')}
-                  </Button>
-                </Grid>
-              </Grid>
-            </ParentCard>
-          </Grid>
-        </Grid>
-      </form>
+        </form>
+      </Box>
     </Fragment>
 )
   ;

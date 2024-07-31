@@ -17,8 +17,8 @@ export function useMenu() {
     },
     {
       id: uniqueId(),
-      title: "menu.Users.Settings Menu.Sportsbook Limitations",
-      href: `${url}/sportsbook-limitations`
+      title: "menu.Users.Settings Menu.Live Casino Limitations",
+      href: `${url}/live-casino-limitations`
     },
     {
       id: uniqueId(),

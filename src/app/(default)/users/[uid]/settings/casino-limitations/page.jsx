@@ -59,8 +59,7 @@ function Page() {
                   value={formik.values.category}
                   onChange={formik.handleChange}
                 >
-                  <MenuItem value="Casino">Casino</MenuItem>
-                  <MenuItem value="Spor">Spor</MenuItem>
+                  <MenuItem value="casino">Casino</MenuItem>
                 </CustomSelect>
                 {formik.errors.category && (
                   <FormHelperText error id="standard-weight-helper-text-email-login">
