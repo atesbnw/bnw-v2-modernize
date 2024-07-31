@@ -30,7 +30,7 @@ function Page() {
     { title: t('pages.merchants.reports.Won'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.merchants.reports.Difference'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.merchants.reports.Canceled'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.merchants.reports.Take Back'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
+    { title: t('pages.merchants.reports.Rollback'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.merchants.reports.Payback'), value: faker.commerce.price(1000, 100000, 2) + '₺'}
   ];
   const router = useRouter();
@@ -65,7 +65,7 @@ function Page() {
       },
       {
         field: 'won',
-        headerName: 'Won',
+        headerName: 'Win',
         // width: 200
       },
       {
@@ -80,7 +80,7 @@ function Page() {
       },
       {
         field: 'takeBack',
-        headerName: 'Take Back',
+        headerName: 'Rollback',
         // width: 200
       },
       {

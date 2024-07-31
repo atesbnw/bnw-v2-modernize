@@ -43,6 +43,16 @@ function Page() {
         // width: 200
       },
       {
+        field: 'username',
+        headerName: 'Username',
+        // width: 200
+      },
+      {
+        field: 'userId',
+        headerName: 'User ID',
+        // width: 200
+      },
+      {
         field: 'transactionType',
         headerName: 'Transaction Type',
         // width: 200
@@ -85,6 +95,7 @@ function Page() {
       },
       {
         field: 'actions',
+        headerName: 'Status',
         type: 'actions',
         width: 170,
         getActions: (e) => {
@@ -101,6 +112,8 @@ function Page() {
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
+      username: faker.internet.userName(),
+      userId: uniqueId(),
       transactionId: uniqueId(),
       transactionType: faker.helpers.arrayElement(['Deposit', 'Withdraw', 'System']),
       category: faker.helpers.arrayElement(['Papara', 'Bonus', 'Havale']),

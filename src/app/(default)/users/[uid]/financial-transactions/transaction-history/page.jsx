@@ -72,7 +72,7 @@ function Page() {
         </Grid>
 
         <Grid item xs={12} className={"mt-0"}>
-          <ParentCard title={""} action={(
+          <ParentCard title={t('menu.Financial Transactions.Transaction History')} action={(
             <>
               <Tooltip title={t('i.downloadCSV')}>
                 <IconButton color={'primary'} onClick={() => {}}>

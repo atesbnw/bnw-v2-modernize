@@ -19,11 +19,6 @@ export const useMenu = () => {
       id: uniqueId(),
       title: "menu.Financial Transactions.Balance History",
       href: `${url}/balance-history`,
-    },
-    {
-      id: uniqueId(),
-      title: "menu.Financial Transactions.Bet History",
-      href: `${url}/bet-history`,
     }
   ];
 

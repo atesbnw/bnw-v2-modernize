@@ -28,7 +28,7 @@ function TopMenu() {
     {
       label: 'menu.Users.Game Management',
       // icon: <IconUserCircle size="20" />,
-      to: `/users/${params?.uid}/game-management/casino-management`,
+      to: `/users/${params?.uid}/game-management`,
     },
     {
       label: 'menu.Users.Reports',

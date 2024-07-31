@@ -6,16 +6,13 @@ import { IconChevronRight, IconFileDownload } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import Box from '@mui/material/Box';
 import { t } from 'i18next';
-import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
-import FilterModal from '@/app/(default)/components/users/game-management/FilterModal';
-import Typography from '@mui/material/Typography';
-import NewManuelTransactionAddWithID from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAddWithID';
+import FilterModal from '@/app/(default)/components/merchants/game-management/FilterModal';
 import { faker } from '@faker-js/faker';
 import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
 import TitleBar from '@/app/components/TitleBar';
 import { useParams } from 'next/navigation';
-import Link from 'next/link';
+import ParentCard from "@/app/components/shared/ParentCard";
 
 function TransactionsTable() {
   const params = useParams();
@@ -99,7 +96,7 @@ function TransactionsTable() {
       //   width: 170,
       //   getActions: (e) => {
       //     return [
-      //       <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+      //       <IconButton onClick={() => router.push(`/merchants/${e?.row?.username}`)}>
       //         <IconEye />
       //       </IconButton>,
       //       // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
@@ -137,41 +134,38 @@ function TransactionsTable() {
   }, []);
 
   return (
-    <Fragment>
-      <Stack direction={'row'} justifyContent={'end'} className={'pb-4'} sx={{pt: 4, pb:2}}>
-        <TitleBar
-          title={t("menu.Game Management.Live Casino Management")}
-          link={"../live-casino-management"}
-          subTitle={decodeURIComponent(params?.cid).replace(/^\//, '')}
-        />
-
-        <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
-          <IconButton color={'primary'} onClick={() => {}}>
-            <IconFileDownload />
-          </IconButton>
-        </Tooltip>
-
-
-        <FilterModal
-          filter={filter}
-          updateFilter={updateFilter}
-          resetFilter={() => {
-            setFilter({});
-            setData(prev => ({ ...prev, filter: {} }));
-          }}
-          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-        />
-
-
-      </Stack>
-
+    <Box className={"flex flex-col gap-4"}>
+      <TitleBar
+        title={t("menu.Game Management.Live Casino Management")}
+        subTitle={decodeURIComponent(params?.cid).replace(/^\//, '')}
+        link={"../live-casino-management"}
+      />
+      <ParentCard title={""} action={(
+        <>
+          <Tooltip title={t('i.downloadCSV')}>
+            <IconButton color={'primary'} onClick={() => {}}>
+              <IconFileDownload />
+            </IconButton>
+          </Tooltip>
+          <FilterModal
+            filter={filter}
+            updateFilter={updateFilter}
+            resetFilter={() => {
+              setFilter({});
+              setData(prev => ({ ...prev, filter: {} }));
+            }}
+            onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+          />
+        </>
+      )}>
         <DataTable
           checkboxSelection={true}
           search={false}
           data={data}
           toolbar={false}
         />
-    </Fragment>
+      </ParentCard>
+    </Box>
   );
 }
 

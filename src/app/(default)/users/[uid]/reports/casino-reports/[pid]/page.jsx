@@ -58,7 +58,7 @@ function Page() {
       },
       {
         field: 'won',
-        headerName: 'Won',
+        headerName: 'Win',
         // width: 200
       },
       {
@@ -73,7 +73,7 @@ function Page() {
       },
       {
         field: 'takeBack',
-        headerName: 'Take Back',
+        headerName: 'Rollback',
         // width: 200
       },
       {
@@ -116,7 +116,7 @@ function Page() {
     { title: t('pages.user-management.user_management_reports.Won'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.user-management.user_management_reports.Difference'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.user-management.user_management_reports.Canceled'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.user-management.user_management_reports.Take Back'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
+    { title: t('pages.user-management.user_management_reports.Rollback'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.user-management.user_management_reports.Payback'), value: faker.commerce.price(1000, 100000, 2) + '₺'}
   ];
 

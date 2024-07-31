@@ -43,6 +43,16 @@ function Page() {
         // width: 200
       },
       {
+        field: 'username',
+        headerName: 'Username',
+        // width: 200
+      },
+      {
+        field: 'userId',
+        headerName: 'User ID',
+        // width: 200
+      },
+      {
         field: 'transferredBonus',
         headerName: 'Transferred Bonus',
         // width: 200
@@ -80,8 +90,9 @@ function Page() {
       },
       {
         field: 'actions',
+        headerName: 'Status',
         type: 'actions',
-        width: 170,
+        width: 120,
         getActions: (e) => {
           return [
             <>
@@ -96,8 +107,8 @@ function Page() {
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-
-
+      username: faker.internet.userName(),
+      userId: uniqueId(),
       bonusType: faker.helpers.arrayElement(['Deposit', 'Freespin', 'FreeBet']),
       transferredBonus: faker.helpers.arrayElement(['%20 Hoş Geldin Bonusu', 'Pragmatic FreeSpin', '%15 Çevrimli Bonus']),
       creationTime: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
@@ -129,7 +140,7 @@ function Page() {
     { title: t('pages.merchants.reports.Won'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.merchants.reports.Difference'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.merchants.reports.Canceled'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.merchants.reports.Take Back'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
+    { title: t('pages.merchants.reports.Rollback'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.merchants.reports.Payback'), value: faker.commerce.price(1000, 100000, 2) + '₺'}
   ];
 

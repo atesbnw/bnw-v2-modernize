@@ -15,10 +15,10 @@ import SideDialog from '@/app/components/shared/SideDialog';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import FilterModal from '@/app/(default)/components/users/financial-transactions/FilterModal';
+import FilterModal from '@/app/(default)/components/merchants/financial-transactions/FilterModal';
 import Typography from '@mui/material/Typography';
 import NewManuelTransactionAddWithID
-  from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAddWithID';
+  from '@/app/(default)/components/merchants/financial-transactions/NewManuelTransactionAddWithID';
 
 const faker = new Faker({
   locale: [fakerTR, tr],

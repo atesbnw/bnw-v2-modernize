@@ -15,17 +15,16 @@ import SideDialog from '@/app/components/shared/SideDialog';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import FilterModal from '@/app/(default)/components/users/financial-transactions/FilterModal';
+import FilterModal from '@/app/(default)/components/merchants/financial-transactions/FilterModal';
 import Typography from '@mui/material/Typography';
 import NewManuelTransactionAddWithID
-  from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAddWithID';
+  from '@/app/(default)/components/merchants/financial-transactions/NewManuelTransactionAddWithID';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function TransactionsTable() {
-  const [filter, setFilter] = useState({});
   const [data, setData] = useState({
     page: 1,
     pageSize: 10,
@@ -150,29 +149,6 @@ function TransactionsTable() {
 
   return (
     <Fragment>
-      <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
-
-
-        <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
-          <IconButton color={'primary'} onClick={() => {}}>
-            <IconFileDownload />
-          </IconButton>
-        </Tooltip>
-
-
-        <FilterModal
-          filter={filter}
-          updateFilter={updateFilter}
-          resetFilter={() => {
-            setFilter({});
-            setData(prev => ({ ...prev, filter: {} }));
-          }}
-          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-        />
-
-
-      </Stack>
-
       <DataTable
         search={false}
         data={data}

@@ -44,16 +44,6 @@ export function useMenu() {
       id: uniqueId(),
       title: "menu.Merchants.Reports Menu.User Stats",
       href: `${url}/user-stats`,
-    },
-    {
-      id: uniqueId(),
-      title: "menu.Merchants.Reports Menu.Login Reports",
-      href: `${url}/login-reports`,
-    },
-    {
-      id: uniqueId(),
-      title: "menu.Merchants.Reports Menu.Transaction Logs",
-      href: `${url}/transaction-logs`,
     }
   ];
 

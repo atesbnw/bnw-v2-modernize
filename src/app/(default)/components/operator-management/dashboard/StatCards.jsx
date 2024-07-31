@@ -6,7 +6,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 import {
   useGridItemsPerPage,
-} from '@/app/(default)/components/users/financial-transactions/useGridItemsPerPage';
+} from '@/app/(default)/components/merchants/financial-transactions/useGridItemsPerPage';
 import { TransitionGroup } from 'react-transition-group';
 import Collapse from '@mui/material/Collapse';
 import Button from '@mui/material/Button';

@@ -10,7 +10,7 @@ import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import FilterModal from '@/app/(default)/components/users/game-management/FilterModal';
 import Typography from '@mui/material/Typography';
-import NewManuelTransactionAddWithID from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAddWithID';
+import NewManuelTransactionAddWithID from '@/app/(default)/components/merchants/financial-transactions/NewManuelTransactionAddWithID';
 import { faker } from '@faker-js/faker';
 import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
 import TitleBar from '@/app/components/TitleBar';

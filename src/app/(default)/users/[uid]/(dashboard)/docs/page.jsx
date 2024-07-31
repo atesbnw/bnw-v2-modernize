@@ -21,50 +21,51 @@ function Page() {
 
   return (
     <Fragment>
-      <TitleBar
-        title={t('pages.user-management.user_management_dashboard.Docs Page.Info and Documents')}
-        Right={() => (
-          <Button onClick={() => setOpen(true)}>
-            {t('pages.user-management.user_management_dashboard.Docs Page.addNewDocument')}
-          </Button>
-        )}
-      />
-      <SideDialog
-        open={open}
-        onClose={() => setOpen(false)}
-        title={t('pages.user-management.user_management_dashboard.Docs Page.addNewDocument')}
-        content={<AddDocumentModal />}
-        actionButtons={<Button variant={"contained"}>{t('i.Add')}</Button>}
-      />
+      <Box className={"flex flex-col gap-4"}>
+        <TitleBar
+          title={t('pages.user-management.user_management_dashboard.Docs Page.Info and Documents')}
+          Right={() => (
+            <Button onClick={() => setOpen(true)}>
+              {t('pages.user-management.user_management_dashboard.Docs Page.addNewDocument')}
+            </Button>
+          )}
+        />
+        <SideDialog
+          open={open}
+          onClose={() => setOpen(false)}
+          title={t('pages.user-management.user_management_dashboard.Docs Page.addNewDocument')}
+          content={<AddDocumentModal />}
+          actionButtons={<Button variant={"contained"}>{t('i.Add')}</Button>}
+        />
 
-      <AppCard>
+        <AppCard>
 
-        <Drawer
-          open={isLeftSidebarOpen}
-          onClose={() => setLeftSidebarOpen(false)}
-          sx={{
-            width: drawerWidth,
-            [`& .MuiDrawer-paper`]: {
+          <Drawer
+            open={isLeftSidebarOpen}
+            onClose={() => setLeftSidebarOpen(false)}
+            sx={{
               width: drawerWidth,
-              position: 'relative',
-              zIndex: 2,
-            },
-            flexShrink: 0,
-          }}
-          variant={lgUp ? 'permanent' : 'temporary'}
-        >
-          <DocsFilter />
-        </Drawer>
+              [`& .MuiDrawer-paper`]: {
+                width: drawerWidth,
+                position: 'relative',
+                zIndex: 2,
+              },
+              flexShrink: 0,
+            }}
+            variant={lgUp ? 'permanent' : 'temporary'}
+          >
+            <DocsFilter />
+          </Drawer>
 
-        <Box sx={{width:'100%'}}>
+          <Box sx={{width:'100%'}}>
 
-          <DocsHeader/>
+            <DocsHeader/>
 
-          <DocsList />
-        </Box>
+            <DocsList />
+          </Box>
 
-      </AppCard>
-
+        </AppCard>
+      </Box>
     </Fragment>
   );
 }

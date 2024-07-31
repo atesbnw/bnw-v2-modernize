@@ -1,31 +1,17 @@
 import React, { memo, useState, useCallback, useEffect, Fragment } from 'react';
 import DataTable from '@/app/components/shared/DataTable';
-import IconButton from '@mui/material/IconButton';
-import { IconFileDownload, IconFilter, IconFilterX } from '@tabler/icons-react';
 import { Faker, tr, fakerTR } from '@faker-js/faker';
 import { uniqueId } from 'lodash';
 import Box from '@mui/material/Box';
-import CustomFormLabel from '@/app/components/forms/theme-elements/CustomFormLabel';
-import { t } from 'i18next';
-import CustomTextField from '@/app/components/forms/theme-elements/CustomTextField';
-import Grid from '@mui/material/Grid';
-import CustomSelect from '@/app/components/forms/theme-elements/CustomSelect';
-import { MenuItem } from '@mui/material';
-import SideDialog from '@/app/components/shared/SideDialog';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import FilterModal from '@/app/(default)/components/users/financial-transactions/FilterModal';
 import Typography from '@mui/material/Typography';
 import NewManuelTransactionAddWithID
-  from '@/app/(default)/components/users/financial-transactions/NewManuelTransactionAddWithID';
+  from '@/app/(default)/components/merchants/financial-transactions/NewManuelTransactionAddWithID';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function TransactionsTable() {
-  const [filter, setFilter] = useState({});
   const [data, setData] = useState({
     page: 1,
     pageSize: 10,
@@ -141,38 +127,9 @@ function TransactionsTable() {
     }));
   }, []);
 
-  const updateFilter = useCallback((field, value) => {
-    setFilter(prev => ({
-      ...prev,
-      [field]: value,
-    }));
-  }, []);
 
   return (
     <Fragment>
-      <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
-
-
-        <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
-          <IconButton color={'primary'} onClick={() => {}}>
-            <IconFileDownload />
-          </IconButton>
-        </Tooltip>
-
-
-        <FilterModal
-          filter={filter}
-          updateFilter={updateFilter}
-          resetFilter={() => {
-            setFilter({});
-            setData(prev => ({ ...prev, filter: {} }));
-          }}
-          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-        />
-
-
-      </Stack>
-
       <DataTable
         search={false}
         data={data}
