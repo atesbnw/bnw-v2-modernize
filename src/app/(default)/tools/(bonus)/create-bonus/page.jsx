@@ -18,46 +18,12 @@ import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import { validationSchema } from './validation';
 import ParentCard from "@/app/components/shared/ParentCard";
 import TitleBar from "@/app/components/TitleBar";
-import '@/app/base/forms/form-quill/Quill.css';
-import dynamic from 'next/dynamic';
-import 'react-quill/dist/quill.snow.css';
 import dayjs from "dayjs";
 import {DateTimePicker} from "@mui/x-date-pickers/DateTimePicker";
 import {LocalizationProvider} from "@mui/x-date-pickers";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
 import CustomCheckbox from "@/app/components/forms/theme-elements/CustomCheckbox";
-import {
-  EditorComposer,
-  Editor,
-  ToolbarPlugin,
-  AlignDropdown,
-  BackgroundColorPicker,
-  BoldButton,
-  CodeFormatButton,
-  FloatingLinkEditor,
-  FontFamilyDropdown,
-  FontSizeDropdown,
-  InsertDropdown,
-  InsertLinkButton,
-  ItalicButton,
-  TextColorPicker,
-  TextFormatDropdown,
-  UnderlineButton,
-  Divider,
-} from 'verbum';
-
-
-const ReactQuill = dynamic(
-  async () => {
-    const { default: RQ } = await import('react-quill');
-    // eslint-disable-next-line react/display-name
-    return ({ ...props }) => <RQ {...props} />;
-  },
-  {
-    ssr: false,
-  },
-);
 
 const multipleSelectItems = [
   'Option A',
@@ -70,7 +36,7 @@ const multipleSelectItems = [
 ];
 
 function Page() {
-  const [descriptionTextState, setDescriptionTextState] = useState(`<b>aras</b><i>test metni</i>`);
+  const [descriptionTextState, setDescriptionTextState] = useState();
   const [startDateTime, setStartDateTime] = React.useState(dayjs());
   const [finishDateTime, setFinishDateTime] = React.useState(dayjs());
 
@@ -91,7 +57,7 @@ function Page() {
       endDate: '',
       minimumAmount: '',
       maximumAmount: '',
-      descriptionText: '<b>aras</b><i>test metni</i>',
+      descriptionText: '',
       validForAllMembers: '',
       validOnlyForApprovedMembers: '',
       validOnlyForVIPMembers: '',
@@ -444,35 +410,6 @@ function Page() {
                 <Grid item xs={12}>
                   <CustomFormLabel
                     htmlFor="descriptionText">{t('pages.tools.bonus.descriptionText')}</CustomFormLabel>
-
-                  <EditorComposer>
-                    <Editor
-                      defaultValue={descriptionTextState}
-                      hashtagsEnabled={true}
-                      onChange={(val) => setDescriptionTextState(val)}
-                      autoLinkEnabled={true}
-                      emojisEnabled={true}
-                      actionsEnabled={true}
-                    >
-                      <ToolbarPlugin defaultFontSize="20px">
-                        <FontFamilyDropdown />
-                        <FontSizeDropdown />
-                        <Divider />
-                        <BoldButton />
-                        <ItalicButton />
-                        <UnderlineButton />
-                        <CodeFormatButton />
-                        <InsertLinkButton />
-                        <TextColorPicker />
-                        <BackgroundColorPicker />
-                        <TextFormatDropdown />
-                        <Divider />
-                        <InsertDropdown enablePoll={true} />
-                        <Divider />
-                        <AlignDropdown />
-                      </ToolbarPlugin>
-                    </Editor>
-                  </EditorComposer>
                 </Grid>
 
                 <Grid item container xs={12} justifyContent="right" mt={3}>
