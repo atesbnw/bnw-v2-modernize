@@ -18,11 +18,9 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
 
   return (
     <Fragment>
-      <Tooltip title={t('pages.user-management.user_management_financial_transactions.filter')}>
-        <IconButton color={'primary'} onClick={() => setOpen(true)}>
-          <IconFilter />
-        </IconButton>
-      </Tooltip>
+      <Button color="primary" startIcon={<IconFilter width={18} />} onClick={() => setOpen(true)}>
+        {t('i.Filter')}
+      </Button>
 
       {Object.values(filter)?.some(Boolean) && (
         <Tooltip title={t('pages.user-management.user_management_financial_transactions.clearAllFilter')}>

@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import {Grid, Typography,Card, CardContent, Box } from '@mui/material';
 import { t } from 'i18next';
-import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
 import Button from "@mui/material/Button";
 
 const personalInfo = [

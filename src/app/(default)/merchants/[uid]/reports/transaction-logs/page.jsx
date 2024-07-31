@@ -1,20 +1,17 @@
 "use client";
 import React, {memo, useState, useCallback, useMemo, Fragment, useEffect} from 'react';
 import { t } from 'i18next';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
 import TitleBar from '@/app/components/TitleBar';
 import IconButton from "@mui/material/IconButton";
-import {IconFileDownload, IconEye} from "@tabler/icons-react";
+import {IconFileDownload} from "@tabler/icons-react";
 import Tooltip from "@mui/material/Tooltip";
 import DataTable from "@/app/components/shared/DataTable";
-import Stack from "@mui/material/Stack";
 import { Faker, tr, fakerTR } from '@faker-js/faker';
-import CheckCircle from "@mui/icons-material/CheckCircle";
-import SmartphoneIcon from '@mui/icons-material/Smartphone';
 import {uniqueId} from "lodash";
 import {useParams, useRouter} from "next/navigation";
 import FilterModal from "@/app/(default)/components/users/reports/transaction-logs/FilterModal";
+import {Box} from "@mui/material";
+import ParentCard from "@/app/components/shared/ParentCard";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -91,46 +88,35 @@ function Page() {
   }, []);
 
   return (
-    <Fragment>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Stack direction={'row'} justifyContent={'center'}>
-            <TitleBar
-              title={t('menu.Users.Reports Menu.Transaction Logs')}
-            />
-          </Stack>
-        </Grid>
-
-        <Grid item xs={12}>
-          <Card variant="outlined">
-            <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
-              <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
-                <IconButton color={'primary'} onClick={() => {}}>
-                  <IconFileDownload />
-                </IconButton>
-              </Tooltip>
-
-              <FilterModal
-                filter={filter}
-                updateFilter={updateFilter}
-                resetFilter={() => {
-                  setFilter({});
-                  setData(prev => ({ ...prev, filter: {} }));
-                }}
-                onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-              />
-            </Stack>
-
-            <DataTable
-              search={false}
-              data={data}
-              toolbar={false}
-            />
-
-          </Card>
-        </Grid>
-      </Grid>
-    </Fragment>
+    <Box className={"flex flex-col gap-4"}>
+      <TitleBar
+        title={t('menu.Merchants.Reports Menu.Transaction Logs')}
+      />
+      <ParentCard title={""} action={(
+        <>
+          <Tooltip title={t('i.downloadCSV')}>
+            <IconButton color={'primary'} onClick={() => {}}>
+              <IconFileDownload />
+            </IconButton>
+          </Tooltip>
+          <FilterModal
+            filter={filter}
+            updateFilter={updateFilter}
+            resetFilter={() => {
+              setFilter({});
+              setData(prev => ({ ...prev, filter: {} }));
+            }}
+            onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+          />
+        </>
+      )}>
+        <DataTable
+          search={false}
+          data={data}
+          toolbar={false}
+        />
+      </ParentCard>
+    </Box>
   );
 }
 

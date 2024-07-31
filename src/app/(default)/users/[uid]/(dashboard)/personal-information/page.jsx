@@ -8,7 +8,7 @@ import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLab
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
 import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import { validationSchema } from './validation';
-import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
+import UserIcons from "@/app/(default)/components/users/UserIcons";
 import ParentCard from "@/app/components/shared/ParentCard";
 
 function Page() {
@@ -35,7 +35,7 @@ function Page() {
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
             title={t('pages.user-management.user_management_dashboard.Personal Information')}
-            action={<PlayerInfoHeader/>}
+            action={<UserIcons/>}
           >
             <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
               <Grid item container xs={12}  spacing={3}>

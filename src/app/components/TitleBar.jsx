@@ -16,7 +16,7 @@ function TitleBar({ LeftImage, subTitle, link, Left, title, Right }) {
         width: 100 +"%",
         alignItems: "center",
         gap:1,
-        mb:3
+        mb:1
       }}>
       {LeftImage && (
         <Box sx={{alignItems:"center"}}>

@@ -1,17 +1,14 @@
 "use client";
 import React, {memo, useState, useCallback, useMemo, Fragment, useEffect} from 'react';
 import { t } from 'i18next';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
 import TitleBar from '@/app/components/TitleBar';
-import IconButton from "@mui/material/IconButton";
 import {IconFileDownload, IconEye, IconUser} from "@tabler/icons-react";
-import Tooltip from "@mui/material/Tooltip";
-import Stack from "@mui/material/Stack";
 import { Faker, tr, fakerTR } from '@faker-js/faker';
 import {useParams, useRouter} from "next/navigation";
-import FilterModal from "@/app/(default)/components/users/reports/user-stats/FilterModal";
+import FilterModal from "@/app/(default)/components/merchants/reports/user-stats/FilterModal";
 import ReportInfoCard from "@/app/components/shared/ReportInfoCard";
+import {Box} from "@mui/material";
+import ParentCard from "@/app/components/shared/ParentCard";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -60,48 +57,32 @@ function Page() {
   }, []);
 
   return (
-    <Fragment>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Stack direction={'row'} justifyContent={'center'}>
-            <TitleBar
-              title={t('menu.Users.Reports Menu.User Stats')}
-            />
-
-            <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
-              <IconButton color={'primary'} onClick={() => {}}>
-                <IconFileDownload />
-              </IconButton>
-            </Tooltip>
-            <FilterModal
-              filter={filter}
-              updateFilter={updateFilter}
-              resetFilter={() => {
-                setFilter({});
-                setData(prev => ({ ...prev, filter: {} }));
-              }}
-              onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-            />
-          </Stack>
-        </Grid>
-        <Grid item xs={12}>
-          <Card variant="outlined">
-
-            <Stack spacing={2}>
-              <Grid container spacing={2}>
-                {data.map((item, index) => (
-                  <Grid item xs={12} sm={6} md={4} key={index}>
-                    <ReportInfoCard title={item.title} value={item.value} icon={item.icon} info={item?.info} />
-                  </Grid>
-                ))}
-              </Grid>
-            </Stack>
-
-          </Card>
-        </Grid>
-      </Grid>
-
-    </Fragment>
+    <Box className={"flex flex-col gap-4"}>
+      <TitleBar
+        title={t('menu.Merchants.Reports Menu.User Stats')}
+      />
+      <ParentCard title={""} action={(
+        <>
+          <FilterModal
+            filter={filter}
+            updateFilter={updateFilter}
+            resetFilter={() => {
+              setFilter({});
+              setData(prev => ({ ...prev, filter: {} }));
+            }}
+            onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+          />
+        </>
+      )}>
+        <Box className={"grid grid-cols-3 gap-3"}>
+          {data.map((item, index) => (
+            <Box key={index}>
+              <ReportInfoCard title={item.title} value={item.value} icon={item.icon} info={item?.info} />
+            </Box>
+          ))}
+        </Box>
+      </ParentCard>
+    </Box>
   );
 }
 

@@ -16,7 +16,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import ParentCard from '@/app/components/shared/ParentCard';
-import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
+import UserIcons from "@/app/(default)/components/users/UserIcons";
 
 function Page() {
 
@@ -57,20 +57,20 @@ function Page() {
         </Grid>
 
 
-        <Grid item xs={12} className={"mt-3"}>
+        <Grid item xs={12} className={"mt-0"}>
           <LastActionsInfo />
         </Grid>
 
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
             title={t('pages.user-management.user_management_dashboard.Account')}
-            action={<PlayerInfoHeader />}
+            action={<UserIcons />}
           >
             <AccountInformation />
           </ParentCard>
         </Grid>
 
-        <Grid item xs={12} className={"mt-3"}>
+        <Grid item xs={12} className={"mt-0"}>
           <CategoryStats />
         </Grid>
 
@@ -86,21 +86,6 @@ function Page() {
             }
           >
             <GameStats />
-          </ParentCard>
-        </Grid>
-
-        <Grid item xs={12}>
-          <ParentCard
-            title={t('pages.user-management.user_management_dashboard.Sport Bets')}
-            action={
-              <Stack direction="row" spacing={2}>
-                <Box><Button color="primary">Today</Button></Box>
-                <Box><Button color="primary">Yesterday</Button></Box>
-                <Box><Button color="primary">Last 7 Days</Button></Box>
-              </Stack>
-            }
-          >
-            <SportsStats />
           </ParentCard>
         </Grid>
 

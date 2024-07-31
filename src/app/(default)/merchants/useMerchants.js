@@ -8,6 +8,7 @@ import {Faker, tr, fakerTR} from "@faker-js/faker";
 import IconButton from '@mui/material/IconButton';
 import { useRouter } from 'next/navigation';
 import {uniqueId} from "lodash";
+import Link from "@mui/material/Link";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -28,68 +29,49 @@ export function useMerchants() {
     const columns = [
       {
         field: "uuid",
-        headerName: "Merchant ID",
-        flex: 0.6
+        headerName: "Merchant ID"
       },
       {
         field: "merchantName",
         headerName: "Merchant Name",
-        flex:1
+        flex: 1,
+        renderCell: (e) => {
+          return (
+            <Link href={`/merchants/${e?.row?.merchantName}`} rel="noopener noreferrer" className={"no-underline text-blue-900"}>{e.value}</Link>
+          )
+        }
       },
       {
         field: "totalMembers",
-        headerName: "Total Members",
-        flex:1
+        headerName: "Total Members"
       },
       {
         field: "merchantOpenDate",
-        headerName: "Merchant Open Date",
-        flex:1
+        headerName: "Merchant Open Date"
       },
       {
         field: "memberGroup",
-        headerName: "Member Group",
-        flex:1
+        headerName: "Member Group"
       },
       {
         field: "lastMemberRegisterDate",
-        headerName: "Last Member Register Date",
-        flex:1
+        headerName: "Last Member Register Date"
       },
       {
         field: "lastPlayingGame",
-        headerName: "Last Playing Game",
-        flex:1
+        headerName: "Last Playing Game"
       },
       {
         field: "lastLoginDate",
-        headerName: "Last Login",
-        flex:1
+        headerName: "Last Login"
       },
       {
         field: "currentBalance",
-        headerName: "Current Balance",
-        flex:1
+        headerName: "Current Balance"
       },
       {
         field: "profit",
-        headerName: "Profit",
-        flex:1
-      },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 100,
-        getActions: (e) => {
-          return [
-              <IconButton onClick={() => router.push(`/merchants/${e?.row?.merchantName}`)}>
-                <IconEye />
-              </IconButton>,
-              // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-              //   <IconPencil />
-              // </IconButton>
-          ]
-        }
+        headerName: "Profit"
       }
     ];
     const rows = Array.from(Array(50)).map((i,_) => (

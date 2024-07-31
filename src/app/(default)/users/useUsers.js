@@ -1,13 +1,12 @@
 "use client";
-
 import { useEffect, useState } from 'react';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
-import { IconEye, IconPencil } from '@tabler/icons-react';
+import { IconEye } from '@tabler/icons-react';
 import {Faker, tr, fakerTR} from "@faker-js/faker";
 import IconButton from '@mui/material/IconButton';
 import { useRouter } from 'next/navigation';
 import {uniqueId} from "lodash";
+import UserIcons from "@/app/(default)/components/users/UserIcons";
+import Link from '@mui/material/Link';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -29,65 +28,67 @@ export function useUsers() {
       {
         field: "uuid",
         headerName: "UID",
-        flex: 0.6
       },
       {
         field: "username",
         headerName: "Username",
-        flex: 1
+        flex: 1,
+        renderCell: (e) => {
+          return (
+            <Link href={`/users/${e?.row?.username}`} rel="noopener noreferrer" className={"no-underline text-blue-900"}>{e.value}</Link>
+          )
+        }
       },
       {
         field: "name",
         headerName: "Name",
-        // flex: 0.1,
-        flex: 1
+        flex: 0.7
       },
       {
         field: "birthday",
         headerName: "Birthday",
-        flex: 1
       },
       {
         field: "ip",
         headerName: "IP",
-        flex: 1
       },
       {
         field: "registerDate",
         headerName: "Register Date",
-        flex: 1
       },
       {
         field: "lastLoginDate",
         headerName: "Last Login Date",
-        flex: 1
       },
       {
         field: "balance",
         headerName: "Balance",
-        flex: 1
       },
       {
         field: "status",
         headerName: "Status",
-        flex: 0.6,
+        width: 330,
         cellClassName:"centerAll",
-      },
-      {
-        field: 'actions',
-        type: 'actions',
-        flex: 0.4,
-        getActions: (e) => {
-          return [
-              <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-                <IconEye />
-              </IconButton>,
-              // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-              //   <IconPencil />
-              // </IconButton>
-          ]
+        renderCell: (e) => {
+          return (
+            <UserIcons/>
+          )
         }
       }
+      // {
+      //   field: 'actions',
+      //   type: 'actions',
+      //   getActions: (e) => {
+      //     return [
+      //         <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+      //           <IconEye />
+      //         </IconButton>
+      //         // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+      //         //   <IconPencil />
+      //         // </IconButton>
+      //     ]
+      //   }
+      // }
     ];
     const rows = Array.from(Array(50)).map((i,_) => (
       {
@@ -100,7 +101,6 @@ export function useUsers() {
         registerDate: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
         lastLoginDate: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
         balance: faker.number.float(10),
-        status: "active"
       }
     ));
 

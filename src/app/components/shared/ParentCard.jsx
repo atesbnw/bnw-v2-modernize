@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import { Card, CardHeader, CardContent, Divider, Box } from '@mui/material';
 import { useSelector } from 'react-redux';
-import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
 
 const ParentCard = ({ title, children, footer, action }) => {
   const customizer = useSelector((state) => state.customizer);

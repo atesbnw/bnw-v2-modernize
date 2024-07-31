@@ -1,5 +1,5 @@
 import React, {Fragment, memo} from 'react';
-import { Fab, Stack} from "@mui/material";
+import {Fab, Stack} from "@mui/material";
 import {
   IconBuildingStore,
   IconCheck,
@@ -11,7 +11,7 @@ import {
 } from "@tabler/icons-react";
 import {t} from "i18next";
 
-function OperatorIcons({children}) {
+function UserIcons() {
   return (
     <Fragment>
       <Stack direction="row" spacing={1}>
@@ -44,4 +44,4 @@ function OperatorIcons({children}) {
   );
 }
 
-export default memo(OperatorIcons);
+export default memo(UserIcons);

@@ -61,7 +61,7 @@ function Page() {
         </Grid>
 
 
-        <Grid item xs={12} className={"mt-3"}>
+        <Grid item xs={12} className={"mt-0"}>
           <LastActionsInfo />
         </Grid>
 
@@ -93,21 +93,6 @@ function Page() {
           </ParentCard>
         </Grid>
 
-
-        <Grid item xs={12}>
-          <ParentCard
-            title={t('pages.merchants.dashboard.Sport Bets')}
-            action={
-              <Stack direction="row" spacing={2}>
-                <Box><Button color="primary">Today</Button></Box>
-                <Box><Button color="primary">Yesterday</Button></Box>
-                <Box><Button color="primary">Last 7 Days</Button></Box>
-              </Stack>
-            }
-          >
-            <SportsStats />
-          </ParentCard>
-        </Grid>
 
       </Grid>
     </Fragment>

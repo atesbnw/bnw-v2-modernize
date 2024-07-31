@@ -1,7 +1,6 @@
 "use client";
 import { t } from 'i18next';
 import Breadcrumb from '@/app/base/layout/shared/breadcrumb/Breadcrumb';
-import PageContainer from '@/app/components/container/PageContainer';
 import DataTable from '@/app/components/shared/DataTable';
 import { useUsers } from '@/app/(default)/users/useUsers';
 import Stack from "@mui/material/Stack";

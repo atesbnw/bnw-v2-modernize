@@ -16,7 +16,7 @@ import CustomTextField from "@/app/components/forms/theme-elements/CustomTextFie
 import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import { validationSchema } from './validation';
 import CustomCheckbox from "@/app/components/forms/theme-elements/CustomCheckbox";
-import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
+import UserIcons from "@/app/(default)/components/users/UserIcons";
 import ParentCard from "@/app/components/shared/ParentCard";
 
 function Page() {
@@ -44,7 +44,7 @@ function Page() {
         <Grid item xs={12} className={"mt-0"}>
           <ParentCard
             title={t('pages.user-management.user_management_dashboard.Contact Information')}
-            action={<PlayerInfoHeader/>}
+            action={<UserIcons/>}
           >
             <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
               <Grid item xs={12} sm={12} lg={6}>

@@ -12,18 +12,16 @@ import CustomCheckbox from "@/app/components/forms/theme-elements/CustomCheckbox
 import SideDialog from '@/app/components/shared/SideDialog';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
-import { IconFilter, IconFilterX } from '@tabler/icons-react';
+import {IconFilter, IconFilterX} from '@tabler/icons-react';
 
 function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
   const [open, setOpen] = useState(false);
 
   return (
     <Fragment>
-      <Tooltip title={t('pages.user-management.user_management_user_management.filter')}>
-        <IconButton color={'primary'} onClick={() => setOpen(true)}>
-          <IconFilter />
-        </IconButton>
-      </Tooltip>
+      <Button color="primary" startIcon={<IconFilter width={18} />} onClick={() => setOpen(true)}>
+        {t('i.Filter')}
+      </Button>
 
       {Object.values(filter)?.some(Boolean) && (
         <Tooltip title={t('pages.user-management.user_management_user_management.clearAllFilter')}>

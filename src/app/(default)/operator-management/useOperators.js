@@ -5,6 +5,8 @@ import {Faker, tr, fakerTR} from "@faker-js/faker";
 import IconButton from '@mui/material/IconButton';
 import { useRouter } from 'next/navigation';
 import {uniqueId} from "lodash";
+import Link from "@mui/material/Link";
+import OperatorIcons from "@/app/(default)/components/operator-management/OperatorIcons";
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -26,61 +28,51 @@ export function useOperators() {
       {
         field: "uuid",
         headerName: "UID",
-        flex: 0.6
       },
       {
         field: "username",
         headerName: "Username",
-        flex: 1
+        flex: 1,
+        renderCell: (e) => {
+          return (
+            <Link href={`/operator-management/${e?.row?.username}`} rel="noopener noreferrer" className={"no-underline text-blue-900"}>{e.value}</Link>
+          )
+        }
       },
       {
         field: "name",
         headerName: "Name",
-        flex: 1
+        flex: 0.7,
       },
       {
         field: "birthday",
         headerName: "Birthday",
-        flex: 1
       },
       {
         field: "ip",
         headerName: "IP",
-        flex: 1
       },
       {
         field: "registerDate",
         headerName: "Register Date",
-        flex: 1
       },
       {
         field: "lastLoginDate",
         headerName: "Last Login Date",
-        flex: 1
       },
       {
         field: "balance",
         headerName: "Balance",
-        flex: 1
       },
       {
         field: "status",
         headerName: "Status",
-        flex: 0.6
-      },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 100,
-        getActions: (e) => {
-          return [
-              <IconButton onClick={() => router.push(`/operator-management/${e?.row?.username}`)}>
-                <IconEye />
-              </IconButton>,
-              // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-              //   <IconPencil />
-              // </IconButton>
-          ]
+        width: 330,
+        cellClassName:"centerAll",
+        renderCell: (e) => {
+          return (
+            <OperatorIcons/>
+          )
         }
       }
     ];

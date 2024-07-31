@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {Grid, Typography,Card, CardContent, Box } from '@mui/material';
 import { t } from 'i18next';
-import PlayerInfoHeader from "@/app/(default)/components/users/PlayerInfoHeader";
+import UserIcons from "@/app/(default)/components/users/UserIcons";
 
 const personalInfo = [
   { title: 'pages.user-management.user_management_dashboard.Full Name', value: 'Eren Erdi' },

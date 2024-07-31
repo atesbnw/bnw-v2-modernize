@@ -132,9 +132,6 @@ function Page() {
         title={title}
       />
 
-
-
-
       <ParentCard title={""} action={(
         <FilterModal
           filter={filter}
