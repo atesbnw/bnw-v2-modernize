@@ -4,7 +4,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import PageContainer from '@/app/components/container/PageContainer';
 import FinancialGraph from '@/app/(default)/components/home/FinancialGraph';
 import TimeTabs from '@/app/components/shared/TimeTabs';
-import { Grid, Typography } from '@mui/material';
+import { Grid, Card } from '@mui/material';
 import TopCircles from '@/app/(default)/components/home/Circle';
 import StatCards from '@/app/(default)/components/home/StatCards';
 import StatsRow from '@/app/(default)/components/home/StatsRow';
@@ -36,16 +36,19 @@ export default function Dashboard() {
         {(time) => (
           <Fragment>
             <FinancialGraph timeRange={time} />
-            <StatCards />
-            <StatsRow />
+
+            <Card variant="outlined" className={"mt-6 mb-2"}>
+              <StatCards />
+            </Card>
+            {/*<StatsRow />*/}
 
 
-            <OverviewTable
-              title={"Sportsbook Genel Bakış"}
-              data={[
-                ...sportsbookOverview
-              ]}
-            />
+            {/*<OverviewTable*/}
+            {/*  title={"Sportsbook Genel Bakış"}*/}
+            {/*  data={[*/}
+            {/*    ...sportsbookOverview*/}
+            {/*  ]}*/}
+            {/*/>*/}
 
 
             <Grid container spacing={1}>
@@ -263,79 +266,80 @@ export default function Dashboard() {
             </DashboardCard>
 
 
-            <DashboardCard
-              title={"Spor Bahisleri"}
-              subtitle={""}
-            >
-              <Grid container spacing={1}>
-                <GameStatBox
-                  title={"En Çok Tercih Edilen Spor"}
-                  subTitle={"Futbol / Almanya / Bundesliga"}
-                  image={"/images/svgs/football-ball.svg"}
-                  data={[
-                    {
-                      title: "Oynanan",
-                      value: 300000,
-                      currency: "TRY"
-                    },
-                    {
-                      title: "Kazanan",
-                      value: 124000,
-                      currency: "TRY"
-                    },
-                    {
-                      title: "Fark",
-                      value: 760000,
-                      currency: "TRY"
-                    }
-                  ]}
-                />
-                <GameStatBox
-                  title={"En Çok Kazandıran Spor"}
-                  subTitle={"Basketbol / ABD / NBA"}
-                  image={"/images/svgs/basketball-ball.svg"}
-                  data={[
-                    {
-                      title: "Oynanan",
-                      value: 6200000,
-                      currency: "TRY"
-                    },
-                    {
-                      title: "Kazanan",
-                      value: 5624000,
-                      currency: "TRY"
-                    },
-                    {
-                      title: "Fark",
-                      value: 160000,
-                      currency: "TRY"
-                    }
-                  ]}
-                />
-                <GameStatBox
-                  title={"En Çok Kaybettiren Spor"}
-                  subTitle={"Futbol / Fransa / Serie-A"}
-                  image={"/images/svgs/football-ball.svg"}
-                  data={[
-                    {
-                      title: "Oynanan",
-                      value: 653000,
-                      currency: "TRY"
-                    },
-                    {
-                      title: "Kazanan",
-                      value: 544000,
-                      currency: "TRY"
-                    },
-                    {
-                      title: "Fark",
-                      value: 760000,
-                      currency: "TRY"
-                    }
-                  ]}
-                />
-              </Grid>
-            </DashboardCard>
+            {/*<DashboardCard*/}
+            {/*  title={"Spor Bahisleri"}*/}
+            {/*  subtitle={""}*/}
+            {/*>*/}
+            {/*  <Grid container spacing={1}>*/}
+            {/*    <GameStatBox*/}
+            {/*      title={"En Çok Tercih Edilen Spor"}*/}
+            {/*      subTitle={"Futbol / Almanya / Bundesliga"}*/}
+            {/*      image={"/images/svgs/football-ball.svg"}*/}
+            {/*      data={[*/}
+            {/*        {*/}
+            {/*          title: "Oynanan",*/}
+            {/*          value: 300000,*/}
+            {/*          currency: "TRY"*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*          title: "Kazanan",*/}
+            {/*          value: 124000,*/}
+            {/*          currency: "TRY"*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*          title: "Fark",*/}
+            {/*          value: 760000,*/}
+            {/*          currency: "TRY"*/}
+            {/*        }*/}
+            {/*      ]}*/}
+            {/*    />*/}
+            {/*    <GameStatBox*/}
+            {/*      title={"En Çok Kazandıran Spor"}*/}
+            {/*      subTitle={"Basketbol / ABD / NBA"}*/}
+            {/*      image={"/images/svgs/basketball-ball.svg"}*/}
+            {/*      data={[*/}
+            {/*        {*/}
+            {/*          title: "Oynanan",*/}
+            {/*          value: 6200000,*/}
+            {/*          currency: "TRY"*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*          title: "Kazanan",*/}
+            {/*          value: 5624000,*/}
+            {/*          currency: "TRY"*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*          title: "Fark",*/}
+            {/*          value: 160000,*/}
+            {/*          currency: "TRY"*/}
+            {/*        }*/}
+            {/*      ]}*/}
+            {/*    />*/}
+            {/*    <GameStatBox*/}
+            {/*      title={"En Çok Kaybettiren Spor"}*/}
+            {/*      subTitle={"Futbol / Fransa / Serie-A"}*/}
+            {/*      image={"/images/svgs/football-ball.svg"}*/}
+            {/*      data={[*/}
+            {/*        {*/}
+            {/*          title: "Oynanan",*/}
+            {/*          value: 653000,*/}
+            {/*          currency: "TRY"*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*          title: "Kazanan",*/}
+            {/*          value: 544000,*/}
+            {/*          currency: "TRY"*/}
+            {/*        },*/}
+            {/*        {*/}
+            {/*          title: "Fark",*/}
+            {/*          value: 760000,*/}
+            {/*          currency: "TRY"*/}
+            {/*        }*/}
+            {/*      ]}*/}
+            {/*    />*/}
+            {/*  </Grid>*/}
+            {/*</DashboardCard>*/}
+
             </Box>
 
 
