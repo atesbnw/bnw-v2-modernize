@@ -30,6 +30,7 @@
     "@mui/x-tree-view": "^6.17.0",
     "@reduxjs/toolkit": "2.2.3",
     "@tabler/icons-react": "^2.39.0",
+    "@tinymce/tinymce-react": "^5.1.1",
     "apexcharts": "3.48.0",
     "axios": "^1.6.8",
     "axios-mock-adapter": "^1.22.0",
