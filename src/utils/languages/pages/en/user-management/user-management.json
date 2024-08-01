@@ -19,5 +19,15 @@
   "todayBirthdays": "Today Birthdays",
   "sameDayRegistered": "Same Day Registered",
   "sameIP": "Same IP",
-  "sameLastLogin": "Same Last Login"
+  "sameLastLogin": "Same Last Login",
+  "Lejand": {
+    "suspendedUser": "Suspended User",
+    "onlineStatus": "Online Status",
+    "lockedAccount": "Locked Account",
+    "approvedMember": "Approved Member",
+    "vip": "VIP",
+    "merchant": "Merchant",
+    "loyalMember": "Loyal Member",
+    "newMember": "New Member"
+  }
 }

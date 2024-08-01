@@ -54,12 +54,13 @@ export function useMenu() {
       id: uniqueId(),
       title: "Reports.Merchant Reports",
       href: `${url}/merchant-reports`,
-    },
-    {
-      id: uniqueId(),
-      title: "Reports.User Bet Reports",
-      href: `${url}/user-bet-reports`,
     }
+    // ,
+    // {
+    //   id: uniqueId(),
+    //   title: "Reports.User Bet Reports",
+    //   href: `${url}/user-bet-reports`,
+    // }
   ];
 
   return {

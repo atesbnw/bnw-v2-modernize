@@ -14,12 +14,13 @@ export function useMenu() {
       id: uniqueId(),
       title: "Reports.Commission Reports",
       href: `${url}`,
-    },
-    {
-      id: uniqueId(),
-      title: "menu.Users.Reports Menu.Bet Reports",
-      href: `${url}/bet-reports`,
     }
+    // ,
+    // {
+    //   id: uniqueId(),
+    //   title: "menu.Users.Reports Menu.Bet Reports",
+    //   href: `${url}/bet-reports`,
+    // }
   ];
 
   return {

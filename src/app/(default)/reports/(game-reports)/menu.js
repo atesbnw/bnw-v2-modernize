@@ -24,12 +24,13 @@ export function useMenu() {
       id: uniqueId(),
       title: "menu.Users.Reports Menu.Virtual Game Reports",
       href: `${url}/virtual-game-reports`,
-    },
-    {
-      id: uniqueId(),
-      title: "menu.Users.Reports Menu.Bet Reports",
-      href: `${url}/bet-reports`,
     }
+    // ,
+    // {
+    //   id: uniqueId(),
+    //   title: "menu.Users.Reports Menu.Bet Reports",
+    //   href: `${url}/bet-reports`,
+    // }
   ];
 
   return {

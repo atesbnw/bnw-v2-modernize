@@ -381,12 +381,14 @@ function ActionModal({id, data}) {
               </AccordionDetails>
             </Accordion>
           </Grid>
-          <Grid item xs={12}>
-            <Card variant="outlined" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-              <Typography variant="h6">{t('pages.settings.limitation.Sportsbook')}</Typography>
-              <Button variant="outlined" color="secondary">{t('pages.settings.limitation.Click For Sportsbook Limits')}</Button>
-            </Card>
-          </Grid>
+
+          {/*<Grid item xs={12}>*/}
+          {/*  <Card variant="outlined" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>*/}
+          {/*    <Typography variant="h6">{t('pages.settings.limitation.Sportsbook')}</Typography>*/}
+          {/*    <Button variant="outlined" color="secondary">{t('pages.settings.limitation.Click For Sportsbook Limits')}</Button>*/}
+          {/*  </Card>*/}
+          {/*</Grid>*/}
+
         </Grid>
 
         <Box

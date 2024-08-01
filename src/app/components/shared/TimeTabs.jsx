@@ -91,11 +91,11 @@ function TimeTabs({customStyle,children, onChange, value, topElement, justify = 
                 },
                 ...(customStyle && {
                   borderRadius:1,
-                  backgroundColor: theme.palette.mode === 'dark' ? '#1b222c' : '#efefef',
+                  backgroundColor: theme.palette.primary.light,
                   border: '1px solid',
-                  borderColor: theme.palette.mode === 'dark' ? '#252f3c' : '#bcbec5',
+                  borderColor: theme.palette.primary.light,
                   '&:hover': {
-                    borderColor: theme.palette.mode === 'dark' ? '#2a496c' : '#68789c',
+                    borderColor: theme.palette.primary.dark,
                   }
                 }),
               }}

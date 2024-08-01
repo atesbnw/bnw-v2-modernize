@@ -193,7 +193,7 @@ function Dashboard() {
                   <CustomTabPanel value={tab} index={index}>
                     <Grid container spacing={1}>
                       <GameStatBox
-                        title={"Dashboard.Most Played Game"}
+                        title={t("Dashboard.Most Played Game")}
                         subTitle={"Wild & Turkey / Netent"}
                         image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGO2wGcJymC1ydiocdohoy1YgVg-L196iWQ&s"}
                         data={[

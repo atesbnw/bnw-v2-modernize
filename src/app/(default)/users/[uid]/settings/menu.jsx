@@ -22,6 +22,11 @@ export function useMenu() {
     },
     {
       id: uniqueId(),
+      title: "menu.Users.Settings Menu.Virtual Games Limitations",
+      href: `${url}/virtual-games-limitations`,
+    },
+    {
+      id: uniqueId(),
       title: "menu.Users.Settings Menu.Finance Limitations",
       href: `${url}/finance-limitations`,
     }

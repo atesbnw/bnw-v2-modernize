@@ -25,11 +25,11 @@ export function useMenu() {
       title: "menu.Merchants.Reports Menu.Virtual Game Reports",
       href: `${url}/virtual-game-reports`,
     },
-    {
-      id: uniqueId(),
-      title: "menu.Merchants.Reports Menu.Bet Reports",
-      href: `${url}/bet-reports`,
-    },
+    // {
+    //   id: uniqueId(),
+    //   title: "menu.Merchants.Reports Menu.Bet Reports",
+    //   href: `${url}/bet-reports`,
+    // },
     {
       id: uniqueId(),
       title: "menu.Merchants.Reports Menu.Bonus Reports",
