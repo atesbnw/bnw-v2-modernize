@@ -32,7 +32,7 @@ function Dashboard() {
 
 
 
-      <TimeTabs topElement={<TopCircles />}>
+      <TimeTabs customStyle topElement={<TopCircles />}>
         {(time) => (
           <Fragment>
             <FinancialGraph timeRange={time} />

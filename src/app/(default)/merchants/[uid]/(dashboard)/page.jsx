@@ -54,7 +54,7 @@ function Page() {
         <Grid item xs={12} className={"pt-0"}>
           <ParentCard
             title={t('pages.merchants.dashboard.Stats')}
-            action={<TimeTabs/>}
+            action={<TimeTabs customStyle/>}
           >
             <StatCards />
           </ParentCard>

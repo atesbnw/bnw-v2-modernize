@@ -4,12 +4,15 @@ import { Box } from '@mui/material';
 import { t } from 'i18next';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 import { SingleInputDateRangeField } from '@mui/x-date-pickers-pro/SingleInputDateRangeField';
+import { useTheme } from '@mui/material/styles';
 
-function TimeTabs({children, onChange, value, topElement, justify = "end", gridSize = "auto"}) {
-  const [time, setTime] = useState([dayjs(),dayjs()]);
+
+function TimeTabs({customStyle,children, onChange, value, topElement, justify = "end", gridSize = "auto"}) {
+  const theme = useTheme();
+
+  const [time, setTime] = useState([dayjs().subtract(1, 'month'),dayjs()]);
   // const [time, setTime] = useState();
   const shortcutsItems = useMemo(() => [
     {
@@ -81,37 +84,37 @@ function TimeTabs({children, onChange, value, topElement, justify = "end", gridS
         )}
         <Box style={{width: justify==="full" ? 100 + "%" : 270}}>
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"en"}>
-            <DemoContainer
-              sx={{margin:0, padding:0}}
-              components={[
-                'DateRangePicker',
-              ]}>
-              <DemoItem
-                label={
-                  <></>
-                }
-                component="DateRangePicker"
-              >
-                <DateRangePicker
-                  defaultValue={time}
-                  localeText={{
-                    start: '',
-                    end: '',
-                  }}
-                  onChange={(value) => setTime(value)}
-                  slots={{field: SingleInputDateRangeField}}
-                  slotProps={{
-                    shortcuts: {
-                      items: shortcutsItems,
-                    },
-                    actionBar: {actions: []}
-                  }}
-                  format={"DD/MM/YYYY"}
-                  calendars={2}
-                />
-              </DemoItem>
-            </DemoContainer>
-
+            <DateRangePicker
+              sx={{
+                ...{
+                  width:"100%",
+                },
+                ...(customStyle && {
+                  borderRadius:1,
+                  backgroundColor: theme.palette.mode === 'dark' ? '#1b222c' : '#efefef',
+                  border: '1px solid',
+                  borderColor: theme.palette.mode === 'dark' ? '#252f3c' : '#bcbec5',
+                  '&:hover': {
+                    borderColor: theme.palette.mode === 'dark' ? '#2a496c' : '#68789c',
+                  }
+                }),
+              }}
+              defaultValue={time}
+              localeText={{
+                start: '',
+                end: '',
+              }}
+              onChange={(value) => setTime(value)}
+              slots={{field: SingleInputDateRangeField}}
+              slotProps={{
+                shortcuts: {
+                  items: shortcutsItems,
+                },
+                actionBar: {actions: []}
+              }}
+              format={"DD/MM/YYYY"}
+              calendars={2}
+            />
           </LocalizationProvider>
         </Box>
       </Box>
