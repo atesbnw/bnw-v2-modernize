@@ -136,71 +136,6 @@ function Page() {
       <TitleBar
         title={title}
       />
-
-      <SummaryBar
-        title={t('pages.merchants.reports.Total')}
-        data={totalResultsData}
-      />
-
-      <Card variant={'outlined'}>
-        <Stack direction="row" spacing={2} justifyContent="space-between" alignItems={'end'}>
-          <Stack direction="row" spacing={2}>
-            <Box>
-              <CustomFormLabel htmlFor="currency">{t('pages.reports.user-reports.currency')}</CustomFormLabel>
-              <CustomSelect
-                id="currency"
-                name="currency"
-                fullWidth
-                variant="outlined"
-                value={filter?.currency || 'TRY'}
-                onChange={(e) => updateFilter('currency', e?.target.value)}
-              >
-                <MenuItem value="TRY">TRY</MenuItem>
-                <MenuItem value="USD">USD</MenuItem>
-              </CustomSelect>
-            </Box>
-            <Box>
-              <CustomFormLabel htmlFor="exchange">{t('pages.reports.user-reports.exchange')}</CustomFormLabel>
-              <CustomSelect
-                id="exchange"
-                name="exchange"
-                fullWidth
-                variant="outlined"
-                value={filter?.exchange || 'USD'}
-                onChange={(e) => updateFilter('exchange', e?.target.value)}
-              >
-                <MenuItem value="USD">USD</MenuItem>
-                <MenuItem value="EURO">EURO</MenuItem>
-              </CustomSelect>
-            </Box>
-          </Stack>
-
-          <Box>
-            <Typography variant={'body2'}>{t('pages.reports.user-reports.parity')}</Typography>
-            <Typography>1 {filter?.currency || 'USD'} = {filter?.currency === 'USD' ? 32.65 : 35.25} {filter?.exchange || 'USD'}</Typography>
-          </Box>
-        </Stack>
-      </Card>
-
-      <Tabs
-        value={tab}
-        onChange={(e, a) => setTab(a)}
-        variant="fullWidth"
-        allowScrollButtonsMobile
-      >
-        {['pages.reports.user-reports.providerReports', 'pages.reports.user-reports.financeReports'].map((tab, _) => {
-          return (
-            <Tab
-              iconPosition="start"
-              label={t(tab)}
-              sx={{ minHeight: '50px' }}
-              value={_}
-              key={tab}
-            />
-          );
-        })}
-      </Tabs>
-
       <ParentCard title={''} action={(
         <Stack direction={'row'}>
           <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
@@ -221,9 +156,72 @@ function Page() {
           />
         </Stack>
       )}>
+        <SummaryBar
+          title={t('pages.merchants.reports.Total')}
+          data={totalResultsData}
+        />
 
+        <Card variant={'outlined'}>
+          <Stack direction="row" spacing={2} justifyContent="space-between" alignItems={'end'}>
+            <Stack direction="row" spacing={2}>
+              <Box>
+                <CustomFormLabel sx={{m:0}} htmlFor="currency">{t('pages.reports.user-reports.currency')}</CustomFormLabel>
+                <CustomSelect
+                  id="currency"
+                  name="currency"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.currency || 'TRY'}
+                  onChange={(e) => updateFilter('currency', e?.target.value)}
+                >
+                  <MenuItem value="TRY">TRY</MenuItem>
+                  <MenuItem value="USD">USD</MenuItem>
+                </CustomSelect>
+              </Box>
+              <Box>
+                <CustomFormLabel sx={{m:0}} htmlFor="exchange">{t('pages.reports.user-reports.exchange')}</CustomFormLabel>
+                <CustomSelect
+                  id="exchange"
+                  name="exchange"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.exchange || 'USD'}
+                  onChange={(e) => updateFilter('exchange', e?.target.value)}
+                >
+                  <MenuItem value="USD">USD</MenuItem>
+                  <MenuItem value="EURO">EURO</MenuItem>
+                </CustomSelect>
+              </Box>
+            </Stack>
 
-        <CustomTabPanel value={tab} index={0}>
+            <Box>
+              <Typography variant={'body2'}>{t('pages.reports.user-reports.parity')}</Typography>
+              <Typography>1 {filter?.currency || 'USD'} = {filter?.currency === 'USD' ? 32.65 : 35.25} {filter?.exchange || 'USD'}</Typography>
+            </Box>
+          </Stack>
+        </Card>
+
+        <Tabs
+          className={"mt-6"}
+          value={tab}
+          onChange={(e, a) => setTab(a)}
+          variant="fullWidth"
+          allowScrollButtonsMobile
+        >
+          {['pages.reports.user-reports.providerReports', 'pages.reports.user-reports.financeReports'].map((tab, _) => {
+            return (
+              <Tab
+                iconPosition="start"
+                label={t(tab)}
+                sx={{ minHeight: '50px' }}
+                value={_}
+                key={tab}
+              />
+            );
+          })}
+        </Tabs>
+
+        <CustomTabPanel className={"p-0 m-0"} value={tab} index={0}>
           <ProviderReportsTab
             filter={filter}
             updateFilter={updateFilter}

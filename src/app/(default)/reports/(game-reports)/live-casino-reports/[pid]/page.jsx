@@ -14,6 +14,7 @@ import { IconEye } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
+import ParentCard from "@/app/components/shared/ParentCard";
 
 function Page() {
   const params = useParams();
@@ -117,34 +118,29 @@ function Page() {
         link={"../live-casino-reports"}
         subTitle={decodeURIComponent(params?.pid)}
         title={title}
-        Right={() => (
-          <TimeTabs justify={"start"} />
-        )}
       />
 
-        <Stack direction={"row"} justifyContent={"end"} className={"mb-3"}>
-          <FilterModal
-            filter={filter}
-            updateFilter={updateFilter}
-            resetFilter={() => {
-              setFilter({});
-              setData(prev => ({ ...prev, filter: {} }));
-            }}
-            onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-          />
-        </Stack>
-
+      <ParentCard title={decodeURIComponent(params?.pid)} action={(
+        <FilterModal
+          filter={filter}
+          updateFilter={updateFilter}
+          resetFilter={() => {
+            setFilter({});
+            setData(prev => ({ ...prev, filter: {} }));
+          }}
+          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+        />
+      )}>
         <SummaryBar
           title={t('pages.merchants.reports.Total')}
           data={totalResultsData}
         />
-
-
-      <DataTable
-        search={false}
-        data={data}
-        toolbar={false}
-      />
+        <DataTable
+          search={false}
+          data={data}
+          toolbar={false}
+        />
+      </ParentCard>
     </Box>
   );
 }

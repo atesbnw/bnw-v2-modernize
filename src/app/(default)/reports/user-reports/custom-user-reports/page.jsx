@@ -180,12 +180,6 @@ function Page() {
         title={title}
       />
 
-      <SummaryBar
-        title={t('pages.merchants.reports.Total')}
-        data={totalResultsData}
-      />
-
-
       <ParentCard title={(
         <Stack direction="row" spacing={2}>
           <FormControlLabel
@@ -221,6 +215,10 @@ function Page() {
           />
         </Stack>
       )}>
+        <SummaryBar
+          title={t('pages.merchants.reports.Total')}
+          data={totalResultsData}
+        />
         <DataTable
           search={false}
           data={data}

@@ -134,14 +134,7 @@ function Page() {
         title={title}
       />
 
-
-        <SummaryBar
-          title={t('pages.merchants.reports.Total')}
-          data={totalResultsData}
-        />
-
-
-      <ParentCard title={""} action={(
+      <ParentCard title={decodeURIComponent(params?.pid)} action={(
         <FilterModal
           filter={filter}
           updateFilter={updateFilter}
@@ -152,6 +145,10 @@ function Page() {
           onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
         />
       )}>
+        <SummaryBar
+          title={t('pages.merchants.reports.Total')}
+          data={totalResultsData}
+        />
         <DataTable
           search={false}
           data={data}

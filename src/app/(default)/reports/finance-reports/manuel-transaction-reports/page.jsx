@@ -132,24 +132,21 @@ function Page() {
         title={title}
       />
 
-
+      <ParentCard title={""} action={(
+        <FilterModal
+          filter={filter}
+          updateFilter={updateFilter}
+          resetFilter={() => {
+            setFilter({});
+            setData(prev => ({ ...prev, filter: {} }));
+          }}
+          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+        />
+      )}>
         <SummaryBar
           title={t('pages.merchants.reports.Total')}
           data={totalResultsData}
         />
-
-
-      <ParentCard title={""} action={(
-        <FilterModal
-        filter={filter}
-        updateFilter={updateFilter}
-        resetFilter={() => {
-          setFilter({});
-          setData(prev => ({ ...prev, filter: {} }));
-        }}
-        onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-        />
-      )}>
         <DataTable
           search={false}
           data={data}
