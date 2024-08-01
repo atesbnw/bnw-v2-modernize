@@ -14,6 +14,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { useTheme } from '@mui/material/styles';
 import ActionModal from '@/app/(default)/components/game-management/admin-address/ActionModal';
 import Box from '@mui/material/Box';
+import ParentCard from "@/app/components/shared/ParentCard";
 
 function AdminAddress() {
   const theme = useTheme();
@@ -132,41 +133,39 @@ function AdminAddress() {
   }, []);
 
   return (
-    <Fragment>
-      <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
-        <TitleBar
-          title={t("menu.Game Management.Admin Address")}
-        />
 
-        <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
-          <IconButton color={'primary'} onClick={() => {}}>
-            <IconFileDownload />
-          </IconButton>
-        </Tooltip>
-
-
-        <FilterModal
-          filter={filter}
-          updateFilter={updateFilter}
-          resetFilter={() => {
-            setFilter({});
-            setData(prev => ({ ...prev, filter: {} }));
-          }}
-          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-        />
-
-
-        <ActionModal />
-
-      </Stack>
-
-      <DataTable
-        checkboxSelection={false}
-        search={false}
-        data={data}
-        toolbar={false}
+    <Box className={"flex flex-col gap-4"}>
+      <TitleBar
+        title={t("menu.Game Management.Admin Address")}
       />
-    </Fragment>
+      <ParentCard title={""} action={(
+        <>
+          <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
+            <IconButton color={'primary'} onClick={() => {}}>
+              <IconFileDownload />
+            </IconButton>
+          </Tooltip>
+          <FilterModal
+            filter={filter}
+            updateFilter={updateFilter}
+            resetFilter={() => {
+              setFilter({});
+              setData(prev => ({ ...prev, filter: {} }));
+            }}
+            onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+          />
+          <ActionModal />
+
+        </>
+      )}>
+        <DataTable
+          checkboxSelection={false}
+          search={false}
+          data={data}
+          toolbar={false}
+        />
+      </ParentCard>
+    </Box>
   );
 }
 

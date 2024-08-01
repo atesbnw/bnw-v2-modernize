@@ -134,6 +134,7 @@ function TransactionsTable() {
   }, []);
 
   return (
+
     <Box className={"flex flex-col gap-4"}>
       <TitleBar
         link="../game-management"

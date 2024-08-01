@@ -16,6 +16,7 @@ import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
 import TitleBar from '@/app/components/TitleBar';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import ParentCard from "@/app/components/shared/ParentCard";
 
 function TransactionsTable() {
   const params = useParams();
@@ -138,32 +139,28 @@ function TransactionsTable() {
   }, []);
 
   return (
-    <Fragment>
-      <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
-        <TitleBar
-          title={t("menu.Game Management.Casino Management")}
-        />
-
-        <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
-          <IconButton color={'primary'} onClick={() => {}}>
-            <IconFileDownload />
-          </IconButton>
-        </Tooltip>
-
-
-        <FilterModal
-          filter={filter}
-          updateFilter={updateFilter}
-          resetFilter={() => {
-            setFilter({});
-            setData(prev => ({ ...prev, filter: {} }));
-          }}
-          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-        />
-
-
-      </Stack>
-
+    <Box className={"flex flex-col gap-4"}>
+      <TitleBar
+        title={t("menu.Game Management.Casino Management")}
+      />
+      <ParentCard title={""} action={(
+        <>
+          <Tooltip title={t('i.downloadCSV')}>
+            <IconButton color={'primary'} onClick={() => {}}>
+              <IconFileDownload />
+            </IconButton>
+          </Tooltip>
+          <FilterModal
+            filter={filter}
+            updateFilter={updateFilter}
+            resetFilter={() => {
+              setFilter({});
+              setData(prev => ({ ...prev, filter: {} }));
+            }}
+            onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+          />
+        </>
+      )}>
         <DataTable
           checkboxSelection={true}
           search={false}
@@ -172,7 +169,8 @@ function TransactionsTable() {
           onRowClick={(e) => router.push(`/game-management/${e?.row?.providerName}`)}
           rowReordering={true}
         />
-    </Fragment>
+      </ParentCard>
+    </Box>
   );
 }
 
