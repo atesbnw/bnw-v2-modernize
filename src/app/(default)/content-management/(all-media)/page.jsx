@@ -52,7 +52,7 @@ function Page() {
   }, [page]);
 
   return (
-    <Box>
+    <Box className={'flex flex-col gap-4'}>
       <TitleBar title={t("Content Management.All Media")}
         Right={(
           <Button variant={"contained"} onClick={() => {}}>

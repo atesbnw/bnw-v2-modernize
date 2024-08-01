@@ -151,7 +151,7 @@ function Page() {
   return (
     <Fragment>
       <Grid container spacing={3}>
-        <Grid item xs={12}>
+        <Grid item xs={12} mb={2}>
           <TitleBar
             title={t('pages.domain-management.domain-management.Domain Management')}
             Right={ButtonComps}
