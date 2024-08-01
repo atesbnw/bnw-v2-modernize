@@ -1,5 +1,6 @@
 import React, {Fragment, memo, useCallback, useEffect, useState} from 'react';
 import { t } from 'i18next';
+import { Editor } from '@tinymce/tinymce-react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
@@ -19,9 +20,6 @@ import {IconCloudUpload, IconPencil, IconPlus} from "@tabler/icons-react";
 import {CloudUpload} from "@mui/icons-material";
 import dayjs from "dayjs";
 import {styled} from "@mui/material/styles";
-import dynamic from "next/dynamic";
-import '@/app/base/forms/form-quill/Quill.css';
-import 'react-quill/dist/quill.snow.css';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -39,20 +37,10 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
-const ReactQuill = dynamic(
-  async () => {
-    const { default: RQ } = await import('react-quill');
-    // eslint-disable-next-line react/display-name
-    return ({ ...props }) => <RQ {...props} />;
-  },
-  {
-    ssr: false,
-  },
-);
 
 function ActionModal({id, data}) {
   const [deliveryTime, setDeliveryTime] = React.useState(dayjs());
-
+  const [descriptionTextState, setDescriptionTextState] = useState(`<b>Lorem Ipsum</b>`);
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = useState({});
 
@@ -193,7 +181,6 @@ function ActionModal({id, data}) {
 
           <Grid item xs={12}>
             <Typography variant={"h3"}>{t('pages.tools.bulk-email.Description')}</Typography>
-
           </Grid>
           <Grid item xs={6} lg={4}>
             <CustomFormLabel  sx={{mt:0}} htmlFor="language">{t('pages.tools.bulk-email.Language')}</CustomFormLabel>
@@ -229,9 +216,16 @@ function ActionModal({id, data}) {
           </Grid>
           <Grid item xs={12}>
             <CustomFormLabel sx={{mt:0}}  htmlFor="text">{t('pages.tools.bulk-email.Description')}</CustomFormLabel>
-            <ReactQuill
-              placeholder={t('pages.tools.bulk-email.DescriptionPlaceholder')}
-              value={value?.text}
+
+            <Editor
+              apiKey='guprq03hh5v1djtbltywxovby1p2yinwzut4lms5dte35j1h'
+              init={{
+                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                tinycomments_mode: 'embedded',
+                ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+              }}
+              initialValue={descriptionTextState}
             />
           </Grid>
           <Grid item xs={4}>

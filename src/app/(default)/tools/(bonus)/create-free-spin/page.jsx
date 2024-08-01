@@ -1,5 +1,6 @@
 "use client";
 import React, {memo, useState, useCallback, useMemo, Fragment} from 'react';
+import { Editor } from '@tinymce/tinymce-react';
 import { t } from 'i18next';
 import { useFormik } from 'formik';
 import {
@@ -10,7 +11,8 @@ import {
   Select,
   OutlinedInput,
   FormControl,
-  InputAdornment, Stack, Box, FormControlLabel
+  InputAdornment,
+  Box
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
@@ -19,9 +21,6 @@ import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
 import { validationSchema } from './validation';
 import ParentCard from "@/app/components/shared/ParentCard";
 import TitleBar from "@/app/components/TitleBar";
-import '@/app/base/forms/form-quill/Quill.css';
-import dynamic from 'next/dynamic';
-import 'react-quill/dist/quill.snow.css';
 import dayjs from "dayjs";
 import {DateTimePicker} from "@mui/x-date-pickers/DateTimePicker";
 import {LocalizationProvider} from "@mui/x-date-pickers";
@@ -41,17 +40,6 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
-const ReactQuill = dynamic(
-  async () => {
-    const { default: RQ } = await import('react-quill');
-    // eslint-disable-next-line react/display-name
-    return ({ ...props }) => <RQ {...props} />;
-  },
-  {
-    ssr: false,
-  },
-);
-
 const multipleSelectItems = [
   'Option A',
   'Option V',
@@ -63,6 +51,7 @@ const multipleSelectItems = [
 ];
 
 function Page() {
+  const [descriptionTextState, setDescriptionTextState] = useState(`<b>Lorem Ipsum</b>`);
   const [startDateTime, setStartDateTime] = React.useState(dayjs());
   const [finishDateTime, setFinishDateTime] = React.useState(dayjs());
 
@@ -313,14 +302,15 @@ function Page() {
                   <CustomFormLabel
                     htmlFor="descriptionText">{t('pages.tools.bonus.descriptionText')}</CustomFormLabel>
 
-                  <ReactQuill
-                    // value={formik.values.descriptionText}
-                    // onChange={formik.descriptionText}
-                    // value={text}
-                    // onChange={(value) => {
-                    //   setText(value);
-                    // }}
-                    placeholder="Type here..."
+                  <Editor
+                    apiKey='guprq03hh5v1djtbltywxovby1p2yinwzut4lms5dte35j1h'
+                    init={{
+                      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+                      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                      tinycomments_mode: 'embedded',
+                      ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+                    }}
+                    initialValue={descriptionTextState}
                   />
                 </Grid>
 
