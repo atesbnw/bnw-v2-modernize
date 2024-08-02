@@ -10,7 +10,7 @@ import {Faker, fakerTR, tr} from "@faker-js/faker";
 import {useRouter} from "next/navigation";
 import OperatorIcons from "@/app/(default)/components/operator-management/OperatorIcons";
 import {uniqueId} from "lodash";
-import Lejand from '@/app/components/shared/Lejand';
+import StatusInfo from '@/app/components/shared/StatusInfo';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -129,7 +129,7 @@ function Page() {
 
       <Stack direction={"row"} justifyContent={"space-between"} className={"mb-3"}>
 
-        <Lejand />
+        <StatusInfo />
 
         <FilterModal
           filter={filter}

@@ -75,6 +75,7 @@ function AdminAddress() {
       {
         field: 'note',
         headerName: t('pages.game-management.admin-address.note'),
+        headerAlign: 'center',
         renderCell: ({ value }) => {
           return (
             <Tooltip title={value}>

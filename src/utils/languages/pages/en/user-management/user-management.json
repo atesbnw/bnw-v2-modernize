@@ -20,7 +20,8 @@
   "sameDayRegistered": "Same Day Registered",
   "sameIP": "Same IP",
   "sameLastLogin": "Same Last Login",
-  "Lejand": {
+  "statusInfo": "Status Info",
+  "statusInfoList": {
     "suspendedUser": "Suspended User",
     "onlineStatus": "Online Status",
     "lockedAccount": "Locked Account",

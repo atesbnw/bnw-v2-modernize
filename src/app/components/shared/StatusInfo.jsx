@@ -12,7 +12,7 @@ import {
 import {t} from "i18next";
 
 
-function Lejand() {
+function StatusInfo() {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClick = (event) => {
@@ -23,7 +23,7 @@ function Lejand() {
 
   return (
     <Fragment>
-      <Button color="warning" variant="outlined" onClick={handleClick}>Lejand</Button>
+      <Button color="warning" variant="outlined" onClick={handleClick}>{t('pages.user-management.user_management_user_management.statusInfo')}</Button>
       <Popper
         // Note: The following zIndex style is specifically for documentation purposes and may not be necessary in your application.
         sx={{ zIndex: 1200 }}
@@ -39,49 +39,49 @@ function Lejand() {
                 <Fab size="small" sx={{ backgroundColor: '#ff7300' }} >
                   <IconPlayerPause size={16} color="white"/>
                 </Fab>
-                <Typography>{t('pages.user-management.user_management_user_management.Lejand.suspendedUser')}</Typography>
+                <Typography>{t('pages.user-management.user_management_user_management.statusInfoList.suspendedUser')}</Typography>
               </Box>
               <Box className={"flex items-center gap-4"}>
                 <Fab size="small" sx={{ backgroundColor: '#1fcd36' }}>
                   <IconCircle size={16} color="white"/>
                 </Fab>
-                <Typography>{t('pages.user-management.user_management_user_management.Lejand.onlineStatus')}</Typography>
+                <Typography>{t('pages.user-management.user_management_user_management.statusInfoList.onlineStatus')}</Typography>
               </Box>
               <Box className={"flex items-center gap-4"}>
                 <Fab size="small" sx={{ backgroundColor: '#121212' }}>
                   <IconLock size={16} color="white"/>
                 </Fab>
-                <Typography>{t('pages.user-management.user_management_user_management.Lejand.lockedAccount')}</Typography>
+                <Typography>{t('pages.user-management.user_management_user_management.statusInfoList.lockedAccount')}</Typography>
               </Box>
               <Box className={"flex items-center gap-4"}>
                 <Fab size="small" sx={{ backgroundColor: '#1fcd36' }} >
                   <IconCheck size={16} color="white"/>
                 </Fab>
-                <Typography>{t('pages.user-management.user_management_user_management.Lejand.approvedMember')}</Typography>
+                <Typography>{t('pages.user-management.user_management_user_management.statusInfoList.approvedMember')}</Typography>
               </Box>
               <Box className={"flex items-center gap-4"}>
                 <Fab size="small" sx={{ backgroundColor: '#ffd600' }} >
                   <IconStar size={16} color="white"/>
                 </Fab>
-                <Typography>{t('pages.user-management.user_management_user_management.Lejand.vip')}</Typography>
+                <Typography>{t('pages.user-management.user_management_user_management.statusInfoList.vip')}</Typography>
               </Box>
               <Box className={"flex items-center gap-4"}>
                 <Fab size="small" sx={{ backgroundColor: '#121212' }} >
                   <IconBuildingStore size={16} color="white"/>
                 </Fab>
-                <Typography>{t('pages.user-management.user_management_user_management.Lejand.merchant')}</Typography>
+                <Typography>{t('pages.user-management.user_management_user_management.statusInfoList.merchant')}</Typography>
               </Box>
               <Box className={"flex items-center gap-4"}>
                 <Fab size="small" sx={{ backgroundColor: '#CD201F' }} >
                   <IconHeart size={16} color="white"/>
                 </Fab>
-                <Typography>{t('pages.user-management.user_management_user_management.Lejand.loyalMember')}</Typography>
+                <Typography>{t('pages.user-management.user_management_user_management.statusInfoList.loyalMember')}</Typography>
               </Box>
               <Box className={"flex items-center gap-4"}>
                 <Fab size="small" sx={{ backgroundColor: '#1877F2' }}>
                   <IconUserCheck size={16} color="white"/>
                 </Fab>
-                <Typography>{t('pages.user-management.user_management_user_management.Lejand.newMember')}</Typography>
+                <Typography>{t('pages.user-management.user_management_user_management.statusInfoList.newMember')}</Typography>
               </Box>
             </Paper>
           </Fade>
@@ -91,4 +91,4 @@ function Lejand() {
   );
 }
 
-export default memo(Lejand);
+export default memo(StatusInfo);

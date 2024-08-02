@@ -10,7 +10,7 @@ import {useRouter} from "next/navigation";
 import UserIcons from "@/app/(default)/components/users/UserIcons";
 import {uniqueId} from "lodash";
 import {Faker, fakerTR, tr} from "@faker-js/faker";
-import Lejand from '@/app/components/shared/Lejand';
+import StatusInfo from '@/app/components/shared/StatusInfo';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -45,42 +45,52 @@ function Page() {
       {
         field: "uuid",
         headerName: "UID",
+        flex: 0.5,
       },
       {
         field: "username",
         headerName: "Username",
         flex: 1,
+        minWidth:150,
       },
       {
         field: "name",
         headerName: "Name",
-        flex: 0.7,
+        flex: 1,
+        minWidth:150,
       },
       {
         field: "birthday",
         headerName: "Birthday",
+        width:130,
       },
       {
         field: "ip",
         headerName: "IP",
+        width:110,
       },
       {
         field: "registerDate",
         headerName: "Register Date",
+        width:130,
       },
       {
         field: "lastLoginDate",
         headerName: "Last Login Date",
+        cellClassName:"centerAll",
+        width:130,
       },
       {
         field: "balance",
         headerName: "Balance",
+        width:100,
       },
       {
         field: "status",
         headerName: "Status",
         width: 330,
         cellClassName:"centerAll",
+        headerAlign: 'center',
         renderCell: (e) => {
           return (
             <UserIcons/>
@@ -98,7 +108,7 @@ function Page() {
         ip: faker.internet.ipv4(),
         registerDate: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
         lastLoginDate: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
-        balance: faker.number.float(10),
+        balance: faker.commerce.price(1000, 1000000, 2) + '₺',
       }
     ));
 
@@ -123,7 +133,7 @@ function Page() {
       <Breadcrumb title={t("Users.bc.User Management")} items={BCrumb} />
 
       <Stack spacing={2} direction={"row"} justifyContent={"space-between"} className={"mb-3"}>
-        <Lejand />
+        <StatusInfo />
 
         <FilterModal
           filter={filter}

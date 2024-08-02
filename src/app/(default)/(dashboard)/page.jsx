@@ -88,7 +88,7 @@ function Dashboard() {
 
             <Box className={"space-y-4"}>
               <DashboardCard
-                title={t('pages.reports.user-reports.mostPlay')}
+                title={t('Dashboard.Most Played')}
                 subtitle={""}
               >
                 <Grid container spacing={1}>
