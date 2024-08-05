@@ -20,7 +20,6 @@ function StatusInfo() {
   };
   const open = Boolean(anchorEl);
 
-
   return (
     <Fragment>
       <Button color="warning" variant="outlined" onClick={handleClick}>{t('pages.user-management.user_management_user_management.statusInfo')}</Button>
