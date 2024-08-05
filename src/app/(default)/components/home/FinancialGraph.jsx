@@ -77,12 +77,16 @@ const FinancialGraph = ({ isLoading, timeRange }) => {
   };
   const [chartData, setChartData] = useState([
     {
-      name: 'Yatırım',
+      name: 'Finance',
       data: [31, 40, 28, 51, 42, 109, 100],
     },
     {
-      name: 'Çekim',
+      name: 'Game',
       data: [11, 32, 45, 32, 34, 52, 41],
+    },
+    {
+      name: 'Audience',
+      data: [25, 12, 25, 13, 24, 42, 25],
     },
   ]);
 
@@ -98,14 +102,19 @@ const FinancialGraph = ({ isLoading, timeRange }) => {
   useEffect(() => {
     const investmentData = generateRandomData(7);
     const withdrawalData = generateRandomData(7);
+    const audienceData = generateRandomData(7);
     setChartData([
       {
-        name: 'Yatırım',
+        name: 'Finance',
         data: investmentData,
       },
       {
-        name: 'Çekim',
+        name: 'Game',
         data: withdrawalData,
+      },
+      {
+        name: 'Audience',
+        data: audienceData,
       },
     ]);
   }, [timeRange]);

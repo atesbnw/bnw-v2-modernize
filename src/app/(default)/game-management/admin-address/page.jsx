@@ -14,7 +14,6 @@ import { useParams, useRouter } from 'next/navigation';
 import { useTheme } from '@mui/material/styles';
 import ActionModal from '@/app/(default)/components/game-management/admin-address/ActionModal';
 import Box from '@mui/material/Box';
-import ParentCard from "@/app/components/shared/ParentCard";
 
 function AdminAddress() {
   const theme = useTheme();
@@ -50,6 +49,7 @@ function AdminAddress() {
       {
         field: 'lastEditOperator',
         headerName: t('pages.game-management.admin-address.lastEditOperator'),
+        sortable: false
         // width: 200
       },
       {
@@ -60,22 +60,25 @@ function AdminAddress() {
       {
         field: 'username',
         headerName: t('pages.game-management.admin-address.username'),
+        sortable: false
         // width: 200
       },
       {
         field: 'password',
         headerName: t('pages.game-management.admin-address.password'),
+        sortable: false
         // width: 200
       },
       {
         field: 'backofficeUrl',
         headerName: t('pages.game-management.admin-address.backofficeUrl'),
+        sortable: false
         // width: 200
       },
       {
         field: 'note',
         headerName: t('pages.game-management.admin-address.note'),
-        headerAlign: 'center',
+        sortable: false,
         renderCell: ({ value }) => {
           return (
             <Tooltip title={value}>
@@ -134,39 +137,41 @@ function AdminAddress() {
   }, []);
 
   return (
-
-    <Box className={"flex flex-col gap-4"}>
-      <TitleBar
-        title={t("menu.Game Management.Admin Address")}
-      />
-      <ParentCard title={""} action={(
-        <>
-          <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
-            <IconButton color={'primary'} onClick={() => {}}>
-              <IconFileDownload />
-            </IconButton>
-          </Tooltip>
-          <FilterModal
-            filter={filter}
-            updateFilter={updateFilter}
-            resetFilter={() => {
-              setFilter({});
-              setData(prev => ({ ...prev, filter: {} }));
-            }}
-            onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-          />
-          <ActionModal />
-
-        </>
-      )}>
-        <DataTable
-          checkboxSelection={false}
-          search={false}
-          data={data}
-          toolbar={false}
+    <Fragment>
+      <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
+        <TitleBar
+          title={t("menu.Game Management.Admin Address")}
         />
-      </ParentCard>
-    </Box>
+
+        <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
+          <IconButton color={'primary'} onClick={() => {}}>
+            <IconFileDownload />
+          </IconButton>
+        </Tooltip>
+
+
+        <FilterModal
+          filter={filter}
+          updateFilter={updateFilter}
+          resetFilter={() => {
+            setFilter({});
+            setData(prev => ({ ...prev, filter: {} }));
+          }}
+          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+        />
+
+
+        <ActionModal />
+
+      </Stack>
+
+      <DataTable
+        checkboxSelection={false}
+        search={false}
+        data={data}
+        toolbar={false}
+      />
+    </Fragment>
   );
 }
 

@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import NewManuelTransactionAddWithID
   from '@/app/(default)/components/merchants/financial-transactions/NewManuelTransactionAddWithID';
+import classNames from 'classnames';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -27,12 +28,21 @@ function TransactionsTable() {
         field: 'transactionId',
         width:150,
         headerName: 'Transaction Id',
-        renderCell: ({ value }) => (
-          <Box className={"flex gap-2 items-center"}>
-            <Typography className={"flex-1"} variant={"body1"}>{value}</Typography>
-            <NewManuelTransactionAddWithID id={value} />
-          </Box>
-        )
+        renderCell: (e) => {
+          const { value } = e;
+          const status = String(e?.row?.transactionType)==="Deposit" && String(e?.row?.status)?.toLowerCase();
+
+          return(
+            <Box className={classNames("flex gap-2 items-center w-full h-full pl-3 p-1.5", {
+              "bg-green-500": status==="completed",
+              "bg-blue-400": status==="new",
+              "bg-red-500": status==="canceled",
+            })}>
+              <Typography className={"flex-1"} variant={"body1"}>{value}</Typography>
+              <NewManuelTransactionAddWithID id={value} />
+            </Box>
+          )
+        }
         // width: 200
       },
       {
@@ -107,14 +117,14 @@ function TransactionsTable() {
       id: uniqueId(),
       transactionId: faker.datatype.number({ min: 100000000, max: 999000000 }),
       transactionDate: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
-      transactionType: faker.helpers.arrayElement(['Yatırım', 'Çekim', 'Ödeme', 'Transfer']),
-      category: faker.helpers.arrayElement(['Papara', 'Banka', 'Kredi Kartı', 'Nakit']),
+      transactionType: faker.helpers.arrayElement(['Deposit', 'Withdraw', 'Payment', 'Transfer']),
+      category: faker.helpers.arrayElement(['Papara', 'Bank', 'Credit Card', 'Cash']),
       subCategory: faker.helpers.arrayElement(['Papara Key', 'Bankamatik', 'Visa', 'Mastercard']),
       transactionDetail: faker.helpers.arrayElement(['Floaming Hot', 'Roulette', '-']),
-      transactionFlow: faker.helpers.arrayElement(['Talep', 'Onay', 'Red']),
+      transactionFlow: faker.helpers.arrayElement(['Request', 'Approve', 'Reject']),
       amount: faker.commerce.price(100, 1000, 2) + '₺',
       beforeBalance: faker.commerce.price(0, 500, 2) + '₺',
-      status: faker.helpers.arrayElement(['Yeni', 'Tamamlandı', 'İptal']),
+      status: faker.helpers.arrayElement(['New', 'Completed', 'Canceled']),
       device: faker.helpers.arrayElement(['iPhone 14 Pro', 'Samsung Galaxy S21', 'Huawei P30', 'Xiaomi Mi 11']),
     }));
 
