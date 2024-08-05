@@ -37,28 +37,29 @@ function Page() {
       {
         field: 'transactionDate',
         headerName: 'Transaction Date',
-        // width: 200
+        width:130,
       },
       {
         field: 'ip',
         headerName: 'IP',
-        // width: 200,
+        width:110,
       },
       {
         field: 'operator',
         headerName: 'Operator',
-        // width: 200
         flex: 1,
+        minWidth:100,
       },
       {
         field: 'update',
         headerName: 'Update',
-        // width: 200
+        flex: 1,
+        minWidth:130,
       },
       {
         field: 'transactionDetail',
         headerName: 'Transaction Detail',
-        // width: 200
+        width:130,
       }
     ];
 

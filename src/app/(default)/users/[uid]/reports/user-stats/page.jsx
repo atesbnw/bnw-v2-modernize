@@ -23,19 +23,14 @@ function Page() {
   };
 
   const data = [
-    { title: "Last Sport Bet", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />, info: {transactionTime:"18.05.2024 22:18:33", user:"goremaster"}},
     { title: "Last Casino Bet", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />, info: {transactionTime:"18.05.2024 22:18:33", user:"goremaster"}},
     { title: "Last Live Casino Bet", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />, info: {transactionTime:"18.05.2024 22:18:33", user:"goremaster"}},
-    { title: "Last Sport Bonus", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />, info: {transactionTime:"18.05.2024 22:18:33", user:"goremaster"}},
     { title: "Last Casino Bonus", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />, info: {transactionTime:"18.05.2024 22:18:33", user:"goremaster"}},
     { title: "Last Live Casino Bonus", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />, info: {transactionTime:"18.05.2024 22:18:33", user:"goremaster"}},
-    { title: "Total Sport Bet", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Casino Bet", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Live Casino Bet", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
-    { title: "Total Sport Bonus", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Casino Bonus", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Live Casino Bonus", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
-    { title: "Total Sport Profit", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Casino Profit", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Live Casino Profit", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Investment Amount", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},

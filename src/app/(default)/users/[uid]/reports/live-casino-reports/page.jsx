@@ -77,21 +77,6 @@ function Page() {
         field: 'payback',
         headerName: 'Payback',
         // width: 200
-      },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 170,
-        getActions: (e) => {
-          return [
-            <IconButton onClick={() => router.push(`/users/${params.uid}/reports/live-casino-reports/${e.id}`)}>
-              <IconEye />
-            </IconButton>,
-            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-            //   <IconPencil />
-            // </IconButton>
-          ]
-        }
       }
     ];
 
@@ -163,6 +148,7 @@ function Page() {
           search={false}
           data={data}
           toolbar={false}
+          onRowClick={(e) => router.push(`/users/${params.uid}/reports/live-casino-reports/${e.id}`)}
         />
       </ParentCard>
     </Box>
