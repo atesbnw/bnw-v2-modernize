@@ -111,9 +111,9 @@ function TransactionsTable() {
 
     const rows = Array.from(Array(50)).map(() => ({
       id: uniqueId(),
-      logo: faker.image.avatar(), // or you can use any placeholder image URL
+      logo: faker.helpers.arrayElement(['https://igrikazino.com/wp-content/uploads/2023/12/Flaming-Hot-Slot.jpg','https://www.egt.com/wp-content/uploads/2022/09/egt_games_general_series_green_general_40_burning_hot-1.png','https://www.egt.com/wp-content/uploads/2023/02/egt_games_general_series_red_general_20_dazzling_hot.png','https://www.egt.com/wp-content/uploads/2023/02/egt_games_general_series_red_general_almighty_ramses_ii_both_ways.png']), // or you can use any placeholder image URL
       providerID: faker.datatype.number({ min: 1, max: 100 }).toString(),
-      providerName: faker.company.catchPhrase(),
+      providerName:  faker.helpers.arrayElement(["EGT", 'Nentent', 'Evolution', "Pragmatic Play", "Booming Games"]),
       desktop: faker.datatype.boolean(),
       mobile: faker.datatype.boolean(),
       lock: faker.datatype.boolean(),

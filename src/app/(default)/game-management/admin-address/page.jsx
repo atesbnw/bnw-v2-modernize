@@ -75,28 +75,34 @@ function AdminAddress() {
         sortable: false
         // width: 200
       },
-      {
-        field: 'note',
-        headerName: t('pages.game-management.admin-address.note'),
-        sortable: false,
-        renderCell: ({ value }) => {
-          return (
-            <Tooltip title={value}>
-              <Box className={"flex items-center justify-center w-full"}>
-                <IconInfoCircle color={theme.palette.warning.main} />
-              </Box>
-            </Tooltip>
-          )
-        }
-        // width: 200
-      },
+      // {
+      //   field: 'note',
+      //   headerName: t('pages.game-management.admin-address.note'),
+      //   sortable: false,
+      //   renderCell: ({ value }) => {
+      //     return (
+      //       <Tooltip title={value}>
+      //         <Box className={"flex items-center justify-center w-full"}>
+      //           <IconInfoCircle color={theme.palette.warning.main} />
+      //         </Box>
+      //       </Tooltip>
+      //     )
+      //   }
+      //   // width: 200
+      // },
 
       {
         field: 'actions',
         type: 'actions',
+        cellClassName: 'centerAll',
         width: 170,
         getActions: (e) => {
           return [
+            <Tooltip title={e?.row?.note}>
+              <Box className={"flex items-center justify-center w-full"}>
+                <IconInfoCircle color={theme.palette.warning.main} />
+              </Box>
+            </Tooltip>,
             <ActionModal data={e?.row} id={e?.id} />,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
             //   <IconPencil />

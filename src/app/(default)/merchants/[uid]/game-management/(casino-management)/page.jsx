@@ -13,6 +13,7 @@ import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
 import TitleBar from '@/app/components/TitleBar';
 import { useParams, useRouter } from 'next/navigation';
 import ParentCard from "@/app/components/shared/ParentCard";
+import Link from 'next/link';
 
 function TransactionsTable() {
   const params = useParams();
@@ -50,6 +51,11 @@ function TransactionsTable() {
         field: 'providerName',
         headerName: t('pages.user-management.game-management.providerName'),
         flex:1,
+        renderCell: (e) => (
+          <Link href={`/merchants/${params?.uid}/game-management/${e?.row?.providerName}`}>
+            {e?.value}
+          </Link>
+        )
         // width: 200
       },
       {
@@ -91,21 +97,21 @@ function TransactionsTable() {
         )
         // width: 200
       },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 170,
-        getActions: (e) => {
-          return [
-            <IconButton onClick={() => router.push(`/merchants/${params?.uid}/game-management/${e?.row?.providerName}`)}>
-              <IconEye />
-            </IconButton>,
-            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-            //   <IconPencil />
-            // </IconButton>
-          ]
-        }
-      }
+      // {
+      //   field: 'actions',
+      //   type: 'actions',
+      //   width: 170,
+      //   getActions: (e) => {
+      //     return [
+      //       <IconButton onClick={() => router.push(`/merchants/${params?.uid}/game-management/${e?.row?.providerName}`)}>
+      //         <IconEye />
+      //       </IconButton>,
+      //       // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+      //       //   <IconPencil />
+      //       // </IconButton>
+      //     ]
+      //   }
+      // }
     ];
 
     const rows = Array.from(Array(50)).map(() => ({

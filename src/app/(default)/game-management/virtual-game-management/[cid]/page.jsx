@@ -16,6 +16,7 @@ import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
 import TitleBar from '@/app/components/TitleBar';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import GameActionModal from '@/app/(default)/components/game-management/GameActionModal';
 
 function TransactionsTable() {
   const params = useParams();
@@ -44,16 +45,28 @@ function TransactionsTable() {
         // width: 200
       },
       {
-        field: 'providerID',
-        headerName: t('pages.user-management.game-management.providerID'),
-        // width: 200
+        field: 'gameName',
+        headerName: t('pages.user-management.game-management.gameName'),
+        flex:1,
       },
       {
-        field: 'providerName',
-        headerName: t('pages.user-management.game-management.providerName'),
-        flex:1,
-        // width: 200
+        field: 'gameId',
+        headerName: t('pages.user-management.game-management.gameId'),
       },
+      {
+        field: 'homeOrder',
+        headerName: t('pages.user-management.game-management.homeOrder'),
+      },
+      {
+        field: 'lobbyOrder',
+        headerName: t('pages.user-management.game-management.lobbyOrder'),
+      },
+      {
+        field: 'category',
+        headerName: t('pages.user-management.game-management.category'),
+      },
+
+
       {
         field: 'desktop',
         headerName: t('pages.user-management.game-management.Desktop'),
@@ -93,28 +106,33 @@ function TransactionsTable() {
         )
         // width: 200
       },
-      // {
-      //   field: 'actions',
-      //   type: 'actions',
-      //   width: 170,
-      //   getActions: (e) => {
-      //     return [
-      //       <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-      //         <IconEye />
-      //       </IconButton>,
-      //       // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-      //       //   <IconPencil />
-      //       // </IconButton>
-      //     ]
-      //   }
-      // }
+      {
+        field: 'actions',
+        type: 'actions',
+        width: 170,
+        getActions: (e) => {
+          return [
+            <GameActionModal
+              id={e?.id}
+              data={e?.row}
+            />,
+            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
+            //   <IconPencil />
+            // </IconButton>
+          ]
+        }
+      }
     ];
 
-    const rows = Array.from(Array(50)).map(() => ({
+    const rows = Array.from(Array(50)).map((_,i) => ({
       id: uniqueId(),
-      logo: faker.image.avatar(), // or you can use any placeholder image URL
-      providerID: faker.datatype.number({ min: 1, max: 100 }).toString(),
-      providerName: faker.company.catchPhrase(),
+      logo: faker.helpers.arrayElement(['https://igrikazino.com/wp-content/uploads/2023/12/Flaming-Hot-Slot.jpg','https://www.egt.com/wp-content/uploads/2022/09/egt_games_general_series_green_general_40_burning_hot-1.png','https://www.egt.com/wp-content/uploads/2023/02/egt_games_general_series_red_general_20_dazzling_hot.png','https://www.egt.com/wp-content/uploads/2023/02/egt_games_general_series_red_general_almighty_ramses_ii_both_ways.png']),
+      gameName: faker.helpers.arrayElement(['Flaming Hot', '40 Burning Hot', '20 Dazzling Hot','40 Lucky King','ALMIGHTY RAMSES II BOTH WAYS']),
+      provider: faker.helpers.arrayElement(["EGT", 'Nentent', 'Evolution', "Pragmatic Play", "Booming Games"]),
+      gameId: faker.datatype.number({ min: 1, max: 100 }).toString(),
+      homeOrder: faker.datatype.number({ min: 1, max: 100 }).toString(),
+      lobbyOrder: i+1,
+      category: faker.helpers.arrayElement(['Popular Slots', 'Video Slots', 'no category','New Games']),
       desktop: faker.datatype.boolean(),
       mobile: faker.datatype.boolean(),
       lock: faker.datatype.boolean(),
@@ -140,8 +158,8 @@ function TransactionsTable() {
     <Fragment>
       <Stack direction={'row'} justifyContent={'end'} className={'pb-4'} sx={{pt: 4, pb:2}}>
         <TitleBar
-          link={"../virtual-game-management"}
           title={t("menu.Game Management.Virtual Game Management")}
+          link={"../virtual-game-management"}
           subTitle={decodeURIComponent(params?.cid).replace(/^\//, '')}
         />
 

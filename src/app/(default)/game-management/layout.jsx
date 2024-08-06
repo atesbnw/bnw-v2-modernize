@@ -21,7 +21,7 @@ function layout({ children }) {
 
   return (
     <PageContainer title={t("menu.Game Management.title")} description="">
-      <HeaderCustom menu={menu} title={`${t("menu.Game Management.title")}`} activeItem={t("menu.Game Management.Casino Management")}>
+      <HeaderCustom menu={menu} title={`${t("menu.Game Management.title")}`}>
         {children}
       </HeaderCustom>
 

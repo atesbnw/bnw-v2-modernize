@@ -20,6 +20,7 @@ import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import {IconFileDownload} from "@tabler/icons-react";
 import FilterModal from "@/app/(default)/components/users/financial-transactions/FilterModal";
+import TransactionStatusTypes from '@/app/(default)/components/users/financial-transactions/TransactionStatusTypes';
 
 function Page() {
   const params = useParams();
@@ -91,6 +92,8 @@ function Page() {
             </>
           )}>
             <TransactionsTable />
+
+            <TransactionStatusTypes />
           </ParentCard>
         </Grid>
       </Grid>

@@ -10,6 +10,7 @@ import {
   IconStar, IconUserCheck
 } from "@tabler/icons-react";
 import {t} from "i18next";
+import { ClickAwayListener } from '@mui/base/ClickAwayListener';
 
 
 function StatusInfo() {
@@ -22,7 +23,9 @@ function StatusInfo() {
 
   return (
     <Fragment>
-      <Button color="warning" variant="outlined" onClick={handleClick}>{t('pages.user-management.user_management_user_management.statusInfo')}</Button>
+      <ClickAwayListener onClickAway={e => anchorEl && handleClick(e)}>
+        <Button color="warning" variant="outlined" onClick={handleClick}>{t('pages.user-management.user_management_user_management.statusInfo')}</Button>
+      </ClickAwayListener>
       <Popper
         // Note: The following zIndex style is specifically for documentation purposes and may not be necessary in your application.
         sx={{ zIndex: 1200 }}

@@ -13,5 +13,14 @@
   "providerName": "Provider Name",
   "categoryName": "Category Name",
   "status": "Status",
-  "addDate": "Add Date"
+  "addDate": "Add Date",
+  "gameName": "Game Name",
+  "gameId": "Game ID",
+  "gameImage": "Game Image",
+  "homeOrder":  "Homepage Order",
+  "lobbyOrder": "Lobby Order",
+  "category":  "Category",
+  "provider":  "Provider",
+  "Edit Game": "Edit Game",
+  "Add Game": "Add Game"
 }

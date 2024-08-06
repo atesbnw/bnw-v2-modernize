@@ -84,7 +84,7 @@ function Page() {
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      providerLogo: faker.helpers.arrayElement(['https://static.casino.guru/pict/31244/Flaming-Hot.png?timestamp=1653449168000&imageDataId=214490&width=320&height=247']),
+      providerLogo: faker.helpers.arrayElement(['https://igrikazino.com/wp-content/uploads/2023/12/Flaming-Hot-Slot.jpg']),
       gameName: faker.helpers.arrayElement(['Flaming Hot', '40 Burning Hot', '20 Dazzling Hot']),
       played: faker.commerce.price(1000, 100000, 2) + '₺',
       won: faker.commerce.price(1000, 100000, 2) + '₺',
