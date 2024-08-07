@@ -10,7 +10,7 @@ import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
 import TimeTabs from '@/app/components/shared/TimeTabs';
 import { useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
-import { IconEye } from '@tabler/icons-react';
+import { IconChevronRight } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
@@ -95,7 +95,7 @@ function Page() {
         getActions: (e) => {
           return [
             <IconButton onClick={() => router.push(`/reports/live-casino-reports/${e.row?.providerTitle}`)}>
-              <IconEye />
+              <IconChevronRight />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
             //   <IconPencil />

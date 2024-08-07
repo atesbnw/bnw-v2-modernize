@@ -3,7 +3,7 @@ import { t } from 'i18next';
 import { faker } from '@faker-js/faker';
 import { useParams, useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
-import { IconEye, IconFileDownload } from '@tabler/icons-react';
+import { IconChevronRight, IconFileDownload } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import Box from '@mui/material/Box';
 import TitleBar from '@/app/components/TitleBar';
@@ -94,7 +94,7 @@ function ProviderReportsTab({filter, updateFilter = () => {}}) {
         getActions: (e) => {
           return [
             <IconButton onClick={() => router.push(`/reports/user-reports/user-game-reports/${params?.uid}/${e.row?.provider}`)}>
-              <IconEye />
+              <IconChevronRight />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
             //   <IconPencil />

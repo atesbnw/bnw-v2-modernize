@@ -2,15 +2,12 @@
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import TitleBar from '@/app/components/TitleBar';
 import {t} from "i18next";
-import PageContainer from '@/app/components/container/PageContainer';
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
 import FilterModal from '@/app/(default)/components/reports/game-reports/FilterModal';
 import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
-import TimeTabs from '@/app/components/shared/TimeTabs';
 import { useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
-import { IconEye } from '@tabler/icons-react';
+import { IconChevronRight } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
@@ -95,7 +92,7 @@ function Page() {
         getActions: (e) => {
           return [
             <IconButton onClick={() => router.push(`/reports/${e.row?.providerTitle}`)}>
-              <IconEye />
+              <IconChevronRight />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
             //   <IconPencil />

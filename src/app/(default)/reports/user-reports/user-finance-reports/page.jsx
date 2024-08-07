@@ -12,7 +12,7 @@ import { uniqueId } from 'lodash';
 import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
 import IconButton from '@mui/material/IconButton';
-import { IconEye } from '@tabler/icons-react';
+import { IconChevronRight } from '@tabler/icons-react';
 import ParentCard from '@/app/components/shared/ParentCard';
 
 function Page() {
@@ -104,7 +104,7 @@ function Page() {
         getActions: (e) => {
           return [
             <IconButton onClick={() => router.push(`/reports/user-reports/user-finance-reports/${e.row?.provider}`)}>
-              <IconEye />
+              <IconChevronRight />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
             //   <IconPencil />
