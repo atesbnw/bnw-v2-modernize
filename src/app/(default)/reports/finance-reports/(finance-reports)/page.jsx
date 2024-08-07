@@ -59,33 +59,44 @@ function Page() {
         flex: 1,
       },
       {
-        field: 'played',
-        headerName: 'Played',
+        field: 'category',
+        headerName: t("pages.game-management.admin-address.category"),
+        // height: 500
+      },
+      {
+        field: 'username',
+        headerName: t("pages.merchants.dashboard.Username"),
         // width: 200
       },
       {
-        field: 'won',
-        headerName: 'Win',
+        field: 'userId',
+        headerName: t("pages.merchants.dashboard.User ID"),
+        // height: 500
+      },
+      {
+        field: 'totalDeposit',
+        headerName: t('pages.reports.user-reports.totalDeposit'),
+        flex: 1,
         // width: 200
       },
       {
-        field: 'difference',
-        headerName: 'Difference',
+        field: 'depositCount',
+        headerName: t('pages.reports.user-reports.depositCount'),
         // width: 200
       },
       {
-        field: 'canceled',
-        headerName: 'Canceled',
+        field: 'totalWithdraw',
+        headerName: t('pages.reports.user-reports.totalWithdraw'),
         // width: 200
       },
       {
-        field: 'takeBack',
-        headerName: 'Rollback',
+        field: 'withdrawCount',
+        headerName: t('pages.reports.user-reports.withdrawCount'),
         // width: 200
       },
       {
-        field: 'payback',
-        headerName: 'Payback',
+        field: 'diff',
+        headerName: t('pages.reports.user-reports.diff'),
         // width: 200
       },
       {
@@ -109,12 +120,14 @@ function Page() {
       id: uniqueId(),
       providerLogo: faker.helpers.arrayElement(['https://www.paulbellard.com/wp-content/uploads/2020/03/evolution-gaming-logo.jpg',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrS2jgqiRGVV6dOm-hkxr-JhLaWbpoxMim8Q&s","https://www.liveblackjack.co/wp-content/uploads/2019/08/lucky_streak.png"]),
       providerTitle: faker.helpers.arrayElement(['Lucky Streak', 'XPG', 'Ezugi', "Evolution"]),
-      played: faker.commerce.price(1000, 100000, 2) + '₺',
-      won: faker.commerce.price(1000, 100000, 2) + '₺',
-      difference: faker.commerce.price(1000, 100000, 2) + '₺',
-      canceled: faker.commerce.price(1000, 100000, 2) + '₺',
-      takeBack: faker.commerce.price(1000, 100000, 2) + '₺',
-      payback: faker.commerce.price(1000, 100000, 2) + '₺',
+      category: faker.helpers.arrayElement(['Papara', 'Banka', 'Kredi Kartı', 'Nakit']),
+      username: faker.internet.userName().toLowerCase(),
+      userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
+      totalDeposit: faker.commerce.price(1000, 100000, 2) + '₺',
+      depositCount: faker.commerce.price(1000, 100000, 2) + '₺',
+      totalWithdraw: faker.commerce.price(1000, 100000, 2) + '₺',
+      withdrawCount: faker.commerce.price(1000, 100000, 2) + '₺',
+      diff: faker.commerce.price(1000, 100000, 2) + '₺',
     }));
 
     setData((prev) => ({
