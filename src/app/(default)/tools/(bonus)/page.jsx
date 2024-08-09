@@ -24,7 +24,7 @@ function Page() {
   const ButtonComps = useCallback(() => {
     return (
       <Stack direction={"row"} className={"gap-2 items-center"}>
-          <Button variant='contained' color='primary' onClick={() => router.push(`/tools/create-free-bet/`)}>{t('pages.tools.bonus.Create Free Bet')}</Button>
+          {/* <Button variant='contained' color='primary' onClick={() => router.push(`/tools/create-free-bet/`)}>{t('pages.tools.bonus.Create Free Bet')}</Button> */}
           <Button variant='contained' color='primary' onClick={() => router.push(`/tools/create-free-spin/`)}>{t('pages.tools.bonus.Create Free Spin')}</Button>
           <Button variant='contained' color='primary' onClick={() => router.push(`/tools/create-bonus/`)}>{t('pages.tools.bonus.Create Bonus')}</Button>
       </Stack>

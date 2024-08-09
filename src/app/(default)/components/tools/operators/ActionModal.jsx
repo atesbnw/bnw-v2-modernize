@@ -249,8 +249,8 @@ function ActionModal({id, data}) {
               value={value?.otp}
               onChange={(e) => updateValue('otp', e?.target.value)}
             >
-              <MenuItem value="private">Private</MenuItem>
-              <MenuItem value="all">ALL</MenuItem>
+              <MenuItem value="active">Active</MenuItem>
+              <MenuItem value="passive">Passive</MenuItem>
             </CustomSelect>
           </Grid>
           <Grid item xs={6} sm={4} lg={2}>
@@ -263,8 +263,8 @@ function ActionModal({id, data}) {
               value={value?.otpType}
               onChange={(e) => updateValue('otpType', e?.target.value)}
             >
-              <MenuItem value="private">Private</MenuItem>
-              <MenuItem value="all">ALL</MenuItem>
+              <MenuItem value="sms">SMS</MenuItem>
+              <MenuItem value="ga">GA</MenuItem>
             </CustomSelect>
           </Grid>
           <Grid xs={12} />

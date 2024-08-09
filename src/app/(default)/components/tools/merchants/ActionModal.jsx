@@ -239,6 +239,34 @@ function ActionModal({id, data}) {
               <MenuItem value="all">ALL</MenuItem>
             </CustomSelect>
           </Grid>
+          <Grid item xs={6} sm={4} lg={2}>
+            <CustomFormLabel sx={{mt:0}} htmlFor="otp">{t('pages.tools.operators.otp')}</CustomFormLabel>
+            <CustomSelect
+              id="otp"
+              name="otp"
+              fullWidth
+              variant="outlined"
+              value={value?.otp}
+              onChange={(e) => updateValue('otp', e?.target.value)}
+            >
+              <MenuItem value="active">Active</MenuItem>
+              <MenuItem value="passive">Passive</MenuItem>
+            </CustomSelect>
+          </Grid>
+          <Grid item xs={6} sm={4} lg={2}>
+            <CustomFormLabel sx={{mt:0}} htmlFor="otpType">{t('pages.tools.operators.otpType')}</CustomFormLabel>
+            <CustomSelect
+              id="otpType"
+              name="otpType"
+              fullWidth
+              variant="outlined"
+              value={value?.otpType}
+              onChange={(e) => updateValue('otpType', e?.target.value)}
+            >
+              <MenuItem value="sms">SMS</MenuItem>
+              <MenuItem value="ga">GA</MenuItem>
+            </CustomSelect>
+          </Grid>
           <Grid xs={12} />
           <Grid item xs={6} sm={4} lg={2}>
             <CustomFormLabel sx={{mt:0}} htmlFor="country">{t('pages.tools.merchants.country')}</CustomFormLabel>

@@ -27,9 +27,7 @@ const StatCards = () => {
   useEffect(() => {
     setData([
       { title: t("pages.user-management.user_management_financial_transactions.balance"), digits: '5.000,00₺ '},
-      { title: t("pages.user-management.user_management_financial_transactions.poker"), digits: '2.000,00₺'},
-      { title: t("pages.user-management.user_management_financial_transactions.okey"), digits: ' 5.000,00₺ '},
-      { title: t("pages.user-management.user_management_financial_transactions.investment"), digits: '46.000,00₺'},
+      { title: t("pages.user-management.user_management_financial_transactions.deposit"), digits: '46.000,00₺'},
       { title: t("pages.user-management.user_management_financial_transactions.withdraw"), digits: '30.000,00₺'},
       { title: t("pages.user-management.user_management_financial_transactions.receivedBonus"), digits: '46.000,00₺'},
       { title: t("pages.user-management.user_management_financial_transactions.canceledBonus"), digits: '6.000,00₺'},
