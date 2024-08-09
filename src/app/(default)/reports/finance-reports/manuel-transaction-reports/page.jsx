@@ -10,11 +10,12 @@ import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
 import TimeTabs from '@/app/components/shared/TimeTabs';
 import { useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
-import { IconChevronRight } from '@tabler/icons-react';
+import { IconChevronRight, IconInfoCircle } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
 import ParentCard from '@/app/components/shared/ParentCard';
+import Tooltip from '@mui/material/Tooltip';
 
 function Page() {
   const title = t("Reports.Manuel Transaction Reports");
@@ -58,75 +59,58 @@ function Page() {
   useEffect(() => {
     const columns = [
       {
-        field: 'providerLogo',
-        headerName: '',
-        renderCell: (params) => <img src={params.value} width={70} height="auto" />,
-        cellClassName: 'centerAll'
+        field: 'id',
+        headerName: t('pages.reports.user-reports.transactionId'),
         // width: 200
       },
       {
-        field: 'providerTitle',
-        headerName: 'Provider Title',
-        // width: 200
-        flex: 1,
+        field: 'transactionDetail',
+        headerName: t('pages.reports.user-reports.transactionDetail'),
+        width: 150
       },
       {
-        field: 'played',
-        headerName: 'Played',
-        // width: 200
-      },
-      {
-        field: 'won',
-        headerName: 'Win',
+        field: 'transactionCategory',
+        headerName: t('pages.reports.user-reports.transactionCategory'),
         // width: 200
       },
       {
-        field: 'difference',
-        headerName: 'Difference',
+        field: 'username',
+        headerName: t("pages.merchants.dashboard.Username"),
+        flex:1,
         // width: 200
       },
       {
-        field: 'canceled',
-        headerName: 'Canceled',
+        field: 'userId',
+        headerName: t("pages.merchants.dashboard.User ID"),
+        // height: 500
+      },
+      {
+        field: 'transactionDate',
+        headerName: t('pages.reports.user-reports.transactionDate'),
+        flex:1,
+        // width: 200,
+      },
+      {
+        field: 'amount',
+        headerName: t('pages.reports.user-reports.amount'),
         // width: 200
       },
       {
-        field: 'takeBack',
-        headerName: 'Rollback',
+        field: 'operator',
+        headerName: t('pages.reports.user-reports.operator'),
         // width: 200
-      },
-      {
-        field: 'payback',
-        headerName: 'Payback',
-        // width: 200
-      },
-      {
-        field: 'actions',
-        type: 'actions',
-        width: 170,
-        getActions: (e) => {
-          return [
-            <IconButton onClick={() => router.push(`/reports/finance-reports/manuel-transaction-reports/${e.row?.providerTitle}`)}>
-              <IconChevronRight />
-            </IconButton>,
-            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-            //   <IconPencil />
-            // </IconButton>
-          ]
-        }
       }
     ];
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      providerLogo: faker.helpers.arrayElement(['https://www.paulbellard.com/wp-content/uploads/2020/03/evolution-gaming-logo.jpg',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrS2jgqiRGVV6dOm-hkxr-JhLaWbpoxMim8Q&s","https://www.liveblackjack.co/wp-content/uploads/2019/08/lucky_streak.png"]),
-      providerTitle: faker.helpers.arrayElement(['Lucky Streak', 'XPG', 'Ezugi', "Evolution"]),
-      played: faker.commerce.price(1000, 100000, 2) + '₺',
-      won: faker.commerce.price(1000, 100000, 2) + '₺',
-      difference: faker.commerce.price(1000, 100000, 2) + '₺',
-      canceled: faker.commerce.price(1000, 100000, 2) + '₺',
-      takeBack: faker.commerce.price(1000, 100000, 2) + '₺',
-      payback: faker.commerce.price(1000, 100000, 2) + '₺',
+      transactionDetail: faker.helpers.arrayElement(['Deposit', 'Withdraw']),
+      transactionCategory: faker.helpers.arrayElement(['Edit Balance', 'ATM Fee']),
+      username: faker.internet.userName().toLowerCase(),
+      userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
+      transactionDate: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
+      amount: faker.commerce.price(1000, 100000, 2) + '₺',
+      operator: "eren_bonus"
     }));
 
     setData((prev) => ({

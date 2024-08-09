@@ -39,6 +39,7 @@
   "totalDepositCount":  "Total Deposit Count",
   "totalWithdrawCount": "Withdraw Count",
   "totalDiff": "Total Diff",
+  "transferredBonus": "Transferred Bonus",
   "totalTransferredBonus": "Total Transferred Bonus",
   "amount": "Amount",
   "transaction": "Transaction",
@@ -111,5 +112,13 @@
   "exchange":"Exchange",
   "parity": "Parity",
   "commissionPercent": "Commission Percent",
-  "commissionTotal": "Commission Total"
+  "commissionTotal": "Commission Total",
+  "createdAt": "Created at",
+  "confirmedAt": "Confirmed at",
+  "lastUseTime": "Last use time",
+  "finallyTime": "Finally time",
+  "paidAmount": "Paid Amount",
+  "convertedAmount": "Converted Amount",
+  "transactionDetail": "Transaction Detail",
+  "transactionCategory": "Transaction Category"
 }

@@ -51,10 +51,15 @@ function Page() {
   useEffect(() => {
     const columns = [
       {
+        field: 'id',
+        headerName: "ID"
+      },
+      {
         field: 'providerLogo',
-        headerName: '',
+        headerName: 'Logo',
         renderCell: (params) => <img src={params.value} width={70} height="auto" />,
-        cellClassName: 'centerAll'
+        cellClassName: 'centerAll',
+        headerAlign: "center"
         // width: 200
       },
       {
@@ -66,16 +71,6 @@ function Page() {
       {
         field: 'category',
         headerName: t("pages.game-management.admin-address.category"),
-        // height: 500
-      },
-      {
-        field: 'username',
-        headerName: t("pages.merchants.dashboard.Username"),
-        // width: 200
-      },
-      {
-        field: 'userId',
-        headerName: t("pages.merchants.dashboard.User ID"),
         // height: 500
       },
       {
@@ -126,8 +121,6 @@ function Page() {
       providerLogo: faker.helpers.arrayElement(['https://www.paulbellard.com/wp-content/uploads/2020/03/evolution-gaming-logo.jpg',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrS2jgqiRGVV6dOm-hkxr-JhLaWbpoxMim8Q&s","https://www.liveblackjack.co/wp-content/uploads/2019/08/lucky_streak.png"]),
       providerTitle: faker.helpers.arrayElement(['Lucky Streak', 'XPG', 'Ezugi', "Evolution"]),
       category: faker.helpers.arrayElement(['Papara', 'Banka', 'Kredi Kartı', 'Nakit']),
-      username: faker.internet.userName().toLowerCase(),
-      userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
       totalDeposit: faker.commerce.price(1000, 100000, 2) + '₺',
       depositCount: faker.commerce.price(1000, 100000, 2) + '₺',
       totalWithdraw: faker.commerce.price(1000, 100000, 2) + '₺',

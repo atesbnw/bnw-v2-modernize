@@ -10,11 +10,15 @@ import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
 import TimeTabs from '@/app/components/shared/TimeTabs';
 import { useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
-import { IconChevronRight } from '@tabler/icons-react';
+import { IconChevronRight, IconInfoCircle, IconListSearch } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
 import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
 import ParentCard from '@/app/components/shared/ParentCard';
+import CircleIcon from '@mui/icons-material/Circle';
+import CheckCircle from '@mui/icons-material/CheckCircle';
+import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
+import Tooltip from '@mui/material/Tooltip';
 
 function Page() {
   const title = t("menu.Users.Reports Menu.Bonus Reports");
@@ -47,75 +51,91 @@ function Page() {
   useEffect(() => {
     const columns = [
       {
-        field: 'providerLogo',
-        headerName: '',
-        renderCell: (params) => <img src={params.value} width={70} height="auto" />,
-        cellClassName: 'centerAll'
+        field: 'id',
+        headerName: t('pages.reports.user-reports.transactionId'),
         // width: 200
       },
       {
-        field: 'providerTitle',
-        headerName: 'Provider Title',
-        // width: 200
-        flex: 1,
-      },
-      {
-        field: 'played',
-        headerName: 'Played',
+        field: 'bonusType',
+        headerName: t('pages.tools.bonus.bonusType'),
         // width: 200
       },
       {
-        field: 'won',
-        headerName: 'Win',
+        field: 'transferredBonus',
+        headerName: t('pages.reports.user-reports.transferredBonus'),
         // width: 200
       },
       {
-        field: 'difference',
-        headerName: 'Difference',
+        field: 'username',
+        headerName: t("pages.merchants.dashboard.Username"),
         // width: 200
       },
       {
-        field: 'canceled',
-        headerName: 'Canceled',
+        field: 'userId',
+        headerName: t("pages.merchants.dashboard.User ID"),
+        // height: 500
+      },
+      {
+        field: 'createdAt',
+        headerName: t('pages.reports.user-reports.createdAt'),
+        // width: 200,
+      },
+      {
+        field: 'confirmedAt',
+        headerName: t('pages.reports.user-reports.confirmedAt'),
         // width: 200
       },
       {
-        field: 'takeBack',
-        headerName: 'Rollback',
+        field: 'lastUseTime',
+        headerName: t('pages.reports.user-reports.lastUseTime'),
         // width: 200
       },
       {
-        field: 'payback',
-        headerName: 'Payback',
+        field: 'finallyTime',
+        headerName: t('pages.reports.user-reports.finallyTime'),
         // width: 200
       },
       {
-        field: 'actions',
-        type: 'actions',
-        width: 170,
-        getActions: (e) => {
-          return [
-            <IconButton onClick={() => router.push(`/reports/finance-reports/bonus-reports/${e.row?.providerTitle}`)}>
-              <IconChevronRight />
-            </IconButton>,
-            // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
-            //   <IconPencil />
-            // </IconButton>
-          ]
-        }
-      }
+        field: 'paidAmount',
+        headerName: t('pages.reports.user-reports.paidAmount'),
+        // width: 200
+      },
+      {
+        field: 'convertedAmount',
+        headerName: t('pages.reports.user-reports.convertedAmount'),
+        width: 150
+      },
+      {
+        field: 'operator',
+        headerName: t('pages.reports.user-reports.operator'),
+        // width: 200
+      },
+      {
+        field: 'note',
+        headerName: t('pages.game-management.admin-address.note'),
+        renderCell:({value}) => (
+          <Tooltip title={value}>
+            <IconInfoCircle />
+          </Tooltip>
+        )
+        // width: 200
+      },
     ];
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      providerLogo: faker.helpers.arrayElement(['https://www.paulbellard.com/wp-content/uploads/2020/03/evolution-gaming-logo.jpg',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrS2jgqiRGVV6dOm-hkxr-JhLaWbpoxMim8Q&s","https://www.liveblackjack.co/wp-content/uploads/2019/08/lucky_streak.png"]),
-      providerTitle: faker.helpers.arrayElement(['Lucky Streak', 'XPG', 'Ezugi', "Evolution"]),
-      played: faker.commerce.price(1000, 100000, 2) + '₺',
-      won: faker.commerce.price(1000, 100000, 2) + '₺',
-      difference: faker.commerce.price(1000, 100000, 2) + '₺',
-      canceled: faker.commerce.price(1000, 100000, 2) + '₺',
-      takeBack: faker.commerce.price(1000, 100000, 2) + '₺',
-      payback: faker.commerce.price(1000, 100000, 2) + '₺',
+      bonusType: faker.helpers.arrayElement(['Deposit', 'Freespin', 'FreeBet']),
+      transferredBonus: faker.helpers.arrayElement(['%20 Hoş Geldin Bonusu', 'Pragmatic FreeSpin', '%15 Çevrimli Bonus']),
+      username: faker.internet.userName().toLowerCase(),
+      userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
+      createdAt: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
+      confirmedAt: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
+      lastUseTime: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
+      finallyTime: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
+      paidAmount: faker.commerce.price(1000, 100000, 2) + '₺',
+      convertedAmount: faker.commerce.price(1000, 100000, 2) + '₺',
+      operator: "eren_bonus",
+      note: "Some notes"
     }));
 
     setData((prev) => ({

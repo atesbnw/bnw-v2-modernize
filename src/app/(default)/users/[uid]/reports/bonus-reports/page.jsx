@@ -100,8 +100,6 @@ function Page() {
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-
-
       bonusType: faker.helpers.arrayElement(['Deposit', 'Freespin', 'FreeBet']),
       transferredBonus: faker.helpers.arrayElement(['%20 Hoş Geldin Bonusu', 'Pragmatic FreeSpin', '%15 Çevrimli Bonus']),
       creationTime: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),

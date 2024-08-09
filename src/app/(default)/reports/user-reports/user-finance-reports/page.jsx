@@ -49,7 +49,8 @@ function Page() {
         field: 'logo',
         headerName: 'Logo',
         renderCell: (params) => <img src={params.value} width={70} height="auto" />,
-        cellClassName: 'centerAll'
+        cellClassName: 'centerAll',
+        headerAlign: "center"
         // width: 200
       },
       {
