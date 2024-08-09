@@ -45,11 +45,13 @@ function Page() {
       {
         field: 'username',
         headerName: t('pages.reports.user-reports.username'),
+        flex: 1,
         // width: 200
       },
       {
         field: 'userId',
         headerName: t('pages.reports.user-reports.userId'),
+        flex: 1,
         // width: 200
       },
       {
@@ -61,21 +63,25 @@ function Page() {
       {
         field: 'depositCount',
         headerName: t('pages.reports.user-reports.depositCount'),
+        flex: 1,
         // width: 200
       },
       {
         field: 'totalWithdraw',
         headerName: t('pages.reports.user-reports.totalWithdraw'),
+        flex: 1,
         // width: 200
       },
       {
         field: 'withdrawCount',
         headerName: t('pages.reports.user-reports.withdrawCount'),
+        flex: 1,
         // width: 200
       },
       {
         field: 'diff',
         headerName: t('pages.reports.user-reports.diff'),
+        flex: 1,
         // width: 200
       },
     ];

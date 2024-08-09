@@ -39,11 +39,11 @@ function Page() {
 
   useEffect(() => {
     const columns = [
-      {
-        field: 'transactionId',
-        headerName: t('pages.reports.user-reports.transactionId'),
-        // width: 200
-      },
+      // {
+      //   field: 'transactionId',
+      //   headerName: t('pages.reports.user-reports.transactionId'),
+      //   // width: 200
+      // },
       {
         field: 'username',
         headerName: t('pages.reports.user-reports.username'),
@@ -52,12 +52,13 @@ function Page() {
       {
         field: 'userId',
         headerName: t('pages.reports.user-reports.userId'),
+        flex: 1,
         // width: 200
       },
       {
         field: 'updatedAt',
         headerName: t('pages.reports.user-reports.updatedAt'),
-        width: 200,
+        flex: 1,
         // width: 200
       },
       {

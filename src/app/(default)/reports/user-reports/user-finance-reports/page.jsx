@@ -104,7 +104,7 @@ function Page() {
         width: 170,
         getActions: (e) => {
           return [
-            <IconButton onClick={() => router.push(`/reports/user-reports/user-finance-reports/${e.row?.provider}`)}>
+            <IconButton onClick={() => router.push(`/reports/user-reports/user-finance-reports/${e?.row?.username}`)}>
               <IconChevronRight />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
