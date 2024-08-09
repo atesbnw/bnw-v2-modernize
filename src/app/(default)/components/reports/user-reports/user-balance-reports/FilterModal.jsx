@@ -53,7 +53,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                 <CustomTextField
                   id="searchText"
                   name="searchText"
-                  placeholder={t('pages.reports.game-reports.searchPlaceholder')}
+                  placeholder={t('pages.reports.game-reports.search')}
                   variant="outlined"
                   fullWidth
                   value={filter?.searchText}

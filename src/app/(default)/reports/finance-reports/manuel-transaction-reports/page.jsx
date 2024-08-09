@@ -1,5 +1,5 @@
 "use client";
-import React, { memo, useCallback, useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import TitleBar from '@/app/components/TitleBar';
 import {t} from "i18next";
 import PageContainer from '@/app/components/container/PageContainer';
@@ -25,14 +25,26 @@ function Page() {
       [field]: value,
     }));
   }, []);
-  const totalResultsData = [
-    { title: t('pages.merchants.reports.Played'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.merchants.reports.Won'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.merchants.reports.Difference'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.merchants.reports.Canceled'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.merchants.reports.Rollback'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.merchants.reports.Payback'), value: faker.commerce.price(1000, 100000, 2) + '₺'}
-  ];
+  const totalResultsData = useMemo(() => [
+    { title: t('pages.reports.user-reports.diff'), value: faker.commerce.price(24000, 100000, 2) + '₺' },
+    { title: t('pages.reports.user-reports.totalTransactionCount'), value: faker.commerce.price(24000, 100000, 2) + '₺' },
+    {
+      title: t('pages.reports.user-reports.totalDepositCount'),
+      value: faker.commerce.price(24000, 100000, 2) + '₺',
+    },
+    {
+      title: t('pages.reports.user-reports.totalDeposit'),
+      value: faker.commerce.price(24000, 100000, 2) + '₺'
+    },
+    {
+      title: t('pages.reports.user-reports.totalWithdrawCount'),
+      value: faker.commerce.price(24000, 100000, 2) + '₺',
+    },
+    {
+      title: t('pages.reports.user-reports.totalWithdraw'),
+      value: faker.commerce.price(24000, 100000, 2) + '₺'
+    }
+  ], []);
   const router = useRouter();
   const [data, setData] = useState({
     page: 1,

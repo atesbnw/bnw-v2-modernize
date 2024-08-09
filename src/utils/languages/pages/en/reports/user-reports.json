@@ -6,6 +6,8 @@
   "commissionReportsSearchPlaceholder": "Provider name",
   "totalCurrentBalance": "Total Current Balance",
   "totalUniqueUser": "Total Unique User",
+  "totalConvertedAmount": "Total Converted Amount",
+  "totalTransactionCount":  "Total Transaction Count",
   "transactionId": "Transaction Id",
   "username": "Username",
   "userId":  "User ID",
