@@ -20,11 +20,9 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
 
   return (
     <Fragment>
-      <Tooltip title={t('pages.operator-management.operator-management.filter')}>
-        <IconButton color={'primary'} onClick={() => setOpen(true)}>
-          <IconFilter />
-        </IconButton>
-      </Tooltip>
+      <Button color="primary" startIcon={<IconFilter width={18} />} onClick={() => setOpen(true)}>
+        {t('i.Filter')}
+      </Button>
 
       {Object.values(filter)?.some(Boolean) && (
         <Tooltip title={t('pages.operator-management.operator-management.clearAllFilter')}>
