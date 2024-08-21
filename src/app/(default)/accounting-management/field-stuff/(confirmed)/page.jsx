@@ -6,21 +6,17 @@ import Box from '@mui/material/Box';
 import FilterModal from '@/app/(default)/components/accounting-management/FilterModal';
 import { useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
-import { IconChevronRight, IconFileDownload, IconInfoCircle } from '@tabler/icons-react';
+import { IconFileDownload, IconInfoCircle } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
-import { faker } from '@faker-js/faker';
 import DataTable from '@/app/components/shared/DataTable';
 import ParentCard from '@/app/components/shared/ParentCard';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
-import ChildCard from '@/app/components/shared/ChildCard';
 import Typography from '@mui/material/Typography';
-import Table from '@mui/material/Table';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
+import { Faker, fakerTR, tr } from '@faker-js/faker';
+
+const faker = new Faker({
+  locale: [fakerTR, tr],
+});
 
 function Page() {
   const title = t("pages.accounting-management.confirmed");
@@ -66,6 +62,11 @@ function Page() {
         flex:1,
       },
       {
+        field: 'fullName',
+        headerName: t('pages.accounting-management.fullName'),
+        flex:1,
+      },
+      {
         field: 'category',
         headerName: t('pages.accounting-management.category'),
         flex:1,
@@ -83,8 +84,24 @@ function Page() {
         // width: 200
       },
       {
+        field: 'confirmedAt',
+        headerName: t('pages.accounting-management.confirmedAt'),
+        flex:1,
+        // width: 200
+      },
+      {
         field: 'amount',
         headerName: t('pages.accounting-management.amount'),
+        // width: 200
+      },
+      {
+        field: 'device',
+        headerName: t('pages.accounting-management.device'),
+        // width: 200
+      },
+      {
+        field: 'fieldStuff',
+        headerName: t('pages.accounting-management.fieldStuff'),
         // width: 200
       },
       {
@@ -115,11 +132,15 @@ function Page() {
       id: uniqueId(),
       transactionId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
       userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
+      fullName: faker.person.fullName(),
       username: faker.internet.userName().toLowerCase(),
       category: faker.helpers.arrayElement(['Papara', 'Payfix', "CepBank"]),
       provider: faker.helpers.arrayElement(['Papara Key', 'Garanti', "Finansbank"]),
       requestTime: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
+      confirmedAt: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
       amount: faker.commerce.price(1000, 100000, 2) + '₺',
+      device: faker.helpers.arrayElement(["iPhone 15 Pro Max", "iPhone 6s", "iPhone 7", "iPhone 8", "iPhone 9", "iPhone 10"]),
+      fieldStuff: faker.internet.userName().toLowerCase(),
       note: "Some note "+uniqueId(),
       bank: faker.helpers.arrayElement(['AKBANK', 'FİNANSBANK', "GARANTİ"]),
       iban: "TR"+faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),

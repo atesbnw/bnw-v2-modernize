@@ -1,6 +1,8 @@
 {
   "depositTransactions": "Deposit Transactions",
   "withdrawTransactions": "Withdraw Transactions",
+  "fullName": "Full name",
+  "device": "Device",
   "fieldStuff": "Field Staff",
   "paymentMethods": "Payment Methods",
   "newRequests": "New Requests",
@@ -14,6 +16,7 @@
   "category": "Category",
   "provider":  "Provider",
   "requestTime": "Request Time",
+  "operator": "Operator",
   "amount":  "Amount",
   "transactionDetails": "Transaction Details",
   "bank": "Bank",

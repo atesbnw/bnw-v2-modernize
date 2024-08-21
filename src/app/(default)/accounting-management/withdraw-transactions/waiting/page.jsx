@@ -189,6 +189,11 @@ function Page() {
         // width: 200
       },
       {
+        field: 'operator',
+        headerName: t('pages.accounting-management.operator'),
+        // width: 200
+      },
+      {
         field: 'actions',
         type: 'actions',
         width: 170,
@@ -217,6 +222,7 @@ function Page() {
       transactionId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
       userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
       username: faker.internet.userName().toLowerCase(),
+      operator: faker.internet.userName().toLowerCase(),
       category: faker.helpers.arrayElement(['Papara', 'Payfix', "CepBank"]),
       provider: faker.helpers.arrayElement(['Papara Key', 'Garanti', "Finansbank"]),
       requestTime: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
