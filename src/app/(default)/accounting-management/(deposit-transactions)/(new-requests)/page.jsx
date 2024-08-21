@@ -249,8 +249,6 @@ function Page() {
             <Button variant={"text"} color={"success"}>{t("pages.accounting-management.actions.confirm")}</Button>
             <Button variant={"text"} color={"warning"}>{t("pages.accounting-management.actions.doWaiting")}</Button>
             <Button variant={"text"} color={"error"}>{t("pages.accounting-management.actions.cancel")}</Button>
-            <Divider orientation={"vertical"} />
-            <Button variant={"text"} color={"info"}>{t("pages.accounting-management.actions.sendToField")}</Button>
           </Box>
         )} action={(
           <Fragment>

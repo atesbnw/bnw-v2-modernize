@@ -29,11 +29,11 @@ function TopMenu() {
       // icon: <IconUserCircle size="20" />,
       to: `${url}/withdraw-transactions`,
     },
-    {
-      label: 'pages.accounting-management.fieldStuff',
-      // icon: <IconUserCircle size="20" />,
-      to: `${url}/field-stuff`,
-    },
+    // {
+    //   label: 'pages.accounting-management.fieldStuff',
+    //   // icon: <IconUserCircle size="20" />,
+    //   to: `${url}/field-stuff`,
+    // },
     {
       label: 'pages.accounting-management.paymentMethods',
       // icon: <IconUserCircle size="20" />,
