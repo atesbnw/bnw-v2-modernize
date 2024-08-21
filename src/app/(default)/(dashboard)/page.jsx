@@ -98,7 +98,7 @@ function Dashboard() {
                     image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOLayqzmzNCN8PAkSw63ZQ6Aa5dAiSeycMrA&s"}
                     data={[
                       {
-                        title: "Play",
+                        title: "Bet",
                         value: 300000,
                         currency: "TRY"
                       },
@@ -120,7 +120,7 @@ function Dashboard() {
                     image={"https://www.paulbellard.com/wp-content/uploads/2020/03/evolution-gaming-logo.jpg"}
                     data={[
                       {
-                        title: "Play",
+                        title: "Bet",
                         value: 6200000,
                         currency: "TRY"
                       },
@@ -142,7 +142,7 @@ function Dashboard() {
                     image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOLayqzmzNCN8PAkSw63ZQ6Aa5dAiSeycMrA&s"}
                     data={[
                       {
-                        title: "Play",
+                        title: "Bet",
                         value: 653000,
                         currency: "TRY"
                       },
@@ -198,7 +198,7 @@ function Dashboard() {
                         image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGO2wGcJymC1ydiocdohoy1YgVg-L196iWQ&s"}
                         data={[
                           {
-                            title: "Play",
+                            title: "Bet",
                             value: faker.datatype.number({ min: 100000000, max: 999000000 }),
                             currency: "TRY"
                           },
@@ -220,7 +220,7 @@ function Dashboard() {
                         image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKvUttnM9IyBOfzC0QvTGK7uc_0L_0Iz4IBg&s"}
                         data={[
                           {
-                            title: "Play",
+                            title: "Bet",
                             value: faker.datatype.number({ min: 100000000, max: 999000000 }),
                             currency: "TRY"
                           },
@@ -242,7 +242,7 @@ function Dashboard() {
                         image={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW7Yn6AoRDFzBWW3prXnT8AZ2-E3GFrb4PAg&s"}
                         data={[
                           {
-                            title: "Play",
+                            title: "Bet",
                             value: faker.datatype.number({ min: 100000000, max: 999000000 }),
                             currency: "TRY"
                           },

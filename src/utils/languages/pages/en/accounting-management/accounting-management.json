@@ -24,6 +24,13 @@
   "userNote": "User note",
   "confirmedAt": "Confirmed at",
   "userLastConfirmedTransactions": "Last Confirmed Transactions",
+  "deposit": "Deposit",
+  "withdraw": "Withdraw",
+  "createNewGroup": "Create New Group",
+  "groupId": "Group Id",
+  "groupName": "Group Name",
+  "groupOrder": "Group Order",
+  "status": "Status",
   "actions": {
     "confirm": "Confirm",
     "doWaiting": "Do waiting",

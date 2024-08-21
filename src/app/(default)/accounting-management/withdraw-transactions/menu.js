@@ -7,24 +7,35 @@ export function useMenu() {
 
   const params = useParams();
   const url = useMemo(() => {
-    return `/reports/finance-reports`;
+    return `/accounting-management/withdraw-transactions`;
   }, []);
   const menu = [
     {
       id: uniqueId(),
-      title: "menu.Users.Reports Menu.Finance Reports",
+      title: "pages.accounting-management.newRequests",
       href: `${url}`
     },
     {
       id: uniqueId(),
-      title: "menu.Users.Reports Menu.Bonus Reports",
-      href: `${url}/bonus-reports`,
+      title: "pages.accounting-management.waiting",
+      href: `${url}/waiting`,
     },
     {
       id: uniqueId(),
-      title: "Reports.Manuel Transaction Reports",
-      href: `${url}/manuel-transaction-reports`,
+      title: "pages.accounting-management.confirmed",
+      href: `${url}/confirmed`,
+    },
+    {
+      id: uniqueId(),
+      title: "pages.accounting-management.canceled",
+      href: `${url}/canceled`,
     }
+    // ,
+    // {
+    //   id: uniqueId(),
+    //   title: "menu.Users.Reports Menu.Bet Reports",
+    //   href: `${url}/bet-reports`,
+    // }
   ];
 
   return {

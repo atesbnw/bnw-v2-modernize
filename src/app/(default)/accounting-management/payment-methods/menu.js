@@ -7,14 +7,19 @@ export function useMenu() {
 
   const params = useParams();
   const url = useMemo(() => {
-    return `/reports/general-reports`;
+    return `/accounting-management/payment-methods`;
   }, []);
   const menu = [
     {
       id: uniqueId(),
-      title: "Reports.Commission Reports",
-      href: `${url}`,
-    }
+      title: "pages.accounting-management.deposit",
+      href: `${url}`
+    },
+    {
+      id: uniqueId(),
+      title: "pages.accounting-management.withdraw",
+      href: `${url}/withdraw`,
+    },
     // ,
     // {
     //   id: uniqueId(),

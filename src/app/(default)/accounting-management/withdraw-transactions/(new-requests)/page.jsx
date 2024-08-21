@@ -131,7 +131,7 @@ const DetailCard = memo(function DetailCardComp({id, row}){
 });
 
 function Page() {
-  const title = t("pages.accounting-management.confirmed");
+  const title = t("pages.accounting-management.newRequests");
   const [filter, setFilter] = useState({});
   const updateFilter = useCallback((field, value) => {
     setFilter(prev => ({
@@ -240,13 +240,17 @@ function Page() {
 
   return (
     <Box className={"flex flex-col gap-4"}>
-
+      <TitleBar
+        title={title}
+      />
 
         <ParentCard title={(
           <Box className={"flex gap-2 items-center"}>
-            <TitleBar
-              title={title}
-            />
+            <Button variant={"text"} color={"success"}>{t("pages.accounting-management.actions.confirm")}</Button>
+            <Button variant={"text"} color={"warning"}>{t("pages.accounting-management.actions.doWaiting")}</Button>
+            <Button variant={"text"} color={"error"}>{t("pages.accounting-management.actions.cancel")}</Button>
+            <Divider orientation={"vertical"} />
+            <Button variant={"text"} color={"info"}>{t("pages.accounting-management.actions.sendToField")}</Button>
           </Box>
         )} action={(
           <Fragment>

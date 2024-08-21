@@ -9,7 +9,7 @@ function layout({ children }) {
   const {menu} = useMenu();
 
   return (
-    <HeaderCustom menu={menu} title={t("Reports.title")}>
+    <HeaderCustom menu={menu} title={t("pages.accounting-management.depositTransactions")}>
       {children}
     </HeaderCustom>
   );

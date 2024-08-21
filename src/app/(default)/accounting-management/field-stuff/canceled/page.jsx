@@ -22,116 +22,9 @@ import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 
-const DetailCard = memo(function DetailCardComp({id, row}){
-
-  const [data, setData] = useState({
-    page: 1,
-    pageSize: 10,
-    totalData: 20,
-    totalPage: 1,
-    columns: [],
-    rows: [],
-  });
-  useEffect(() => {
-    const columns = [
-      {
-        field: 'category',
-        headerName: t('pages.accounting-management.category'),
-        flex:1,
-      },
-      {
-        field: 'provider',
-        headerName: t('pages.accounting-management.provider'),
-        flex:1,
-        // width: 200
-      },
-      {
-        field: 'amount',
-        headerName: t('pages.accounting-management.amount'),
-        // width: 200
-      },
-      {
-        field: 'confirmedAt',
-        headerName: t('pages.accounting-management.confirmedAt'),
-        flex:1,
-        // width: 200
-      }
-    ];
-
-    const rows = Array.from(Array(5)).map(() => ({
-      id: uniqueId(),
-      category: faker.helpers.arrayElement(['Papara', 'Payfix', "CepBank"]),
-      provider: faker.helpers.arrayElement(['Papara Key', 'Garanti', "Finansbank"]),
-      confirmedAt: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
-      amount: faker.commerce.price(1000, 100000, 2) + '₺'
-    }));
-
-    setData((prev) => ({
-      ...prev,
-      columns: columns,
-      rows: rows,
-      pageSize: rows?.length,
-      totalPage: Math.floor(data?.pageSize / (rows?.length || 1)),
-    }));
-  }, []);
-
-  return(
-    <ChildCard>
-      <Box className={"flex md:flex-row flex-col gap-2"}>
-        <Box className={"md:flex-1"}>
-          <Typography variant="h4">{t("pages.accounting-management.transactionDetails")}</Typography>
-
-          <Table>
-            <TableBody>
-              <TableRow>
-                <TableCell component={"th"}>{t("pages.accounting-management.amount")}</TableCell>
-                <TableCell>{row?.amount}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell component={"th"}>{t("pages.accounting-management.bank")}</TableCell>
-                <TableCell>{row?.bank}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell component={"th"}>{t("pages.accounting-management.iban")}</TableCell>
-                <TableCell>{row?.iban}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell component={"th"}>{t("pages.accounting-management.accountCode")}</TableCell>
-                <TableCell>{row?.accountCode}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell component={"th"}>{t("pages.accounting-management.accountNo")}</TableCell>
-                <TableCell>{row?.accountNo}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell component={"th"}>{t("pages.accounting-management.idNumber")}</TableCell>
-                <TableCell>{row?.idNumber}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell component={"th"}>{t("pages.accounting-management.userNote")}</TableCell>
-                <TableCell>{row?.note}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-
-        </Box>
-        <Box className={"md:flex-1"}>
-          <Typography variant="h4">{t("pages.accounting-management.userLastConfirmedTransactions")}</Typography>
-
-          <DataTable
-            search={false}
-            data={data}
-            toolbar={false}
-          />
-
-        </Box>
-      </Box>
-    </ChildCard>
-  )
-});
 
 function Page() {
-  const title = t("pages.accounting-management.confirmed");
+  const title = t("pages.accounting-management.canceled");
   const [filter, setFilter] = useState({});
   const updateFilter = useCallback((field, value) => {
     setFilter(prev => ({
@@ -154,7 +47,13 @@ function Page() {
       {
         field: 'transactionId',
         headerName: t('pages.accounting-management.transactionId'),
-        // width: 200
+        renderCell:({value}) => (
+          <Box className={"w-full h-full py-0.5"}>
+            <Typography variant={"body2"} className={"bg-red-500/20 w-full h-full flex items-center justify-center"}>
+              {value}
+            </Typography>
+          </Box>
+        )
       },
       {
         field: 'userId',
@@ -268,12 +167,9 @@ function Page() {
           </Fragment>
         )}>
         <DataTable
-          checkboxSelection={true}
           search={false}
           data={data}
           toolbar={false}
-          getDetailPanelContent={({ id,row }) => <DetailCard id={id} row={row} />}
-          getDetailPanelHeight={({ row }) => 'auto'} // Height based on the content.
         />
       </ParentCard>
     </Box>
