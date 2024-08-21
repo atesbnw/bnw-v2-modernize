@@ -60,6 +60,7 @@ import user_management_game_management from '@/utils/languages/pages/en/user-man
 import user_management_reports from '@/utils/languages/pages/en/user-management/reports.json';
 import user_management_settings from '@/utils/languages/pages/en/user-management/settings.json';
 import user_management_user_management from '@/utils/languages/pages/en/user-management/user-management.json';
+import accounting_management from '@/utils/languages/pages/en/accounting-management/accounting-management.json';
 
 
 const pages = {
@@ -134,7 +135,8 @@ const pages = {
     "user_management_reports" : user_management_reports,
     "user_management_settings" : user_management_settings,
     "user_management_user_management" : user_management_user_management
-  }
+  },
+  "accounting-management": accounting_management
 };
 
 export default pages;

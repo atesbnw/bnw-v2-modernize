@@ -12,7 +12,8 @@ import {
   IconGlobe,
   IconFileText,
   IconUserCog,
-  IconColumns3
+  IconColumns3,
+  IconReceipt2
 } from "@tabler/icons-react";
 import { t } from 'i18next';
 
@@ -116,6 +117,14 @@ const Menuitems = [
     title: "Content Management.title",
     icon: IconColumns3,
     href: "/content-management"
+    // chip: "0",
+    // chipColor: "secondary",
+  },
+  {
+    id: uniqueId(),
+    title: "Accounting Management.title",
+    icon: IconReceipt2,
+    href: "/accounting-management"
     // chip: "0",
     // chipColor: "secondary",
   },

@@ -1,0 +1,24 @@
+{
+  "depositTransactions": "Deposit Transactions",
+  "withdrawTransactions": "Withdraw Transactions",
+  "fieldStuff": "Field Staff",
+  "paymentMethods": "Payment Methods",
+  "newRequests": "New Requests",
+  "waiting": "Waiting",
+  "confirmed": "Confirmed",
+  "canceled": "Canceled",
+  "addNote": "Add Note",
+  "transactionId": "Transaction Id",
+  "userId": "User Id",
+  "username":  "Username",
+  "category": "Category",
+  "provider":  "Provider",
+  "requestTime": "Request Time",
+  "amount":  "Amount",
+  "actions": {
+    "confirm": "Confirm",
+    "doWaiting": "Do waiting",
+    "cancel": "Cancel",
+    "sendToField": "Send to field"
+  }
+}
