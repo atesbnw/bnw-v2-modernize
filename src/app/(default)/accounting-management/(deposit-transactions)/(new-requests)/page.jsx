@@ -3,7 +3,7 @@ import React, { Fragment, memo, useCallback, useEffect, useState } from 'react';
 import TitleBar from '@/app/components/TitleBar';
 import {t} from "i18next";
 import Box from '@mui/material/Box';
-import FilterModal from '@/app/(default)/components/accounting-management/FilterModal';
+import FilterModal from '@/app/(default)/components/finance-management/FilterModal';
 import { useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
 import { IconChevronRight, IconFileDownload, IconInfoCircle } from '@tabler/icons-react';
@@ -21,6 +21,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
+import ActionNoteModal from '@/app/(default)/components/finance-management/ActionNoteModal';
+import actionNoteModal from '@/app/(default)/components/finance-management/ActionNoteModal';
 
 const DetailCard = memo(function DetailCardComp({id, row}){
 
@@ -133,6 +135,11 @@ const DetailCard = memo(function DetailCardComp({id, row}){
 function Page() {
   const title = t("pages.accounting-management.newRequests");
   const [filter, setFilter] = useState({});
+  const [actionModal, setActionModal] = useState({
+    open: false,
+    rowSelectionModel: []
+  });
+
   const updateFilter = useCallback((field, value) => {
     setFilter(prev => ({
       ...prev,
@@ -246,9 +253,38 @@ function Page() {
 
         <ParentCard title={(
           <Box className={"flex gap-2 items-center"}>
-            <Button variant={"text"} color={"success"}>{t("pages.accounting-management.actions.confirm")}</Button>
-            <Button variant={"text"} color={"warning"}>{t("pages.accounting-management.actions.doWaiting")}</Button>
-            <Button variant={"text"} color={"error"}>{t("pages.accounting-management.actions.cancel")}</Button>
+            {(actionModal?.rowSelectionModel && actionModal?.rowSelectionModel?.length>0) && (
+              <Fragment>
+                <Button variant={"text"} color={"success"} onClick={() => setActionModal(prev => ({
+                  ...prev,
+                  open: true,
+                  buttonColor: "success",
+                  buttonText: t('pages.accounting-management.actions.confirmSelectedTransaction')
+                }))}>{t("pages.accounting-management.actions.confirm")}</Button>
+                <Button variant={"text"} color={"warning"} onClick={() => setActionModal(prev => ({
+                  ...prev,
+                  open: true,
+                  buttonColor: "warning",
+                  buttonText: t('pages.accounting-management.actions.doWaitingSelectedTransaction')
+                }))}>{t("pages.accounting-management.actions.doWaiting")}</Button>
+                <Button variant={"text"} color={"error"} onClick={() => setActionModal(prev => ({
+                  ...prev,
+                  open: true,
+                  buttonColor: "error",
+                  buttonText: t('pages.accounting-management.actions.cancelSelectedTransaction')
+                }))}>{t("pages.accounting-management.actions.cancel")}</Button>
+              </Fragment>
+            )}
+
+            {actionModal?.open && <ActionNoteModal
+              open={actionModal?.open}
+              setOpen={(o) => setActionModal(prev => ({
+                ...prev,
+                open: o,
+              }))}
+              buttonText={actionModal?.buttonText}
+              buttonColor={actionModal?.buttonColor}
+            />}
           </Box>
         )} action={(
           <Fragment>
@@ -275,7 +311,11 @@ function Page() {
           data={data}
           toolbar={false}
           getDetailPanelContent={({ id,row }) => <DetailCard id={id} row={row} />}
-          getDetailPanelHeight={({ row }) => 'auto'} // Height based on the content.
+          getDetailPanelHeight={({ row }) => 'auto'}
+          onRowSelectionModelChange={(newRowSelectionModel) => {
+            setActionModal(prev => ({ ...prev, rowSelectionModel: newRowSelectionModel }));
+          }}
+          rowSelectionModel={actionModal?.rowSelectionModel || []}
         />
       </ParentCard>
     </Box>

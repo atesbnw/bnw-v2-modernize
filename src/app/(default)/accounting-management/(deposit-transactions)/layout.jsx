@@ -1,6 +1,6 @@
 "use client";
 import React, { memo, useMemo } from 'react';
-import HeaderCustom from '@/app/(default)/components/accounting-management/HeaderCustom';
+import HeaderCustom from '@/app/(default)/components/finance-management/HeaderCustom';
 import { t } from 'i18next';
 import { useMenu } from './menu';
 

@@ -34,10 +34,16 @@
   "groupName": "Group Name",
   "groupOrder": "Group Order",
   "status": "Status",
+  "transactionNote": "Transaction Note",
+  "transactionNotePlaceholder": "If you have a note, enter it here",
+  "noteSub": "The note you wrote above will be valid for all selected transactions.",
   "actions": {
     "confirm": "Confirm",
-    "doWaiting": "Do waiting",
+    "doWaiting": "Pending",
     "cancel": "Cancel",
-    "sendToField": "Send to field"
+    "sendToField": "Send to field",
+    "confirmSelectedTransaction": "Confirm selected to transactions",
+    "doWaitingSelectedTransaction":  "Do Pending to selected transactions",
+    "cancelSelectedTransaction": "Cancel to selected transactions"
   }
 }

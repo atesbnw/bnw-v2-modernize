@@ -3,7 +3,7 @@ import React, { Fragment, memo, useCallback, useEffect, useState } from 'react';
 import TitleBar from '@/app/components/TitleBar';
 import {t} from "i18next";
 import Box from '@mui/material/Box';
-import FilterModal from '@/app/(default)/components/accounting-management/FilterModal';
+import FilterModal from '@/app/(default)/components/finance-management/FilterModal';
 import { useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
 import { IconChevronRight, IconFileDownload, IconInfoCircle } from '@tabler/icons-react';
@@ -274,7 +274,7 @@ function Page() {
           </Fragment>
         )}>
         <DataTable
-          checkboxSelection={true}
+          checkboxSelection={false}
           search={false}
           data={data}
           toolbar={false}
