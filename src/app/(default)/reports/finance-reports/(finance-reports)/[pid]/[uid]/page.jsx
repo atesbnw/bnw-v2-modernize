@@ -55,6 +55,11 @@ function Page() {
   useEffect(() => {
     const columns = [
       {
+        field: 'transactionId',
+        headerName: t("pages.merchants.dashboard.transactionId"),
+        // width: 200
+      },
+      {
         field: 'providerLogo',
         headerName: 'Logo',
         renderCell: (params) => <img src={params.value} width={70} height="auto" />,
@@ -108,8 +113,9 @@ function Page() {
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      providerLogo: faker.helpers.arrayElement(['https://www.paulbellard.com/wp-content/uploads/2020/03/evolution-gaming-logo.jpg',"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrS2jgqiRGVV6dOm-hkxr-JhLaWbpoxMim8Q&s","https://www.liveblackjack.co/wp-content/uploads/2019/08/lucky_streak.png"]),
-      providerTitle: faker.helpers.arrayElement(['Lucky Streak', 'XPG', 'Ezugi', "Evolution"]),
+      transactionId: faker.datatype.number({ min: 100000000, max: 999000000 }),
+      providerTitle: faker.helpers.arrayElement(['Papara Key', 'Ozmopay', 'Garanti', "Turbo Havale"]),
+      providerLogo: faker.image.avatar(),
       category: faker.helpers.arrayElement(['Papara', 'Banka', 'Kredi Kartı', 'Nakit']),
       username: faker.internet.userName().toLowerCase(),
       userId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),

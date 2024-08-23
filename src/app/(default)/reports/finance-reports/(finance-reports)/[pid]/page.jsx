@@ -51,11 +51,6 @@ function Page() {
   useEffect(() => {
     const columns = [
       {
-        field: 'transactionId',
-        headerName: t("pages.merchants.dashboard.transactionId"),
-        // width: 200
-      },
-      {
         field: 'providerLogo',
         headerName: 'Logo',
         renderCell: (params) => <img src={params.value} width={70} height="auto" />,
@@ -128,7 +123,6 @@ function Page() {
 
     const rows = Array.from(Array(20)).map(() => ({
       id: uniqueId(),
-      transactionId: faker.datatype.number({ min: 100000000, max: 999000000 }),
       providerLogo: faker.image.avatar(),
       providerTitle: faker.helpers.arrayElement(['Papara Key', 'Ozmopay', 'Garanti', "Turbo Havale"]),
       category: faker.helpers.arrayElement(['Papara', 'Banka', 'Kredi Kartı', 'Nakit']),
