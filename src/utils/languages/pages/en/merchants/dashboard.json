@@ -151,6 +151,8 @@
     "Loyalty Status is required" : "Loyalty Status is required"
   },
   "Privacy Information": "Privacy Information",
+  "providerTitle": "Provider Title",
+  "transactionId": "Transaction ID",
   "Privacy Info Page": {
     "resetPassword": "Reset Password",
     "generatePassword": "Generate Secure Password",
