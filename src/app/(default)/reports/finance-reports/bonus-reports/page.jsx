@@ -5,7 +5,7 @@ import {t} from "i18next";
 import PageContainer from '@/app/components/container/PageContainer';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import FilterModal from '@/app/(default)/components/reports/game-reports/FilterModal';
+import FilterModal from '@/app/(default)/components/reports/finance-reports/bonus-reports/FilterModal';
 import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
 import TimeTabs from '@/app/components/shared/TimeTabs';
 import { useRouter } from 'next/navigation';

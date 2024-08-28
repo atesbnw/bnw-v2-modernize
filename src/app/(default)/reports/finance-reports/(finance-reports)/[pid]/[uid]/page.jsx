@@ -4,7 +4,7 @@ import TitleBar from '@/app/components/TitleBar';
 import {t} from "i18next";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import FilterModal from '@/app/(default)/components/reports/finance-reports/FilterModal';
+import FilterModal from '@/app/(default)/components/reports/finance-reports/finance-reports-user/FilterModal';
 import SummaryBar from '@/app/(default)/components/reports/SummaryBar';
 import TimeTabs from '@/app/components/shared/TimeTabs';
 import { useParams, useRouter } from 'next/navigation';

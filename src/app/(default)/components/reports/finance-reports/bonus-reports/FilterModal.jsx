@@ -46,13 +46,14 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
               <Grid item xs={12}>
                 <TimeTabs justify={"start"} onChange={(time) => updateFilter("timeRange", time)} value={filter?.timeRange} />
               </Grid>
+
               <Grid item xs={12}>
                 <CustomFormLabel
                   htmlFor="searchText">{t('pages.reports.user-reports.search')}</CustomFormLabel>
                 <CustomTextField
                   id="searchText"
                   name="searchText"
-                  placeholder={t('pages.reports.user-reports.searchPlaceholder')}
+                  placeholder={t('pages.reports.finance-reports.searchPlaceholder')}
                   variant="outlined"
                   fullWidth
                   value={filter?.searchText}
@@ -61,14 +62,30 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
               </Grid>
               <Grid item sm={12} xs={12}>
                 <CustomFormLabel
-                  htmlFor="category">{t('pages.reports.user-reports.category')}</CustomFormLabel>
+                  htmlFor="bonusType">{t('pages.reports.finance-reports.Bonus Type')}</CustomFormLabel>
                 <CustomSelect
-                  id="category"
-                  name="category"
+                  id="bonusType"
+                  name="bonusType"
                   fullWidth
                   variant="outlined"
-                  value={filter?.category || []}
-                  onChange={(e) => updateFilter('category', e?.target.value)}
+                  value={filter?.bonusType || 'all'}
+                  onChange={(e) => updateFilter('bonusType', e?.target.value)}
+                >
+                  <MenuItem value="all">All</MenuItem>
+                  <MenuItem value="Deposit">Deposit</MenuItem>
+                  <MenuItem value="FreeBet">Freebet</MenuItem>
+                </CustomSelect>
+              </Grid>
+              <Grid item sm={12} xs={12}>
+                <CustomFormLabel
+                  htmlFor="appliedBonus">{t('pages.reports.finance-reports.Applied Bonus')}</CustomFormLabel>
+                <CustomSelect
+                  id="appliedBonus"
+                  name="appliedBonus"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.appliedBonus || []}
+                  onChange={(e) => updateFilter('appliedBonus', e?.target.value)}
                   multiple
                 >
                   <MenuItem value="credit-card">Credit Card</MenuItem>
@@ -77,24 +94,23 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
               </Grid>
               <Grid item sm={12} xs={12}>
                 <CustomFormLabel
-                  htmlFor="provider">{t('pages.reports.user-reports.provider')}</CustomFormLabel>
+                  htmlFor="operator">{t('pages.reports.finance-reports.Operator')}</CustomFormLabel>
                 <CustomSelect
-                  id="provider"
-                  name="provider"
+                  id="operator"
+                  name="operator"
                   fullWidth
                   variant="outlined"
-                  value={filter?.provider || 'all'}
-                  onChange={(e) => updateFilter('provider', e?.target.value)}
+                  value={filter?.operator || []}
+                  onChange={(e) => updateFilter('operator', e?.target.value)}
+                  multiple
                 >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="papara">Papara</MenuItem>
-                  <MenuItem value="payfix">Payfix</MenuItem>
+                  <MenuItem value="credit-card">Credit Card</MenuItem>
+                  <MenuItem value="bank-transfer">Bank Transfer</MenuItem>
                 </CustomSelect>
               </Grid>
-
               <Grid item xs={12} className={"pt-0"}>
                 <CustomFormLabel
-                  htmlFor="played">{t('pages.reports.user-reports.Deposit')}</CustomFormLabel>
+                  htmlFor="played">{t('pages.reports.finance-reports.Paid Amount')}</CustomFormLabel>
                 <Stack direction={"row"} className={"gap-2"}>
                   <CustomTextField
                     id="played_min"
@@ -121,7 +137,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
 
               <Grid item xs={12} className={"pt-0"}>
                 <CustomFormLabel
-                  htmlFor="won">{t('pages.reports.user-reports.Withdraw')}</CustomFormLabel>
+                  htmlFor="won">{t('pages.reports.finance-reports.Converted Amount')}</CustomFormLabel>
                 <Stack direction={"row"} className={"gap-2"}>
                   <CustomTextField
                     id="won_min"
@@ -145,34 +161,6 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                   />
                 </Stack>
               </Grid>
-
-              <Grid item xs={12} className={"pt-0"}>
-                <CustomFormLabel
-                  htmlFor="diff">{t('pages.merchants.reports.Difference')}</CustomFormLabel>
-                <Stack direction={"row"} className={"gap-2"}>
-                  <CustomTextField
-                    id="diff_min"
-                    name="diff_min"
-                    placeholder={t('pages.reports.user-reports.min')}
-                    variant="outlined"
-                    type="number"
-                    fullWidth
-                    value={filter?.diff_min}
-                    onChange={(e) => updateFilter('diff_min', e?.target.value)}
-                  />
-                  <CustomTextField
-                    id="diff_max"
-                    name="diff_max"
-                    placeholder={t('pages.reports.user-reports.max')}
-                    variant="outlined"
-                    type="number"
-                    fullWidth
-                    value={filter?.diff_max}
-                    onChange={(e) => updateFilter('diff_max', e?.target.value)}
-                  />
-                </Stack>
-              </Grid>
-
             </Grid>
           </Box>
         )}

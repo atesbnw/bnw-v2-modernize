@@ -46,82 +46,38 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
               <Grid item xs={12}>
                 <TimeTabs justify={"start"} onChange={(time) => updateFilter("timeRange", time)} value={filter?.timeRange} />
               </Grid>
-              <Grid item xs={12}>
-                <CustomFormLabel
-                  htmlFor="searchText">{t('pages.reports.user-reports.search')}</CustomFormLabel>
-                <CustomTextField
-                  id="searchText"
-                  name="searchText"
-                  placeholder={t('pages.reports.user-reports.searchPlaceholder')}
-                  variant="outlined"
-                  fullWidth
-                  value={filter?.searchText}
-                  onChange={(e) => updateFilter('searchText', e?.target.value)}
-                />
-              </Grid>
               <Grid item sm={12} xs={12}>
                 <CustomFormLabel
-                  htmlFor="category">{t('pages.reports.user-reports.category')}</CustomFormLabel>
+                  htmlFor="transactionType">{t('pages.reports.finance-reports.Transaction Type')}</CustomFormLabel>
                 <CustomSelect
-                  id="category"
-                  name="category"
-                  fullWidth
-                  variant="outlined"
-                  value={filter?.category || []}
-                  onChange={(e) => updateFilter('category', e?.target.value)}
-                  multiple
-                >
-                  <MenuItem value="credit-card">Credit Card</MenuItem>
-                  <MenuItem value="bank-transfer">Bank Transfer</MenuItem>
-                </CustomSelect>
-              </Grid>
-              <Grid item sm={12} xs={12}>
-                <CustomFormLabel
-                  htmlFor="provider">{t('pages.reports.user-reports.provider')}</CustomFormLabel>
-                <CustomSelect
-                  id="provider"
-                  name="provider"
+                  id="transactionType"
+                  name="transactionType"
                   fullWidth
                   variant="outlined"
                   value={filter?.provider || 'all'}
-                  onChange={(e) => updateFilter('provider', e?.target.value)}
+                  onChange={(e) => updateFilter('transactionType', e?.target.value)}
                 >
                   <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="papara">Papara</MenuItem>
-                  <MenuItem value="payfix">Payfix</MenuItem>
                 </CustomSelect>
               </Grid>
-
-              <Grid item xs={12} className={"pt-0"}>
+              <Grid item sm={12} xs={12}>
                 <CustomFormLabel
-                  htmlFor="played">{t('pages.reports.user-reports.Deposit')}</CustomFormLabel>
-                <Stack direction={"row"} className={"gap-2"}>
-                  <CustomTextField
-                    id="played_min"
-                    name="played_min"
-                    placeholder={t('pages.reports.user-reports.min')}
-                    variant="outlined"
-                    type="number"
-                    fullWidth
-                    value={filter?.played_min}
-                    onChange={(e) => updateFilter('played_min', e?.target.value)}
-                  />
-                  <CustomTextField
-                    id="played_max"
-                    name="played_max"
-                    placeholder={t('pages.reports.user-reports.max')}
-                    variant="outlined"
-                    type="number"
-                    fullWidth
-                    value={filter?.played_max}
-                    onChange={(e) => updateFilter('played_max', e?.target.value)}
-                  />
-                </Stack>
+                  htmlFor="operator">{t('pages.reports.finance-reports.Operator')}</CustomFormLabel>
+                <CustomSelect
+                  id="operator"
+                  name="operator"
+                  fullWidth
+                  variant="outlined"
+                  value={filter?.category || []}
+                  onChange={(e) => updateFilter('operator', e?.target.value)}
+                  multiple
+                >
+                  <MenuItem value="all">All</MenuItem>
+                </CustomSelect>
               </Grid>
-
               <Grid item xs={12} className={"pt-0"}>
                 <CustomFormLabel
-                  htmlFor="won">{t('pages.reports.user-reports.Withdraw')}</CustomFormLabel>
+                  htmlFor="won">{t('pages.reports.finance-reports.Total Deposit')}</CustomFormLabel>
                 <Stack direction={"row"} className={"gap-2"}>
                   <CustomTextField
                     id="won_min"
@@ -148,7 +104,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
 
               <Grid item xs={12} className={"pt-0"}>
                 <CustomFormLabel
-                  htmlFor="diff">{t('pages.merchants.reports.Difference')}</CustomFormLabel>
+                  htmlFor="diff">{t('pages.reports.finance-reports.Total Withdraw')}</CustomFormLabel>
                 <Stack direction={"row"} className={"gap-2"}>
                   <CustomTextField
                     id="diff_min"

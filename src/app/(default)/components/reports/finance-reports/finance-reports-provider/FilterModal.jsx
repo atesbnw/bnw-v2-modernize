@@ -13,6 +13,7 @@ import SideDialog from '@/app/components/shared/SideDialog';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import { IconFilter, IconFilterX } from '@tabler/icons-react';
+import Stack from '@mui/material/Stack';
 import TimeTabs from '@/app/components/shared/TimeTabs';
 
 function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
@@ -47,44 +48,69 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
               </Grid>
               <Grid item xs={12}>
                 <CustomFormLabel
-                  htmlFor="searchText">{t('pages.operator-management.operator-management.search')}</CustomFormLabel>
+                  htmlFor="searchText">{t('pages.reports.user-reports.search')}</CustomFormLabel>
                 <CustomTextField
                   id="searchText"
                   name="searchText"
-                  placeholder={t('pages.reports.game-reports.searchPlaceholder')}
+                  placeholder={t('pages.reports.user-reports.searchPlaceholder')}
                   variant="outlined"
                   fullWidth
                   value={filter?.searchText}
                   onChange={(e) => updateFilter('searchText', e?.target.value)}
                 />
               </Grid>
-              <Grid item xs={12}>
-                {/*<CustomFormLabel*/}
-                {/*  htmlFor="balanceMin">{t('pages.user-management.user_management_user_management.balance')}</CustomFormLabel>*/}
+              <Grid item xs={12} className={"pt-0"}>
+                <CustomFormLabel
+                  htmlFor="won">{t('pages.reports.finance-reports.Total Deposit')}</CustomFormLabel>
+                <Stack direction={"row"} className={"gap-2"}>
+                  <CustomTextField
+                    id="won_min"
+                    name="won_min"
+                    placeholder={t('pages.reports.user-reports.min')}
+                    variant="outlined"
+                    type="number"
+                    fullWidth
+                    value={filter?.won_min}
+                    onChange={(e) => updateFilter('won_min', e?.target.value)}
+                  />
+                  <CustomTextField
+                    id="won_max"
+                    name="won_max"
+                    placeholder={t('pages.reports.user-reports.max')}
+                    variant="outlined"
+                    type="number"
+                    fullWidth
+                    value={filter?.won_max}
+                    onChange={(e) => updateFilter('won_max', e?.target.value)}
+                  />
+                </Stack>
               </Grid>
-              <Grid item xs={6} className={"pt-0"}>
-                <CustomTextField
-                  id="balanceMin"
-                  name="balanceMin"
-                  placeholder={t('pages.reports.game-reports.minPlaying')}
-                  variant="outlined"
-                  type="number"
-                  fullWidth
-                  value={filter?.balanceMin}
-                  onChange={(e) => updateFilter('balanceMin', e?.target.value)}
-                />
-              </Grid>
-              <Grid item xs={6} className={"pt-0"}>
-                <CustomTextField
-                  id="balanceMax"
-                  name="balanceMax"
-                  placeholder={t('pages.reports.game-reports.maxPlaying')}
-                  variant="outlined"
-                  type="number"
-                  fullWidth
-                  value={filter?.balanceMax}
-                  onChange={(e) => updateFilter('balanceMax', e?.target.value)}
-                />
+
+              <Grid item xs={12} className={"pt-0"}>
+                <CustomFormLabel
+                  htmlFor="diff">{t('pages.reports.finance-reports.Total Withdraw')}</CustomFormLabel>
+                <Stack direction={"row"} className={"gap-2"}>
+                  <CustomTextField
+                    id="diff_min"
+                    name="diff_min"
+                    placeholder={t('pages.reports.user-reports.min')}
+                    variant="outlined"
+                    type="number"
+                    fullWidth
+                    value={filter?.diff_min}
+                    onChange={(e) => updateFilter('diff_min', e?.target.value)}
+                  />
+                  <CustomTextField
+                    id="diff_max"
+                    name="diff_max"
+                    placeholder={t('pages.reports.user-reports.max')}
+                    variant="outlined"
+                    type="number"
+                    fullWidth
+                    value={filter?.diff_max}
+                    onChange={(e) => updateFilter('diff_max', e?.target.value)}
+                  />
+                </Stack>
               </Grid>
 
             </Grid>

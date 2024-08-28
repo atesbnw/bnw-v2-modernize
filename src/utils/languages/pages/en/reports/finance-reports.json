@@ -1,3 +1,16 @@
 {
-  "search": "Search"
+  "search": "Search",
+  "searchPlaceholder": "Transaction ID, User ID, Username",
+  "Difference": "Difference",
+  "Total Deposit": "Total Deposit",
+  "Total Withdraw": "Total Withdraw",
+  "Transaction Type": "Transaction Type",
+  "Transaction Detail": "Transaction Detail",
+  "Transaction Category": "Transaction Category",
+  "Operator": "Operator",
+  "Amount": "Amount",
+  "Bonus Type" : "Bonus Type",
+  "Applied Bonus" : "Applied Bonus",
+  "Paid Amount" : "Paid Amount",
+  "Converted Amount" : "Converted Amount"
 }
