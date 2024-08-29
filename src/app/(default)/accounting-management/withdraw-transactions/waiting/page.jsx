@@ -22,6 +22,10 @@ import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import ActionNoteModal from '@/app/(default)/components/finance-management/ActionNoteModal';
+import CustomFormLabel from '@/app/components/forms/theme-elements/CustomFormLabel';
+import CustomSelect from '@/app/components/forms/theme-elements/CustomSelect';
+import { FormHelperText, MenuItem } from '@mui/material';
+import Grid from '@mui/material/Grid';
 
 const DetailCard = memo(function DetailCardComp({id, row}){
 
@@ -256,21 +260,76 @@ function Page() {
       />
 
         <ParentCard title={(
-          <Box className={"flex gap-2 items-center"}>
+          <Box className={"flex flex-col gap-2"}>
             {(actionModal?.rowSelectionModel && actionModal?.rowSelectionModel?.length>0) && (
               <Fragment>
-                <Button variant={"text"} color={"success"} onClick={() => setActionModal(prev => ({
-                  ...prev,
-                  open: true,
-                  buttonColor: "success",
-                  buttonText: t('pages.accounting-management.actions.confirmSelectedTransaction')
-                }))}>{t("pages.accounting-management.actions.confirm")}</Button>
-                <Button variant={"text"} color={"error"} onClick={() => setActionModal(prev => ({
-                  ...prev,
-                  open: true,
-                  buttonColor: "error",
-                  buttonText: t('pages.accounting-management.actions.cancelSelectedTransaction')
-                }))}>{t("pages.accounting-management.actions.cancel")}</Button>
+                <Box className={"flex gap-2 items-center"}>
+                  <Button variant={"text"} color={"success"} onClick={() => setActionModal(prev => ({
+                    ...prev,
+                    open: true,
+                    buttonColor: "success",
+                    buttonText: t('pages.accounting-management.actions.confirmSelectedTransaction')
+                  }))}>{t("pages.accounting-management.actions.confirm")}</Button>
+                  <Button variant={"text"} color={"error"} onClick={() => setActionModal(prev => ({
+                    ...prev,
+                    open: true,
+                    buttonColor: "error",
+                    buttonText: t('pages.accounting-management.actions.cancelSelectedTransaction')
+                  }))}>{t("pages.accounting-management.actions.cancel")}</Button>
+                </Box>
+
+
+                <Grid container spacing={2}>
+                  <Grid item xs={6} md={2}>
+                    <CustomSelect
+                      id="category"
+                      fullWidth
+                      name="category"
+                      defaultValue={"papara"}
+                    >
+                      <MenuItem value={"papara"}>Papara</MenuItem>
+                      <MenuItem value={"cepbank"}>Cepbank</MenuItem>
+                    </CustomSelect>
+                  </Grid>
+                  <Grid item xs={6} md={2}>
+                    <CustomSelect
+                      id="provider"
+                      fullWidth
+                      name="provider"
+                      defaultValue={"havale"}
+                    >
+                      <MenuItem value={"havale"}>Bank Transfer</MenuItem>
+                      <MenuItem value={"cepbank"}>Cepbank</MenuItem>
+                    </CustomSelect>
+                  </Grid>
+                  <Grid item xs={6} md={2}>
+                    <CustomSelect
+                      id="cmt"
+                      fullWidth
+                      name="cmt"
+                      defaultValue={"cmt"}
+                    >
+                      <MenuItem value={"cmt"}>CMT</MenuItem>
+                      <MenuItem value={"pmt"}>PMT</MenuItem>
+                    </CustomSelect>
+                  </Grid>
+                  <Grid item xs={6} md={2}>
+                    <CustomSelect
+                      id="type"
+                      fullWidth
+                      name="type"
+                      defaultValue={"Crypto"}
+                    >
+                      <MenuItem value={"Crypto"}>Crypto</MenuItem>
+                      <MenuItem value={"other"}>Other</MenuItem>
+                    </CustomSelect>
+                  </Grid>
+
+                 <Grid item md={2} xs={6}>
+                   <Button variant={"text"} color={"error"} onClick={() => {}}>{t("pages.accounting-management.actions.assign")}</Button>
+                 </Grid>
+                </Grid>
+
               </Fragment>
             )}
 

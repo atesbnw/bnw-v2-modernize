@@ -29,6 +29,7 @@ import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
+import PaymentMethodsGroupModal from '@/app/(default)/components/finance-management/PaymentMethodsGroupModal';
 
 function Page() {
   const title = t("pages.accounting-management.withdraw");
@@ -97,11 +98,7 @@ function Page() {
         width: 170,
         getActions: (e) => {
           return [
-            <IconButton onClick={() => {
-
-            }}>
-              <IconChevronRight />
-            </IconButton>,
+            <PaymentMethodsGroupModal id={e?.id} data={e?.row} />,
           ]
         }
       }
@@ -137,13 +134,14 @@ function Page() {
           </Box>
         )} action={(
           <Fragment>
-            <Tooltip title={t('pages.accounting-management.createNewGroup')}>
-              <IconButton variant={"text"} color={"primary"} onClick={() => {
+            <PaymentMethodsGroupModal />
+            {/*<Tooltip title={t('pages.accounting-management.createNewGroup')}>*/}
+            {/*  <IconButton variant={"text"} color={"primary"} onClick={() => {*/}
 
-              }}>
-                <IconPentagonPlus />
-              </IconButton>
-            </Tooltip>
+            {/*  }}>*/}
+            {/*    <IconPentagonPlus />*/}
+            {/*  </IconButton>*/}
+            {/*</Tooltip>*/}
           <FilterModal
             filter={filter}
             updateFilter={updateFilter}

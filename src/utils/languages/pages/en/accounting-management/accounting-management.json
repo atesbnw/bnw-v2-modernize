@@ -33,10 +33,15 @@
   "groupId": "Group Id",
   "groupName": "Group Name",
   "groupOrder": "Group Order",
+  "active": "Active",
+  "inactive": "Inactive",
+  "logo": "Logo",
   "status": "Status",
   "transactionNote": "Transaction Note",
   "transactionNotePlaceholder": "If you have a note, enter it here",
   "noteSub": "The note you wrote above will be valid for all selected transactions.",
+  "createDepositGroup": "Create Group",
+  "editDepositGroup": "Edit Group",
   "actions": {
     "confirm": "Confirm",
     "doWaiting": "Pending",
@@ -44,6 +49,7 @@
     "sendToField": "Send to field",
     "confirmSelectedTransaction": "Confirm selected to transactions",
     "doWaitingSelectedTransaction":  "Do Pending to selected transactions",
-    "cancelSelectedTransaction": "Cancel to selected transactions"
+    "cancelSelectedTransaction": "Cancel to selected transactions",
+    "assign": "Assign"
   }
 }
