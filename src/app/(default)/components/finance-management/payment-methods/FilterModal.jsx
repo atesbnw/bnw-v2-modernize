@@ -65,9 +65,10 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                   name="status"
                   fullWidth
                   variant="outlined"
-                  value={filter?.status ? "active" : "inactive"}
+                  value={filter?.status || "all"}
                   onChange={(e) => updateValue('status', e?.target.value)}
                 >
+                  <MenuItem value="all">All</MenuItem>
                   <MenuItem value="active">Active</MenuItem>
                   <MenuItem value="inactive">Inactive</MenuItem>
                 </CustomSelect>
