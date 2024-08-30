@@ -45,78 +45,31 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
           <Box>
             <Grid container spacing={1} mb={2}>
               <Grid item xs={12}>
-                <TimeTabs justify={"start"} onChange={(time) => updateFilter("timeRange", time)} value={filter?.timeRange} />
-              </Grid>
-              <Grid item xs={12}>
                 <CustomFormLabel
                   htmlFor="searchText">{t('pages.operator-management.operator-management.search')}</CustomFormLabel>
                 <CustomTextField
                   id="searchText"
                   name="searchText"
-                  placeholder={t('pages.accounting-management.searchPlaceholder')}
+                  placeholder={t('pages.accounting-management.paymentMethodsSearchPlaceholder')}
                   variant="outlined"
                   fullWidth
                   value={filter?.searchText}
                   onChange={(e) => updateFilter('searchText', e?.target.value)}
                 />
               </Grid>
-              <Grid item xs={12}>
-                {/*<CustomFormLabel*/}
-                {/*  htmlFor="balanceMin">{t('pages.user-management.user_management_user_management.balance')}</CustomFormLabel>*/}
-              </Grid>
-              <Grid item xs={6} className={"pt-0"}>
-                <CustomTextField
-                  id="minAmount"
-                  name="minAmount"
-                  placeholder={t('pages.accounting-management.minAmount')}
-                  variant="outlined"
-                  type="number"
-                  fullWidth
-                  value={filter?.minAmount}
-                  onChange={(e) => updateFilter('minAmount', e?.target.value)}
-                />
-              </Grid>
-              <Grid item xs={6} className={"pt-0"}>
-                <CustomTextField
-                  id="maxAmount"
-                  name="maxAmount"
-                  placeholder={t('pages.accounting-management.maxAmount')}
-                  variant="outlined"
-                  type="number"
-                  fullWidth
-                  value={filter?.maxAmount}
-                  onChange={(e) => updateFilter('maxAmount', e?.target.value)}
-                />
-              </Grid>
 
               <Grid item xs={12}>
-                <CustomFormLabel  sx={{mt:0}} htmlFor="category">{t('pages.accounting-management.category')}</CustomFormLabel>
+                <CustomFormLabel  sx={{mt:0}} htmlFor="category">{t('pages.accounting-management.status')}</CustomFormLabel>
                 <CustomSelect
-                  id="category"
-                  name="category"
+                  id="status"
+                  name="status"
                   fullWidth
                   variant="outlined"
-                  value={filter?.category || "all"}
-                  onChange={(e) => updateValue('category', e?.target.value)}
+                  value={filter?.status ? "active" : "inactive"}
+                  onChange={(e) => updateValue('status', e?.target.value)}
                 >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="other">Other</MenuItem>
-                </CustomSelect>
-
-              </Grid>
-
-              <Grid item xs={12}>
-                <CustomFormLabel  sx={{mt:0}} htmlFor="category">{t('pages.accounting-management.provider')}</CustomFormLabel>
-                <CustomSelect
-                  id="provider"
-                  name="provider"
-                  fullWidth
-                  variant="outlined"
-                  value={filter?.provider || "all"}
-                  onChange={(e) => updateValue('provider', e?.target.value)}
-                >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="other">Other</MenuItem>
+                  <MenuItem value="active">Active</MenuItem>
+                  <MenuItem value="inactive">Inactive</MenuItem>
                 </CustomSelect>
 
               </Grid>

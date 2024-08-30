@@ -21,10 +21,8 @@ import {CloudUpload} from "@mui/icons-material";
 import dayjs from "dayjs";
 import {styled} from "@mui/material/styles";
 import SideDialog from '@/app/components/shared/SideDialog';
+import InputAdornment from '@mui/material/InputAdornment';
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',
@@ -38,10 +36,7 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
-function PaymentMethodsGroupModal({id, data}) {
-  const [descriptionTextState, setDescriptionTextState] = useState(`<b>Lorem Ipsum</b>`);
-  const [startDateTime, setStartDateTime] = React.useState(dayjs());
-  const [finishDateTime, setFinishDateTime] = React.useState(dayjs());
+function ActionModal({id, data}) {
 
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = useState({});
@@ -72,64 +67,115 @@ function PaymentMethodsGroupModal({id, data}) {
     <Fragment>
       {id ? (
         <IconButton onClick={() => setOpen(true)}>
-          <IconChevronRight />
+          <IconPencil />
         </IconButton>
       ) : (
         <Button variant="contained" onClick={() => setOpen(true)}>
-          {t('pages.accounting-management.createNewGroup')}
+          {t('pages.accounting-management.addMethod')}
         </Button>
       )}
 
       <SideDialog
-        title={t(`pages.accounting-management.${id ? "editDepositGroup" : "createDepositGroup"}`)}
+        title={t(`pages.accounting-management.${id ? "editMethod" : "createMethod"}`)}
         open={open}
         onClose={handleClose}
         content={(
           <Grid container spacing={3} className={"px-2 py-6"}>
 
             <Grid item xs={12} className={"pt-0"}>
-              <CustomFormLabel sx={{mt:0}} htmlFor="targetUser">{t('pages.accounting-management.groupName')}</CustomFormLabel>
+              <CustomFormLabel sx={{mt:0}} htmlFor="methodName">{t('pages.accounting-management.methodName')}</CustomFormLabel>
               <CustomTextField
-                id="groupName"
-                name="groupName"
-                placeholder={t('pages.accounting-management.groupName')}
+                id="methodName"
+                name="methodName"
+                placeholder={t('pages.accounting-management.methodName')}
                 variant="outlined"
                 fullWidth
-                value={data?.groupName}
+                value={data?.methodName}
+              />
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <CustomFormLabel sx={{mt:0}} htmlFor="category">{t('pages.accounting-management.category')}</CustomFormLabel>
+              <CustomTextField
+                id="category"
+                name="category"
+                placeholder={t('pages.accounting-management.category')}
+                variant="outlined"
+                fullWidth
+                value={data?.category}
                 disabled={!!id}
               />
             </Grid>
 
-            <Grid item xs={12} className={"pt-0"}>
-              <CustomFormLabel sx={{mt:0}} htmlFor="targetUser">{t('pages.accounting-management.groupOrder')}</CustomFormLabel>
+            <Grid item xs={12} md={6}>
+              <CustomFormLabel sx={{mt:0}} htmlFor="category">{t('pages.accounting-management.provider')}</CustomFormLabel>
               <CustomTextField
-                id="groupOrder"
-                name="groupOrder"
-                type={"number"}
-                placeholder={t('pages.accounting-management.groupOrder')}
+                id="provider"
+                name="provider"
+                placeholder={t('pages.accounting-management.provider')}
                 variant="outlined"
                 fullWidth
-                value={data?.groupOrder}
+                value={data?.provider}
                 disabled={!!id}
               />
             </Grid>
 
             <Grid item xs={12}>
-              <CustomFormLabel  sx={{mt:0}} htmlFor="status">{t('pages.accounting-management.status')}</CustomFormLabel>
+              <CustomFormLabel  sx={{mt:0}} htmlFor="depositGroup">{t('pages.accounting-management.depositGroup')}</CustomFormLabel>
               <CustomSelect
-                id="status"
-                name="status"
+                id="depositGroup"
+                name="depositGroup"
                 fullWidth
                 variant="outlined"
-                value={value?.status ? "active" : "inactive"}
-                onChange={(e) => updateValue('status', e?.target.value)}
-                disabled={!!id}
+                value={value?.depositGroup}
+                onChange={(e) => updateValue('depositGroup', e?.target.value)}
               >
-                <MenuItem value="active">{t('pages.accounting-management.active')}</MenuItem>
-                <MenuItem value="inactive">{t('pages.accounting-management.inactive')}</MenuItem>
+                <MenuItem value={value?.depositGroup}>{value?.depositGroup}</MenuItem>
+                <MenuItem value="other">Other</MenuItem>
               </CustomSelect>
 
             </Grid>
+
+
+
+            <Grid item xs={12} className={"pt-0"}>
+              <CustomFormLabel sx={{mt:0}} htmlFor="minAmount">{t('pages.accounting-management.minAmount')}</CustomFormLabel>
+              <CustomTextField
+                id="minAmount"
+                name="minAmount"
+                placeholder={t('pages.accounting-management.minAmount')}
+                variant="outlined"
+                fullWidth
+                value={data?.minAmount}
+                endAdornment={<InputAdornment position="end">₺</InputAdornment>}
+              />
+            </Grid>
+
+            <Grid item xs={12} className={"pt-0"}>
+              <CustomFormLabel sx={{mt:0}} htmlFor="minAmount">{t('pages.accounting-management.maxAmount')}</CustomFormLabel>
+              <CustomTextField
+                id="maxAmount"
+                name="maxAmount"
+                placeholder={t('pages.accounting-management.maxAmount')}
+                variant="outlined"
+                fullWidth
+                value={data?.maxAmount}
+                endAdornment={<InputAdornment position="end">₺</InputAdornment>}
+              />
+            </Grid>
+
+            <Grid item xs={12} className={"pt-0"}>
+              <CustomFormLabel sx={{mt:0}} htmlFor="minAmount">{t('pages.accounting-management.transactionTime')}</CustomFormLabel>
+              <CustomTextField
+                id="transactionTime"
+                name="transactionTime"
+                placeholder={t('pages.accounting-management.transactionTime')}
+                variant="outlined"
+                fullWidth
+                value={data?.transactionTime}
+              />
+            </Grid>
+
             <Grid item xs={12}>
               <CustomFormLabel htmlFor="descriptionText">{t('pages.accounting-management.logo')}</CustomFormLabel>
               <Button
@@ -170,4 +216,4 @@ function PaymentMethodsGroupModal({id, data}) {
   );
 }
 
-export default memo(PaymentMethodsGroupModal);
+export default memo(ActionModal);

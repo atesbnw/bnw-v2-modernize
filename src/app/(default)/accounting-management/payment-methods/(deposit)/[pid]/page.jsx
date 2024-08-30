@@ -4,10 +4,9 @@ import TitleBar from '@/app/components/TitleBar';
 import {t} from "i18next";
 import Box from '@mui/material/Box';
 import FilterModal from '@/app/(default)/components/finance-management/payment-methods/FilterModal';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
 import {
-  IconChevronRight,
   IconFileDownload,
 } from '@tabler/icons-react';
 import { uniqueId } from 'lodash';
@@ -16,7 +15,7 @@ import DataTable from '@/app/components/shared/DataTable';
 import ParentCard from '@/app/components/shared/ParentCard';
 import Tooltip from '@mui/material/Tooltip';
 import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
-import PaymentMethodsGroupModal from '@/app/(default)/components/finance-management/payment-methods/GroupModal';
+import PaymentMethodsActionModal from '@/app/(default)/components/finance-management/payment-methods/ActionModal';
 
 function Page() {
   const title = t("pages.accounting-management.deposit");
@@ -28,6 +27,7 @@ function Page() {
     }));
   }, []);
   const router = useRouter();
+  const params = useParams();
   const [data, setData] = useState({
     page: 1,
     pageSize: 10,
@@ -52,18 +52,43 @@ function Page() {
         // width: 200
       },
       {
-        field: 'groupId',
-        headerName: t('pages.accounting-management.groupId'),
+        field: 'methodId',
+        headerName: t('pages.accounting-management.methodId'),
         flex:1,
       },
       {
-        field: 'groupName',
-        headerName: t('pages.accounting-management.groupName'),
+        field: 'methodName',
+        headerName: t('pages.accounting-management.methodName'),
         flex:1,
       },
       {
-        field: 'groupOrder',
-        headerName: t('pages.accounting-management.groupOrder'),
+        field: 'depositGroup',
+        headerName: t('pages.accounting-management.depositGroup'),
+        flex:1,
+      },
+      {
+        field: 'category',
+        headerName: t('pages.accounting-management.category'),
+        flex:1,
+      },
+      {
+        field: 'provider',
+        headerName: t('pages.accounting-management.provider'),
+        flex:1,
+      },
+      {
+        field: 'minAmount',
+        headerName: t('pages.accounting-management.minAmount'),
+        flex:1,
+      },
+      {
+        field: 'maxAmount',
+        headerName: t('pages.accounting-management.maxAmount'),
+        flex:1,
+      },
+      {
+        field: 'transactionTime',
+        headerName: t('pages.accounting-management.transactionTime'),
         flex:1,
       },
       {
@@ -80,15 +105,24 @@ function Page() {
         // width: 200
       },
       {
+        field: 'popular',
+        headerName: t('pages.accounting-management.popular'),
+        renderCell: ({ value }) => (
+          <Box className={"flex gap-2 items-center"}>
+            <CustomSwitch
+              // onChange={() => {}}
+              defaultChecked={value}
+            />
+          </Box>
+        )
+      },
+      {
         field: 'actions',
         type: 'actions',
         width: 170,
         getActions: (e) => {
           return [
-            <PaymentMethodsGroupModal id={e?.id} data={e?.row} />,
-            <IconButton onClick={() => router.push(`/accounting-management/payment-methods/${encodeURIComponent(e?.row?.groupName)}`)}>
-              <IconChevronRight />
-            </IconButton>
+            <PaymentMethodsActionModal id={e?.id} data={e?.row} />,
           ]
         }
       }
@@ -97,10 +131,16 @@ function Page() {
     const rows = Array.from(Array(20)).map((i,_) => ({
       id: uniqueId(),
       logo: faker.image.avatar(),
-      groupId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
-      groupName: faker.helpers.arrayElement(['PAPARA', 'BANK TRANSFER', "CARDLESS TRANSACTIONS", "CRYPTO"]),
-      groupOrder: _+1,
-      status: faker.helpers.arrayElement([true, false])
+      methodId: faker.datatype.number({ min: 1000000, max: 9999999 }).toString(),
+      methodName: faker.helpers.arrayElement(['Papara KEY', 'Garanti Pay', 'Turbo Havale']),
+      depositGroup: faker.helpers.arrayElement(['Papara Methods', 'Other']),
+      category: "Papara",
+      provider: "Papapara Key",
+      minAmount:  faker.datatype.number({ min: 100, max: 9999 }).toString(),
+      maxAmount:  faker.datatype.number({ min: 1000, max: 99999 }).toString(),
+      transactionTime: faker.helpers.arrayElement(['1-15 min', '10-30 min']),
+      status: faker.helpers.arrayElement([true, false]),
+      popular: faker.helpers.arrayElement([true, false])
   }));
 
     setData((prev) => ({
@@ -120,11 +160,12 @@ function Page() {
           <Box className={"flex gap-2 items-center"}>
             <TitleBar
               title={title}
+              link={"../payment-methods"}
+              subTitle={decodeURIComponent(params?.pid)}
             />
           </Box>
         )} action={(
           <Fragment>
-            <PaymentMethodsGroupModal />
             {/*<Tooltip title={t('pages.accounting-management.createNewGroup')}>*/}
             {/*  <IconButton variant={"text"} color={"primary"} onClick={() => {*/}
 

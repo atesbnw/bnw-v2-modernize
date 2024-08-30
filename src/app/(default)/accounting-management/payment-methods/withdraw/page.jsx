@@ -3,7 +3,7 @@ import React, { Fragment, memo, useCallback, useEffect, useState } from 'react';
 import TitleBar from '@/app/components/TitleBar';
 import {t} from "i18next";
 import Box from '@mui/material/Box';
-import FilterModal from '@/app/(default)/components/finance-management/FilterModal';
+import FilterModal from '@/app/(default)/components/finance-management/payment-methods/FilterModal';
 import { useRouter } from 'next/navigation';
 import IconButton from '@mui/material/IconButton';
 import {
@@ -29,7 +29,7 @@ import TableRow from '@mui/material/TableRow';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import CustomSwitch from '@/app/components/forms/theme-elements/CustomSwitch';
-import PaymentMethodsGroupModal from '@/app/(default)/components/finance-management/PaymentMethodsGroupModal';
+import PaymentMethodsGroupModal from '@/app/(default)/components/finance-management/payment-methods/GroupModal';
 
 function Page() {
   const title = t("pages.accounting-management.withdraw");
@@ -99,6 +99,9 @@ function Page() {
         getActions: (e) => {
           return [
             <PaymentMethodsGroupModal id={e?.id} data={e?.row} />,
+            <IconButton onClick={() => router.push(`/accounting-management/payment-methods/withdraw/${encodeURIComponent(e?.row?.groupName)}`)}>
+              <IconChevronRight />
+            </IconButton>
           ]
         }
       }
