@@ -37,6 +37,19 @@ function Page() {
     rows: [],
   });
 
+  const totalResultsData = useMemo(() => [
+    { title: t('pages.reports.user-reports.totalDeposit'), value: faker.commerce.price(24000, 100000, 2) + '₺' },
+    { title: t('pages.reports.user-reports.totalWithdraw'), value: faker.commerce.price(24000, 100000, 2) + '₺' },
+    {
+      title: t('pages.merchants.reports.Difference'),
+      value: faker.commerce.price(24000, 100000, 2) + '₺',
+    },
+    { title: t('pages.reports.user-reports.totalDepositCount'), value: faker.commerce.price(24000, 100000, 2) + '₺' },
+    {
+      title: t('pages.reports.user-reports.totalWithdrawCount'),
+      value: faker.datatype.number({ min: 100, max: 400 }).toString(),
+    },
+  ], []);
 
   useEffect(() => {
     const columns = [
@@ -135,6 +148,10 @@ function Page() {
     <Box className={"flex flex-col gap-4"}>
       <TitleBar
         title={t('menu.Users.Reports Menu.Finance Reports')}
+      />
+      <SummaryBar
+        title={t('pages.merchants.reports.Total')}
+        data={totalResultsData}
       />
       <ParentCard title={""} action={(
         <>

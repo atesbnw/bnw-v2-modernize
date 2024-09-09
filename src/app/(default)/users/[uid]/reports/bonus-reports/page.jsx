@@ -127,12 +127,10 @@ function Page() {
   }, []);
 
   const totalResultsData = [
+    { title: t('pages.merchants.reports.Total'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.user-management.user_management_reports.Played'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
     { title: t('pages.user-management.user_management_reports.Won'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.user-management.user_management_reports.Difference'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.user-management.user_management_reports.Canceled'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.user-management.user_management_reports.Rollback'), value: faker.commerce.price(1000, 100000, 2) + '₺'},
-    { title: t('pages.user-management.user_management_reports.Payback'), value: faker.commerce.price(1000, 100000, 2) + '₺'}
+    { title: t('pages.user-management.user_management_reports.Difference'), value: faker.commerce.price(1000, 100000, 2) + '₺'}
   ];
 
   return (

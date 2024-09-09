@@ -65,9 +65,9 @@
     "totalCasinoBonus": "Total Casino Bonus",
     "totalSportProfitRate": "Total Sport Profit Rate",
     "totalCasinoProfitRate": "Total Casino Profit Rate",
-    "totalSportInvestments": "Total Investments / Amount",
     "totalWithdrawals": "Total Withdrawals / Amount",
-    "lastInvestmentDate": "Last Investment Date",
+    "totalSportInvestments": "Total Profit / Amount",
+    "lastInvestmentDate": "Last Profit Date",
     "lastWithdrawalDate": "Last Withdrawal Date",
     "lastBonusDate": "Last Bonus Date"
   },

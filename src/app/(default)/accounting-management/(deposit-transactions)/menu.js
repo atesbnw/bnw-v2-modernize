@@ -13,11 +13,13 @@ export function useMenu() {
     {
       id: uniqueId(),
       title: "pages.accounting-management.newRequests",
+      chip: 12,
       href: `${url}`
     },
     {
       id: uniqueId(),
       title: "pages.accounting-management.waiting",
+      chip: 8,
       href: `${url}/waiting`,
     },
     {
