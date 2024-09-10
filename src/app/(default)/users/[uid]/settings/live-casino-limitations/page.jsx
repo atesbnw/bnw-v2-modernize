@@ -1,203 +1,124 @@
 "use client";
-import React, {memo, useState, Fragment} from 'react';
+import React, {memo, useState, Fragment, useEffect} from 'react';
 import { t } from 'i18next';
-import { useFormik } from 'formik';
-import {Grid, Button, MenuItem, FormHelperText, InputAdornment} from '@mui/material';
-import CustomFormLabel from "@/app/components/forms/theme-elements/CustomFormLabel";
-import CustomSelect from "@/app/components/forms/theme-elements/CustomSelect";
-import Stack from "@mui/material/Stack";
 import TitleBar from "@/app/components/TitleBar";
-import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
-import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
-import { validationSchema } from './validation';
+import ActionModal from "@/app/(default)/components/users/settings/ActionModal";
+import Box from "@mui/material/Box";
+import CustomSwitch from "@/app/components/forms/theme-elements/CustomSwitch";
+import {uniqueId} from "lodash";
+import {faker} from "@faker-js/faker";
+import DataTable from "@/app/components/shared/DataTable";
+import ParentCard from "@/app/components/shared/ParentCard";
 
 function Page() {
-  const [isReadOnly, setIsReadOnly] = useState(false);
-  const toggleReadOnly = () => setIsReadOnly(!isReadOnly);
 
-  const formik = useFormik({
-    initialValues: {
-      category: '',
-      provider: '',
-      game: '',
-      limitDuration: '',
-      limitAmount: '',
-      language: '',
-      promotionCode: '',
-      description: ''
-    },
-    validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
+  const [data, setData] = useState({
+    page: 1,
+    pageSize: 10,
+    totalData: 10,
+    totalPage: 1,
+    columns: [],
+    rows: [],
   });
 
-  return (
-    <Fragment>
-      <Grid container spacing={0}>
-        <Grid item xs={12}>
-          <Stack direction={'row'} justifyContent={'center'}>
-            <TitleBar
-              title={t('menu.Users.Settings Menu.Live Casino Limitations')}
+  useEffect(() => {
+    const columns = [
+      {
+        field: 'category',
+        headerName: t('pages.user-management.user_management_settings.Category'),
+        // width: 200
+      },
+      {
+        field: 'provider',
+        headerName: t('pages.user-management.user_management_settings.Provider'),
+        // width: 200
+      },
+      {
+        field: 'game',
+        headerName: t('pages.user-management.user_management_settings.Game'),
+        flex:1,
+        // width: 200
+      },
+      {
+        field: 'limitDuration',
+        headerName: t('pages.user-management.user_management_settings.Limit Duration'),
+        flex:1,
+        // width: 200
+      },
+      {
+        field: 'description',
+        headerName: t('pages.user-management.user_management_settings.Description'),
+        flex:1,
+        // width: 200
+      },
+      {
+        field: 'limitAmount',
+        headerName: t('pages.user-management.user_management_settings.Limit Amount'),
+        flex:1,
+        // width: 200
+      },
+      {
+        field: 'blockAll',
+        headerName: t('pages.user-management.user_management_settings.Block All'),
+        renderCell: ({ value }) => (
+          <Box className={"flex gap-2 items-center"}>
+            <CustomSwitch
+              disabled
+              // onChange={() => {}}
+              defaultChecked={value}
             />
-            <Button variant="outlined" onClick={toggleReadOnly} style={{width:'200px', height:"30px"}}>
-              {isReadOnly ? 'Make Editable' : 'Make Read Only'}
-            </Button>
-          </Stack>
-        </Grid>
-        <Grid item xs={12} mt={0}>
-          <form onSubmit={formik.handleSubmit}>
-            <Grid container rowSpacing={0} columnSpacing={{ xs: 1, sm: 2, md: 3 }} >
-              <Grid item sm={4} xs={12} mt={0}>
-                <CustomFormLabel htmlFor="category">{t('pages.user-management.user_management_settings.Category')}</CustomFormLabel>
-                <CustomSelect
-                  id="category"
-                  name="category"
-                  fullWidth
-                  variant="outlined"
-                  readOnly={isReadOnly}
-                  value={formik.values.category}
-                  onChange={formik.handleChange}
-                >
-                  <MenuItem value="live-casino">Live Casino</MenuItem>
-                </CustomSelect>
-                {formik.errors.category && (
-                  <FormHelperText error id="standard-weight-helper-text-email-login">
-                    {' '}
-                    {formik.errors.category}{' '}
-                  </FormHelperText>
-                )}
-              </Grid>
-              <Grid item sm={4} xs={12} mt={0}>
-                <CustomFormLabel htmlFor="provider">{t('pages.user-management.user_management_settings.Provider')}</CustomFormLabel>
-                <CustomSelect
-                  id="provider"
-                  name="provider"
-                  fullWidth
-                  variant="outlined"
+          </Box>
+        )
+      },
+      {
+        field: 'status',
+        headerName: t('pages.user-management.user_management_settings.Status'),
+        renderCell: ({ value }) => (
+          <Box className={"flex gap-2 items-center"}>
+            <CustomSwitch
+              // onChange={() => {}}
+              defaultChecked={value}
+            />
+          </Box>
+        )
+      },
+    ];
 
-                  readOnly={isReadOnly}
-                  value={formik.values.provider}
-                  onChange={formik.handleChange}
-                >
-                  <MenuItem value="Pragmatic">Pragmatic</MenuItem>
-                  <MenuItem value="EGT">EGT</MenuItem>
-                </CustomSelect>
-                {formik.errors.provider && (
-                  <FormHelperText error id="standard-weight-helper-text-email-login">
-                    {' '}
-                    {formik.errors.provider}{' '}
-                  </FormHelperText>
-                )}
-              </Grid>
-              <Grid item sm={4} xs={12} mt={0}>
-                <CustomFormLabel htmlFor="game">{t('pages.user-management.user_management_settings.Game')}</CustomFormLabel>
-                <CustomSelect
-                  id="game"
-                  name="game"
-                  fullWidth
-                  variant="outlined"
-                  readOnly={isReadOnly}
-                  value={formik.values.game}
-                  onChange={formik.handleChange}
-                >
-                  <MenuItem value="Sweet Bonanza">Sweet Bonanza</MenuItem>
-                  <MenuItem value="40 Burning Hot">40 Burning Hot</MenuItem>
-                </CustomSelect>
-                {formik.errors.game && (
-                  <FormHelperText error id="standard-weight-helper-text-email-login">
-                    {' '}
-                    {formik.errors.game}{' '}
-                  </FormHelperText>
-                )}
-              </Grid>
-              <Grid item sm={4} xs={12} mt={0}>
-                <CustomFormLabel htmlFor="limitDuration">{t('pages.user-management.user_management_settings.Limit Duration')}</CustomFormLabel>
-                <CustomSelect
-                  id="limitDuration"
-                  name="limitDuration"
-                  fullWidth
-                  variant="outlined"
-                  readOnly={isReadOnly}
-                  value={formik.values.limitDuration}
-                  onChange={formik.handleChange}
-                >
-                  <MenuItem value="Yearly">Yearly</MenuItem>
-                  <MenuItem value="Monthly">Monthly</MenuItem>
-                </CustomSelect>
-                {formik.errors.limitDuration && (
-                  <FormHelperText error id="standard-weight-helper-text-email-login">
-                    {' '}
-                    {formik.errors.limitDuration}{' '}
-                  </FormHelperText>
-                )}
-              </Grid>
-              <Grid item sm={4} xs={12} mt={0}>
-                <CustomFormLabel htmlFor="limitAmount">{t('pages.user-management.user_management_settings.Limit Amount')}</CustomFormLabel>
-                <CustomOutlinedInput
-                  startAdornment={
-                    <InputAdornment position="start">₺</InputAdornment>
-                  }
-                  id="limitAmount"
-                  name="limitAmount"
-                  type="number"
-                  fullWidth
-                  value={formik.values.limitAmount}
-                  onChange={formik.handleChange}
-                  error={formik.touched.limitAmount && Boolean(formik.errors.limitAmount)}
-                  helperText={formik.touched.limitAmount && formik.errors.limitAmount}
-                  readOnly={isReadOnly}
-                />
-              </Grid>
-              <Grid item sm={4} xs={12} mt={0}>
-                <CustomFormLabel htmlFor="blockAll">{t('pages.user-management.user_management_settings.Block All')}</CustomFormLabel>
-                <CustomSelect
-                  id="blockAll"
-                  name="blockAll"
-                  fullWidth
-                  variant="outlined"
-                  readOnly={isReadOnly}
-                  value={formik.values.blockAll}
-                  onChange={formik.handleChange}
-                >
-                  <MenuItem value="Yes">Yes</MenuItem>
-                  <MenuItem value="No">No</MenuItem>
-                </CustomSelect>
-                {formik.errors.blockAll && (
-                  <FormHelperText error id="standard-weight-helper-text-email-login">
-                    {' '}
-                    {formik.errors.blockAll}{' '}
-                  </FormHelperText>
-                )}
-              </Grid>
-              <Grid item xs={12}>
-                <CustomFormLabel htmlFor="description">{t('pages.user-management.user_management_settings.Description')}</CustomFormLabel>
-                <CustomTextField
-                  id="description"
-                  fullWidth
-                  multiline
-                  rows={4}
-                  value={formik.values.description}
-                  onChange={formik.handleChange}
-                  error={formik.touched.description && Boolean(formik.errors.description)}
-                  helperText={formik.touched.description && formik.errors.description}
-                  readOnly={isReadOnly}
-                />
+    const rows = Array.from(Array(10)).map(() => ({
+      id: uniqueId(),
+      category: faker.helpers.arrayElement(['Casino', 'Poker', 'Slot']),
+      provider: faker.helpers.arrayElement(['Pragmatic', 'EGT', 'ABC']),
+      game: faker.helpers.arrayElement(['Sweet Bonanza', '20 Burning Hot', 'Spaceman']),
+      limitDuration: faker.helpers.arrayElement(['Hourly', 'Daily', 'Weekly']),
+      limitAmount: faker.datatype.number({ min: 1, max: 10 }).toString(),
+      blockAll: faker.datatype.boolean(),
+      description: "Lorem Ipsum",
+      status: faker.datatype.boolean(),
+    }));
 
-              </Grid>
-              <Grid item container xs={12} justifyContent="right" mt={3}>
-                <Button variant="contained" sx={{mr: 1,}} type="submit">
-                  {t('i.Save')}
-                </Button>
-                <Button variant="outlined" color="secondary">
-                  {t('i.Cancel')}
-                </Button>
-              </Grid>
-            </Grid>
-          </form>
-        </Grid>
-      </Grid>
-    </Fragment>
+    setData((prev) => ({
+      ...prev,
+      columns: columns,
+      rows: rows,
+      pageSize: rows?.length,
+      totalPage: Math.floor(data?.pageSize / (rows?.length || 1)),
+    }));
+  }, []);
+
+  return (
+    <Box className={"flex flex-col gap-4"}>
+      <TitleBar
+        title={t('menu.Users.Settings Menu.Live Casino Limitations')}
+        Right={<ActionModal/>}
+      />
+      <ParentCard title={t('pages.user-management.user_management_settings.Current Limits')}>
+        <DataTable
+          search={false}
+          data={data}
+          toolbar={false}
+        />
+      </ParentCard>
+    </Box>
   );
 }
 

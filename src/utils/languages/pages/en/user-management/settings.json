@@ -34,5 +34,8 @@
   "Method Name": "Method Name",
   "Sub Category": "Sub Category",
   "Active": "Active",
-  "Passive": "Passive"
+  "Passive": "Passive",
+  "Create Limit": "Create Limit",
+  "Current Limits": "Current Limits",
+  "Status" : "Status"
 }
