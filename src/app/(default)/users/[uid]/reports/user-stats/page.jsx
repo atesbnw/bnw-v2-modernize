@@ -33,10 +33,10 @@ function Page() {
     { title: "Total Live Casino Bonus", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Casino Profit", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Live Casino Profit", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
-    { title: "Total Investment Amount", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
+    { title: "Total Profit Amount", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Withdrawal Amount", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Bonus Amount", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
-    { title: "Last Investment Date", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />, info: {transactionTime:"18.05.2024 22:18:33", user:"goremaster"}},
+    { title: "Last Profit Date", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />, info: {transactionTime:"18.05.2024 22:18:33", user:"goremaster"}},
     { title: "Last Withdrawal Date", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />, info: {transactionTime:"18.05.2024 22:18:33", user:"goremaster"}},
     { title: "Last Bonus Date", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />, info: {transactionTime:"18.05.2024 22:18:33", user:"goremaster"}}
   ];
