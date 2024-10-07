@@ -69,8 +69,8 @@ function Page() {
         // width: 200
       },
       {
-        field: 'active',
-        headerName: t('pages.user-management.user_management_settings.Active'),
+        field: 'status',
+        headerName: t('pages.user-management.user_management_settings.Status'),
         renderCell: ({ value }) => (
           <Box className={"flex gap-2 items-center"}>
             <CustomSwitch
@@ -82,19 +82,6 @@ function Page() {
         )
         // width: 200
       },
-      {
-        field: 'passive',
-        headerName: t('pages.user-management.user_management_settings.Passive'),
-        renderCell: ({ value }) => (
-          <Box className={"flex gap-2 items-center"}>
-            <CustomSwitch
-              disabled={isReadOnly}
-              // onChange={() => {}}
-              defaultChecked={value}
-            />
-          </Box>
-        )
-      },
 
     ];
 
@@ -105,8 +92,7 @@ function Page() {
       methodName: faker.helpers.arrayElement(['Papara', 'MaxiPapara', 'Banka Havale']),
       category: faker.helpers.arrayElement(['Papara']),
       subCategory: faker.helpers.arrayElement(['Papara Key']),
-      active: faker.datatype.boolean(),
-      passive: faker.datatype.boolean(),
+      status: faker.datatype.boolean(),
     }));
 
     setData((prev) => ({

@@ -66,7 +66,7 @@ function Page() {
       },
       {
         field: "ip",
-        headerName: "IP",
+        headerName: "Last Login IP",
         width:110,
       },
       {
