@@ -21,14 +21,9 @@ function CategoryStats() {
         'type': 'casino'
       },
       {
-        'title': 'Casino',
+        'title': 'Virtual Games',
         'value': 'Twin Spin - 15 Bet - 10.23₺ - Spin',
-        'type': 'casino'
-      },
-      {
-        'title': 'Spor',
-        'value': 'Kombine(3) - 100.20 - Yatırım',
-        'type': 'spor'
+        'type': 'virtual-games'
       },
     ]);
   }, []);
@@ -38,7 +33,7 @@ function CategoryStats() {
       {data.map((item, index) => {
         const {title, value, icon, type} = item;
         return (
-          <Grid item xs={6} sm={6} md={3} key={index}>
+          <Grid item xs={6} sm={6} md={4} key={index}>
             <Box className={"flex flex-col md:flex-row gap-2 h-full justify-start  items-center bg-slate-500/5 flex-1 rounded-xl p-4 select-none"}>
               {type==="casino" ? <IconDice5 /> : <IconBallFootball />}
               <Box className={"md:items-start items-center flex flex-col"}>

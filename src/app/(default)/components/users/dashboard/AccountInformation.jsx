@@ -18,7 +18,6 @@ const accountInfo = [
   { title: 'pages.user-management.user_management_dashboard.Registration Date', value: '02/06/2021 16:34' },
   { title: 'pages.user-management.user_management_dashboard.Currency', value: 'Turkish Lira (₺)' },
   { title: 'pages.user-management.user_management_dashboard.Language', value: 'Turkish' },
-  { title: 'pages.user-management.user_management_dashboard.Dealer Code', value: '3435' },
   { title: 'pages.user-management.user_management_dashboard.Promotion Code', value: 'BELESCI40' }
 ];
 

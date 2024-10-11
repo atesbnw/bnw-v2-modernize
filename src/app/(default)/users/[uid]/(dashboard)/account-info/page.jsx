@@ -118,18 +118,6 @@ function Page() {
                 )}
               </Grid>
               <Grid item xs={12} sm={12} lg={6}>
-                <CustomFormLabel htmlFor="dealerCode">{t('pages.user-management.user_management_dashboard.Account Info Page.Dealer Code')}</CustomFormLabel>
-                <CustomTextField
-                  id="dealerCode"
-                  variant="outlined"
-                  fullWidth
-                  value={formik.values.dealerCode}
-                  onChange={formik.handleChange}
-                  error={formik.touched.dealerCode && Boolean(formik.errors.dealerCode)}
-                  helperText={formik.touched.dealerCode && formik.errors.dealerCode}
-                />
-              </Grid>
-              <Grid item xs={12} sm={12} lg={6}>
                 <CustomFormLabel
                   htmlFor="promotionCode">{t('pages.user-management.user_management_dashboard.Account Info Page.Promotion Code')}</CustomFormLabel>
                 <CustomTextField
