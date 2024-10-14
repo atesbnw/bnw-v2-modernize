@@ -16,7 +16,7 @@ function CategoryStats() {
         'type': 'casino'
       },
       {
-        'title': 'Casino',
+        'title': 'Live Casino',
         'value': 'Twin Spin - Freespin 10X',
         'type': 'casino'
       },

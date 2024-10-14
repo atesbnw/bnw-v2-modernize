@@ -55,11 +55,11 @@ function Page() {
       },
       {
         field: "merchantOpenDate",
-        headerName: "Merchant Open Date"
+        headerName: "Merchant Creation Date"
       },
       {
         field: "memberGroup",
-        headerName: "Member Group"
+        headerName: "LastRegisteredUser"
       },
       {
         field: "lastMemberRegisterDate",
@@ -67,7 +67,7 @@ function Page() {
       },
       {
         field: "lastPlayingGame",
-        headerName: "Last Playing Game"
+        headerName: "Last Playing Member"
       },
       {
         field: "lastLoginDate",

@@ -78,7 +78,7 @@
       "Balance History": "Balance History",
       "Bet History": "Bet History",
       "Add Bonus": "Add Bonus",
-      "Add Manuel Transaction": "Add Manuel Transaction"
+      "Add Manuel Transaction": "Add Manual Transaction"
     },
     "Game Management": {
       "title": "Game Management",
@@ -160,7 +160,7 @@
     "Game Reports": "Game Reports",
     "User Reports": "User Reports",
     "General Reports": "General Reports",
-    "Manuel Transaction Reports": "Manuel Transaction Reports",
+    "Manuel Transaction Reports": "Manual Transaction Reports",
     "User Balance Reports": "User Balance Reports",
     "User Game Reports": "User Game Reports",
     "User Finance Reports": "User Finance Reports",

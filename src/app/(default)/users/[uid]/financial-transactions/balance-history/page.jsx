@@ -45,7 +45,7 @@ function Page() {
           />
         </>
       )}>
-        <TransactionsTable />
+        <TransactionsTable type={"balance"} />
       </ParentCard>
     </Box>
   );

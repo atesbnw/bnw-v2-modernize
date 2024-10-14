@@ -12,7 +12,7 @@ const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
-function TransactionsTable() {
+function TransactionsTable({type = "transaction" || "balance"}) {
   const [data, setData] = useState({
     page: 1,
     pageSize: 10,
@@ -72,7 +72,7 @@ function TransactionsTable() {
         // width: 200
       },
       {
-        field: 'Transaction Flow',
+        field: 'transactionFlow',
         headerName: 'Transaction Flow',
         // width: 200
       },
@@ -130,7 +130,7 @@ function TransactionsTable() {
 
     setData((prev) => ({
       ...prev,
-      columns: columns,
+      columns: columns?.filter(f => type==="transaction" ? true : !["transactionDetail","transactionFlow"]?.includes(f?.field)),
       rows: rows,
       pageSize: rows?.length,
       totalPage: Math.floor(data?.pageSize / (rows?.length || 1)),

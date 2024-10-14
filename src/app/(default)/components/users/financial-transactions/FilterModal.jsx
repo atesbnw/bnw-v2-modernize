@@ -39,18 +39,18 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
         content={(
           <Box>
             <Grid container spacing={1} mb={2}>
-              <Grid item sm={6} xs={12}>
-                <CustomFormLabel
-                  htmlFor="searchText">{t('pages.user-management.user_management_financial_transactions.search')}</CustomFormLabel>
-                <CustomTextField
-                  id="searchText"
-                  name="searchText"
-                  variant="outlined"
-                  fullWidth
-                  value={filter?.searchText}
-                  onChange={(e) => updateFilter('searchText', e?.target.value)}
-                />
-              </Grid>
+              {/*<Grid item sm={6} xs={12}>*/}
+              {/*  <CustomFormLabel*/}
+              {/*    htmlFor="searchText">{t('pages.user-management.user_management_financial_transactions.search')}</CustomFormLabel>*/}
+              {/*  <CustomTextField*/}
+              {/*    id="searchText"*/}
+              {/*    name="searchText"*/}
+              {/*    variant="outlined"*/}
+              {/*    fullWidth*/}
+              {/*    value={filter?.searchText}*/}
+              {/*    onChange={(e) => updateFilter('searchText', e?.target.value)}*/}
+              {/*  />*/}
+              {/*</Grid>*/}
               <Grid item sm={6} xs={12}>
                 <CustomFormLabel
                   htmlFor="transactionDate">{t('pages.user-management.user_management_financial_transactions.transactionDate')}</CustomFormLabel>
@@ -124,22 +124,22 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                   <MenuItem value="egt">EGT</MenuItem>
                 </CustomSelect>
               </Grid>
-              <Grid item sm={6} xs={12}>
-                <CustomFormLabel
-                  htmlFor="transactionFlow">{t('pages.user-management.user_management_financial_transactions.transactionFlow')}</CustomFormLabel>
-                <CustomSelect
-                  id="transactionFlow"
-                  name="transactionFlow"
-                  fullWidth
-                  variant="outlined"
-                  value={filter?.transactionFlow || 'all'}
-                  onChange={(e) => updateFilter('transactionFlow', e?.target.value)}
-                >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="req">Request</MenuItem>
-                  <MenuItem value="bet">Bet</MenuItem>
-                </CustomSelect>
-              </Grid>
+              {/*<Grid item sm={6} xs={12}>*/}
+              {/*  <CustomFormLabel*/}
+              {/*    htmlFor="transactionFlow">{t('pages.user-management.user_management_financial_transactions.transactionFlow')}</CustomFormLabel>*/}
+              {/*  <CustomSelect*/}
+              {/*    id="transactionFlow"*/}
+              {/*    name="transactionFlow"*/}
+              {/*    fullWidth*/}
+              {/*    variant="outlined"*/}
+              {/*    value={filter?.transactionFlow || 'all'}*/}
+              {/*    onChange={(e) => updateFilter('transactionFlow', e?.target.value)}*/}
+              {/*  >*/}
+              {/*    <MenuItem value="all">All</MenuItem>*/}
+              {/*    <MenuItem value="req">Request</MenuItem>*/}
+              {/*    <MenuItem value="bet">Bet</MenuItem>*/}
+              {/*  </CustomSelect>*/}
+              {/*</Grid>*/}
               <Grid item sm={6} xs={12}>
                 <CustomFormLabel
                   htmlFor="status">{t('pages.user-management.user_management_financial_transactions.status')}</CustomFormLabel>
@@ -156,20 +156,20 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                   <MenuItem value="confirmed">Confirmed</MenuItem>
                 </CustomSelect>
               </Grid>
-              <Grid item sm={6} xs={12}>
-                <CustomFormLabel
-                  htmlFor="device">{t('pages.user-management.user_management_financial_transactions.device')}</CustomFormLabel>
-                <CustomSelect
-                  id="device"
-                  name="device"
-                  fullWidth
-                  variant="outlined"
-                  value={filter?.device || 'all'}
-                  onChange={(e) => updateFilter('device', e?.target.value)}
-                >
-                  <MenuItem value="all">All</MenuItem>
-                </CustomSelect>
-              </Grid>
+              {/*<Grid item sm={6} xs={12}>*/}
+              {/*  <CustomFormLabel*/}
+              {/*    htmlFor="device">{t('pages.user-management.user_management_financial_transactions.device')}</CustomFormLabel>*/}
+              {/*  <CustomSelect*/}
+              {/*    id="device"*/}
+              {/*    name="device"*/}
+              {/*    fullWidth*/}
+              {/*    variant="outlined"*/}
+              {/*    value={filter?.device || 'all'}*/}
+              {/*    onChange={(e) => updateFilter('device', e?.target.value)}*/}
+              {/*  >*/}
+              {/*    <MenuItem value="all">All</MenuItem>*/}
+              {/*  </CustomSelect>*/}
+              {/*</Grid>*/}
 
 
             </Grid>

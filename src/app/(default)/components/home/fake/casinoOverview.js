@@ -48,7 +48,7 @@ export const casinoOverview = [
       },
       {
         id: uniqueId(),
-        name: 'Bet Played',
+        name: 'Bet',
         values: [
           '65,73₺',
           '15,73₺',
