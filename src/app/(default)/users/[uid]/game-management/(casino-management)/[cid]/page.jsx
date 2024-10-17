@@ -42,12 +42,12 @@ function TransactionsTable() {
       },
       {
         field: 'providerID',
-        headerName: t('pages.user-management.game-management.providerID'),
+        headerName: t('pages.user-management.game-management.gameID'),
         // width: 200
       },
       {
         field: 'providerName',
-        headerName: t('pages.user-management.game-management.providerName'),
+        headerName: t('pages.user-management.game-management.gameName'),
         flex:1,
         // width: 200
       },

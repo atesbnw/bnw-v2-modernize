@@ -5,6 +5,7 @@
   "Locked": "Locked",
   "Logo": "Logo",
   "Icon": "Icon",
+  "gameID": "Game ID",
   "providerID": "Provider ID",
   "categoryID": "Category ID",
   "categoryOrder": "Category Order",

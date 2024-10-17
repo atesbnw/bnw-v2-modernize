@@ -18,7 +18,7 @@ import { useTranslation } from 'react-i18next';
 import { AppState } from '@/store/store';
 import Box from '@mui/material/Box';
 
-export default function NavItem({ item, level, pathDirect, hideMenu, onClick }) {
+export default function NavItem({ item, level, pathDirect, hideMenu, index, onClick }) {
   const lgDown = useMediaQuery((theme) => theme.breakpoints.down('lg'));
   const customizer = useSelector((state) => state.customizer);
   const Icon = item?.icon;
@@ -63,7 +63,7 @@ export default function NavItem({ item, level, pathDirect, hideMenu, onClick }) 
       <Link href={item.href}>
         <ListItemStyled
           disabled={item?.disabled}
-          selected={pathDirect === item?.href}
+          selected={index === 0 ? item?.href === pathDirect : pathDirect?.includes(item?.href)}
           onClick={lgDown ? onClick : undefined}
         >
           {itemIcon ? <ListItemIcon
