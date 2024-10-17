@@ -11,6 +11,7 @@ import SideDialog from '@/app/components/shared/SideDialog';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import { IconFilter, IconFilterX } from '@tabler/icons-react';
+import TimeTabs from "@/app/components/shared/TimeTabs";
 
 function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
   const [open, setOpen] = useState(false);
@@ -38,6 +39,11 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
         onClose={() => setOpen(false)}
         content={(
           <Box>
+            <Grid item xs={12}>
+              <CustomFormLabel
+                htmlFor="transactionDate">{t('pages.user-management.user_management_financial_transactions.transactionDate')}</CustomFormLabel>
+              <TimeTabs justify={"full"} onChange={(time) => updateFilter("timeRange", time)} value={filter?.timeRange} />
+            </Grid>
             <Grid container spacing={1} mb={2}>
               {/*<Grid item sm={6} xs={12}>*/}
               {/*  <CustomFormLabel*/}
@@ -53,19 +59,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
               {/*</Grid>*/}
               <Grid item sm={6} xs={12}>
                 <CustomFormLabel
-                  htmlFor="transactionDate">{t('pages.user-management.user_management_financial_transactions.transactionDate')}</CustomFormLabel>
-                <CustomTextField
-                  id="transactionDate"
-                  name="transactionDate"
-                  variant="outlined"
-                  fullWidth
-                  value={filter?.transactionDate}
-                  onChange={(e) => updateFilter('transactionDate', e?.target.value)}
-                />
-              </Grid>
-              <Grid item sm={6} xs={12}>
-                <CustomFormLabel
-                  htmlFor="balance">{t('pages.user-management.user_management_financial_transactions.balance')}</CustomFormLabel>
+                  htmlFor="balance">{t('pages.user-management.user_management_financial_transactions.transactionAmount')}</CustomFormLabel>
                 <CustomTextField
                   id="balance"
                   name="balance"

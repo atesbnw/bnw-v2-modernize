@@ -16,7 +16,7 @@ const StatCards = () => {
     setData([
       { title: t("pages.user-management.user_management_dashboard.Balance/Bonus/Poker"), digits: '5.000,00₺/2.000,00₺/5.000,00₺'},
       { title: t("pages.user-management.user_management_dashboard.Deposit/Withdraw"), digits: '2.000,00₺/5.000,00₺'},
-      { title: t("pages.user-management.user_management_dashboard.Played/Win"), digits: ' 5.000,00₺/20.000,00₺'},
+      { title: t("pages.user-management.user_management_dashboard.Bet/Win"), digits: ' 5.000,00₺/20.000,00₺'},
       { title: t("pages.user-management.user_management_dashboard.Received/CanceledBonus"), digits: '46.000,00₺/6.000,00₺'},
       { title: t("pages.user-management.user_management_dashboard.memberProfitability"), digits: '%42'},
     ]);

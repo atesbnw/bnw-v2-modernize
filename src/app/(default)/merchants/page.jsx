@@ -59,7 +59,7 @@ function Page() {
       },
       {
         field: "memberGroup",
-        headerName: "LastRegisteredUser"
+        headerName: "Last Registered User"
       },
       {
         field: "lastMemberRegisterDate",

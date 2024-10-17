@@ -44,7 +44,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
             <Grid container spacing={1} mb={2}>
               <Grid item xs={12}>
                 <CustomFormLabel
-                  htmlFor="searchText">Search by creation date</CustomFormLabel>
+                  htmlFor="searchText">{t('pages.merchants.dashboard.Search By Creation Date')}</CustomFormLabel>
                 <TimeTabs justify={"full"} onChange={(time) => updateFilter("timeRange", time)} value={filter?.timeRange} />
               </Grid>
               <Grid item xs={12}>

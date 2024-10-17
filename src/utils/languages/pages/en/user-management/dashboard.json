@@ -9,7 +9,7 @@
   "balance": "Balance",
   "Balance/Bonus/Poker": "Balance/Bonus/Poker",
   "Deposit/Withdraw": "Deposit/Withdraw",
-  "Played/Win": "Played/Win",
+  "Bet/Win": "Bet/Win",
   "Received/CanceledBonus": "Received / Canceled Bonus",
   "deposit": "Deposit",
   "withdraw": "Withdraw",
@@ -153,6 +153,7 @@
   "Notes Page": {
     "Notes": "Notes",
     "createNewNote": "Create New Note",
+    "Note": "Note",
     "noteAddedBy": "Note Added By",
     "dateAdded": "Date Added"
   },

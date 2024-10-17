@@ -25,7 +25,7 @@ function TransactionStatusTypes() {
       color: theme?.palette?.error?.dark
     },
     {
-      label: "Manuel Transaction",
+      label: "Manual Transaction",
       color: theme?.palette?.info.main
     }
   ]), []);

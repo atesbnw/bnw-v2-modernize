@@ -94,11 +94,11 @@ function TransactionsTable() {
       {
         field: 'actions',
         type: 'actions',
-        width: 170,
+        width: 100,
         getActions: (e) => {
           return [
             <IconButton onClick={() => router.push(`/users/${params?.uid}/game-management/virtual-game-management/${e?.row?.providerName}`)}>
-              <IconEye />
+              <IconChevronRight />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
             //   <IconPencil />

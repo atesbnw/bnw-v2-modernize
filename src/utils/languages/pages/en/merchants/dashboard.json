@@ -1,6 +1,8 @@
 {
   "search": "Search",
   "searchPlaceholder": "Search by Name, Surname, ID, Username",
+  "Search By Creation Date": "Search By Creation Date",
+
   "Show Reference Code": "Show Reference Code",
   "Reference Code": "Reference Code",
   "Update Commission Rate": "Update Commission Rate",
@@ -18,7 +20,7 @@
   "balance": "Balance",
   "Balance/Poker/Okey": "Balance/Poker/Okey",
   "Deposit/Withdraw": "Deposit/Withdraw",
-  "Played/Win": "Played/Win",
+  "Bet/Win": "Bet/Win",
   "Received/CanceledBonus": "Received / Canceled Bonus",
   "deposit": "Deposit",
   "withdraw": "Withdraw",
