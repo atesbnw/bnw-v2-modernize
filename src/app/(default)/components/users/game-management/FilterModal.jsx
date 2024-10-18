@@ -72,7 +72,13 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                 <CustomFormLabel
                   htmlFor="transactionType">{t('pages.user-management.game-management.Locked')}</CustomFormLabel>
                 <CustomSwitch
-                  onChange={(e) => updateFilter('Locked', e?.target?.checked)}
+                  onChange={(e) => {
+                    updateFilter('Locked', e?.target?.checked);
+                    if(e?.target?.checked) {
+                      updateFilter('Desktop', false);
+                      updateFilter('Mobile', false);
+                    }
+                  }}
                   checked={filter?.Locked}
                 />
               </Grid>

@@ -14,6 +14,54 @@ import TitleBar from '@/app/components/TitleBar';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import ParentCard from "@/app/components/shared/ParentCard";
+import Divider from '@mui/material/Divider';
+
+const CustomLockedSwitch = ({id, value}) => {
+
+  const [state, setState] = useState(value);
+
+  useEffect(() => {
+    setState(value)
+  }, [value]);
+
+  return (
+    <Box className={"flex gap-2 items-center"}>
+      <CustomSwitch
+        disabled={state?.lock}
+        onChange={(event,newValue) => {
+          setState(prev => ({
+            ...prev,
+            desktop: newValue
+          }))
+        }}
+        checked={state?.desktop}
+      />
+      <Divider horizontal={true} />
+      <CustomSwitch
+        disabled={state?.lock}
+        onChange={(event,newValue) => {
+          setState(prev => ({
+            ...prev,
+            mobile: newValue
+          }))
+        }}
+        checked={state?.mobile}
+      />
+      <Divider horizontal={true} />
+      <CustomSwitch
+        onChange={(event,newValue) => {
+          setState(prev => ({
+            ...prev,
+            desktop: newValue ? false : prev?.desktop,
+            mobile: newValue ? false : prev?.mobile,
+            lock: newValue
+          }))
+        }}
+        checked={state?.lock}
+      />
+    </Box>
+  )
+};
 
 function TransactionsTable() {
   const params = useParams();
@@ -28,13 +76,27 @@ function TransactionsTable() {
     rows: [],
   });
 
+  // const lockedChangeHandler = useCallback((id,newValue) => {
+  //   console.log({ id, newValue, data: data?.rows });
+  //
+  //   setData((prev) => ({
+  //     ...prev,
+  //     rows: prev?.rows?.map(m => m?.id === id ? ({
+  //       ...m,
+  //       desktop: newValue ? false : m?.desktop,
+  //       mobile: newValue ? false : m?.mobile,
+  //     }) : m),
+  //   }));
+  // }, [data]);
+
   useEffect(() => {
     const columns = [
       {
         field: 'logo',
+        headerAlign: 'center',
         headerName: t('pages.user-management.game-management.Logo'),
         renderCell: ({ value }) => (
-          <Box className={"flex gap-2 items-center"}>
+          <Box className={"flex gap-2 items-center justify-center w-full"}>
             <img src={value} className={"w-20 h-20 rounded bg-white object-contain"} alt={"provider"} />
             {/*<Typography className={"flex-1"} variant={"body1"}>{value}</Typography>*/}
             {/*<NewManuelTransactionAddWithID id={value} />*/}
@@ -53,44 +115,41 @@ function TransactionsTable() {
         flex:1,
         // width: 200
       },
-      {
-        field: 'desktop',
-        headerName: t('pages.user-management.game-management.Desktop'),
-        renderCell: ({ value }) => (
-          <Box className={"flex gap-2 items-center"}>
-            <CustomSwitch
-              // onChange={() => {}}
-              defaultChecked={value}
-            />
-          </Box>
-        )
-        // width: 200
-      },
-      {
-        field: 'mobile',
-        headerName: t('pages.user-management.game-management.Mobile'),
-        renderCell: ({ value }) => (
-          <Box className={"flex gap-2 items-center"}>
-            <CustomSwitch
-              // onChange={() => {}}
-              defaultChecked={value}
-            />
-          </Box>
-        )
-        // width: 200
-      },
+      // {
+      //   field: 'desktop',
+      //   headerName: t('pages.user-management.game-management.Desktop'),
+      //   renderCell: ({ value }) => (
+      //     <Box className={"flex gap-2 items-center"}>
+      //       <CustomSwitch
+      //         // onChange={() => {}}
+      //         defaultChecked={value}
+      //       />
+      //     </Box>
+      //   )
+      //   // width: 200
+      // },
+      // {
+      //   field: 'mobile',
+      //   headerName: t('pages.user-management.game-management.Mobile'),
+      //   renderCell: ({ value }) => (
+      //     <Box className={"flex gap-2 items-center"}>
+      //       <CustomSwitch
+      //         // onChange={() => {}}
+      //         defaultChecked={value}
+      //       />
+      //     </Box>
+      //   )
+      //   // width: 200
+      // },
       {
         field: 'lock',
-        headerName: t('pages.user-management.game-management.Locked'),
-        renderCell: ({ value }) => (
+        headerName: `${t('pages.user-management.game-management.Desktop')} | ${t('pages.user-management.game-management.Mobile')} | ${t('pages.user-management.game-management.Locked')}`,
+        renderCell: ({ value, id }) => (
           <Box className={"flex gap-2 items-center"}>
-            <CustomSwitch
-              // onChange={() => {}}
-              defaultChecked={value}
-            />
+            <CustomLockedSwitch id={id} value={value} />
           </Box>
-        )
-        // width: 200
+        ),
+        width: 300
       },
       {
         field: 'actions',
@@ -114,9 +173,15 @@ function TransactionsTable() {
       logo: faker.image.avatar(), // or you can use any placeholder image URL
       providerID: faker.datatype.number({ min: 1, max: 100 }).toString(),
       providerName: faker.company.catchPhrase(),
-      desktop: faker.datatype.boolean(),
-      mobile: faker.datatype.boolean(),
-      lock: faker.datatype.boolean(),
+      lock: {
+        lock: faker.datatype.boolean(),
+        get desktop(){
+          return this?.lock ? false : faker.datatype.boolean()
+        },
+        get mobile(){
+          return this?.lock ? false : faker.datatype.boolean()
+        }
+      }
     }));
 
     setData((prev) => ({
@@ -159,7 +224,7 @@ function TransactionsTable() {
         </>
       )}>
         <DataTable
-          checkboxSelection={true}
+          checkboxSelection={false}
           search={false}
           data={data}
           toolbar={false}
