@@ -19,6 +19,7 @@ import Paper from '@mui/material/Paper';
 import ParentCard from '@/app/components/shared/ParentCard';
 import dynamic from 'next/dynamic';
 import { useTheme } from '@mui/material/styles';
+import classNames from 'classnames';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -125,7 +126,9 @@ function OverviewTable({
                       </TableHead>
                       <TableBody>
                         {table?.rows?.map((basic) => (
-                          <TableRow key={basic.id}>
+                          <TableRow key={basic.id} className={classNames({
+                            "bg-blue-500/40": !!basic?.highlight
+                          })}>
                             <TableCell>
                               <Typography variant="subtitle2" fontWeight={600}>
                                 {basic.name}

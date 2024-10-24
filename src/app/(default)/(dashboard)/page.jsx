@@ -9,7 +9,9 @@ import TopCircles from '@/app/(default)/components/home/Circle';
 import StatCards from '@/app/(default)/components/home/StatCards';
 import StatsRow from '@/app/(default)/components/home/StatsRow';
 import OverviewTable from '@/app/(default)/components/home/OverviewTable';
+import { virtualGamesOverview } from '@/app/(default)/components/home/fake/virtualGamesOverview';
 import { sportsbookOverview } from '@/app/(default)/components/home/fake/sportsbookOverview';
+import { bonusOverview } from '@/app/(default)/components/home/fake/bonusOverview';
 import { casinoOverview } from '@/app/(default)/components/home/fake/casinoOverview';
 import DashboardCard from '@/app/components/shared/DashboardCard';
 import GameStatBox from '@/app/(default)/components/home/GameStatBox';
@@ -72,7 +74,7 @@ function Dashboard() {
                 <OverviewTable
                     title={t("Dashboard.Overviews.Virtual Games")}
                   data={[
-                    ...casinoOverview
+                    ...virtualGamesOverview
                   ]}
                 />
               </Grid>
@@ -82,7 +84,7 @@ function Dashboard() {
             <OverviewTable
               title={t("Dashboard.Overviews.Bonus")}
               data={[
-                ...sportsbookOverview
+                ...bonusOverview
               ]}
             />
 
