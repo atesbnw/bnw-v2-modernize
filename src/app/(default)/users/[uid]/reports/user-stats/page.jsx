@@ -31,8 +31,6 @@ function Page() {
     { title: "Total Live Casino Bet", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Casino Bonus", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Live Casino Bonus", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
-    { title: "Total Casino Deposit", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
-    { title: "Total Live Casino Deposit", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Deposit Amount", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Withdrawal Amount", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},
     { title: "Total Bonus Amount", value: "4,100.18 ₺", icon: <IconUser {...iconProps} />},

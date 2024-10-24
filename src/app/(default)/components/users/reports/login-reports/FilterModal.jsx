@@ -46,18 +46,18 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
               <Grid item xs={12}>
                 <TimeTabs justify={"full"} onChange={(time) => updateFilter("timeRange", time)} value={filter?.timeRange} />
               </Grid>
-              <Grid item xs={12} md={12}>
-                <CustomFormLabel
-                  htmlFor="searchText">{t('pages.user-management.user_management_reports.Search')}</CustomFormLabel>
-                <CustomOutlinedInput
-                  id="searchText"
-                  name="searchText"
-                  placeholder={t('pages.user-management.user_management_reports.UsernameID')}
-                  fullWidth
-                  value={filter?.searchText}
-                  onChange={(e) => updateFilter('searchText', e?.target.value)}
-                />
-              </Grid>
+              {/*<Grid item xs={12} md={12}>*/}
+              {/*  <CustomFormLabel*/}
+              {/*    htmlFor="searchText">{t('pages.user-management.user_management_reports.Search')}</CustomFormLabel>*/}
+              {/*  <CustomOutlinedInput*/}
+              {/*    id="searchText"*/}
+              {/*    name="searchText"*/}
+              {/*    placeholder={t('pages.user-management.user_management_reports.UsernameID')}*/}
+              {/*    fullWidth*/}
+              {/*    value={filter?.searchText}*/}
+              {/*    onChange={(e) => updateFilter('searchText', e?.target.value)}*/}
+              {/*  />*/}
+              {/*</Grid>*/}
               <Grid item xs={12} md={12}>
                 <CustomFormLabel
                   htmlFor="device">{t('pages.user-management.user_management_reports.Device')}</CustomFormLabel>

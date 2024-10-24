@@ -26,16 +26,16 @@ function TopMenu() {
       label: 'menu.Users.Financial Transactions',
       to: `${url}/${params?.uid}/financial-transactions`,
     },
-    {
-      label: 'menu.Users.Game Management',
-      // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.uid}/game-management`,
-    },
-    {
-      label: 'Reports.title',
-      // icon: <IconUserCircle size="20" />,
-      to: `${url}/${params?.uid}/reports/casino-reports`,
-    },
+    // {
+    //   label: 'menu.Users.Game Management',
+    //   // icon: <IconUserCircle size="20" />,
+    //   to: `${url}/${params?.uid}/game-management`,
+    // },
+    // {
+    //   label: 'Reports.title',
+    //   // icon: <IconUserCircle size="20" />,
+    //   to: `${url}/${params?.uid}/reports/casino-reports`,
+    // },
   ];
 
   return (

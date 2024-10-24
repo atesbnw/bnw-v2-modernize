@@ -129,7 +129,7 @@ function TransactionsTable() {
       // },
       {
         field: 'lock',
-        headerName: t('pages.user-management.game-management.Locked'),
+        headerName: `${t('pages.user-management.game-management.Desktop')} | ${t('pages.user-management.game-management.Mobile')} | ${t('pages.user-management.game-management.Locked')}`,
         renderCell: ({ value,id }) => (
           <Box className={"flex gap-2 items-center"}>
             <CustomLockedSwitch id={id} value={value} />

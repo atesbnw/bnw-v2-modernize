@@ -111,7 +111,7 @@
     "City" : "City",
     "Address" :  "Address",
     "Postal Code" : "Postal Code",
-    "Mobile Phone is required" : "Mobile Phone is required",
+    "Mobile Phone is required" : "Phone is required",
     "Email is required" : "Email is required",
     "Country is required" : "Country is required",
     "Region is required" : "Region is required",

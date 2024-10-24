@@ -86,7 +86,7 @@ function Page() {
 
     const rows = Array.from(Array(10)).map(() => ({
       id: uniqueId(),
-      category: faker.helpers.arrayElement(['Casino', 'Poker', 'Slot']),
+      category: faker.helpers.arrayElement(['Casino', 'Poker']),
       provider: faker.helpers.arrayElement(['Pragmatic', 'EGT', 'ABC']),
       game: faker.helpers.arrayElement(['Sweet Bonanza', '20 Burning Hot', 'Spaceman']),
       limitDuration: faker.helpers.arrayElement(['Hourly', 'Daily', 'Weekly']),
