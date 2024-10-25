@@ -120,7 +120,7 @@ function TransactionsTable({type = "transaction" || "balance"}) {
       transactionType: faker.helpers.arrayElement(['Deposit', 'Withdraw', 'Payment', 'Transfer']),
       category: faker.helpers.arrayElement(['Papara', 'Bank', 'Credit Card', 'Cash']),
       subCategory: faker.helpers.arrayElement(['Papara Key', 'Bankamatik', 'Visa', 'Mastercard']),
-      transactionDetail: faker.helpers.arrayElement(['Floaming Hot', 'Roulette', '-']),
+      transactionDetail: faker.helpers.arrayElement(['Detail text']),
       transactionFlow: faker.helpers.arrayElement(['Request', 'Approve', 'Reject']),
       amount: faker.commerce.price(100, 1000, 2) + '₺',
       beforeBalance: faker.commerce.price(0, 500, 2) + '₺',
