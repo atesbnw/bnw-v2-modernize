@@ -72,18 +72,7 @@ function GameActionModal({id, data}) {
         content={(
           <Box>
             <Grid container spacing={1} mb={2}>
-              <Grid item xs={12}>
-                <CustomFormLabel htmlFor="provider">{t('pages.user-management.game-management.provider')}</CustomFormLabel>
-                <CustomTextField
-                  id="provider"
-                  name="provider"
-                  variant="outlined"
-                  fullWidth
-                  value={value?.provider}
-                  onChange={(e) => updateValue('provider', e?.target.value)}
-                  disabled
-                />
-              </Grid>
+
               <Grid item xs={12}>
                 <CustomFormLabel htmlFor="gameName">{t('pages.user-management.game-management.gameName')}</CustomFormLabel>
                 <CustomTextField

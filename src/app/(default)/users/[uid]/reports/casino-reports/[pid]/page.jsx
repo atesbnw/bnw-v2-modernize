@@ -53,7 +53,7 @@ function Page() {
       },
       {
         field: 'played',
-        headerName: 'Played',
+        headerName: 'Bet',
         // width: 200
       },
       {

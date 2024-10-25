@@ -162,7 +162,7 @@ function TransactionsTable() {
         </>
       )}>
         <DataTable
-          checkboxSelection={true}
+          // checkboxSelection={true}
           search={false}
           data={data}
           toolbar={false}

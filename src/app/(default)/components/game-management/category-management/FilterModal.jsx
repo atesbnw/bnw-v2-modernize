@@ -48,6 +48,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                   id="searchText"
                   name="searchText"
                   variant="outlined"
+                  placeholder={t('pages.user-management.user_management_financial_transactions.categoryManagementSearch')}
                   fullWidth
                   value={filter?.searchText}
                   onChange={(e) => updateFilter('searchText', e?.target.value)}
@@ -87,6 +88,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                 <CustomFormLabel
                   htmlFor="transactionType">{t('pages.user-management.game-management.addDate')}</CustomFormLabel>
                <TimeTabs
+                 justify={"start"}
                  value={filter?.addDate}
                  onChange={e => updateFilter("addDate", e)}
                />

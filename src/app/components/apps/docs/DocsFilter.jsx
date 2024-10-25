@@ -62,28 +62,28 @@ const DocsFilter = () => {
       id: 9,
       divider: true,
     },
-    {
-      id: 13,
-      filterbyTitle: 'Labels',
-    },
-    {
-      id: 10,
-      name: t('pages.user-management.user_management_dashboard.Docs Page.Personal'),
-      icon: FolderRounded,
-      color: 'primary.main',
-    },
-    {
-      id: 11,
-      name: t('pages.user-management.user_management_dashboard.Docs Page.System'),
-      icon: FolderRounded,
-      color: 'error.main',
-    },
-    {
-      id: 12,
-      name: t('pages.user-management.user_management_dashboard.Docs Page.Examine'),
-      icon: FolderRounded,
-      color: 'success.main',
-    },
+    // {
+    //   id: 13,
+    //   filterbyTitle: 'Labels',
+    // },
+    // {
+    //   id: 10,
+    //   name: t('pages.user-management.user_management_dashboard.Docs Page.Personal'),
+    //   icon: FolderRounded,
+    //   color: 'primary.main',
+    // },
+    // {
+    //   id: 11,
+    //   name: t('pages.user-management.user_management_dashboard.Docs Page.System'),
+    //   icon: FolderRounded,
+    //   color: 'error.main',
+    // },
+    // {
+    //   id: 12,
+    //   name: t('pages.user-management.user_management_dashboard.Docs Page.Examine'),
+    //   icon: FolderRounded,
+    //   color: 'success.main',
+    // },
   ];
 
   return (

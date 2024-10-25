@@ -5,7 +5,7 @@ import {
 import DataTable from '@/app/components/shared/DataTable';
 import Box from '@mui/material/Box';
 import { Stack } from '@mui/system';
-import FilterModal from '@/app/(default)/components/users/users-list/FilterModal';
+import FilterModal from '@/app/(default)/components/game-management/category-management/FilterModal';
 import { IconFileDownload } from '@tabler/icons-react';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';

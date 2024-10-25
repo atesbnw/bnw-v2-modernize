@@ -18,7 +18,7 @@ const accountInfo = [
   { title: 'pages.merchants.dashboard.Registration Date', value: '02/06/2021 16:34' },
   { title: 'pages.merchants.dashboard.Currency', value: 'Turkish Lira (₺)' },
   { title: 'pages.merchants.dashboard.Language', value: 'Turkish' },
-  { title: 'pages.merchants.dashboard.Dealer Code', value: '3435' },
+  // { title: 'pages.merchants.dashboard.Dealer Code', value: '3435' },
   { title: 'pages.merchants.dashboard.Promotion Code', value: 'BELESCI40' }
 ];
 

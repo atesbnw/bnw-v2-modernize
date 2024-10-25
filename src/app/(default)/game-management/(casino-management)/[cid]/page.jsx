@@ -184,7 +184,7 @@ function TransactionsTable() {
       </Stack>
 
         <DataTable
-          checkboxSelection={true}
+          // checkboxSelection={true}
           search={false}
           data={data}
           toolbar={false}

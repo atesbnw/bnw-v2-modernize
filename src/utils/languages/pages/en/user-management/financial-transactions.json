@@ -37,5 +37,7 @@
   "Stats": "Stats",
   "amount": "Amount",
   "NewManuelTransactionAddWithID": "Add Associated Manual Transaction",
-  "associatedTransactionId": "Associated Transaction ID"
+  "associatedTransactionId": "Associated Transaction ID",
+  "backoffice_search": "Search by Backoffice Username",
+  "categoryManagementSearch": "Search by Category ID / Operator"
 }

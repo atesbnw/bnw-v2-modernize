@@ -48,6 +48,7 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                   id="searchText"
                   name="searchText"
                   variant="outlined"
+                  placeholder={t('pages.user-management.user_management_financial_transactions.backoffice_search')}
                   fullWidth
                   value={filter?.searchText}
                   onChange={(e) => updateFilter('searchText', e?.target.value)}

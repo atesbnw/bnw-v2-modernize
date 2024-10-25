@@ -7,6 +7,6 @@ export const validationSchema = yup.object({
   language: yup.string().required(t('menu.Users.Account Info Page.Language is required')),
   username: yup.string().required(t('menu.Users.Account Info Page.Username is required')),
   currency: yup.string().required(t('menu.Users.Account Info Page.Currency is required')),
-  dealerCode: yup.string().required(t('menu.Users.Account Info Page.Dealer Code is required')),
+  // dealerCode: yup.string().required(t('menu.Users.Account Info Page.Dealer Code is required')),
   promotionCode: yup.string().required(t('menu.Users.Account Info Page.Promotion Code is required')),
 });
