@@ -54,28 +54,41 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
               </Grid>
               <Grid item sm={4} xs={12}>
                 <CustomFormLabel
-                  htmlFor="transactionDate">{t('pages.user-management.game-management.Desktop')}</CustomFormLabel>
-                <CustomSwitch
-                  onChange={(e) => updateFilter('Desktop', e?.target?.checked)}
-                  checked={filter?.Desktop}
-                />
-              </Grid>
-              <Grid item sm={4} xs={12}>
-                <CustomFormLabel
-                  htmlFor="balance">{t('pages.user-management.game-management.Mobile')}</CustomFormLabel>
-                <CustomSwitch
-                  onChange={(e) => updateFilter('Mobile', e?.target?.checked)}
-                  checked={filter?.Mobile}
-                />
-              </Grid>
-              <Grid item sm={4} xs={12}>
-                <CustomFormLabel
                   htmlFor="transactionType">{t('pages.user-management.game-management.Locked')}</CustomFormLabel>
                 <CustomSwitch
-                  onChange={(e) => updateFilter('Locked', e?.target?.checked)}
+                  onChange={(e) => {
+                    if(e?.target?.checked) {
+                      updateFilter('Desktop', false);
+                      updateFilter('Mobile', false);
+                    }
+                    updateFilter('Locked', e?.target?.checked);
+                  }}
                   checked={filter?.Locked}
                 />
               </Grid>
+              {filter?.Locked ? (
+                <></>
+              ) : (
+                <Fragment>
+                  <Grid item sm={4} xs={12}>
+                    <CustomFormLabel
+                      htmlFor="transactionDate">{t('pages.user-management.game-management.Desktop')}</CustomFormLabel>
+
+                    <CustomSwitch
+                      onChange={(e) => !filter?.Locked && updateFilter('Desktop', e?.target?.checked)}
+                      checked={filter?.Locked!==true  && filter?.Desktop}
+                    />
+                  </Grid>
+                  <Grid item sm={4} xs={12}>
+                    <CustomFormLabel
+                      htmlFor="balance">{t('pages.user-management.game-management.Mobile')}</CustomFormLabel>
+                    <CustomSwitch
+                      onChange={(e) => !filter?.Locked && updateFilter('Mobile', e?.target?.checked)}
+                      checked={filter?.Locked!==true  && filter?.Mobile}
+                    />
+                  </Grid>
+                </Fragment>
+              )}
 
 
             </Grid>

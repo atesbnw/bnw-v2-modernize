@@ -46,8 +46,8 @@ function Page() {
         <Grid item xs={12} className={"pt-0"}>
           <Card variant="outlined">
             <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
-              <Box className={"text-xl flex flex-row gap-2 items-center"}>
-                <AdminPanelSettingsIcon fontSize="large"/>
+              <Box className={"text-lg flex flex-row gap-2 items-center"}>
+                <AdminPanelSettingsIcon fontSize="medium"/>
                 <strong>{t('pages.operator-management.dashboard.Role')}:</strong>
                 <span>ADMIN</span>
               </Box>
@@ -56,6 +56,14 @@ function Page() {
               </Box>
             </Stack>
           </Card>
+        </Grid>
+
+        <Grid item xs={12}>
+          <ParentCard
+            title={t('pages.user-management.user_management_dashboard.Latest Note')}
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          </ParentCard>
         </Grid>
 
         <Grid item xs={12} className={"mt-0"}>

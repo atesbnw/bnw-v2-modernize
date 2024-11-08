@@ -152,7 +152,7 @@ function TransactionsTable() {
       ...prev,
       [field]: value,
     }));
-  }, []);
+  }, [filter]);
 
   return (
     <Fragment>
