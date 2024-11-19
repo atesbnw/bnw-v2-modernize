@@ -1,5 +1,5 @@
 {
-  "Bonuses": "Bonuses",
+  "Bonuses": "Promotions",
   "atLeastOne" : "At least one selection is required",
   "Create Bonus": "Create Bonus",
   "Create Free Bet": "Create Free Bet",
@@ -38,7 +38,7 @@
   "bonusType": "Bonus Type",
   "bonusCategory": "Bonus Category",
   "bonusTurnoverCount": "Bonus Turnover Count",
-  "mainBalanceTurnoverCount": "Main Balance Turnover Count",
+  "mainBalanceTurnoverCount": "Wager",
   "gameCategory": "Game Category",
   "bonusPercentage": "Bonus Percentage",
   "regions": "Regions",

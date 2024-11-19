@@ -174,7 +174,7 @@ function Page() {
                   </FormControl>
                 </Grid>
                 <Grid item xs={6} sm={4} lg={3}>
-                  <CustomFormLabel htmlFor="startDate">{t('pages.tools.bonus.startDate')}</CustomFormLabel>
+                  <CustomFormLabel htmlFor="endDate">{t('pages.tools.bonus.endDate')}</CustomFormLabel>
                   <FormControl sx={{width: '100%'}}>
                     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"} >
                       <DateTimePicker

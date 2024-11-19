@@ -39,6 +39,7 @@ const multipleSelectItems = [
 function Page() {
   const [descriptionTextState, setDescriptionTextState] = useState(`<b>Lorem Ipsum</b>`);
   const [startDateTime, setStartDateTime] = React.useState(dayjs());
+  const [endDateTime, setEndDateTime] = React.useState(dayjs());
   const [finishDateTime, setFinishDateTime] = React.useState(dayjs());
 
   const formik = useFormik({
@@ -119,27 +120,6 @@ function Page() {
                     <FormHelperText error id="standard-weight-helper-text-email-login">
                       {' '}
                       {formik.errors.requestType}{' '}
-                    </FormHelperText>
-                  )}
-                </Grid>
-                <Grid item xs={6} sm={4} lg={2}>
-                  <CustomFormLabel sx={{mt: 0}}
-                                   htmlFor="approvalType">{t('pages.tools.bonus.approvalType')}</CustomFormLabel>
-                  <CustomSelect
-                    id="approvalType"
-                    name="approvalType"
-                    fullWidth
-                    variant="outlined"
-                    value={formik.values.approvalType}
-                    onChange={formik.handleChange}
-                  >
-                    <MenuItem value="option">Option</MenuItem>
-                    <MenuItem value="optionb">Option B</MenuItem>
-                  </CustomSelect>
-                  {formik.errors.approvalType && (
-                    <FormHelperText error id="standard-weight-helper-text-email-login">
-                      {' '}
-                      {formik.errors.approvalType}{' '}
                     </FormHelperText>
                   )}
                 </Grid>
@@ -268,28 +248,7 @@ function Page() {
                     </FormHelperText>
                   )}
                 </Grid>
-                <Grid item xs={6} sm={4} lg={3}>
-                  <CustomFormLabel htmlFor="regions">{t('pages.tools.bonus.regions')}</CustomFormLabel>
-                  <FormControl className={"w-full"}>
-                    <Select
-                      id="regions"
-                      name="regions"
-                      multiple
-                      value={formik.values.regions}
-                      onChange={formik.handleChange}
-                      input={<OutlinedInput/>}
-                    >
-                      {multipleSelectItems.map((name) => (
-                        <MenuItem
-                          key={name}
-                          value={name}
-                        >
-                          {name}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </Grid>
+
                 <Grid item xs={6} sm={4} lg={3}>
                   <CustomFormLabel htmlFor="paymentMethod">{t('pages.tools.bonus.paymentMethod')}</CustomFormLabel>
                   <FormControl className={"w-full"}>
@@ -333,13 +292,13 @@ function Page() {
                   </FormControl>
                 </Grid>
                 <Grid item xs={6} sm={4} lg={3}>
-                  <CustomFormLabel htmlFor="startDate">{t('pages.tools.bonus.startDate')}</CustomFormLabel>
+                  <CustomFormLabel htmlFor="endDate">{t('pages.tools.bonus.endDate')}</CustomFormLabel>
                   <FormControl sx={{width: '100%'}}>
                     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"tr"} >
                       <DateTimePicker
-                        value={finishDateTime}
+                        value={endDateTime}
                         onChange={(newValue) => {
-                          setFinishDateTime(newValue);
+                          setEndDateTime(newValue);
                         }}
                         format={"DD/MM/YYYY HH:mm:ss"}
                         ampm={false}
