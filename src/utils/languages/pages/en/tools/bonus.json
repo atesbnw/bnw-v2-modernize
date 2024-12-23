@@ -1,6 +1,8 @@
 {
   "Bonuses": "Promotions",
+  "FreeSpins": "Free Spins",
   "atLeastOne" : "At least one selection is required",
+  "Update Bonus": "Update Bonus",
   "Create Bonus": "Create Bonus",
   "Create Free Bet": "Create Free Bet",
   "Create Free Spin": "Create Free Spin",
@@ -57,8 +59,12 @@
   "targetUser" :"Target User",
   "addUser" :"Add User",
   "or" :"or",
+  "Wager": "Wager",
+  "Bonus Amount":"Bonus Amount",
   "addUserPlaceholder" : "Enter the user IDs with a comma in between.",
   "uploadFile": "Upload File",
   "fileUploadText1": "- The file format must be .csv.",
-  "fileUploadText2": "- User IDs should be one under the other, one user per line."
+  "fileUploadText2": "- User IDs should be one under the other, one user per line.",
+  "CreatedBonuses": "Created Bonuses",
+  "transferredBonuses": "Transferred Bonuses"
 }

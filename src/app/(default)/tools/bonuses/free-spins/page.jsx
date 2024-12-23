@@ -5,7 +5,7 @@ import {t} from "i18next";
 import {Stack, Button, Grid, Dialog, DialogContent, DialogContentText, DialogProps, DialogTitle, DialogActions} from "@mui/material";
 import ParentCard from "@/app/components/shared/ParentCard";
 import DataTable from "@/app/components/shared/DataTable";
-import FilterModal from "@/app/(default)/components/tools/bonuses/FilterModal";
+import FilterModal from "@/app/(default)/components/tools/bonuses/FreeSpinFilterModal";
 import {uniqueId} from "lodash";
 import {Faker, fakerTR, tr} from "@faker-js/faker";
 import {useParams, useRouter} from "next/navigation";
@@ -25,8 +25,8 @@ function Page() {
     return (
       <Stack direction={"row"} className={"gap-2 items-center"}>
           {/* <Button variant='contained' color='primary' onClick={() => router.push(`/tools/create-free-bet/`)}>{t('pages.tools.bonus.Create Free Bet')}</Button> */}
-          <Button variant='contained' color='primary' onClick={() => router.push(`/tools/create-free-spin/`)}>{t('pages.tools.bonus.Create Free Spin')}</Button>
-          <Button variant='contained' color='primary' onClick={() => router.push(`/tools/create-bonus/`)}>{t('pages.tools.bonus.Create Bonus')}</Button>
+          <Button variant='contained' color='primary' onClick={() => router.push(`/tools/bonuses/create-free-spin/`)}>{t('pages.tools.bonus.Create Free Spin')}</Button>
+
       </Stack>
     );
   }, []);
@@ -142,7 +142,7 @@ function Page() {
       <Grid container spacing={3}>
         <Grid item xs={12} className={"mb-4"}>
           <TitleBar
-            title={t('Tools.Bonuses')}
+            title={t('pages.tools.bonus.FreeSpins')}
             Right={ButtonComps}
           />
         </Grid>

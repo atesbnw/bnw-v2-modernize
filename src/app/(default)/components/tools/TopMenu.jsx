@@ -19,7 +19,7 @@ function TopMenu() {
     {
       label: 'Tools.Bonuses',
       // icon: <IconUserCircle size="20" />,
-      to: `/tools`,
+      to: `/tools/bonuses`,
     },
     {
       label: 'Tools.Announcements',

@@ -84,7 +84,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "Tools.title",
     icon: IconTools,
-    href: "/tools"
+    href: "/tools/bonuses"
     // chip: "0",
     // chipColor: "secondary",
   },
