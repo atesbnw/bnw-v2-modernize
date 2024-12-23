@@ -93,19 +93,19 @@ function TransactionsTable() {
         )
         // width: 200
       },
-      {
-        field: 'lock',
-        headerName: t('pages.user-management.game-management.Locked'),
-        renderCell: ({ value }) => (
-          <Box className={"flex gap-2 items-center"}>
-            <CustomSwitch
-              // onChange={() => {}}
-              defaultChecked={value}
-            />
-          </Box>
-        )
-        // width: 200
-      },
+      // {
+      //   field: 'lock',
+      //   headerName: t('pages.user-management.game-management.Locked'),
+      //   renderCell: ({ value }) => (
+      //     <Box className={"flex gap-2 items-center"}>
+      //       <CustomSwitch
+      //         // onChange={() => {}}
+      //         defaultChecked={value}
+      //       />
+      //     </Box>
+      //   )
+      //   // width: 200
+      // },
       {
         field: 'actions',
         type: 'actions',

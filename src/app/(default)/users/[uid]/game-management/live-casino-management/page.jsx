@@ -101,46 +101,46 @@ function TransactionsTable() {
         flex:1,
         // width: 200
       },
-      // {
-      //   field: 'desktop',
-      //   headerName: t('pages.user-management.game-management.Desktop'),
-      //   renderCell: ({ value }) => (
-      //     <Box className={"flex gap-2 items-center"}>
-      //       <CustomSwitch
-      //         // onChange={() => {}}
-      //         defaultChecked={value}
-      //       />
-      //     </Box>
-      //   )
-      //   // width: 200
-      // },
-      // {
-      //   field: 'mobile',
-      //   headerName: t('pages.user-management.game-management.Mobile'),
-      //   renderCell: ({ value }) => (
-      //     <Box className={"flex gap-2 items-center"}>
-      //       <CustomSwitch
-      //         // onChange={() => {}}
-      //         defaultChecked={value}
-      //       />
-      //     </Box>
-      //   )
-      //   // width: 200
-      // },
+
       {
-        field: 'lock',
-        headerName: `${t('pages.user-management.game-management.Desktop')} | ${t('pages.user-management.game-management.Mobile')} | ${t('pages.user-management.game-management.Locked')}`,
-        renderCell: ({ value,id }) => (
+        field: 'desktop',
+        headerName: t('pages.user-management.game-management.Desktop'),
+        renderCell: ({ value }) => (
           <Box className={"flex gap-2 items-center"}>
-            <CustomLockedSwitch id={id} value={value} />
-            {/*<CustomSwitch*/}
-            {/*  // onChange={() => {}}*/}
-            {/*  defaultChecked={value}*/}
-            {/*/>*/}
+            <CustomSwitch
+              // onChange={() => {}}
+              defaultChecked={value}
+            />
           </Box>
-        ),
-        width: 300
+        )
+        // width: 200
       },
+      {
+        field: 'mobile',
+        headerName: t('pages.user-management.game-management.Mobile'),
+        renderCell: ({ value }) => (
+          <Box className={"flex gap-2 items-center"}>
+            <CustomSwitch
+              // onChange={() => {}}
+              defaultChecked={value}
+            />
+          </Box>
+        )
+        // width: 200
+      },
+      // {
+      //   field: 'lock',
+      //   headerName: `${t('pages.user-management.game-management.Locked')}`,
+      //   renderCell: ({ value, id }) => (
+      //     <Box className={"flex gap-2 items-center"}>
+      //       <CustomSwitch
+      //         // onChange={() => {}}
+      //         defaultChecked={value}
+      //       />
+      //     </Box>
+      //   ),
+      //   width: 300
+      // },
       {
         field: 'actions',
         type: 'actions',
