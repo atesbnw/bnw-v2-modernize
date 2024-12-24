@@ -70,5 +70,12 @@
   "CreatedBonuses": "Created Bonuses",
   "transferredBonuses": "Transferred Bonuses",
   "ipCheck": "IP Check",
-  "WagerMultiplier": "Wager Multiplier"
+  "WagerMultiplier": "Wager Multiplier",
+  "SegmentationPercentageIncrease": "Segmentation Percentage Increase",
+  "membersType": {
+    "new": "New Member",
+    "current": "Current Member",
+    "loyal": "Loyal Member",
+    "vip": "VIP Member"
+  }
 }
