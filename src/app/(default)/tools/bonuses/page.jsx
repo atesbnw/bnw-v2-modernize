@@ -96,8 +96,8 @@ function Page() {
             <IconButton>
               <IconTrash />
             </IconButton>
-            <BonusActionModal id={e?.id} initialValues={e?.row} isPermission={false}/>
-            <BonusActionModal id={e?.id} initialValues={e?.row} isPermission={true}/>
+            <BonusActionModal id={e?.id} initialValues={e?.row} readOnly={true}/>
+            <BonusActionModal id={e?.id} initialValues={e?.row} readOnly={false}/>
           </>,
         ]
       },
@@ -153,8 +153,8 @@ function Page() {
             <IconButton>
               <IconTrash />
             </IconButton>
-            <BonusActionModal id={e?.id} initialValues={e?.row} isPermission={false}/>
-            <BonusActionModal id={e?.id} initialValues={e?.row} isPermission={true}/>
+            <BonusActionModal id={e?.id} initialValues={e?.row} readOnly={true}/>
+            <BonusActionModal id={e?.id} initialValues={e?.row} readOnly={false}/>
           </>,
         ]
       },
@@ -181,6 +181,9 @@ function Page() {
         .recent()
         .toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
       operator: 'eren_bonus',
+      wager: faker.helpers.arrayElement(['Çevrimli', 'Çevrimsiz', 'Koşulsuz']),
+      targetUser: faker.helpers.arrayElement(['VIP', 'Yeni Üye', 'Sadık Üye']),
+      ipCheck: faker.helpers.arrayElement(['Active', 'Passive']),
       status: faker.helpers.arrayElement(['Active', 'Passive']),
     }))
   }
@@ -209,9 +212,10 @@ function Page() {
         dateStyle: 'short',
         timeStyle: 'short',
       }),
-      wager: faker.helpers.arrayElement(['Çevrimli', 'Çevrimsiz', 'Koşulsuz']),
       bonusAmount: faker.helpers.arrayElement(['100₺', '200₺', '500₺']),
+      wager: faker.helpers.arrayElement(['Çevrimli', 'Çevrimsiz', 'Koşulsuz']),
       targetUser: faker.helpers.arrayElement(['VIP', 'Yeni Üye', 'Sadık Üye']),
+      ipCheck: faker.helpers.arrayElement(['Active', 'Passive']),
       operator: 'eren_bonus',
     }))
   }

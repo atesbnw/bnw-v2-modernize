@@ -2,6 +2,7 @@
   "Bonuses": "Promotions",
   "FreeSpins": "Free Spins",
   "atLeastOne" : "At least one selection is required",
+  "bonusPercents": "Bonus Percents",
   "Update Bonus": "Update Bonus",
   "Create Bonus": "Create Bonus",
   "Create Free Bet": "Create Free Bet",
@@ -28,6 +29,7 @@
   "currency": "Currency",
   "startDate": "Start Date",
   "endDate": "End Date",
+  "maxBonusLimit": "Max Bonus Limit",
   "minBonusAmount": "Min. Bonus Amount",
   "maxBonusAmount": "Max. Bonus Amount",
   "minMatchCount": "Min. Match Count",
@@ -66,5 +68,7 @@
   "fileUploadText1": "- The file format must be .csv.",
   "fileUploadText2": "- User IDs should be one under the other, one user per line.",
   "CreatedBonuses": "Created Bonuses",
-  "transferredBonuses": "Transferred Bonuses"
+  "transferredBonuses": "Transferred Bonuses",
+  "ipCheck": "IP Check",
+  "WagerMultiplier": "Wager Multiplier"
 }
