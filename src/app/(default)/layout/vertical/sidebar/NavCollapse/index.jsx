@@ -95,7 +95,7 @@ export default function NavCollapse({
         <NavItem
           key={item.id}
           item={item}
-          level={level + 1}
+          level={level + 2} // default: level +1
           pathDirect={pathDirect}
           hideMenu={hideMenu}
           onClick={lgDown ? onClick : isNull}
