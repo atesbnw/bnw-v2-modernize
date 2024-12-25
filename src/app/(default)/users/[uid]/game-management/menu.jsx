@@ -13,7 +13,7 @@ export function useMenu() {
     {
       id: uniqueId(),
       title: "menu.Game Management.Casino Management",
-      href: `${url}`
+      href: `${url}/casino-management`
     },
     {
       id: uniqueId(),

@@ -63,7 +63,7 @@ export default function NavItem({ item, level, pathDirect, hideMenu, index, onCl
       <Link href={item.href}>
         <ListItemStyled
           disabled={item?.disabled}
-          selected={index === 0 || item?.href === "/"  ? item?.href === pathDirect : pathDirect?.startsWith(item?.href)}
+          selected={item?.href === "/"  ? item?.href === pathDirect : pathDirect?.startsWith(item?.href)}
           onClick={lgDown ? onClick : undefined}
         >
           {itemIcon ? <ListItemIcon

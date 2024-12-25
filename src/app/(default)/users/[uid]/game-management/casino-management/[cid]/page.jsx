@@ -137,7 +137,7 @@ function TransactionsTable() {
 
     <Box className={"flex flex-col gap-4"}>
       <TitleBar
-        link="../game-management"
+        link="../casino-management"
         title={t("menu.Game Management.Casino Management")}
         subTitle={decodeURIComponent(params?.cid).replace(/^\//, '')}
       />
