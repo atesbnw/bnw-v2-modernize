@@ -7,13 +7,13 @@ export function useMenu() {
 
   const params = useParams();
   const url = useMemo(() => {
-    return `/tools/bonuses`;
+    return `/tools`;
   }, [params?.uid]);
   const menu = [
     {
       id: uniqueId(),
       title: "pages.tools.bonus.Bonuses",
-      href: `${url}`
+      href: `${url}/bonuses`
     },
     {
       id: uniqueId(),

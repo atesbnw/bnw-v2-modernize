@@ -17,6 +17,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import CustomTabPanel from '@/app/(default)/components/home/CustomTabPanel';
 import BonusActionModal from '@/app/(default)/components/tools/bonuses/BonusActionModal/BonusActionModal';
+import classNames from 'classnames';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
@@ -84,7 +85,7 @@ function Page() {
     },
     {
       field: 'status',
-      headerName: t('pages.tools.bonus.Status'),
+      headerName: t('pages.tools.bonus.Status')
     },
     {
       field: 'actions',
