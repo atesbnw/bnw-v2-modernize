@@ -101,7 +101,7 @@ function TransactionsTable() {
         width: 170,
         getActions: (e) => {
           return [
-            <IconButton onClick={() => router.push(`/game-management/${e?.row?.providerName}`)}>
+            <IconButton onClick={() => router.push(`/game-management/casino-management/${e?.row?.providerName}`)}>
               <IconChevronRight />
             </IconButton>,
             // <IconButton onClick={() => router.push(`/users/${e?.row?.username}`)}>
