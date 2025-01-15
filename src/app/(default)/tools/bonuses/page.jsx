@@ -167,9 +167,9 @@ function Page() {
     return Array.from(Array(20)).map(() => ({
       id: uniqueId(),
       bonusId: uniqueId(),
-      bonusName: faker.helpers.arrayElement(['%20 Hoş Geldin Bonusu', 'Pragmatic FreeSpin', '%15 Çevrimli Bonus']),
+      bonusName: faker.helpers.arrayElement(['%20 Welcome Bonus', 'Pragmatic FreeSpin', '%15 Spin Bonus']),
       bonusType: faker.helpers.arrayElement(['Deposit', 'Freespin', 'FreeBet']),
-      bonusCategory: faker.helpers.arrayElement(['Option A', 'Option B']),
+      bonusCategory: faker.helpers.arrayElement(['Deposit Bonus', 'Loss Bonus']),
       gameCategory: faker.helpers.arrayElement([
         'Casino',
         'Live Casino, Casino, Virtual Games',

@@ -72,6 +72,7 @@
   "transferredBonuses": "Transferred Bonuses",
   "ipCheck": "IP Check",
   "WagerMultiplier": "Wager Multiplier",
+  "maxPayoutMultiplier": "Max Payout Multiplier",
   "SegmentationPercentageIncrease": "Segmentation Percentage Increase",
   "FreeSpin ID": "FreeSpin ID",
   "FreeSpin Name":"FreeSpin Name",
@@ -87,5 +88,14 @@
     "current": "Current Member",
     "loyal": "Loyal Member",
     "vip": "VIP Member"
-  }
+  },
+  "Deposit Bonus": "Deposit Bonus",
+  "Loss Bonus": "Loss Bonus",
+  "Negative Conditions": "Negative Conditions",
+  "Conditions": "Conditions",
+  "depositBased": "Deposit Based",
+  "diffBased": "Diff Based",
+  "ConditionsBalance": "Balance",
+  "ConditionsBalanceText": "can benefit if under",
+  "NegativeConditionsBalanceText": "cannot benefit if they have benefited"
 }

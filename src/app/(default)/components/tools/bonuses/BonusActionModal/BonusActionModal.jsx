@@ -155,6 +155,7 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
         validOnlyForVIPMembers: '',
         validOnlyForLastDeposit: '',
         WagerMultiplier: "",
+        maxPayoutMultiplier: "",
         maxBonusLimit: "",
         providerType: '',
         provider: '',
@@ -186,7 +187,43 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
         const selectedProviderObj = providerList.find(
           (p) => p.id === formik.values.provider
         )
-        const gameList = selectedProviderObj ? selectedProviderObj.games : []
+        const gameList = selectedProviderObj ? selectedProviderObj.games : [];
+
+        const visibleFields = {
+          bonusName: true,
+          startDate: true,
+          endDate: true,
+          bonusCategory: true,
+          paymentMethod: true,
+          targetUser: true,
+          maxBonusLimit: true,
+          wager: true,
+          WagerMultiplier: true,
+          Conditions: formik.values.bonusCategory==="Loss Bonus",
+          negativeConditions: formik.values.bonusCategory==="Loss Bonus",
+          maxPayoutMultiplier: formik.values.bonusCategory==="Loss Bonus",
+          approvalType: true,
+          bonusType: true,
+          bonusTurnoverCount: true,
+          mainBalanceTurnoverCount: true,
+          gameCategory: formik.values.bonusCategory!=="Loss Bonus",
+          bonusPercentage: true,
+          regions: true,
+          minimumAmount: true,
+          maximumAmount: true,
+          descriptionText: true,
+          validForAllMembers: true,
+          validOnlyForApprovedMembers: true,
+          validOnlyForVIPMembers: true,
+          validOnlyForLastDeposit: true,
+          providerType: true,
+          provider: true,
+          game: true,
+          segmentPercents: true,
+          bonusPercents: true
+        };
+
+        const checkIsVisible = (f) => visibleFields?.[f];
 
         return (
           <Fragment>
@@ -298,8 +335,8 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
                       disabled={readOnly}
                     >
 
-                      {['Option A', 'Option B', 'Option C']?.map((opt, k) => (
-                        <MenuItem value={opt} key={k}>{opt}</MenuItem>
+                      {['Deposit Bonus', 'Loss Bonus']?.map((opt, k) => (
+                        <MenuItem value={opt} key={k}>{t(`pages.tools.bonus.${opt}`)}</MenuItem>
                       ))}
                     </CustomSelect>
                     {formik.errors.bonusCategory && (
@@ -309,7 +346,8 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
                       </FormHelperText>
                     )}
                   </Grid>
-                  <Grid item xs={6} sm={4} lg={3}>
+                  {checkIsVisible("maxPayoutMultiplier") &&
+                    <Grid item xs={6} sm={4} lg={3}>
                     <CustomFormLabel htmlFor="gameCategory">{t('pages.tools.bonus.gameCategory')}</CustomFormLabel>
                     <FormControl className={'w-full'}>
                       <Select
@@ -331,7 +369,7 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
                         ))}
                       </Select>
                     </FormControl>
-                  </Grid>
+                  </Grid>}
 
 
                   <Grid item xs={6} sm={4} lg={3}>
@@ -433,13 +471,29 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
                       name="WagerMultiplier"
                       variant="outlined"
                       fullWidth
-                      value={formik.values.WagerMultiplier}
+                      value={formik.values?.bonusCategory==="Loss Bonus" ? 1 : formik.values.WagerMultiplier}
                       onChange={formik.handleChange}
                       error={formik.touched.WagerMultiplier && Boolean(formik.errors.WagerMultiplier)}
                       helperText={formik.touched.WagerMultiplier && formik.errors.WagerMultiplier}
-                      disabled={readOnly}
+                      disabled={readOnly || formik.values?.bonusCategory==="Loss Bonus"}
                     />
                   </Grid>
+
+                  {checkIsVisible("maxPayoutMultiplier") && <Grid item xs={12} sm={12} lg={3}>
+                    <CustomFormLabel
+                      htmlFor="maxPayoutMultiplier">{t('pages.tools.bonus.maxPayoutMultiplier')}</CustomFormLabel>
+                    <CustomTextField
+                      id="maxPayoutMultiplier"
+                      name="maxPayoutMultiplier"
+                      variant="outlined"
+                      fullWidth
+                      value={formik.values.maxPayoutMultiplier}
+                      onChange={formik.handleChange}
+                      error={formik.touched.maxPayoutMultiplier && Boolean(formik.errors.maxPayoutMultiplier)}
+                      helperText={formik.touched.maxPayoutMultiplier && formik.errors.maxPayoutMultiplier}
+                      disabled={readOnly}
+                    />
+                  </Grid>}
 
                   <Grid item xs={6} sm={4} lg={3}>
                     <CustomFormLabel
@@ -466,30 +520,156 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
                     )}
                   </Grid>
 
+                  {checkIsVisible("Conditions") && (
+                    <Grid item xs={12} sm={12} lg={12}>
+                      <CustomFormLabel
+                        htmlFor="mainBalanceTurnoverCount">{t('pages.tools.bonus.Conditions')}</CustomFormLabel>
 
-                  {/*<Grid item xs={6} sm={4} lg={3}>*/}
-                  {/*  <CustomFormLabel*/}
-                  {/*    htmlFor="bonusTurnoverCount">{t('pages.tools.bonus.bonusTurnoverCount')}</CustomFormLabel>*/}
-                  {/*  <CustomSelect*/}
-                  {/*    id="bonusTurnoverCount"*/}
-                  {/*    name="bonusTurnoverCount"*/}
-                  {/*    fullWidth*/}
-                  {/*    variant="outlined"*/}
-                  {/*    value={formik.values.bonusTurnoverCount}*/}
-                  {/*    onChange={formik.handleChange}*/}
-                  {/*    disabled={readOnly}*/}
-                  {/*  >*/}
-                  {/*    {['Option A', 'Option B', 'Option C']?.map((opt,k) => (*/}
-                  {/*      <MenuItem value={opt} key={k}>{opt}</MenuItem>*/}
-                  {/*    ))}*/}
-                  {/*  </CustomSelect>*/}
-                  {/*  {formik.errors.bonusTurnoverCount && (*/}
-                  {/*    <FormHelperText error id="standard-weight-helper-text-email-login">*/}
-                  {/*      {' '}*/}
-                  {/*      {formik.errors.bonusTurnoverCount}{' '}*/}
-                  {/*    </FormHelperText>*/}
-                  {/*  )}*/}
-                  {/*</Grid>*/}
+
+
+
+                      <Stack
+                        direction="row"
+                        spacing={2}
+                        alignItems="center"
+                        sx={{ mb: 1 }}
+                      >
+
+                        <FormControlLabel
+                          label={t(`pages.tools.bonus.depositBased`)}
+                          control={
+                            <Checkbox
+                              disabled={readOnly}
+                              name={`conditionsBased_deposit`}
+                              checked={formik.values.conditionsBased==="depositBased"}
+                              onChange={(e,v) => formik.setFieldValue('conditionsBased', v ? "depositBased" : "diffBased")}
+                            />
+                          }
+                        />
+
+                        <FormControlLabel
+                          label={t(`pages.tools.bonus.diffBased`)}
+                          control={
+                            <Checkbox
+                              disabled={readOnly}
+                              name={`conditionsBased_diff`}
+                              checked={formik.values.conditionsBased==="diffBased"}
+                              onChange={(e,v) => formik.setFieldValue('conditionsBased', v ? "diffBased" : "depositBased")}
+                            />
+                          }
+                        />
+
+                      </Stack>
+
+                      <Stack
+                        direction="row"
+                        spacing={2}
+                        alignItems="start"
+                        sx={{ mb: 1 }}
+                      >
+                        {/* Checkbox */}
+                        <FormControlLabel
+                          label={t(`pages.tools.bonus.ConditionsBalance`)}
+                          control={
+                            <Checkbox
+                              disabled={readOnly}
+                              name={`ConditionsBalance`}
+                              checked={formik.values.ConditionsBalance===0}
+                              onChange={(e,v) => formik.setFieldValue('ConditionsBalance', v ? 0 : 1)}
+                            />
+                          }
+                        />
+
+                        <Stack direction="row" spacing={1} alignItems="center">
+                          <TextField
+                            type="number"
+                            name={`ConditionsBalanceVal`}
+                            value={formik.values.ConditionsBalance===0 && formik.values.ConditionsBalanceVal}
+                            onChange={formik.values.ConditionsBalance===0 && formik.handleChange}
+                            disabled={!formik.values.ConditionsBalance===0 || readOnly}
+                            size="small"
+                            InputProps={{
+                              endAdornment: <InputAdornment position="end">%</InputAdornment>,
+                            }}
+                          />
+                          <Box> {t(`pages.tools.bonus.ConditionsBalanceText`)} </Box>
+                        </Stack>
+                      </Stack>
+
+                      <Stack
+                        direction="row"
+                        spacing={2}
+                        alignItems="start"
+                        sx={{ mb: 1 }}
+                      >
+                        {/* Checkbox */}
+                        <FormControlLabel
+                          label={t(`pages.tools.bonus.ConditionsBalance`)}
+                          control={
+                            <Checkbox
+                              disabled={readOnly}
+                              name={`ConditionsBalance`}
+                              checked={formik.values.ConditionsBalance===1}
+                              onChange={(e,v) => formik.setFieldValue('ConditionsBalance', v ? 1 : 0)}
+                            />
+                          }
+                        />
+
+                        <Stack direction="row" spacing={1} alignItems="center">
+                          <TextField
+                            type="number"
+                            name={`ConditionsBalanceVal`}
+                            value={formik.values.ConditionsBalance===1 && formik.values.ConditionsBalanceVal}
+                            onChange={formik.values.ConditionsBalance===1 && formik.handleChange}
+                            disabled={!formik.values.ConditionsBalance===1 || readOnly}
+                            size="small"
+                            InputProps={{
+                              endAdornment: <InputAdornment position="end">₺</InputAdornment>,
+                            }}
+                          />
+                          <Box> {t(`pages.tools.bonus.ConditionsBalanceText`)} </Box>
+                        </Stack>
+                      </Stack>
+
+
+                    </Grid>
+                  )}
+
+
+                  {checkIsVisible("negativeConditions") && (
+                    <Grid item xs={12} sm={12} lg={12}>
+
+                    <CustomFormLabel
+                      htmlFor="bonusTurnoverCount">{t('pages.tools.bonus.Negative Conditions')}</CustomFormLabel>
+                      <Stack
+                        direction="row"
+                        spacing={2}
+                        alignItems="start"
+                        sx={{ mb: 1 }}
+                      >
+                      <CustomSelect
+                        id="negativeConditions"
+                        name="negativeConditions"
+                        fullWidth
+                        variant="outlined"
+                        value={formik.values.negativeConditions}
+                        onChange={formik.handleChange}
+                        disabled={readOnly}
+                      >
+                        {['%20 Welcome Bonus', 'Pragmatic FreeSpin', '%15 Spin Bonus']?.map((opt,k) => (
+                          <MenuItem value={opt} key={k}>{opt}</MenuItem>
+                        ))}
+                      </CustomSelect>
+
+                        <Box className={"min-w-24"}> {t(`pages.tools.bonus.NegativeConditionsBalanceText`)} </Box>
+                    </Stack>
+                    {formik.errors.negativeConditions && (
+                      <FormHelperText error id="standard-weight-helper-text-email-login">
+                        {' '}
+                        {formik.errors.negativeConditions}{' '}
+                      </FormHelperText>
+                    )}
+                  </Grid> )}
 
 
                   <div className={'w-full px-5'}>
