@@ -22,7 +22,7 @@ function TopMenu() {
     {
       label: 'Reports.Game Reports',
       // icon: <IconUserCircle size="20" />,
-      to: `${url}`,
+      to: `${url}/game-reports`,
     },
     {
       label: 'menu.Users.Reports Menu.Finance Reports',

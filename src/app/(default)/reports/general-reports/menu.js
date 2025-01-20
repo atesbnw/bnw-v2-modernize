@@ -13,7 +13,7 @@ export function useMenu() {
     {
       id: uniqueId(),
       title: "Reports.Commission Reports",
-      href: `${url}`,
+      href: `${url}/commission-reports`,
     }
     // ,
     // {

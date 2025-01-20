@@ -2,7 +2,7 @@
 import React, { memo, useMemo } from 'react';
 import HeaderCustom from '@/app/(default)/components/reports/HeaderCustom';
 import { t } from 'i18next';
-import { useMenu } from '@/app/(default)/reports/(game-reports)/menu';
+import { useMenu } from '@/app/(default)/reports/game-reports/menu';
 
 function layout({ children }) {
 

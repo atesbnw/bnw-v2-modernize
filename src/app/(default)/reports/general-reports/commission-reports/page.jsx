@@ -12,7 +12,7 @@ import DataTable from '@/app/components/shared/DataTable';
 import ParentCard from '@/app/components/shared/ParentCard';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import ProviderReportsTab from '@/app/(default)/reports/general-reports/(commission-reports)/ProviderReportsTab';
+import ProviderReportsTab from '@/app/(default)/reports/general-reports/commission-reports/ProviderReportsTab';
 import CustomTabPanel from '@/app/(default)/components/home/CustomTabPanel';
 import CustomCheckbox from '@/app/components/forms/theme-elements/CustomCheckbox';
 import { FormControlLabel, MenuItem } from '@mui/material';

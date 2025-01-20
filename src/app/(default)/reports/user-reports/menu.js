@@ -13,7 +13,7 @@ export function useMenu() {
     {
       id: uniqueId(),
       title: "Reports.User Balance Reports",
-      href: `${url}`,
+      href: `${url}/user-balance-reports`,
     },
     {
       id: uniqueId(),

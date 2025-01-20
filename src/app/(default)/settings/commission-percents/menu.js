@@ -7,13 +7,13 @@ export function useMenu() {
 
   const params = useParams();
   const url = useMemo(() => {
-    return `/settings`;
+    return `/settings/commission-percents`;
   }, []);
   const menu = [
     {
       id: uniqueId(),
       title: "Settings.Providers",
-      href: `${url}`
+      href: `${url}/providers`
     },
     {
       id: uniqueId(),

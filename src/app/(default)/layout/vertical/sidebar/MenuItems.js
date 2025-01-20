@@ -75,7 +75,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "menu.Game Management.title",
     icon: IconGamepad,
-    href: "/game-management/casino-management",
+    href: "/game-management",
     // chip: "0",
     // chipColor: "secondary",
   },
@@ -84,7 +84,7 @@ const Menuitems = [
     id: uniqueId(),
     title: "Tools.title",
     icon: IconTools,
-    href: "/tools/bonuses"
+    href: "/tools"
     // chip: "0",
     // chipColor: "secondary",
   },

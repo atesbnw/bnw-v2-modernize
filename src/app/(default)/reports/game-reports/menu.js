@@ -7,13 +7,13 @@ export function useMenu() {
 
   const params = useParams();
   const url = useMemo(() => {
-    return `/reports`;
+    return `/reports/game-reports`;
   }, []);
   const menu = [
     {
       id: uniqueId(),
       title: "menu.Users.Reports Menu.Casino Reports",
-      href: `${url}`
+      href: `${url}/casino-reports`,
     },
     {
       id: uniqueId(),
