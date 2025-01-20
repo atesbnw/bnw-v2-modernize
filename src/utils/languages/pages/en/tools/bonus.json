@@ -54,6 +54,7 @@
   "validForAllMembers": "Valid for All Members",
   "validOnlyForApprovedMembers": "Valid Only for Approved Members",
   "validOnlyForVIPMembers": "Valid Only for VIP Members",
+  "validForNewMembers": "Valid Only for New Members",
   "validOnlyForLastDeposit": "Valid Only for Last Deposit",
   "is required": "is required",
   "game" :"Game",
@@ -99,5 +100,11 @@
   "ConditionsBalanceText": "can benefit if under",
   "NegativeConditionsBalanceText": "cannot benefit if they have benefited",
   "last": "Last",
-  "hours": "Hours"
+  "hours": "Hours",
+  "addCustomUser":  "Add Custom User",
+  "customUserPlaceholder": "Type the user IDs with commas between them",
+  "customUserInfo":  "Custom User Info",
+  "chooseFile": "Choose File",
+  "mustBeCSV": "The file format should be .csv",
+  "mustBeIDsFormat": "User IDs should be in a row with one user per line."
 }

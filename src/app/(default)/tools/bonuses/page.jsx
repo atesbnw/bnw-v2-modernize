@@ -17,6 +17,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import CustomTabPanel from '@/app/(default)/components/home/CustomTabPanel';
 import BonusActionModal from '@/app/(default)/components/tools/bonuses/BonusActionModal/BonusActionModal';
+import TransferredBonusActionModal from '@/app/(default)/components/tools/bonuses/BonusActionModal/TransferredBonusActionModal';
 import classNames from 'classnames';
 
 const faker = new Faker({
@@ -34,10 +35,12 @@ function Page() {
       <Stack direction={"row"} className={"gap-2 items-center"}>
           {/* <Button variant='contained' color='primary' onClick={() => router.push(`/tools/create-free-bet/`)}>{t('pages.tools.bonus.Create Free Bet')}</Button> */}
 
-          <BonusActionModal isCreateButton={true}>{t('pages.tools.bonus.Create Bonus')}</BonusActionModal>
+        {tab===0 ? <BonusActionModal isCreateButton={true}>{t('pages.tools.bonus.Create Bonus')}</BonusActionModal> :
+          <TransferredBonusActionModal isCreateButton={true}>{t('pages.tools.bonus.Create Bonus')}</TransferredBonusActionModal>
+        }
       </Stack>
     );
-  }, []);
+  }, [tab]);
 
   const [data, setData] = useState({
     page: 1,
