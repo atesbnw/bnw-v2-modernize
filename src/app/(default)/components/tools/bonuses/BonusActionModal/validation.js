@@ -9,7 +9,7 @@ export const validationSchema = yup.object({
   bonusCategory: yup.string().required(t('pages.tools.bonus.bonusCategory')+' '+t('is required')),
   bonusTurnoverCount: yup.string().required(t('pages.tools.bonus.bonusTurnoverCount')+' '+t('is required')),
   mainBalanceTurnoverCount: yup.string().required(t('pages.tools.bonus.mainBalanceTurnoverCount')+' '+t('is required')),
-  gameCategory: yup.string().required(t('pages.tools.bonus.gameCategory')+' '+t('is required')),
+  // gameCategory: yup.string().required(t('pages.tools.bonus.gameCategory')+' '+t('is required')),
   bonusPercentage: yup.string().required(t('pages.tools.bonus.bonusPercentage')+' '+t('is required')),
   regions: yup.string().required(t('pages.tools.bonus.regions')+' '+t('is required')),
   paymentMethod: yup.string().required(t('pages.tools.bonus.paymentMethod')+' '+t('is required')),

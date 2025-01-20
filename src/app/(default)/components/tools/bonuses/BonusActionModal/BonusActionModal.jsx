@@ -140,7 +140,6 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
         bonusCategory: '',
         bonusTurnoverCount: '',
         mainBalanceTurnoverCount: '',
-        gameCategory: [],
         bonusPercentage: '',
         regions: [],
         paymentMethod: [],
@@ -206,7 +205,6 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
           bonusType: true,
           bonusTurnoverCount: true,
           mainBalanceTurnoverCount: true,
-          gameCategory: formik.values.bonusCategory!=="Loss Bonus",
           bonusPercentage: true,
           regions: true,
           minimumAmount: true,
@@ -346,30 +344,6 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
                       </FormHelperText>
                     )}
                   </Grid>
-                  {checkIsVisible("maxPayoutMultiplier") &&
-                    <Grid item xs={6} sm={4} lg={3}>
-                    <CustomFormLabel htmlFor="gameCategory">{t('pages.tools.bonus.gameCategory')}</CustomFormLabel>
-                    <FormControl className={'w-full'}>
-                      <Select
-                        id="gameCategory"
-                        name="gameCategory"
-                        multiple
-                        value={typeof formik.values.gameCategory === 'string' ? formik.values.gameCategory.split(',') : formik.values.gameCategory}
-                        onChange={formik.handleChange}
-                        input={<OutlinedInput />}
-                        disabled={readOnly}
-                      >
-                        {multipleSelectItems.map((name) => (
-                          <MenuItem
-                            key={name}
-                            value={name}
-                          >
-                            {name}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  </Grid>}
 
 
                   <Grid item xs={6} sm={4} lg={3}>
@@ -531,6 +505,33 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
                       <Stack
                         direction="row"
                         spacing={2}
+                        alignItems="start"
+                        sx={{ mb: 1 }}
+                      >
+                        {/* Checkbox */}
+                        <FormControlLabel
+                          label={t(`pages.tools.bonus.last`)}
+                          control={<></>}
+                        />
+
+                        <Stack direction="row" spacing={1} alignItems="center">
+                          <TextField
+                            type="number"
+                            name={`ConditionsBalanceVal`}
+                            value={formik.values.ConditionsLastTime}
+                            onChange={formik.handleChange}
+                            disabled={readOnly}
+                            size="small"
+                            InputProps={{
+                              endAdornment: <InputAdornment position="end"></InputAdornment>,
+                            }}
+                          />
+                          <Box> {t(`pages.tools.bonus.hours`)} </Box>
+                        </Stack>
+                      </Stack>
+                      <Stack
+                        direction="row"
+                        spacing={2}
                         alignItems="center"
                         sx={{ mb: 1 }}
                       >
@@ -560,6 +561,8 @@ function BonusActionModal({id, initialValues = {}, readOnly = false, isCreateBut
                         />
 
                       </Stack>
+
+                      <Divider sx={{my: 3}} />
 
                       <Stack
                         direction="row"
