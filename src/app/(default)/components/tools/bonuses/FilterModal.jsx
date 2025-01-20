@@ -88,7 +88,23 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                   <MenuItem value="option">Option</MenuItem>
                 </CustomSelect>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={6}>
+                <CustomFormLabel
+                  htmlFor="Wager">{t('pages.tools.bonus.Wager')}</CustomFormLabel>
+                <CustomSelect
+                  id="Wager"
+                  name="Wager"
+                  fullWidth
+                  value={filter?.Wager || []}
+                  onChange={(e) => updateFilter('Wager', e?.target.value)}
+                  variant="outlined"
+                  multiple={true}
+                >
+                  <MenuItem value="Çevrimli">Çevrimli</MenuItem>
+                  <MenuItem value="Çevrimsiz">Çevrimsiz</MenuItem>
+                </CustomSelect>
+              </Grid>
+              <Grid item xs={6}>
                 <CustomFormLabel
                   htmlFor="gameCategory">{t('pages.tools.bonus.Game Category')}</CustomFormLabel>
                 <Autocomplete
@@ -108,6 +124,54 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                     <CustomTextField {...params} placeholder={t('pages.tools.bonus.Game Category')} aria-label={t('pages.tools.bonus.Game Category')} />
                   )}
                 />
+              </Grid>
+
+              <Grid item xs={6}>
+                <CustomFormLabel
+                  htmlFor="bonusPercents">{t('pages.tools.bonus.bonusPercents')}</CustomFormLabel>
+                <CustomSelect
+                  id="bonusPercents"
+                  name="bonusPercents"
+                  fullWidth
+                  value={filter?.bonusPercents || []}
+                  onChange={(e) => updateFilter('bonusPercents', e?.target.value)}
+                  variant="outlined"
+                  multiple={true}
+                >
+                  {['%1-10', "%10-20", "%20-30", "%30-40", "%40-50", "%50-60", "%60-70", "%70-80", "%80-90", "%90-100"].map((name) => (
+                    <MenuItem
+                      key={name}
+                      value={name}
+                    >
+                      {name}
+                    </MenuItem>
+                  ))}
+
+                </CustomSelect>
+              </Grid>
+
+              <Grid item xs={6}>
+                <CustomFormLabel
+                  htmlFor="paymentMethod">{t('pages.tools.bonus.paymentMethod')}</CustomFormLabel>
+                <CustomSelect
+                  id="paymentMethod"
+                  name="paymentMethod"
+                  fullWidth
+                  value={filter?.paymentMethod || []}
+                  onChange={(e) => updateFilter('paymentMethod', e?.target.value)}
+                  variant="outlined"
+                  multiple={true}
+                >
+                  {["Papara", "Payfix","Havale"].map((name) => (
+                    <MenuItem
+                      key={name}
+                      value={name}
+                    >
+                      {name}
+                    </MenuItem>
+                  ))}
+
+                </CustomSelect>
               </Grid>
               <Grid item xs={6}>
                 <CustomFormLabel
@@ -137,6 +201,42 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                 >
                   <MenuItem value="all">All</MenuItem>
                   <MenuItem value="option">Option</MenuItem>
+                </CustomSelect>
+              </Grid>
+              <Grid item xs={6}>
+                <CustomFormLabel
+                  htmlFor="targetUser">{t('pages.tools.bonus.targetUser')}</CustomFormLabel>
+                <CustomSelect
+                  id="targetUser"
+                  name="targetUser"
+                  fullWidth
+                  value={filter?.targetUser}
+                  onChange={(e) => updateFilter('targetUser', e?.target.value)}
+                  variant="outlined"
+                >
+                  {['VIP', 'Yeni Üye', 'Sadık Üye'].map((name) => (
+                    <MenuItem
+                      key={name}
+                      value={name}
+                    >
+                      {name}
+                    </MenuItem>
+                  ))}
+                </CustomSelect>
+              </Grid>
+              <Grid item xs={6}>
+                <CustomFormLabel
+                  htmlFor="ipCheck">{t('pages.tools.bonus.ipCheck')}</CustomFormLabel>
+                <CustomSelect
+                  id="ipCheck"
+                  name="ipCheck"
+                  fullWidth
+                  value={filter?.ipCheck}
+                  onChange={(e) => updateFilter('ipCheck', e?.target.value)}
+                  variant="outlined"
+                >
+                  <MenuItem value="active">Active</MenuItem>
+                  <MenuItem value="inactive">Inactive</MenuItem>
                 </CustomSelect>
               </Grid>
 
