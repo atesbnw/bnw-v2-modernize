@@ -9,7 +9,7 @@ function Page() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push(`/reports/finance-reports`);
+    router.push(`/reports/game-reports`);
   }, []);
 
   return (
