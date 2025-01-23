@@ -64,7 +64,7 @@ function TimeTabs({customStyle,children, onChange, value, topElement, justify = 
 
   useEffect(() => {
     if(onChange && typeof onChange === "function") {
-      onChange(time)
+      // time!==value && onChange(time)
     }
   }, [time]);
 

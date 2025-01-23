@@ -4,7 +4,8 @@
   "atLeastOne" : "At least one selection is required",
   "bonusPercents": "Bonus Percentage Ranges",
   "Update Bonus": "Update Bonus",
-  "Create Bonus": "Transfer Bonus",
+  "Create Bonus": "Create Bonus",
+  "Transfer Bonus": "Transfer Bonus",
   "Create Free Bet": "Create Free Bet",
   "Create Free Spin": "Create Free Spin",
   "Update Free Spin": "Update Free Spin",
@@ -106,5 +107,7 @@
   "customUserInfo":  "Custom User Info",
   "chooseFile": "Choose File",
   "mustBeCSV": "The file format should be .csv",
-  "mustBeIDsFormat": "User IDs should be in a row with one user per line."
+  "mustBeIDsFormat": "User IDs should be in a row with one user per line.",
+  "min": "Min",
+  "max": "Max"
 }

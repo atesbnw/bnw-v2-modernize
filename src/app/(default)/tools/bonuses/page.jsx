@@ -6,6 +6,7 @@ import {Stack, Button, Grid, Dialog, DialogContent, DialogContentText, DialogPro
 import ParentCard from "@/app/components/shared/ParentCard";
 import DataTable from "@/app/components/shared/DataTable";
 import FilterModal from "@/app/(default)/components/tools/bonuses/FilterModal";
+import TramsferredFilterModal from "@/app/(default)/components/tools/bonuses/TramsferredFilterModal";
 import {uniqueId} from "lodash";
 import {Faker, fakerTR, tr} from "@faker-js/faker";
 import {useParams, useRouter} from "next/navigation";
@@ -36,7 +37,7 @@ function Page() {
           {/* <Button variant='contained' color='primary' onClick={() => router.push(`/tools/create-free-bet/`)}>{t('pages.tools.bonus.Create Free Bet')}</Button> */}
 
         {tab===0 ? <BonusActionModal isCreateButton={true}>{t('pages.tools.bonus.Create Bonus')}</BonusActionModal> :
-          <TransferredBonusActionModal isCreateButton={true}>{t('pages.tools.bonus.Create Bonus')}</TransferredBonusActionModal>
+          <TransferredBonusActionModal isCreateButton={true}>{t('pages.tools.bonus.Transfer Bonus')}</TransferredBonusActionModal>
         }
       </Stack>
     );
@@ -247,11 +248,35 @@ function Page() {
   }, [tab])
 
   const updateFilter = useCallback((field, value) => {
-    setFilter(prev => ({
+    setFilter(prev => (!prev?.[field] || prev?.[field]!==value) ? ({
       ...prev,
       [field]: value,
-    }));
+    }) : prev);
   }, []);
+
+  const FilterComp = useCallback(() => {
+    return (
+      <Fragment>
+        {tab===0 ? <FilterModal
+          filter={filter}
+          updateFilter={updateFilter}
+          resetFilter={() => {
+            setFilter({});
+            setData(prev => ({ ...prev, filter: {} }));
+          }}
+          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+        /> : <TramsferredFilterModal
+          filter={filter}
+          updateFilter={updateFilter}
+          resetFilter={() => {
+            setFilter({});
+            setData(prev => ({ ...prev, filter: {} }));
+          }}
+          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+        />}
+      </Fragment>
+    )
+  }, [tab,filter]);
 
   return (
     <Fragment>
@@ -289,17 +314,7 @@ function Page() {
 
             <ParentCard
               title=''
-              action={
-                <FilterModal
-                  filter={filter}
-                  updateFilter={updateFilter}
-                  resetFilter={() => {
-                    setFilter({});
-                    setData(prev => ({ ...prev, filter: {} }));
-                  }}
-                  onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-                />
-              }
+              action={(<FilterComp />)}
             >
 
             {Array.from(Array(2)).map((_, index) => (

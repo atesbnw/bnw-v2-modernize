@@ -74,13 +74,13 @@ function Page() {
           <TitleBar
             link="../tools"
             title={t('Tools.Bonuses')}
-            subTitle={t('pages.tools.bonus.Create Bonus')}
+            subTitle={t('pages.tools.bonus.Transfer Bonus')}
           />
         </Grid>
 
         <Grid item xs={12} className={"pt-0"}>
           <ParentCard
-            title={t('pages.tools.bonus.Create Bonus')}
+            title={t('pages.tools.bonus.Transfer Bonus')}
           >
             <form onSubmit={formik.handleSubmit}>
               <Grid container columnSpacing={{xs: 1, sm: 2, md: 3}} rowSpacing={0}>
