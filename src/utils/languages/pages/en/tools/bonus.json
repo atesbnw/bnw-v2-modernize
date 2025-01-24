@@ -109,5 +109,18 @@
   "mustBeCSV": "The file format should be .csv",
   "mustBeIDsFormat": "User IDs should be in a row with one user per line.",
   "min": "Min",
-  "max": "Max"
+  "max": "Max",
+  "dialogTitle": "Merchant Commission Settings",
+  "option1": "Option 1",
+  "option2": "Option 2",
+  "totalDeposit": "Total Deposit",
+  "totalWithdrawal": "Total Withdrawal",
+  "financialCost": "Financial Cost",
+  "providerCommission": "Provider Commission",
+  "bonus": "Bonus",
+  "totalPlayed": "Total Bet",
+  "totalWon": "Total Win",
+  "enterValue": "Enter Value",
+  "merchantFee": "Merchant Fee",
+  "providerFee": "Provider Fee"
 }

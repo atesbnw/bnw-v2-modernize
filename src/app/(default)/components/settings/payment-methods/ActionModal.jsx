@@ -52,7 +52,16 @@ function ActionModal({id, data}) {
               <Grid item sm={12} xs={12}>
                 <CustomFormLabel
                   htmlFor="category">{t('pages.settings.commission-percents.Method Name')}</CustomFormLabel>
-                  <Box>{value.methodName}</Box>
+
+                <CustomTextField
+                  id="methodName"
+                  name="methodName"
+                  variant="outlined"
+                  fullWidth
+                  value={value?.methodName}
+                  disabled={true}
+                  // onChange={(e) => updateValue('methodName', e?.target.value)}
+                />
               </Grid>
 
               <Grid item sm={12} xs={12}>
