@@ -5,7 +5,7 @@ import CustomFormLabel from '@/app/components/forms/theme-elements/CustomFormLab
 import { t } from 'i18next';
 import CustomTextField from '@/app/components/forms/theme-elements/CustomTextField';
 import CustomSelect from '@/app/components/forms/theme-elements/CustomSelect';
-import {InputAdornment, MenuItem} from '@mui/material';
+import { FormControl, InputAdornment, MenuItem, OutlinedInput, Select, Stack } from '@mui/material';
 import Button from '@mui/material/Button';
 import SideDialog from '@/app/components/shared/SideDialog';
 import Tooltip from '@mui/material/Tooltip';
@@ -15,6 +15,7 @@ import TimeTabs from "@/app/components/shared/TimeTabs";
 import { Autocomplete } from '@mui/material';
 import CustomCheckbox from '@/app/components/forms/theme-elements/CustomCheckbox';
 import top100Films from '@/app/components/forms/form-elements/autoComplete/data';
+import CustomOutlinedInput from '@/app/components/forms/theme-elements/CustomOutlinedInput';
 
 function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
   const [open, setOpen] = useState(false);
@@ -51,49 +52,79 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                 <CustomTextField
                   id="searchText"
                   name="searchText"
-                  placeholder={t('pages.tools.bonus.SearchPlaceholder')}
+                  placeholder={t('pages.tools.bonus.FreeSpinSearchPlaceholder')}
                   variant="outlined"
                   fullWidth
                   value={filter?.searchText}
                   onChange={(e) => updateFilter('searchText', e?.target.value)}
                 />
               </Grid>
-              <Grid item xs={6}>
-                <CustomFormLabel
-                  htmlFor="bonusType">{t('pages.tools.bonus.Bonus Type')}</CustomFormLabel>
-                <CustomSelect
-                  id="bonusType"
-                  name="bonusType"
-                  fullWidth
-                  value={filter?.bonusType}
-                  onChange={(e) => updateFilter('bonusType', e?.target.value)}
-                  variant="outlined"
-                >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="option">Option</MenuItem>
-                </CustomSelect>
-              </Grid>
-              <Grid item xs={6}>
-                <CustomFormLabel
-                  htmlFor="bonusCategory">{t('pages.tools.bonus.Bonus Category')}</CustomFormLabel>
-                <CustomSelect
-                  id="bonusCategory"
-                  name="bonusCategory"
-                  fullWidth
-                  value={filter?.bonusCategory}
-                  onChange={(e) => updateFilter('bonusCategory', e?.target.value)}
-                  variant="outlined"
-                >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="option">Option</MenuItem>
-                </CustomSelect>
-              </Grid>
+
+
+
               <Grid item xs={12}>
                 <CustomFormLabel
-                  htmlFor="gameCategory">{t('pages.tools.bonus.Game Category')}</CustomFormLabel>
+                  htmlFor="NumOfSpin">{t('pages.tools.bonus.Number of FreeSpins')}</CustomFormLabel>
+                <Stack  spacing={2} direction="row">
+                  <CustomTextField
+                    id="NumOfSpinMin"
+                    name="NumOfSpinMin"
+                    placeholder={t('pages.tools.bonus.min')}
+                    variant="outlined"
+                    fullWidth
+                    value={filter?.NumOfSpinMin}
+                    onChange={e => updateFilter('NumOfSpinMin', e?.target.value)}
+
+                  />
+                  <CustomTextField
+                    id="NumOfSpinMax"
+                    name="NumOfSpinMax"
+                    placeholder={t('pages.tools.bonus.max')}
+                    variant="outlined"
+                    fullWidth
+                    value={filter?.NumOfSpinMax}
+                    onChange={e => updateFilter('NumOfSpinMax', e?.target.value)}
+
+                  />
+                </Stack>
+              </Grid>
+
+
+              <Grid item xs={12}>
+                <CustomFormLabel
+                  htmlFor="NumOfSpin">{t('pages.tools.bonus.Spin per Amount')}</CustomFormLabel>
+                <Stack  spacing={2} direction="row">
+                  <CustomOutlinedInput
+                    id="SpinPerAmountMin"
+                    name="SpinPerAmountMin"
+                    placeholder={t('pages.tools.bonus.min')}
+                    endAdornment={<InputAdornment position="end">₺</InputAdornment>}
+                    variant="outlined"
+                    fullWidth
+                    value={filter?.SpinPerAmountMin}
+                    onChange={e => updateFilter('SpinPerAmountMin', e?.target.value)}
+
+                  />
+                  <CustomOutlinedInput
+                    id="SpinPerAmountMax"
+                    name="SpinPerAmountMax"
+                    placeholder={t('pages.tools.bonus.max')}
+                    endAdornment={<InputAdornment position="end">₺</InputAdornment>}
+                    variant="outlined"
+                    fullWidth
+                    value={filter?.SpinPerAmountMax}
+                    onChange={e => updateFilter('SpinPerAmountMax', e?.target.value)}
+
+                  />
+                </Stack>
+              </Grid>
+
+              <Grid item xs={12}>
+                <CustomFormLabel
+                  htmlFor="Provider">{t('pages.tools.bonus.Provider')}</CustomFormLabel>
                 <Autocomplete
                   multiple
-                  id="gameCategory"
+                  id="Provider"
                   options={top100Films}
                   disableCloseOnSelect
                   getOptionLabel={(option) => option.title}
@@ -105,24 +136,53 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                   )}
                   fullWidth
                   renderInput={(params) => (
-                    <CustomTextField {...params} placeholder={t('pages.tools.bonus.Game Category')} aria-label={t('pages.tools.bonus.Game Category')} />
+                    <CustomTextField {...params} placeholder={t('pages.tools.bonus.Provider')} aria-label={t('pages.tools.bonus.Provider')} />
+                  )}
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <CustomFormLabel
+                  htmlFor="Game">{t('pages.tools.bonus.Game')}</CustomFormLabel>
+                <Autocomplete
+                  multiple
+                  id="Game"
+                  options={top100Films}
+                  disableCloseOnSelect
+                  getOptionLabel={(option) => option.title}
+                  renderOption={(props, option, { selected }) => (
+                    <li {...props}>
+                      <CustomCheckbox style={{ marginRight: 8 }} checked={selected}  />
+                      {option.title}
+                    </li>
+                  )}
+                  fullWidth
+                  renderInput={(params) => (
+                    <CustomTextField {...params} placeholder={t('pages.tools.bonus.Game')} aria-label={t('pages.tools.bonus.Game')} />
                   )}
                 />
               </Grid>
               <Grid item xs={6}>
-                <CustomFormLabel
-                  htmlFor="operator">{t('pages.tools.bonus.Operator')}</CustomFormLabel>
-                <CustomSelect
-                  id="operator"
-                  name="operator"
-                  fullWidth
-                  value={filter?.operator}
-                  onChange={(e) => updateFilter('operator', e?.target.value)}
-                  variant="outlined"
-                >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="option">Option</MenuItem>
-                </CustomSelect>
+                <CustomFormLabel htmlFor="targetUser">{t('pages.tools.bonus.targetUser')}</CustomFormLabel>
+                <FormControl className={'w-full'}>
+                  <Select
+                    id="targetUser"
+                    name="targetUser"
+                    multiple
+                    value={typeof filter?.targetUser === 'string' ? filter?.targetUser.split(',') : filter?.targetUser || []}
+                    onChange={(e) => updateFilter('targetUser', e?.target.value)}
+                    input={<OutlinedInput />}
+                  >
+                    {['VIP', 'Yeni Üye', 'Sadık Üye', "Custom"].map((name) => (
+                      <MenuItem
+                        key={name}
+                        value={name}
+                      >
+                        {name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Grid>
               <Grid item xs={6}>
                 <CustomFormLabel
@@ -131,12 +191,19 @@ function FilterModal({ filter, updateFilter, resetFilter, onConfirm }) {
                   id="status"
                   name="status"
                   fullWidth
-                  value={filter?.status}
+                  multiple
+                  value={typeof filter?.status === 'string' ? filter?.status.split(',') : filter?.status || []}
                   onChange={(e) => updateFilter('status', e?.target.value)}
                   variant="outlined"
                 >
-                  <MenuItem value="all">All</MenuItem>
-                  <MenuItem value="option">Option</MenuItem>
+                  {['Active', 'Passive', 'Pending'].map((name) => (
+                    <MenuItem
+                      key={name}
+                      value={name}
+                    >
+                      {name}
+                    </MenuItem>
+                  ))}
                 </CustomSelect>
               </Grid>
 

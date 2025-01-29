@@ -2,6 +2,7 @@
 import React from "react";
 import { Providers } from "@/store/providers";
 import MyApp from './app';
+import "./tailwind.css";
 import "./global.css";
 
 

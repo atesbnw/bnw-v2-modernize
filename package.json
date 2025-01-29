@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "watch": "npx tailwindcss -i ./tailwind.css -o ./src/app/tailwind.css --watch"
   },
   "dependencies": {
     "@casl/ability": "^6.3.3",

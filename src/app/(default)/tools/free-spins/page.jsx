@@ -14,12 +14,17 @@ import {IconEye, IconTrash} from "@tabler/icons-react";
 import BonusDetail from "@/app/(default)/components/tools/bonuses/BonusDetail";
 import FreeSpinActionModal from '@/app/(default)/components/tools/free-spin/FreeSpinActionModal/FreeSpinActionModal';
 import classNames from 'classnames';
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import CustomTabPanel from '@/app/(default)/components/home/CustomTabPanel';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
 function Page() {
+  const [tab, setTab] = useState(0);
   const [filter, setFilter] = useState({});
   const router = useRouter();
 
@@ -68,32 +73,32 @@ function Page() {
       {
         field: 'fsCount',
         headerName: t('pages.tools.bonus.FS Count'),
-        width: 100,
+        flex: 1,
       },
       {
         field: 'betPerSpin',
         headerName: t('pages.tools.bonus.Bet Per Spin'),
-        width: 120,
+        flex: 1,
       },
       {
         field: 'startTime',
         headerName: t('pages.tools.bonus.Start Time'),
-        width: 180,
+        flex: 1,
       },
       {
         field: 'endTime',
         headerName: t('pages.tools.bonus.End Time'),
-        width: 180,
+        flex: 1,
       },
       {
         field: 'targetUser',
         headerName: t('pages.tools.bonus.Target User'),
-        width: 150,
+        flex: 1,
       },
       {
         field: 'operator',
         headerName: t('pages.tools.bonus.Operator'),
-        width: 150,
+        flex: 1,
       },
       {
         field: 'status',
@@ -111,7 +116,7 @@ function Page() {
 
           return (
             <div
-              className={`rounded-full p-3 opacity-75 mx-auto bg-${color}-500`}
+              className={`rounded-full w-4 h-4 p-3 opacity-75 mx-auto bg-${color}-500`}
             />
           );
         },
@@ -183,30 +188,47 @@ function Page() {
           />
         </Grid>
 
+
+
         <Grid item xs={12} className={"pt-0"}>
-          <ParentCard
-            title=''
-            action={
-              <FilterModal
-                filter={filter}
-                updateFilter={updateFilter}
-                resetFilter={() => {
-                  setFilter({});
-                  setData(prev => ({ ...prev, filter: {} }));
-                }}
-                onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-              />
-            }
-           >
 
-            <DataTable
-              withSideMenu={false}
-              search={false}
-              data={data}
-              toolbar={false}
-            />
+          <Box justifyContent={'start'} display="flex" sx={{ flexDirection: "column", maxWidth: { xs: 320, sm: '100%' } }}>
 
-          </ParentCard>
+
+            <ParentCard
+              title=''
+              action={(
+                <FilterModal
+                  filter={filter}
+                  updateFilter={updateFilter}
+                  resetFilter={() => {
+                    setFilter({});
+                    setData(prev => ({ ...prev, filter: {} }));
+                  }}
+                  onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
+                />
+              )}
+            >
+
+              {Array.from(Array(2)).map((_, index) => (
+                <CustomTabPanel value={tab} index={index}>
+                  <Grid container spacing={1} className={""}>
+
+
+                    <DataTable
+                      withSideMenu={false}
+                      search={false}
+                      data={data}
+                      toolbar={false}
+                    />
+                  </Grid>
+                </CustomTabPanel>
+              ))}
+
+
+            </ParentCard>
+          </Box>
+
         </Grid>
       </Grid>
     </Fragment>

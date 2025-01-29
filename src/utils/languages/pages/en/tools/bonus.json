@@ -11,6 +11,7 @@
   "Update Free Spin": "Update Free Spin",
   "Search": "Search",
   "SearchPlaceholder" : "Bonus Name, Bonus ID ",
+  "FreeSpinSearchPlaceholder": "FreeSpin Name, FreeSpin ID",
   "Bonus Type": "Bonus Type",
   "Bonus Category": "Bonus Category",
   "Game Category": "Game Category",
@@ -122,5 +123,7 @@
   "totalWon": "Total Win",
   "enterValue": "Enter Value",
   "merchantFee": "Merchant Fee",
-  "providerFee": "Provider Fee"
+  "providerFee": "Provider Fee",
+  "Number of FreeSpins": "Number of FreeSpins",
+   "Spin per Amount": "Bet amount per spin"
 }

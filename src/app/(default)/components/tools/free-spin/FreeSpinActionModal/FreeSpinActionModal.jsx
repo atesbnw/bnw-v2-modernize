@@ -201,21 +201,21 @@ function FreeSpinActionModal({id, initialValues = {}, readOnly = false, disabled
             )}
 
             <Dialog fullWidth maxWidth={'lg'} open={open} onClose={handleClose}>
-              <DialogTitle>{t(`pages.tools.bonus.${!id ? 'Create Free Spin' : 'Update Free Spin'}`)}</DialogTitle>
+              <DialogTitle>{t(readOnly ? initialValues?.freeSpinName :`pages.tools.bonus.${!id ? 'Create Free Spin' : 'Update Free Spin'}`)}</DialogTitle>
               <DialogContent>
                 <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }} rowSpacing={0}>
                   <Grid item xs={12} sm={12} lg={4}>
                     <CustomFormLabel
-                      htmlFor="bonusName">{t('pages.tools.bonus.Bonus Name')}</CustomFormLabel>
+                      htmlFor="freeSpinName">{t('pages.tools.bonus.FreeSpin Name')}</CustomFormLabel>
                     <CustomTextField
-                      id="bonusName"
-                      name="bonusName"
+                      id="freeSpinName"
+                      name="freeSpinName"
                       variant="outlined"
                       fullWidth
-                      value={formik.values.bonusName}
+                      value={formik.values.freeSpinName}
                       onChange={formik.handleChange}
-                      error={formik.touched.bonusName && Boolean(formik.errors.bonusName)}
-                      helperText={formik.touched.bonusName && formik.errors.bonusName}
+                      error={formik.touched.freeSpinName && Boolean(formik.errors.freeSpinName)}
+                      helperText={formik.touched.freeSpinName && formik.errors.freeSpinName}
                       disabled={readOnly}
                     />
                   </Grid>
@@ -263,99 +263,45 @@ function FreeSpinActionModal({id, initialValues = {}, readOnly = false, disabled
                     </FormControl>
                   </Grid>
 
-                  {/*<Grid item xs={6} sm={4} lg={3}>*/}
-                  {/*  <CustomFormLabel  htmlFor="bonusType">{t('pages.tools.bonus.bonusType')}</CustomFormLabel>*/}
-                  {/*  <CustomSelect*/}
-                  {/*    id="bonusType"*/}
-                  {/*    name="bonusType"*/}
-                  {/*    fullWidth*/}
-                  {/*    variant="outlined"*/}
-                  {/*    value={formik.values.bonusType}*/}
-                  {/*    onChange={formik.handleChange}*/}
-                  {/*    disabled={readOnly}*/}
-                  {/*  >*/}
-                  {/*    {['Deposit', 'Freespin', 'FreeBet']?.map((opt,k) => (*/}
-                  {/*      <MenuItem value={opt} key={k}>{opt}</MenuItem>*/}
-                  {/*    ))}*/}
-                  {/*  </CustomSelect>*/}
-                  {/*  {formik.errors.bonusType && (*/}
-                  {/*    <FormHelperText error id="standard-weight-helper-text-email-login">*/}
-                  {/*      {' '}*/}
-                  {/*      {formik.errors.bonusType}{' '}*/}
-                  {/*    </FormHelperText>*/}
-                  {/*  )}*/}
-                  {/*</Grid>*/}
-                  <Grid item xs={6} sm={4} lg={3}>
+
+                  <Grid item xs={12} sm={12} lg={3}>
                     <CustomFormLabel
-                      htmlFor="bonusCategory">{t('pages.tools.bonus.bonusCategory')}</CustomFormLabel>
-                    <CustomSelect
-                      id="bonusCategory"
-                      name="bonusCategory"
-                      fullWidth
+                      htmlFor="NumOfSpin">{t('pages.tools.bonus.Spin per Amount')}</CustomFormLabel>
+                    <CustomTextField
+                      id="NumOfSpin"
+                      name="NumOfSpin"
                       variant="outlined"
-                      value={formik.values.bonusCategory}
+                      fullWidth
+                      value={formik.values.NumOfSpin}
                       onChange={formik.handleChange}
+                      error={formik.touched.NumOfSpin && Boolean(formik.errors.NumOfSpin)}
+                      helperText={formik.touched.NumOfSpin && formik.errors.NumOfSpin}
                       disabled={readOnly}
-                    >
-
-                      {['Option A', 'Option B', 'Option C']?.map((opt, k) => (
-                        <MenuItem value={opt} key={k}>{opt}</MenuItem>
-                      ))}
-                    </CustomSelect>
-                    {formik.errors.bonusCategory && (
-                      <FormHelperText error id="standard-weight-helper-text-email-login">
-                        {' '}
-                        {formik.errors.bonusCategory}{' '}
-                      </FormHelperText>
-                    )}
-                  </Grid>
-                  <Grid item xs={6} sm={4} lg={3}>
-                    <CustomFormLabel htmlFor="gameCategory">{t('pages.tools.bonus.gameCategory')}</CustomFormLabel>
-                    <FormControl className={'w-full'}>
-                      <Select
-                        id="gameCategory"
-                        name="gameCategory"
-                        multiple
-                        value={typeof formik.values.gameCategory === 'string' ? formik.values.gameCategory.split(',') : formik.values.gameCategory}
-                        onChange={formik.handleChange}
-                        input={<OutlinedInput />}
-                        disabled={readOnly}
-                      >
-                        {multipleSelectItems.map((name) => (
-                          <MenuItem
-                            key={name}
-                            value={name}
-                          >
-                            {name}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
+                    />
                   </Grid>
 
-
                   <Grid item xs={6} sm={4} lg={3}>
-                    <CustomFormLabel htmlFor="paymentMethod">{t('pages.tools.bonus.paymentMethod')}</CustomFormLabel>
-                    <FormControl className={'w-full'}>
-                      <Select
-                        id="paymentMethod"
-                        name="paymentMethod"
-                        multiple
-                        value={typeof formik.values.paymentMethod === 'string' ? formik.values.paymentMethod.split(',') : formik.values.paymentMethod}
-                        onChange={formik.handleChange}
-                        input={<OutlinedInput />}
-                        disabled={readOnly}
-                      >
-                        {multipleSelectItems.map((name) => (
-                          <MenuItem
-                            key={name}
-                            value={name}
-                          >
-                            {name}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
+                    <CustomFormLabel htmlFor={`perSpinAmount`}>
+                      {t('pages.tools.bonus.Spin per Amount')}
+                    </CustomFormLabel>
+                    <CustomOutlinedInput
+                      endAdornment={<InputAdornment position="end">₺</InputAdornment>}
+                      id={`perSpinAmount`}
+                      name={`perSpinAmount`}
+                      type="number"
+                      fullWidth
+                      value={formik.values.perSpinAmount}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={
+                        formik.touched?.perSpinAmount &&
+                        Boolean(formik.errors.perSpinAmount)
+                      }
+                      helperText={
+                        formik.touched.perSpinAmount &&
+                        formik.errors.perSpinAmount
+                      }
+                    />
                   </Grid>
 
                   <Grid item xs={6} sm={4} lg={3}>
@@ -364,13 +310,12 @@ function FreeSpinActionModal({id, initialValues = {}, readOnly = false, disabled
                       <Select
                         id="targetUser"
                         name="targetUser"
-                        multiple
-                        value={typeof formik.values.targetUser === 'string' ? formik.values.targetUser.split(',') : formik.values.targetUser}
+                        value={formik.values.targetUser}
                         onChange={formik.handleChange}
                         input={<OutlinedInput />}
                         disabled={readOnly}
                       >
-                        {['VIP', 'Yeni Üye', 'Sadık Üye'].map((name) => (
+                        {['VIP', 'Yeni Üye', 'Sadık Üye', "Custom"].map((name) => (
                           <MenuItem
                             key={name}
                             value={name}
@@ -382,228 +327,40 @@ function FreeSpinActionModal({id, initialValues = {}, readOnly = false, disabled
                     </FormControl>
                   </Grid>
 
+                  {formik.values.targetUser.includes("Custom") && (
+                    <Grid item xs={12} sm={6}>
+                      <Box mt={2} p={2}>
+                        <CustomFormLabel>{t('pages.tools.bonus.addCustomUser')}</CustomFormLabel>
+                        <TextField
+                          fullWidth
+                          id="customUsers"
+                          name="customUsers"
+                          placeholder={t('pages.tools.bonus.customUserPlaceholder')}
+                          value={formik.values.customUsers || ''}
+                          onChange={formik.handleChange}
+                          disabled={readOnly}
+                        />
+                        <Box mt={2}>
+                          <Typography variant="body2" color="textSecondary">
+                            {t('pages.tools.bonus.or')}
+                          </Typography>
+                          <Button variant="outlined" component="label">
+                            {t('pages.tools.bonus.chooseFile')}
+                            <input type="file" hidden onChange={(event) => {}} />
+                          </Button>
+                        </Box>
+                        <Box mt={2}>
+                          <Typography variant="body2" color="textSecondary">
+                            {t('pages.tools.bonus.mustBeCSV')}
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary">
+                            {t('pages.tools.bonus.mustBeIDsFormat')}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Grid>
+                  )}
 
-                  <Grid item xs={12} sm={12} lg={3}>
-                    <CustomFormLabel
-                      htmlFor="maxBonusLimit">{t('pages.tools.bonus.maxBonusLimit')}</CustomFormLabel>
-                    <CustomTextField
-                      id="maxBonusLimit"
-                      name="maxBonusLimit"
-                      variant="outlined"
-                      fullWidth
-                      value={formik.values.maxBonusLimit}
-                      onChange={formik.handleChange}
-                      error={formik.touched.maxBonusLimit && Boolean(formik.errors.maxBonusLimit)}
-                      helperText={formik.touched.maxBonusLimit && formik.errors.maxBonusLimit}
-                      disabled={readOnly}
-                    />
-                  </Grid>
-
-
-                  <Grid item xs={6} sm={4} lg={3}>
-                    <CustomFormLabel
-                      htmlFor="wager">{t('pages.tools.bonus.Wager')}</CustomFormLabel>
-                    <CustomSelect
-                      id="wager"
-                      name="wager"
-                      fullWidth
-                      variant="outlined"
-                      value={formik.values.wager}
-                      onChange={formik.handleChange}
-                      disabled={readOnly}
-                    >
-
-                      {['Çevrimli', 'Çevrimsiz', 'Koşulsuz']?.map((opt, k) => (
-                        <MenuItem value={opt} key={k}>{opt}</MenuItem>
-                      ))}
-                    </CustomSelect>
-                    {formik.errors.wager && (
-                      <FormHelperText error id="standard-weight-helper-text-email-login">
-                        {' '}
-                        {formik.errors.wager}{' '}
-                      </FormHelperText>
-                    )}
-                  </Grid>
-
-                  <Grid item xs={12} sm={12} lg={3}>
-                    <CustomFormLabel
-                      htmlFor="WagerMultiplier">{t('pages.tools.bonus.WagerMultiplier')}</CustomFormLabel>
-                    <CustomTextField
-                      id="WagerMultiplier"
-                      name="WagerMultiplier"
-                      variant="outlined"
-                      fullWidth
-                      value={formik.values.WagerMultiplier}
-                      onChange={formik.handleChange}
-                      error={formik.touched.WagerMultiplier && Boolean(formik.errors.WagerMultiplier)}
-                      helperText={formik.touched.WagerMultiplier && formik.errors.WagerMultiplier}
-                      disabled={readOnly}
-                    />
-                  </Grid>
-
-                  <Grid item xs={6} sm={4} lg={3}>
-                    <CustomFormLabel
-                      htmlFor="mainBalanceTurnoverCount">{t('pages.tools.bonus.ipCheck')}</CustomFormLabel>
-                    <CustomSelect
-                      id="ipCheck"
-                      name="ipCheck"
-                      fullWidth
-                      variant="outlined"
-                      value={formik.values.ipCheck}
-                      onChange={formik.handleChange}
-                      disabled={readOnly}
-                    >
-
-                      {['Active', 'Passive']?.map((opt, k) => (
-                        <MenuItem value={opt} key={k}>{opt}</MenuItem>
-                      ))}
-                    </CustomSelect>
-                    {formik.errors.ipCheck && (
-                      <FormHelperText error id="standard-weight-helper-text-email-login">
-                        {' '}
-                        {formik.errors.ipCheck}{' '}
-                      </FormHelperText>
-                    )}
-                  </Grid>
-
-
-                  {/*<Grid item xs={6} sm={4} lg={3}>*/}
-                  {/*  <CustomFormLabel*/}
-                  {/*    htmlFor="bonusTurnoverCount">{t('pages.tools.bonus.bonusTurnoverCount')}</CustomFormLabel>*/}
-                  {/*  <CustomSelect*/}
-                  {/*    id="bonusTurnoverCount"*/}
-                  {/*    name="bonusTurnoverCount"*/}
-                  {/*    fullWidth*/}
-                  {/*    variant="outlined"*/}
-                  {/*    value={formik.values.bonusTurnoverCount}*/}
-                  {/*    onChange={formik.handleChange}*/}
-                  {/*    disabled={readOnly}*/}
-                  {/*  >*/}
-                  {/*    {['Option A', 'Option B', 'Option C']?.map((opt,k) => (*/}
-                  {/*      <MenuItem value={opt} key={k}>{opt}</MenuItem>*/}
-                  {/*    ))}*/}
-                  {/*  </CustomSelect>*/}
-                  {/*  {formik.errors.bonusTurnoverCount && (*/}
-                  {/*    <FormHelperText error id="standard-weight-helper-text-email-login">*/}
-                  {/*      {' '}*/}
-                  {/*      {formik.errors.bonusTurnoverCount}{' '}*/}
-                  {/*    </FormHelperText>*/}
-                  {/*  )}*/}
-                  {/*</Grid>*/}
-
-
-                  <div className={'w-full px-5'}>
-
-
-                    <FieldArray name="bonusPercents">
-                      {({ remove, push }) => (
-                        <>
-                          <div className={'flex gap-3 items-center pt-4'}>
-                            <CustomFormLabel sx={{ m: 0 }} htmlFor={`bonusPercents`}>
-                              {t('pages.tools.bonus.bonusPercents')}
-                            </CustomFormLabel>
-                            <IconButton
-                              type="button"
-                              onClick={() => push({ minimumAmount: '', maximumAmount: '', bonusPercentage: '' })}
-                            >
-                              <IconPlus />
-                            </IconButton>
-                          </div>
-                          {formik.values.bonusPercents?.map((bp, i) => (
-                            <Grid container key={i} spacing={2} alignItems="center">
-
-                              <Grid item xs={6} sm={4} lg={3}>
-                                <CustomFormLabel htmlFor={`bonusPercents[${i}].minimumAmount`}>
-                                  {t('pages.tools.bonus.minimumAmount')}
-                                </CustomFormLabel>
-                                <CustomOutlinedInput
-                                  startAdornment={<InputAdornment position="start">₺</InputAdornment>}
-                                  id={`bonusPercents[${i}].minimumAmount`}
-                                  name={`bonusPercents[${i}].minimumAmount`}
-                                  type="number"
-                                  fullWidth
-                                  value={formik.values.bonusPercents[i].minimumAmount}
-                                  onChange={formik.handleChange}
-                                  onBlur={formik.handleBlur}
-                                  error={
-                                    formik.touched.bonusPercents?.[i]?.minimumAmount &&
-                                    Boolean(formik.errors.bonusPercents?.[i]?.minimumAmount)
-                                  }
-                                  helperText={
-                                    formik.touched.bonusPercents?.[i]?.minimumAmount &&
-                                    formik.errors.bonusPercents?.[i]?.minimumAmount
-                                  }
-                                />
-                              </Grid>
-
-                              <Grid item xs={6} sm={4} lg={3}>
-                                <CustomFormLabel htmlFor={`bonusPercents[${i}].maximumAmount`}>
-                                  {t('pages.tools.bonus.maximumAmount')}
-                                </CustomFormLabel>
-                                <CustomOutlinedInput
-                                  startAdornment={<InputAdornment position="start">₺</InputAdornment>}
-                                  id={`bonusPercents[${i}].maximumAmount`}
-                                  name={`bonusPercents[${i}].maximumAmount`}
-                                  type="number"
-                                  fullWidth
-                                  value={formik.values.bonusPercents[i].maximumAmount}
-                                  onChange={formik.handleChange}
-                                  onBlur={formik.handleBlur}
-                                  error={
-                                    formik.touched.bonusPercents?.[i]?.maximumAmount &&
-                                    Boolean(formik.errors.bonusPercents?.[i]?.maximumAmount)
-                                  }
-                                  helperText={
-                                    formik.touched.bonusPercents?.[i]?.maximumAmount &&
-                                    formik.errors.bonusPercents?.[i]?.maximumAmount
-                                  }
-                                />
-                              </Grid>
-
-                              <Grid item xs={6} sm={4} lg={3}>
-                                <CustomFormLabel htmlFor={`bonusPercents[${i}].bonusPercentage`}>
-                                  {t('pages.tools.bonus.bonusPercentage')}
-                                </CustomFormLabel>
-                                <CustomSelect
-                                  id={`bonusPercents[${i}].bonusPercentage`}
-                                  name={`bonusPercents[${i}].bonusPercentage`}
-                                  fullWidth
-                                  variant="outlined"
-                                  value={formik.values.bonusPercents[i].bonusPercentage}
-                                  onChange={formik.handleChange}
-                                  onBlur={formik.handleBlur}
-                                >
-                                  {[5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100].map((val) => (
-                                    <MenuItem value={val} key={val}>
-                                      {val} %
-                                    </MenuItem>
-                                  ))}
-                                </CustomSelect>
-                                {formik.touched.bonusPercents?.[i]?.bonusPercentage &&
-                                  formik.errors.bonusPercents?.[i]?.bonusPercentage && (
-                                    <FormHelperText error>
-                                      {formik.errors.bonusPercents[i].bonusPercentage}
-                                    </FormHelperText>
-                                  )}
-                              </Grid>
-
-                              <Grid item xs={2} sm={1} className={'mt-8'}>
-                                <IconButton
-                                  type="button"
-                                  onClick={() => remove(i)}
-                                  disabled={formik.values.bonusPercents.length === 1}
-                                >
-                                  <IconTrash />
-                                </IconButton>
-                              </Grid>
-                            </Grid>
-                          ))}
-                        </>
-                      )}
-                    </FieldArray>
-                  </div>
-
-                  <Divider />
 
                   <div className={'w-full px-5'}>
                     <CustomFormLabel sx={{ mb: 0 }} htmlFor={`game`}>
@@ -683,58 +440,6 @@ function FreeSpinActionModal({id, initialValues = {}, readOnly = false, disabled
 
 
                   <Grid item xs={12} mt={3}>
-                    <Box sx={{ mb: 1, fontWeight: 'bold' }}>
-                      {t('pages.tools.bonus.SegmentationPercentageIncrease')}
-                    </Box>
-
-                    <FieldArray name="segmentPercents">
-                      {() => (
-                        <>
-                          {formik.values.segmentPercents.map((seg, index) => (
-                            <Stack
-                              key={seg.name}
-                              direction="row"
-                              spacing={2}
-                              alignItems="center"
-                              sx={{ mb: 1 }}
-                            >
-                              {/* Checkbox */}
-                                <FormControlLabel
-                                  label={t(`pages.tools.bonus.membersType.${seg.name}`) || seg.label}
-                                  control={
-                                    <Checkbox
-                                      disabled={readOnly}
-                                      name={`segmentPercents[${index}].checked`}
-                                      checked={seg.checked}
-                                      onChange={formik.handleChange}
-                                    />
-                                  }
-                                />
-
-                              <Stack direction="row" spacing={1} alignItems="center">
-                                <Box> + </Box>
-                                <TextField
-                                  type="number"
-                                  name={`segmentPercents[${index}].percentValue`}
-                                  value={seg.percentValue}
-                                  onChange={formik.handleChange}
-                                  disabled={!seg.checked || readOnly}
-                                  size="small"
-                                  InputProps={{
-                                    endAdornment: <InputAdornment position="end">%</InputAdornment>,
-                                  }}
-                                />
-                              </Stack>
-                            </Stack>
-                          ))}
-                        </>
-                      )}
-                    </FieldArray>
-                  </Grid>
-
-
-
-                  <Grid item xs={12} mt={3}>
                     <Stack direction="row" spacing={2}>
                       <Box mt="-10px" mb={3}>
                         <FormControlLabel
@@ -742,24 +447,6 @@ function FreeSpinActionModal({id, initialValues = {}, readOnly = false, disabled
                             disabled={readOnly} value="validForAllMembers" name="validForAllMembers"
                             onChange={formik.handleChange} />}
                           label={t('pages.tools.bonus.validForAllMembers')}
-                        />
-                        <FormControlLabel
-                          control={<CustomCheckbox
-                            disabled={readOnly} value="validOnlyForApprovedMembers" name="validOnlyForApprovedMembers"
-                            onChange={formik.handleChange} />}
-                          label={t('pages.tools.bonus.validOnlyForApprovedMembers')}
-                        />
-                        <FormControlLabel
-                          control={<CustomCheckbox
-                            disabled={readOnly} value="validOnlyForVIPMembers" name="validOnlyForVIPMembers"
-                            onChange={formik.handleChange} />}
-                          label={t('pages.tools.bonus.validOnlyForVIPMembers')}
-                        />
-                        <FormControlLabel
-                          control={<CustomCheckbox
-                            disabled={readOnly} value="validOnlyForLastDeposit" name="validOnlyForLastDeposit"
-                            onChange={formik.handleChange} />}
-                          label={t('pages.tools.bonus.validOnlyForLastDeposit')}
                         />
                       </Box>
                     </Stack>
