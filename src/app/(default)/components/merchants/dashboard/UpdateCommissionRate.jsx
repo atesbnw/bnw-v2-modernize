@@ -20,8 +20,11 @@ import {
   TextField,
 } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
+import { useTheme } from '@mui/material/styles';
+import classNames from 'classnames';
 
 function CommissionDialog({ open, onClose, handleSave }) {
+  const theme = useTheme();
   const [selectedOption, setSelectedOption] = useState("option1");
   const [options, setOptions] = useState({
     option1: {
@@ -62,6 +65,8 @@ function CommissionDialog({ open, onClose, handleSave }) {
     }));
   };
 
+  const tpClass = "text-lg font-bold whitespace-nowrap";
+
   const renderFormula = (optionKey, formulaKeys) => {
     const isDisabled = selectedOption !== optionKey;
 
@@ -70,36 +75,45 @@ function CommissionDialog({ open, onClose, handleSave }) {
         mt={2}
         p={2}
         sx={{
-          border: "1px solid rgba(56, 56, 56,0.4)",
-          borderRadius: "8px",
+          border: `2px solid ${
+            selectedOption === optionKey ? theme.palette.primary.main : "rgba(56, 56, 56,0.4)"
+          }`,
+          backgroundColor: selectedOption === optionKey ? "primary.light" : "transparent",
+          borderRadius: "20px",
+          transition: "all 0.3s ease",
         }}
+        className={classNames("transition-all ease-in-out",{
+          "opacity-60 hover:opacity-100": selectedOption !== optionKey
+        })}
       >
-        <Box display="flex" alignItems="center" mb={2}>
+        <Box display="flex" alignItems="center" mb={2} onClick={() => {
+          setSelectedOption(optionKey)
+        }}>
           <Radio
             checked={selectedOption === optionKey}
             onChange={() => setSelectedOption(optionKey)}
             color="primary"
           />
-          <Typography variant="subtitle1" fontWeight="bold">
+          <Typography variant="subtitle1" fontWeight="bold" className={"cursor-pointer"}>
             {t(`pages.tools.bonus.${optionKey}`)}
           </Typography>
         </Box>
         <Box
           display="flex"
-          flexWrap="wrap"
+          flexWrap="nowrap"
           alignItems="center"
           sx={{ fontSize: "1.2rem" }}
         >
-          <Typography sx={{ mx: 1 }}>[ (</Typography>
+          <Typography className={tpClass} sx={{ mx: 1 }}>[ (</Typography>
           {formulaKeys.map((key, index) => (
             <Fragment key={key}>
               {index > 0 && (
-                <Typography sx={{ mx: 1 }}>
-                  {index%2!==0 && "-"}
+                <Typography  className={tpClass} sx={{ mx: 1 }}>
+                  {index % 2 !== 0 && "-"}
                 </Typography>
               )}
               {index > 0 && (
-                <Typography sx={{ mx: 1 }}>
+                <Typography className={tpClass} sx={{ mx: 1 }}>
                   {index === 2 ? ") - (" : ""}
                   {index === 4 ? ") - (" : ""}
                 </Typography>
@@ -108,16 +122,21 @@ function CommissionDialog({ open, onClose, handleSave }) {
                 display="flex"
                 alignItems="center"
                 sx={{
-                  border: "1px solid rgba(56, 56, 56,0.4)",
+                  border: `1px solid ${
+                    selectedOption === optionKey ? theme.palette.primary.main : "rgba(56, 56, 56,0.4)"
+                  }`,
                   borderRadius: "4px",
                   p: "4px 8px",
                   mx: 0.5,
+                  backgroundColor: selectedOption === optionKey ? "secondary.light" : "transparent",
+                  transition: "all 0.3s ease",
                 }}
               >
-
                 <Box>
-                  <Stack direction="row" spacing={1} alignItems="center" justifyContent={"between"}>
-                    <CustomFormLabel sx={{mt:1}} htmlFor="searchText">{t(`pages.tools.bonus.${key}`)}</CustomFormLabel>
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    <CustomFormLabel className={"whitespace-nowrap overflow-ellipsis"} sx={{ mt: 1 }} htmlFor="searchText">
+                      {t(`pages.tools.bonus.${key}`)}
+                    </CustomFormLabel>
                     <Switch
                       checked={options[optionKey][key]}
                       onChange={() => handleToggle(optionKey, key)}
@@ -126,37 +145,39 @@ function CommissionDialog({ open, onClose, handleSave }) {
                       disabled={isDisabled}
                     />
                   </Stack>
-
                   <CustomTextField
-                  size="small"
-                  disabled={!options[optionKey][key] || isDisabled}
-                  placeholder={t(`pages.tools.bonus.${key}`)}
-                  sx={{ ml: 1 }}
-                />
+                    size="small"
+                    disabled={!options[optionKey][key] || isDisabled}
+                    placeholder={t(`pages.tools.bonus.${key}`)}
+                    sx={{ ml: 1 }}
+                  />
                 </Box>
               </Box>
             </Fragment>
           ))}
-          <Typography sx={{ mx: 1 }}>) ] ×</Typography>
+          <Typography sx={{ mx: 1 }} className={tpClass}>) ] ×</Typography>
 
           <Box
             display="flex"
             alignItems="center"
             sx={{
-              border: "1px solid rgba(56, 56, 56,0.4)",
+              border: `1px solid ${
+                selectedOption === optionKey ? theme.palette.primary.main  : "rgba(56, 56, 56,0.4)"
+              }`,
               borderRadius: "4px",
               p: "4px 8px",
               mx: 0.5,
+              backgroundColor: selectedOption === optionKey ? "secondary.light" : "transparent",
+              transition: "all 0.3s ease",
             }}
           >
-
             <Box>
-              <Stack direction="row" spacing={1} alignItems="center" justifyContent={"between"}>
-                <CustomFormLabel sx={{mt:1}} htmlFor="searchText">{t(`pages.tools.bonus.merchantFee`)}</CustomFormLabel>
-
+              <Stack direction="row" spacing={1} alignItems="center">
+                <CustomFormLabel sx={{ mt: 1 }} htmlFor="searchText">
+                  {t(`pages.tools.bonus.merchantFee`)}
+                </CustomFormLabel>
               </Stack>
-
-            <CustomTextField
+              <CustomTextField
                 size="small"
                 value={options[optionKey].merchantFee}
                 onChange={(e) =>
@@ -164,19 +185,16 @@ function CommissionDialog({ open, onClose, handleSave }) {
                 }
                 disabled={isDisabled}
                 sx={{
-                  border: "1px solid rgba(56, 56, 56,0.4)",
-                  borderRadius: "4px",
-                  p: "4px 8px",
-                  mx: 0.5,
                   width: "100px",
                 }}
               />
+            </Box>
           </Box>
         </Box>
       </Box>
-      </Box>
     );
   };
+
 
   const renderAdditionalSections = () => {
     const isDisabled = selectedOption !== "option1" && selectedOption !== "option2";
@@ -214,7 +232,7 @@ function CommissionDialog({ open, onClose, handleSave }) {
               alignItems="center"
               sx={{ fontSize: "1.2rem" }}
             >
-              <Typography>(</Typography>
+               <Typography className={tpClass}>(</Typography>
               <Box
                 display="flex"
                 alignItems="center"
@@ -239,7 +257,7 @@ function CommissionDialog({ open, onClose, handleSave }) {
                 />
               </Box>
               </Box>
-              <Typography sx={{ mx: 1 }}>-</Typography>
+              <Typography className={tpClass} sx={{ mx: 1 }}>-</Typography>
               <Box
                 display="flex"
                 alignItems="center"
@@ -263,7 +281,7 @@ function CommissionDialog({ open, onClose, handleSave }) {
                 />
               </Box>
               </Box>
-              <Typography>) ×</Typography>
+               <Typography className={tpClass}>) ×</Typography>
               <Box
                 display="flex"
                 alignItems="center"
@@ -317,10 +335,10 @@ function CommissionDialog({ open, onClose, handleSave }) {
           {renderAdditionalSections()}
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClose} color="secondary">
+          <Button onClick={onClose} color="inherit">
             {t("i.Cancel")}
           </Button>
-          <Button onClick={() => handleSave(options)} color="primary">
+          <Button onClick={() => handleSave(options)} color="primary" variant={"contained"}>
             {t("i.Save")}
           </Button>
         </DialogActions>

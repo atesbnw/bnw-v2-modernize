@@ -266,7 +266,7 @@ function FreeSpinActionModal({id, initialValues = {}, readOnly = false, disabled
 
                   <Grid item xs={12} sm={12} lg={3}>
                     <CustomFormLabel
-                      htmlFor="fsCount">{t('pages.tools.bonus.Spin per Amount')}</CustomFormLabel>
+                      htmlFor="fsCount">{t('pages.tools.bonus.FS Count')}</CustomFormLabel>
                     <CustomTextField
                       id="fsCount"
                       name="fsCount"
@@ -282,7 +282,7 @@ function FreeSpinActionModal({id, initialValues = {}, readOnly = false, disabled
 
                   <Grid item xs={6} sm={4} lg={3}>
                     <CustomFormLabel htmlFor={`perSpinAmount`}>
-                      {t('pages.tools.bonus.Spin per Amount')}
+                      {t('pages.tools.bonus.Bet Per Spin')}
                     </CustomFormLabel>
                     <CustomOutlinedInput
                       endAdornment={<InputAdornment position="end">₺</InputAdornment>}
