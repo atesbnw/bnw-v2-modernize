@@ -266,16 +266,16 @@ function FreeSpinActionModal({id, initialValues = {}, readOnly = false, disabled
 
                   <Grid item xs={12} sm={12} lg={3}>
                     <CustomFormLabel
-                      htmlFor="NumOfSpin">{t('pages.tools.bonus.Spin per Amount')}</CustomFormLabel>
+                      htmlFor="fsCount">{t('pages.tools.bonus.Spin per Amount')}</CustomFormLabel>
                     <CustomTextField
-                      id="NumOfSpin"
-                      name="NumOfSpin"
+                      id="fsCount"
+                      name="fsCount"
                       variant="outlined"
                       fullWidth
-                      value={formik.values.NumOfSpin}
+                      value={formik.values.fsCount}
                       onChange={formik.handleChange}
-                      error={formik.touched.NumOfSpin && Boolean(formik.errors.NumOfSpin)}
-                      helperText={formik.touched.NumOfSpin && formik.errors.NumOfSpin}
+                      error={formik.touched.fsCount && Boolean(formik.errors.fsCount)}
+                      helperText={formik.touched.fsCount && formik.errors.fsCount}
                       disabled={readOnly}
                     />
                   </Grid>
@@ -286,20 +286,20 @@ function FreeSpinActionModal({id, initialValues = {}, readOnly = false, disabled
                     </CustomFormLabel>
                     <CustomOutlinedInput
                       endAdornment={<InputAdornment position="end">₺</InputAdornment>}
-                      id={`perSpinAmount`}
-                      name={`perSpinAmount`}
+                      id={`betPerSpin`}
+                      name={`betPerSpin`}
                       type="number"
                       fullWidth
-                      value={formik.values.perSpinAmount}
+                      value={formik.values.betPerSpin}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       error={
-                        formik.touched?.perSpinAmount &&
-                        Boolean(formik.errors.perSpinAmount)
+                        formik.touched?.betPerSpin &&
+                        Boolean(formik.errors.betPerSpin)
                       }
                       helperText={
-                        formik.touched.perSpinAmount &&
-                        formik.errors.perSpinAmount
+                        formik.touched.betPerSpin &&
+                        formik.errors.betPerSpin
                       }
                     />
                   </Grid>
