@@ -1,31 +1,18 @@
 import React, { memo, useState, useCallback, useEffect, Fragment } from 'react';
 import DataTable from '@/app/components/shared/DataTable';
-import IconButton from '@mui/material/IconButton';
-import { IconFileDownload, IconFilter, IconFilterX } from '@tabler/icons-react';
 import { Faker, tr, fakerTR } from '@faker-js/faker';
 import { uniqueId } from 'lodash';
 import Box from '@mui/material/Box';
-import CustomFormLabel from '@/app/components/forms/theme-elements/CustomFormLabel';
-import { t } from 'i18next';
-import CustomTextField from '@/app/components/forms/theme-elements/CustomTextField';
-import Grid from '@mui/material/Grid';
-import CustomSelect from '@/app/components/forms/theme-elements/CustomSelect';
-import { MenuItem } from '@mui/material';
-import SideDialog from '@/app/components/shared/SideDialog';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import FilterModal from '@/app/(default)/components/merchants/financial-transactions/FilterModal';
 import Typography from '@mui/material/Typography';
 import NewManuelTransactionAddWithID
   from '@/app/(default)/components/merchants/financial-transactions/NewManuelTransactionAddWithID';
+import classNames from 'classnames';
 
 const faker = new Faker({
   locale: [fakerTR, tr],
 });
 
-function TransactionsTable() {
-  const [filter, setFilter] = useState({});
+function TransactionsTable({type = "transaction" || "balance"}) {
   const [data, setData] = useState({
     page: 1,
     pageSize: 10,
@@ -41,12 +28,21 @@ function TransactionsTable() {
         field: 'transactionId',
         width:150,
         headerName: 'Transaction Id',
-        renderCell: ({ value }) => (
-          <Box className={"flex gap-2 items-center"}>
-            <Typography className={"flex-1"} variant={"body1"}>{value}</Typography>
-            <NewManuelTransactionAddWithID id={value} />
-          </Box>
-        )
+        renderCell: (e) => {
+          const { value } = e;
+          const status = String(e?.row?.transactionType)==="Deposit" && String(e?.row?.status)?.toLowerCase();
+
+          return(
+            <Box className={classNames("flex gap-2 items-center w-full h-full pl-3 p-1.5", {
+              "bg-green-500": status==="completed",
+              "bg-blue-400": status==="new",
+              "bg-red-500": status==="canceled",
+            })}>
+              <Typography className={"flex-1"} variant={"body1"}>{value}</Typography>
+              <NewManuelTransactionAddWithID id={value} />
+            </Box>
+          )
+        }
         // width: 200
       },
       {
@@ -76,7 +72,7 @@ function TransactionsTable() {
         // width: 200
       },
       {
-        field: 'Transaction Flow',
+        field: 'transactionFlow',
         headerName: 'Transaction Flow',
         // width: 200
       },
@@ -121,58 +117,29 @@ function TransactionsTable() {
       id: uniqueId(),
       transactionId: faker.datatype.number({ min: 100000000, max: 999000000 }),
       transactionDate: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
-      transactionType: faker.helpers.arrayElement(['Yatırım', 'Çekim', 'Ödeme', 'Transfer']),
-      category: faker.helpers.arrayElement(['Papara', 'Banka', 'Kredi Kartı', 'Nakit']),
+      transactionType: faker.helpers.arrayElement(['Deposit', 'Withdraw', 'Payment', 'Transfer']),
+      category: faker.helpers.arrayElement(['Pragmatic', 'EGT', 'Bet','Papara','Deposit','Bank Transfer']),
       subCategory: faker.helpers.arrayElement(['Papara Key', 'Bankamatik', 'Visa', 'Mastercard']),
-      transactionDetail: faker.helpers.arrayElement(['Floaming Hot', 'Roulette', '-']),
-      transactionFlow: faker.helpers.arrayElement(['Talep', 'Onay', 'Red']),
+      transactionDetail: faker.helpers.arrayElement(['Detail text']),
+      transactionFlow: faker.helpers.arrayElement(['Request', 'Approve', 'Reject']),
       amount: faker.commerce.price(100, 1000, 2) + '₺',
       beforeBalance: faker.commerce.price(0, 500, 2) + '₺',
-      status: faker.helpers.arrayElement(['Yeni', 'Tamamlandı', 'İptal']),
+      status: faker.helpers.arrayElement(['New', 'Completed', 'Canceled']),
       device: faker.helpers.arrayElement(['iPhone 14 Pro', 'Samsung Galaxy S21', 'Huawei P30', 'Xiaomi Mi 11']),
     }));
 
     setData((prev) => ({
       ...prev,
-      columns: columns,
+      columns: columns?.filter(f => type==="transaction" ? true : !["transactionDetail","transactionFlow"]?.includes(f?.field)),
       rows: rows,
       pageSize: rows?.length,
       totalPage: Math.floor(data?.pageSize / (rows?.length || 1)),
     }));
   }, []);
 
-  const updateFilter = useCallback((field, value) => {
-    setFilter(prev => ({
-      ...prev,
-      [field]: value,
-    }));
-  }, []);
 
   return (
     <Fragment>
-      <Stack direction={'row'} justifyContent={'end'} className={'pb-4'}>
-
-
-        <Tooltip title={t('pages.user-management.user_management_financial_transactions.downloadCSV')}>
-          <IconButton color={'primary'} onClick={() => {}}>
-            <IconFileDownload />
-          </IconButton>
-        </Tooltip>
-
-
-        <FilterModal
-          filter={filter}
-          updateFilter={updateFilter}
-          resetFilter={() => {
-            setFilter({});
-            setData(prev => ({ ...prev, filter: {} }));
-          }}
-          onConfirm={() => setData(prev => ({ ...prev, filter: filter }))}
-        />
-
-
-      </Stack>
-
       <DataTable
         search={false}
         data={data}

@@ -4,7 +4,7 @@ import { t } from 'i18next';
 import { useParams, usePathname } from 'next/navigation';
 import Box from '@mui/material/Box';
 import TitleBar from '@/app/components/TitleBar';
-import TransactionsTable from '@/app/(default)/components/users/financial-transactions/TransactionsTable';
+import TransactionsTable from '@/app/(default)/components/users/financial-transactions/BalanceHistoryTable';
 import ParentCard from "@/app/components/shared/ParentCard";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
