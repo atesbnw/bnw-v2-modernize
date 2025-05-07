@@ -118,7 +118,7 @@ function TransactionsTable({type = "transaction" || "balance"}) {
       transactionId: faker.datatype.number({ min: 100000000, max: 999000000 }),
       transactionDate: faker.date.recent().toLocaleString('tr-TR', { dateStyle: 'short', timeStyle: 'short' }),
       transactionType: faker.helpers.arrayElement(['Deposit', 'Withdraw', 'Payment', 'Transfer']),
-      category: faker.helpers.arrayElement(['Papara', 'Bank', 'Credit Card', 'Cash']),
+      category: faker.helpers.arrayElement(['Pragmatic', 'EGT']),
       subCategory: faker.helpers.arrayElement(['Papara Key', 'Bankamatik', 'Visa', 'Mastercard']),
       transactionDetail: faker.helpers.arrayElement(['Detail text']),
       transactionFlow: faker.helpers.arrayElement(['Request', 'Approve', 'Reject']),

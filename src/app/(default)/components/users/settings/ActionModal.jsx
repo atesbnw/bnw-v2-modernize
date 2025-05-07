@@ -5,14 +5,18 @@ import CustomFormLabel from '@/app/components/forms/theme-elements/CustomFormLab
 import { t } from 'i18next';
 import { useFormik } from 'formik';
 import CustomSelect from '@/app/components/forms/theme-elements/CustomSelect';
-import {FormHelperText, InputAdornment, MenuItem} from '@mui/material';
+import { FormControl, FormHelperText, InputAdornment, MenuItem } from '@mui/material';
 import Button from '@mui/material/Button';
 import SideDialog from '@/app/components/shared/SideDialog';
 import {validationSchema} from "@/app/(default)/users/[uid]/settings/casino-limitations/validation";
 import CustomOutlinedInput from "@/app/components/forms/theme-elements/CustomOutlinedInput";
 import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import TimeTabs from '@/app/components/shared/TimeTabs';
 
-function ActionModal({id, data}) {
+function ActionModal({id, data, modalTitle}) {
   const [open, setOpen] = useState(false);
 
   const formik = useFormik({
@@ -39,34 +43,34 @@ function ActionModal({id, data}) {
       </Button>
 
       <SideDialog
-        title={t('pages.user-management.user_management_settings.Create Limit')}
+        title={modalTitle || t('pages.user-management.user_management_settings.Create Limit')}
         open={open}
         onClose={() => setOpen(false)}
         content={(
           <Box>
             <form onSubmit={formik.handleSubmit}>
               <Grid container spacing={1} mb={2}>
-                <Grid item xs={12}>
-                  <CustomFormLabel htmlFor="category">{t('pages.user-management.user_management_settings.Category')}</CustomFormLabel>
-                  <CustomSelect
-                    id="category"
-                    name="category"
-                    fullWidth
-                    variant="outlined"
-                    value={formik.values.category}
-                    onChange={formik.handleChange}
-                  >
-                    <MenuItem value="casino">Casino</MenuItem>
-                    <MenuItem value="live-casino">Live Casino</MenuItem>
-                    <MenuItem value="virtual-games">Virtual Games</MenuItem>
-                  </CustomSelect>
-                  {formik.errors.category && (
-                    <FormHelperText error id="standard-weight-helper-text-email-login">
-                      {' '}
-                      {formik.errors.category}{' '}
-                    </FormHelperText>
-                  )}
-                </Grid>
+                {/*<Grid item xs={12}>*/}
+                {/*  <CustomFormLabel htmlFor="category">{t('pages.user-management.user_management_settings.Category')}</CustomFormLabel>*/}
+                {/*  <CustomSelect*/}
+                {/*    id="category"*/}
+                {/*    name="category"*/}
+                {/*    fullWidth*/}
+                {/*    variant="outlined"*/}
+                {/*    value={formik.values.category}*/}
+                {/*    onChange={formik.handleChange}*/}
+                {/*  >*/}
+                {/*    <MenuItem value="casino">Casino</MenuItem>*/}
+                {/*    <MenuItem value="live-casino">Live Casino</MenuItem>*/}
+                {/*    <MenuItem value="virtual-games">Virtual Games</MenuItem>*/}
+                {/*  </CustomSelect>*/}
+                {/*  {formik.errors.category && (*/}
+                {/*    <FormHelperText error id="standard-weight-helper-text-email-login">*/}
+                {/*      {' '}*/}
+                {/*      {formik.errors.category}{' '}*/}
+                {/*    </FormHelperText>*/}
+                {/*  )}*/}
+                {/*</Grid>*/}
                 <Grid item xs={12}>
                   <CustomFormLabel htmlFor="provider">{t('pages.user-management.user_management_settings.Provider')}</CustomFormLabel>
                   <CustomSelect
@@ -118,8 +122,9 @@ function ActionModal({id, data}) {
                     value={formik.values.limitDuration}
                     onChange={formik.handleChange}
                   >
-                    <MenuItem value="Yearly">Yearly</MenuItem>
-                    <MenuItem value="Monthly">Monthly</MenuItem>
+                    <MenuItem value="yearly">Yearly</MenuItem>
+                    <MenuItem value="monthly">Monthly</MenuItem>
+                    <MenuItem value="custom">Custom</MenuItem>
                   </CustomSelect>
                   {formik.errors.limitDuration && (
                     <FormHelperText error id="standard-weight-helper-text-email-login">
@@ -128,6 +133,11 @@ function ActionModal({id, data}) {
                     </FormHelperText>
                   )}
                 </Grid>
+                {formik.values.limitDuration==="custom" && (
+                  <Grid item xs={12}>
+                    <TimeTabs justify={"full"} onChange={(time) => updateFilter("timeRange", time)} value={formik.values?.limitDurationRange || null} />
+                  </Grid>
+                )}
                 <Grid item xs={12}>
                   <CustomFormLabel htmlFor="limitAmount">{t('pages.user-management.user_management_settings.Limit Amount')}</CustomFormLabel>
                   <CustomOutlinedInput

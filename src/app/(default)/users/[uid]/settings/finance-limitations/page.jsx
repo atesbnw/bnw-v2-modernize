@@ -132,9 +132,7 @@ function Page() {
           <TitleBar
             title={t('menu.Users.Settings Menu.Finance Limitations')}
           />
-          <Button variant="outlined" onClick={toggleReadOnly} style={{width: '200px', height: "30px"}}>
-            {isReadOnly ? 'Make Editable' : 'Make Read Only'}
-          </Button>
+
         </Stack>
 
         <form onSubmit={formik.handleSubmit}>

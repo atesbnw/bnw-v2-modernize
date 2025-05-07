@@ -57,19 +57,19 @@ function Page() {
         flex:1,
         // width: 200
       },
-      {
-        field: 'blockAll',
-        headerName: t('pages.user-management.user_management_settings.Block All'),
-        renderCell: ({ value }) => (
-          <Box className={"flex gap-2 items-center"}>
-            <CustomSwitch
-              disabled
-              // onChange={() => {}}
-              defaultChecked={value}
-            />
-          </Box>
-        )
-      },
+      // {
+      //   field: 'blockAll',
+      //   headerName: t('pages.user-management.user_management_settings.Block All'),
+      //   renderCell: ({ value }) => (
+      //     <Box className={"flex gap-2 items-center"}>
+      //       <CustomSwitch
+      //         disabled
+      //         // onChange={() => {}}
+      //         defaultChecked={value}
+      //       />
+      //     </Box>
+      //   )
+      // },
       {
         field: 'status',
         headerName: t('pages.user-management.user_management_settings.Status'),
@@ -91,7 +91,7 @@ function Page() {
       game: faker.helpers.arrayElement(['Sweet Bonanza', '20 Burning Hot', 'Spaceman']),
       limitDuration: faker.helpers.arrayElement(['Hourly', 'Daily', 'Weekly']),
       limitAmount: faker.datatype.number({ min: 1, max: 10 }).toString(),
-      blockAll: faker.datatype.boolean(),
+      // blockAll: faker.datatype.boolean(),
       description: "Lorem Ipsum",
       status: faker.datatype.boolean(),
     }));
@@ -109,7 +109,7 @@ function Page() {
     <Box className={"flex flex-col gap-4"}>
       <TitleBar
         title={t('menu.Users.Settings Menu.Live Casino Limitations')}
-        Right={<ActionModal/>}
+        Right={<ActionModal modalTitle={t('menu.Users.Settings Menu.Create Live Casino Limitations', 'Create Live Casino Limitations')} />}
       />
       <ParentCard title={t('pages.user-management.user_management_settings.Current Limits')}>
         <DataTable

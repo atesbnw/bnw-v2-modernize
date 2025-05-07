@@ -61,7 +61,8 @@ export default function RootLayout({ children }) {
         {customizer.isHorizontal ? <Navigation /> : ""}
         <Container
           sx={{
-            maxWidth: customizer.isLayout === "boxed" ? "lg" : "100%!important",
+            //maxWidth: customizer.isLayout === "boxed" ? "lg" : "100% !important",
+            maxWidth: "100% !important",
           }}
         >
           {/* ------------------------------------------- */}

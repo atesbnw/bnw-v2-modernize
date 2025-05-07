@@ -16,10 +16,10 @@ function TopMenu() {
       label: 'Settings.Commission Rate',
       to: `${url}/commission-percents`,
     },
-    {
-      label: 'Settings.Limitation',
-      to: `${url}/limitation`,
-    },
+    // {
+    //   label: 'Settings.Limitation',
+    //   to: `${url}/limitation`,
+    // },
     {
       label: 'Settings.Segmentation',
       to: `${url}/segmentation`,
